@@ -1,0 +1,21 @@
+[package]
+name = "yinxing"
+edition = "2021"
+
+[lib]
+name = "yinxing"
+path = "src/lib.rs"
+
+[[bin]]
+name = "yinxing"
+path = "src/main.rs"
+
+[dependencies]
+rustc-hash = "2"
+libc = "0.2"
+wayland-client = "0.31"
+wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+wayland-scanner = "0.31"
+cosmic-text = "0.12"
+wayland-backend = "0.3"
+toml = "0.8"
