@@ -55,6 +55,12 @@ pub const KEY_LEFTSHIFT: u32 = 42;
 pub const KEY_RIGHTBRACE: u32 = 27;
 pub const KEY_RIGHTSHIFT: u32 = 54;
 
+pub const KEY_LEFT: u32 = 105;
+pub const KEY_RIGHT: u32 = 106;
+pub const KEY_HOME: u32 = 102;
+pub const KEY_END: u32 = 107;
+pub const KEY_DELETE: u32 = 111; // 可选：支持 Delete 键向后删除
+
 
 pub fn evdev_to_char(key: u32) -> Option<char> {
     match key {

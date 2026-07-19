@@ -91,7 +91,7 @@
 最	zuo	806
 见	jys	804
 起	qwz	803
-小	xyh	803
+小	xyz	803
 高	gua	802
 更	guh	801
 如	rsn	800
@@ -126,7 +126,7 @@
 同	twk	771
 吃	csk	770
 天	tuh	768
-比	byh	767
+比	byz	767
 米	myn	766
 外	wsp	766
 分	fub	765

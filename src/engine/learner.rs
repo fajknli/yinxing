@@ -49,7 +49,6 @@ impl Learner {
                 for (word, count) in &self.user_freq {
                     let _ = writeln!(f, "{}\t{}", word, count);
                 }
-                let _ = f.sync_all();
                 drop(f);
                 let _ = std::fs::rename(&temp_path, &self.path);
             }

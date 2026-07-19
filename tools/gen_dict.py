@@ -214,12 +214,12 @@ FIRST_STROKE_MAP = {
     '其': 'h', '再': 'h', '凸': 'h', '出': 'h', '北': 'h', '十': 'h',
     '卅': 'h', '南': 'h', '厂': 'h', '右': 'h', '吏': 'h', '土': 'h',
     '士': 'h', '大': 'h', '天': 'h', '太': 'h', '夫': 'h', '夷': 'h',
-    '夹': 'h', '子': 'h', '寸': 'h', '小': 'h', '少': 'h', '尢': 'h',
+    '夹': 'h', '子': 'h', '寸': 'h', '尢': 'h',
     '屯': 'h', '工': 'h', '左': 'h', '巫': 'h', '干': 'h', '平': 'h',
     '廾': 'h', '廿': 'h', '开': 'h', '戈': 'h', '戊': 'h', '戋': 'h',
     '成': 'h', '或': 'h', '才': 'h', '无': 'h', '更': 'h', '木': 'h',
     '未': 'h', '末': 'h', '本': 'h', '束': 'h', '来': 'h', '柬': 'h',
-    '比': 'h', '水': 'h', '爽': 'h', '牙': 'h', '犬': 'h', '王': 'h',
+    '水': 'h', '爽': 'h', '牙': 'h', '犬': 'h', '王': 'h',
     '瓦': 'h', '甘': 'h', '示': 'h', '耒': 'h', '耳': 'h', '西': 'h',
     '豆': 'h', '车': 'h', '酉': 'h', '隶': 'h', '雨': 'h', '面': 'h',
     '革': 'h', '韦': 'h', '页': 'h', '马': 'h', '麦': 'h', '黄': 'h',
@@ -531,24 +531,21 @@ def encode_char(char, ids_map, rs_map, problems):
     return initial + structure + radical, structure
 
 def encode_word(word, char_codes):
-    """词语编码: ISIR"""
+    """词语编码: ISIR + I... (支持任意长度)"""
     n = len(word)
-    if n < 2 or n > 4:
+    if n < 2 or n > 8:  # 限制最长8字词，避免无意义长串
         return None
     codes = []
     for c in word:
         if c not in char_codes or len(char_codes[c]) < 3:
             return None
         codes.append(char_codes[c])
-    if n == 2:
-        return codes[0][0] + codes[0][1] + codes[1][0] + codes[1][2]
-    elif n == 3:
-        return (codes[0][0] + codes[0][1] + codes[1][0]
-                + codes[1][2] + codes[2][0])
-    elif n == 4:
-        return (codes[0][0] + codes[0][1] + codes[1][0]
-                + codes[1][2] + codes[2][0] + codes[3][0])
-    return None
+
+    # 核心：首字 IS，第二字 IR，第三字及以后全 I
+    res = codes[0][0] + codes[0][1] + codes[1][0] + codes[1][2]
+    for i in range(2, n):
+        res += codes[i][0]
+    return res
 
 # =====================================================================
 #  比较：IDS 第一部件 vs Unihan 部首
