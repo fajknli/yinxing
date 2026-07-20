@@ -11,22 +11,34 @@ use crate::candi;
 #[derive(Clone)]
 struct DpNode {
     score: f64,
-    word: Rc<str>,          // 只存引用，零分配
-    prev: Option<(usize, usize)>, // 指向上一个节点的 (位置, 索引)
+    word: Rc<str>,
+    prev: Option<(usize, usize)>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 struct CandidateItem {
     text: String,
     consumed: usize,
     score: f64,
-    code: String, // 记录该候选词对应的完整原始编码
+    code: String,
     is_dp_split: bool,
 }
 
+#[derive(Clone, Debug)]
+struct Block {
+    code: String,
+    text: String,
+    confirmed: bool,
+    saved_text: String,
+}
+
 pub struct RuntimeState {
-    input: String,
+    blocks: Vec<Block>,
+    active_idx: usize,
     cursor: usize,
+    current_selection: String,
+    current_consumed: usize,
+    last_pending_code: String,
     mode: ImeState,
     table: LookupTable,
     page: usize,
@@ -43,8 +55,12 @@ impl RuntimeState {
     ) -> Self {
         let learner = Learner::new(user_data_path);
         let mut runtime = Self {
-            input: String::with_capacity(32),
+            blocks: Vec::new(),
+            active_idx: usize::MAX,
             cursor: 0,
+            current_selection: String::new(),
+            current_consumed: 0,
+            last_pending_code: String::new(),
             mode: ImeState::English,
             table,
             page: 0,
@@ -89,10 +105,8 @@ impl RuntimeState {
 
         if is_toggle(key, mods) {
             let mut a = vec![];
-            if !self.input.is_empty() {
-                let raw = self.input.clone();
-                a.push(Action::ClearPreedit);
-                a.push(Action::CommitText(raw));
+            if !self.blocks.is_empty() {
+                a.extend(self.commit_staging_buffer());
             }
             self.clear();
             self.mode = ImeState::English;
@@ -102,10 +116,8 @@ impl RuntimeState {
         if (mods & keys::MOD_SHIFT) != 0 {
             if keys::evdev_to_char(key).is_some() {
                 let mut a = vec![];
-                if !self.input.is_empty() {
-                    let raw = self.input.clone();
-                    a.push(Action::ClearPreedit);
-                    a.push(Action::CommitText(raw));
+                if !self.blocks.is_empty() {
+                    a.extend(self.commit_staging_buffer());
                 }
                 self.clear();
                 self.mode = ImeState::English;
@@ -116,10 +128,12 @@ impl RuntimeState {
 
         if (mods & !keys::MOD_SHIFT) != 0 {
             let mut a = vec![];
-            if !self.input.is_empty() {
-                self.clear();
+            if !self.blocks.is_empty() {
+                a.extend(self.commit_staging_buffer());
+            } else {
                 a.push(Action::ClearPreedit);
             }
+            self.clear();
             a.push(Action::ForwardKey { key, mods });
             return a;
         }
@@ -133,79 +147,303 @@ impl RuntimeState {
 
     fn on_chinese(&mut self, key: u32, mods: u32) -> Vec<Action> {
         if let Some(ch) = keys::evdev_to_char(key) {
-            self.input.insert(self.cursor, ch); // 在光标处插入
-            self.cursor += ch.len_utf8();        // 光标后移
+            self.blocks.push(Block {
+                code: ch.to_string(),
+                text: String::new(),
+                confirmed: false,
+                saved_text: String::new(),
+            });
+            self.active_idx = self.blocks.len() - 1;
+            self.cursor = ch.len_utf8();
             self.mode = ImeState::Composing;
             self.page = 0;
             self.build_preedit()
         } else if key == keys::KEY_SPACE {
-            vec![Action::CommitText(" ".into())]
+            if self.blocks.is_empty() && self.current_selection.is_empty() {
+                return vec![Action::CommitText(" ".into())];
+            }
+            self.commit_staging_buffer()
         } else if let Some(p) = chinese_punct(key, (mods & keys::MOD_SHIFT) != 0) {
-            vec![Action::CommitText(p.into())]
+            let mut actions = if !self.blocks.is_empty() || !self.current_selection.is_empty() {
+                self.commit_staging_buffer()
+            } else {
+                vec![]
+            };
+            actions.push(Action::CommitText(p.into()));
+            actions
         } else {
             vec![Action::ForwardKey { key, mods }]
         }
     }
 
     fn on_composing(&mut self, key: u32, mods: u32) -> Vec<Action> {
+        if self.blocks.is_empty() {
+            self.mode = ImeState::Chinese;
+            return self.on_chinese(key, mods);
+        }
+
         let shifted = (mods & keys::MOD_SHIFT) != 0;
 
         match key {
             keys::KEY_BACKSPACE => {
-                if self.cursor > 0 {
-                    // 找到前一个字符的边界并删除
-                    let prev_char_boundary = self.input[..self.cursor].char_indices().last().map(|(i, _)| i).unwrap_or(0);
-                    self.input.remove(prev_char_boundary);
-                    self.cursor = prev_char_boundary;
+                if self.blocks.is_empty() { return self.build_preedit(); }
+                if self.active_idx >= self.blocks.len() { self.active_idx = self.blocks.len() - 1; }
+
+                let start = self.get_block_start_offset(self.active_idx);
+                let len = self.blocks[self.active_idx].code.len();
+                let local_off = self.cursor.saturating_sub(start).min(len);
+                let is_zh_mode = !self.blocks[self.active_idx].text.is_empty();
+
+                if is_zh_mode && local_off == len {
+                    self.blocks[self.active_idx].saved_text = self.blocks[self.active_idx].text.clone();
+                    self.blocks[self.active_idx].confirmed = false;
+                    self.blocks[self.active_idx].text.clear();
+                    self.current_selection.clear();
+                    self.current_consumed = 0;
+                    self.last_pending_code.clear();
+                    self.page = 0;
+                    return self.build_preedit();
                 }
 
-                if self.input.is_empty() {
-                    self.candidates.clear();
-                    self.page = 0;
+                if local_off == 0 {
+                    if self.active_idx == 0 { return self.build_preedit(); }
+                    self.active_idx -= 1;
+                    let prev_len = self.blocks[self.active_idx].code.len();
+
+                    if !self.blocks[self.active_idx].text.is_empty() {
+                        self.blocks[self.active_idx].saved_text = self.blocks[self.active_idx].text.clone();
+                        self.blocks[self.active_idx].confirmed = false;
+                        self.blocks[self.active_idx].text.clear();
+                        self.cursor = self.get_block_start_offset(self.active_idx) + prev_len;
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                        self.last_pending_code.clear();
+                        self.page = 0;
+                        return self.build_preedit();
+                    }
+                    let char_len = self.blocks[self.active_idx].code[..prev_len].chars().last().unwrap().len_utf8();
+                    self.blocks[self.active_idx].code.replace_range(prev_len - char_len..prev_len, "");
+                    self.blocks[self.active_idx].confirmed = false;
+                    self.blocks[self.active_idx].text.clear();
+                    self.cursor -= char_len;
+                } else {
+                    let char_len = self.blocks[self.active_idx].code[..local_off].chars().last().unwrap().len_utf8();
+                    self.blocks[self.active_idx].code.replace_range(local_off - char_len..local_off, "");
+                    self.blocks[self.active_idx].confirmed = false;
+                    self.blocks[self.active_idx].text.clear();
+                    self.cursor -= char_len;
+                }
+
+                let before_len = self.blocks.len();
+                self.blocks.retain(|b| !b.code.is_empty());
+                if self.blocks.len() < before_len {
+                    self.merge_free_blocks();
+                }
+
+                if self.blocks.is_empty() {
+                    self.clear();
                     self.mode = ImeState::Chinese;
                     return vec![Action::ClearPreedit];
                 }
+
+                if self.active_idx >= self.blocks.len() {
+                    self.active_idx = self.blocks.len() - 1;
+                }
+
+                self.current_selection.clear();
+                self.current_consumed = 0;
+                self.last_pending_code.clear();
+
                 self.page = 0;
                 self.build_preedit()
             }
 
-            keys::KEY_DELETE => { // 可选：支持 Delete 键向后删除
-                if self.cursor < self.input.len() {
-                    let next_char_len = self.input[self.cursor..].chars().next().map(|c| c.len_utf8()).unwrap_or(0);
-                    let end = self.cursor + next_char_len;
-                    self.input.replace_range(self.cursor..end, "");
+            keys::KEY_DELETE => {
+                if self.blocks.is_empty() { return self.build_preedit(); }
+                if self.active_idx >= self.blocks.len() { self.active_idx = self.blocks.len() - 1; }
+
+                let start = self.get_block_start_offset(self.active_idx);
+                let len = self.blocks[self.active_idx].code.len();
+                let local_off = self.cursor.saturating_sub(start).min(len);
+                let is_zh_mode = !self.blocks[self.active_idx].text.is_empty();
+
+                if is_zh_mode && local_off == 0 {
+                    self.blocks[self.active_idx].saved_text = self.blocks[self.active_idx].text.clone();
+                    self.blocks[self.active_idx].confirmed = false;
+                    self.blocks[self.active_idx].text.clear();
+                    self.current_selection.clear();
+                    self.current_consumed = 0;
+                    self.last_pending_code.clear();
+                    self.page = 0;
+                    return self.build_preedit();
                 }
+
+                if local_off == len {
+                    if self.active_idx + 1 >= self.blocks.len() { return self.build_preedit(); }
+                    self.active_idx += 1;
+                    if !self.blocks[self.active_idx].text.is_empty() {
+                        self.blocks[self.active_idx].saved_text = self.blocks[self.active_idx].text.clone();
+                        self.blocks[self.active_idx].confirmed = false;
+                        self.blocks[self.active_idx].text.clear();
+                        self.cursor = self.get_block_start_offset(self.active_idx);
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                        self.last_pending_code.clear();
+                        self.page = 0;
+                        return self.build_preedit();
+                    }
+                    let char_len = self.blocks[self.active_idx].code.chars().next().unwrap().len_utf8();
+                    self.blocks[self.active_idx].code.replace_range(0..char_len, "");
+                    self.blocks[self.active_idx].confirmed = false;
+                    self.blocks[self.active_idx].text.clear();
+                } else {
+                    let char_len = self.blocks[self.active_idx].code[local_off..].chars().next().unwrap().len_utf8();
+                    self.blocks[self.active_idx].code.replace_range(local_off..local_off + char_len, "");
+                    self.blocks[self.active_idx].confirmed = false;
+                    self.blocks[self.active_idx].text.clear();
+                }
+
+                let before_len = self.blocks.len();
+                self.blocks.retain(|b| !b.code.is_empty());
+                if self.blocks.len() < before_len {
+                    self.merge_free_blocks();
+                }
+
+                if self.blocks.is_empty() {
+                    self.clear();
+                    self.mode = ImeState::Chinese;
+                    return vec![Action::ClearPreedit];
+                }
+
+                if self.active_idx >= self.blocks.len() {
+                    self.active_idx = self.blocks.len() - 1;
+                }
+
+                self.current_selection.clear();
+                self.current_consumed = 0;
+                self.last_pending_code.clear();
+
                 self.page = 0;
                 self.build_preedit()
             }
 
             keys::KEY_LEFT => {
-                if self.cursor > 0 {
-                    // 向左移动一个字符
-                    self.cursor = self.input[..self.cursor].char_indices().last().map(|(i, _)| i).unwrap_or(0);
+                if self.blocks.is_empty() { return self.build_preedit(); }
+                if self.active_idx >= self.blocks.len() { self.active_idx = self.blocks.len() - 1; }
+
+                let start = self.get_block_start_offset(self.active_idx);
+                let len = self.blocks[self.active_idx].code.len();
+                let local_off = self.cursor.saturating_sub(start).min(len);
+                let is_zh_mode = !self.blocks[self.active_idx].text.is_empty();
+
+                if is_zh_mode {
+                    if self.active_idx > 0 {
+                        self.blocks[self.active_idx].confirmed = true;
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                        self.last_pending_code.clear();
+
+                        self.active_idx -= 1;
+                        let prev_len = self.blocks[self.active_idx].code.len();
+                        self.cursor = self.get_block_start_offset(self.active_idx) + prev_len;
+                    } else {
+                        self.cursor = start;
+                    }
+                } else {
+                    if local_off > 0 {
+                        let char_len = self.blocks[self.active_idx].code[..local_off].chars().last().unwrap().len_utf8();
+                        self.cursor -= char_len;
+                    } else if self.active_idx > 0 {
+                        self.lock_block(self.active_idx);
+                        self.active_idx -= 1;
+                        let prev_len = self.blocks[self.active_idx].code.len();
+                        self.cursor = self.get_block_start_offset(self.active_idx) + prev_len;
+                    }
                 }
                 self.page = 0;
                 self.build_preedit()
             }
 
             keys::KEY_RIGHT => {
-                if self.cursor < self.input.len() {
-                    // 向右移动一个字符
-                    let next_char_len = self.input[self.cursor..].chars().next().map(|c| c.len_utf8()).unwrap_or(0);
-                    self.cursor += next_char_len;
+                if self.blocks.is_empty() { return self.build_preedit(); }
+                if self.active_idx >= self.blocks.len() { self.active_idx = self.blocks.len() - 1; }
+
+                let start = self.get_block_start_offset(self.active_idx);
+                let len = self.blocks[self.active_idx].code.len();
+                let local_off = self.cursor.saturating_sub(start).min(len);
+                let is_zh_mode = !self.blocks[self.active_idx].text.is_empty();
+
+                if is_zh_mode {
+                    if self.active_idx + 1 < self.blocks.len() {
+                        self.blocks[self.active_idx].confirmed = true;
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                        self.last_pending_code.clear();
+
+                        self.active_idx += 1;
+                        let next_len = self.blocks[self.active_idx].code.len();
+                        self.cursor = self.get_block_start_offset(self.active_idx) + next_len;
+                    } else {
+                        self.cursor = start + len;
+                    }
+                } else {
+                    if local_off < len {
+                        let char_len = self.blocks[self.active_idx].code[local_off..].chars().next().map(|c| c.len_utf8()).unwrap_or(0);
+                        if char_len > 0 {
+                            self.cursor += char_len;
+                        }
+                    } else if self.active_idx + 1 < self.blocks.len() {
+                        self.lock_block(self.active_idx);
+                        self.active_idx += 1;
+                        let next_len = self.blocks[self.active_idx].code.len();
+                        self.cursor = self.get_block_start_offset(self.active_idx) + next_len;
+                    }
                 }
                 self.page = 0;
                 self.build_preedit()
             }
 
             keys::KEY_HOME => {
-                self.cursor = 0;
+                if self.blocks.is_empty() { return self.build_preedit(); }
+                if self.cursor > 0 || self.active_idx != 0 {
+                    self.cursor = 0;
+                    if self.active_idx != 0 {
+                        let is_zh_mode = !self.blocks[self.active_idx].text.is_empty();
+                        if is_zh_mode {
+                            self.blocks[self.active_idx].confirmed = true;
+                        } else {
+                            self.lock_block(self.active_idx);
+                        }
+                        self.active_idx = 0;
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                        self.last_pending_code.clear();
+                    }
+                }
                 self.page = 0;
                 self.build_preedit()
             }
 
             keys::KEY_END => {
-                self.cursor = self.input.len();
+                if self.blocks.is_empty() { return self.build_preedit(); }
+                let last_idx = self.blocks.len() - 1;
+                let total_len: usize = self.blocks.iter().map(|b| b.code.len()).sum();
+
+                if self.cursor < total_len || self.active_idx != last_idx {
+                    self.cursor = total_len;
+                    if self.active_idx != last_idx {
+                        let is_zh_mode = !self.blocks[self.active_idx].text.is_empty();
+                        if is_zh_mode {
+                            self.blocks[self.active_idx].confirmed = true;
+                        } else {
+                            self.lock_block(self.active_idx);
+                        }
+                        self.active_idx = last_idx;
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                        self.last_pending_code.clear();
+                    }
+                }
                 self.page = 0;
                 self.build_preedit()
             }
@@ -217,16 +455,27 @@ impl RuntimeState {
             }
 
             keys::KEY_ENTER => {
-                let raw = self.input.clone();
+                let (raw, _) = self.preedit_display_info();
                 self.clear();
                 self.mode = ImeState::Chinese;
-                vec![Action::ClearPreedit, Action::CommitText(raw)]
+                if raw.is_empty() {
+                    vec![Action::ClearPreedit]
+                } else {
+                    vec![Action::ClearPreedit, Action::CommitText(raw)]
+                }
             }
 
-            keys::KEY_SPACE => self.commit_nth(0),
+            keys::KEY_SPACE => {
+                if self.blocks.is_empty() && self.current_selection.is_empty() {
+                    return vec![Action::CommitText(" ".into())];
+                }
+                self.commit_staging_buffer()
+            }
 
-            keys::KEY_1..=keys::KEY_9 if !shifted =>
-                self.commit_nth((key - keys::KEY_1) as usize),
+            keys::KEY_1..=keys::KEY_9 if !shifted => {
+                let n = (key - keys::KEY_1) as usize + self.page * config::CANDIDATE_PAGE_SIZE;
+                self.commit_nth(n)
+            }
 
             keys::KEY_TAB | keys::KEY_EQUALS if !shifted => {
                 self.next_page();
@@ -240,38 +489,100 @@ impl RuntimeState {
 
             k if raw_punct_char(k, shifted).is_some() => {
                 let punct = raw_punct_char(k, shifted).unwrap();
-                let mut actions = self.commit_best();
+                let mut actions = self.commit_staging_buffer();
                 actions.push(Action::CommitText(punct.into()));
                 actions
             }
 
             _ => {
                 if let Some(ch) = keys::evdev_to_char(key) {
-                    // 在光标处插入字符，而不是 push 到末尾
-                    self.input.insert(self.cursor, ch);
-                    self.cursor += ch.len_utf8(); // 光标后移
+                    if self.blocks.is_empty() {
+                        self.blocks.push(Block {
+                            code: String::new(),
+                            text: String::new(),
+                            confirmed: false,
+                            saved_text: String::new(),
+                        });
+                        self.active_idx = 0;
+                    }
+                    if self.active_idx >= self.blocks.len() {
+                        self.active_idx = self.blocks.len() - 1;
+                    }
+
+                    let target_idx = self.active_idx;
+                    let start = self.get_block_start_offset(target_idx);
+                    let len = self.blocks[target_idx].code.len();
+                    let local_off = self.cursor.saturating_sub(start).min(len);
+
+                    let is_at_end_of_block = local_off == len;
+                    let is_at_start_of_block = local_off == 0;
+                    let is_zh_mode = !self.blocks[target_idx].text.is_empty();
+
+                    let mut should_create_new = false;
+                    let mut insert_pos = target_idx + 1;
+
+                    if is_at_end_of_block && is_zh_mode {
+                        self.blocks[target_idx].confirmed = true;
+                        should_create_new = true;
+                        insert_pos = target_idx + 1;
+                    }
+                    else if is_at_start_of_block && is_zh_mode {
+                        should_create_new = true;
+                        insert_pos = target_idx;
+                    }
+
+                    if should_create_new {
+                        let new_block = Block {
+                            code: ch.to_string(),
+                            text: String::new(),
+                            confirmed: false,
+                            saved_text: String::new(),
+                        };
+                        self.blocks.insert(insert_pos, new_block);
+                        self.active_idx = insert_pos;
+                        self.cursor = self.get_block_start_offset(self.active_idx) + ch.len_utf8();
+                        self.current_selection.clear();
+                        self.current_consumed = 0;
+                    } else {
+                        let block = &mut self.blocks[target_idx];
+                        block.confirmed = false;
+                        block.text.clear();
+                        block.code.insert(local_off, ch);
+                        self.cursor += ch.len_utf8();
+                        self.active_idx = target_idx;
+                    }
                     self.page = 0;
                     self.build_preedit()
                 } else {
-                    let mut a = self.commit_best();
-                    a.push(Action::ForwardKey { key, mods });
-                    a
+                    let mut actions = self.commit_staging_buffer();
+                    actions.push(Action::ForwardKey { key, mods });
+                    actions
                 }
             }
         }
     }
 
     fn build_preedit(&mut self) -> Vec<Action> {
-        let code = self.input.clone();
-        let n = code.len();
-
         self.candidates.clear();
 
-        if n == 0 {
-            return vec![];
+        if self.blocks.is_empty() {
+            return vec![Action::ClearPreedit];
         }
 
-        if n < 3 {
+        if self.active_idx >= self.blocks.len() {
+            self.active_idx = self.blocks.len() - 1;
+        }
+
+        let active_block = &self.blocks[self.active_idx];
+
+        let code = active_block.code.clone();
+        let n = code.len();
+
+        if n == 0 {
+            self.current_selection.clear();
+            self.current_consumed = 0;
+            self.last_pending_code.clear();
+        } else if n > 0 && n < 3 {
             let mut entries = self.table.prefix_chars(&code, 200);
             for entry in &mut entries {
                 entry.weight += self.learner.get_boost(entry.text.as_ref());
@@ -281,228 +592,226 @@ impl RuntimeState {
             entries.retain(|e| seen.insert(e.text.clone()));
             self.candidates = entries.into_iter().map(|e| CandidateItem {
                 text: e.text.to_string(),
-                consumed: 0,
+                consumed: n,
                 score: 0.0,
                 code: e.code.to_string(),
                 is_dp_split: false,
             }).collect();
+        } else if n >= 3 {
+            let mut dp: Vec<Vec<DpNode>> = vec![vec![]; n + 1];
+            dp[0].push(DpNode { score: 0.0, word: Rc::from(""), prev: None });
 
-            let max_page = self.candidates.len().saturating_sub(1) / config::CANDIDATE_PAGE_SIZE;
-            if self.page > max_page { self.page = max_page; }
+            for i in 3..=n {
+                for &len in [3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 21, 24].iter() {
+                    if len > i { continue; }
+                    let start = i - len;
+                    let segment = &code[start..i];
 
-            let c = self.cursor as i32;
-            return vec![Action::SetPreedit { text: code, begin: c, end: c }];
-        }
+                    if dp[start].is_empty() { continue; }
 
-        // ==========================================
-        // 1. Beam Search DP 动态规划 (零堆分配优化版)
-        // ==========================================
-        let mut dp: Vec<Vec<DpNode>> = vec![vec![]; n + 1];
-        dp[0].push(DpNode { score: 0.0, word: Rc::from(""), prev: None });
+                    let mut entries = self.table.get_all_for_code(segment);
 
-        for i in 3..=n {
-            for len in [3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 21, 24].iter() {
-                if *len > i { continue; }
-                let start = i - len;
-                let segment = &code[start..i];
-
-                if dp[start].is_empty() { continue; }
-
-                let mut entries = self.table.get_all_for_code(segment);
-
-                // 智能转化
-                if *len >= 6 && *len % 3 == 0 {
-                    let num_chars = *len / 3;
-                    let mut sub_codes = Vec::new();
-                    for j in 0..num_chars {
-                        sub_codes.push(segment[j*3..(j+1)*3].to_string());
+                    if len >= 6 && len % 3 == 0 {
+                        let num_chars = len / 3;
+                        let mut sub_codes = Vec::new();
+                        for j in 0..num_chars {
+                            sub_codes.push(segment[j*3..(j+1)*3].to_string());
+                        }
+                        if let Some(isir_code) = encode_word_from_codes(&sub_codes) {
+                            entries.extend(self.table.get_all_for_code(&isir_code));
+                        }
                     }
-                    if let Some(isir_code) = encode_word_from_codes(&sub_codes) {
-                        entries.extend(self.table.get_all_for_code(&isir_code));
+
+                    let prev_nodes = dp[start].clone();
+
+                    for (p_idx, prev_node) in prev_nodes.iter().enumerate() {
+                        for entry in &entries {
+                            let base_score = entry.weight as f64 + self.learner.get_boost(entry.text.as_ref()) as f64;
+                            let new_score = prev_node.score + base_score;
+
+                            dp[i].push(DpNode {
+                                score: new_score,
+                                word: Rc::clone(&entry.text),
+                                prev: Some((start, p_idx)),
+                            });
+                        }
                     }
                 }
 
-                let prev_nodes = dp[start].clone();
+                dp[i].sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap_or(std::cmp::Ordering::Equal));
+                dp[i].truncate(5);
+            }
 
-                for (p_idx, prev_node) in prev_nodes.iter().enumerate() {
-                    for entry in &entries {
-                        let base_score = entry.weight as f64 + self.learner.get_boost(entry.text.as_ref()) as f64;
-                        let new_score = prev_node.score + base_score;
+            for i in 3..=n {
+                for node in &dp[i] {
+                    let mut parts: Vec<&str> = Vec::new();
+                    let mut curr = node;
+                    parts.push(curr.word.as_ref());
 
-                        // 零分配：只克隆 Rc 指针和基本类型
-                        dp[i].push(DpNode {
-                            score: new_score,
-                            word: Rc::clone(&entry.text),
-                            prev: Some((start, p_idx)),
+                    while let Some((s, p)) = curr.prev {
+                        curr = &dp[s][p];
+                        parts.push(curr.word.as_ref());
+                    }
+
+                    parts.reverse();
+                    let text = parts.join("");
+
+                    if !text.is_empty() && !self.candidates.iter().any(|c| c.text == text) {
+                        self.candidates.push(CandidateItem {
+                            text,
+                            consumed: i,
+                            score: node.score,
+                            code: code[..i].to_string(),
+                            is_dp_split: true,
                         });
                     }
                 }
             }
-
-            // 关键剪枝：每个位置只保留得分最高的 5 条路径
-            dp[i].sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap_or(std::cmp::Ordering::Equal));
-            dp[i].truncate(5);
         }
 
-        // 只收集消耗了全部输入 (dp[n]) 的整句候选，最多拼接 5 次，彻底消灭长句卡顿
-        for node in &dp[n] {
-            // 反向追踪拼接字符串
-            let mut parts: Vec<&str> = Vec::new();
-            let mut curr = node;
-            parts.push(curr.word.as_ref());
-
-            while let Some((s, p)) = curr.prev {
-                curr = &dp[s][p];
-                parts.push(curr.word.as_ref());
-            }
-
-            parts.reverse();
-            let text = parts.join("");
-
-            if !text.is_empty() && !self.candidates.iter().any(|c| c.text == text) {
-                self.candidates.push(CandidateItem {
-                    text,
-                    consumed: n,
-                    score: node.score,
-                    code: code.clone(),
-                    is_dp_split: true,
-                });
-            }
-        }
-
-        // 2. 暴力前缀查表 (绝对不丢词，限制最大长度为 10，避免无意义查表)
-        for len in (3..=n.min(10)).rev() {
-            let segment = &code[..len];
-            let exact = self.table.get_all_for_code(segment);
-            for entry in &exact {
-                let text = entry.text.to_string();
-                if !self.candidates.iter().any(|c| c.text == text) {
-                    self.candidates.push(CandidateItem {
-                        text: text.clone(),
-                        consumed: len,
-                        score: entry.weight as f64 + self.learner.get_boost(entry.text.as_ref()) as f64,
-                        code: entry.code.to_string(),
-                        is_dp_split: false,
-                    });
-                }
-            }
-        }
-
-        // 排序：消耗码长降序 → 得分降序
         self.candidates.sort_by(|a, b| {
             b.consumed.cmp(&a.consumed)
                 .then_with(|| b.score.partial_cmp(&a.score).unwrap())
         });
 
+        if self.candidates.len() > 20 {
+            self.candidates.truncate(20);
+        }
+
+        if code != self.last_pending_code {
+            if !self.blocks[self.active_idx].text.is_empty() {
+                self.current_selection = self.blocks[self.active_idx].text.clone();
+                if let Some(c) = self.candidates.iter().find(|c| c.text == self.blocks[self.active_idx].text) {
+                    self.current_consumed = c.consumed;
+                } else {
+                    self.current_consumed = 0;
+                }
+            } else {
+                self.current_selection.clear();
+                self.current_consumed = 0;
+            }
+            self.last_pending_code = code.clone();
+        }
+
         let max_page = self.candidates.len().saturating_sub(1) / config::CANDIDATE_PAGE_SIZE;
         if self.page > max_page { self.page = max_page; }
 
-        let c = self.cursor as i32;
-        vec![Action::SetPreedit { text: code, begin: c, end: c }]
+        let (preedit, cursor_pos) = self.preedit_display_info();
+        if preedit.is_empty() {
+            return vec![Action::ClearPreedit];
+        }
+        let c = cursor_pos as i32;
+        vec![Action::SetPreedit { text: preedit, begin: c, end: c }]
     }
 
     pub fn commit_nth(&mut self, n: usize) -> Vec<Action> {
-        let idx = self.page * config::CANDIDATE_PAGE_SIZE + n;
-        if let Some(cand) = self.candidates.get(idx).cloned() {
+        if let Some(cand) = self.candidates.get(n).cloned() {
             self.learner.record(&cand.text);
 
-            // --- BUG FIX: 截取实际消耗的编码用于造词 ---
-            let mut phrase_cand = cand.clone();
-            if cand.consumed > 0 && cand.consumed <= self.input.len() {
-                phrase_cand.code = self.input[..cand.consumed].to_string();
+            if self.active_idx >= self.blocks.len() { return self.build_preedit(); }
+
+            if cand.is_dp_split {
+                self.try_create_phrase(&cand);
             }
-            self.try_create_phrase(&phrase_cand);
-            // ---------------------------------------------
 
-            let remaining = if cand.consumed > 0 && cand.consumed < self.input.len() {
-                self.input[cand.consumed..].to_string()
-            } else {
-                String::new()
-            };
+            {
+                let target_idx = self.active_idx;
+                let consumed = cand.consumed;
+                let current_code_len = self.blocks[target_idx].code.len();
 
-            self.input = remaining;
-            self.cursor = self.input.len(); // 光标移动到残余输入的末尾
-            self.candidates.clear();
+                if consumed > 0 && consumed < current_code_len {
+                    let remaining = self.blocks[target_idx].code[consumed..].to_string();
+                    self.blocks[target_idx].code.truncate(consumed);
+                    self.blocks[target_idx].text = cand.text.clone();
+                    self.blocks[target_idx].confirmed = false;
+                    self.blocks[target_idx].saved_text.clear();
+
+                    let new_block = Block {
+                        code: remaining,
+                        text: String::new(),
+                        confirmed: false,
+                        saved_text: String::new(),
+                    };
+                    self.blocks.insert(target_idx + 1, new_block);
+                } else {
+                    self.blocks[target_idx].text = cand.text.clone();
+                    self.blocks[target_idx].confirmed = false;
+                    self.blocks[target_idx].saved_text.clear();
+                }
+            }
+
+            self.cursor = self.get_block_start_offset(self.active_idx) + self.blocks[self.active_idx].code.len();
+
+            self.current_selection = cand.text.clone();
+            self.current_consumed = cand.consumed;
+
             self.page = 0;
-
-            if self.input.is_empty() {
-                self.mode = ImeState::Chinese;
-                return vec![Action::CommitText(cand.text), Action::ClearPreedit];
-            }
-
-            self.mode = ImeState::Composing;
-            let mut actions = vec![Action::CommitText(cand.text)];
-            actions.extend(self.build_preedit());
-            actions
+            self.build_preedit()
         } else {
-            let raw = self.input.clone();
-            self.clear();
-            self.mode = ImeState::Chinese;
-            vec![Action::CommitText(raw), Action::ClearPreedit]
+            self.build_preedit()
         }
     }
 
-    fn commit_best(&mut self) -> Vec<Action> {
-        if let Some(cand) = self.candidates.first().cloned() {
-            self.learner.record(&cand.text);
+    fn commit_staging_buffer(&mut self) -> Vec<Action> {
+        let mut text = String::new();
 
-            // --- BUG FIX: 截取实际消耗的编码用于造词 ---
-            let mut phrase_cand = cand.clone();
-            if cand.consumed > 0 && cand.consumed <= self.input.len() {
-                phrase_cand.code = self.input[..cand.consumed].to_string();
-            }
-            self.try_create_phrase(&phrase_cand);
-            // ---------------------------------------------
-
-            let remaining = if cand.consumed > 0 && cand.consumed < self.input.len() {
-                self.input[cand.consumed..].to_string()
+        for (i, b) in self.blocks.iter().enumerate() {
+            if i == self.active_idx {
+                if !b.text.is_empty() {
+                    text.push_str(&b.text);
+                } else if !self.current_selection.is_empty() {
+                    text.push_str(&self.current_selection);
+                } else if let Some(best) = self.candidates.first() {
+                    text.push_str(&best.text);
+                } else {
+                    text.push_str(&b.code);
+                }
+            } else if !b.text.is_empty() {
+                text.push_str(&b.text);
             } else {
-                String::new()
-            };
-
-            self.input = remaining;
-            self.cursor = self.input.len(); // 光标移动到残余输入的末尾
-            self.candidates.clear();
-            self.page = 0;
-
-            if self.input.is_empty() {
-                self.mode = ImeState::Chinese;
-                return vec![Action::CommitText(cand.text), Action::ClearPreedit];
+                text.push_str(&b.code);
             }
-
-            self.mode = ImeState::Composing;
-            let mut actions = vec![Action::CommitText(cand.text)];
-            actions.extend(self.build_preedit());
-            actions
-        } else {
-            let raw = self.input.clone();
-            self.clear();
-            self.mode = ImeState::Chinese;
-            vec![Action::CommitText(raw), Action::ClearPreedit]
         }
+
+        if text.is_empty() {
+            return vec![];
+        }
+
+        if text.chars().count() >= 2 && text.chars().count() <= 8 {
+            if let Some(sub_codes) = self.table.get_codes_for_text(&text) {
+                if let Some(new_code) = encode_word_from_codes(&sub_codes) {
+                    let exists_in_main = self.table.word_exists(&new_code, &text);
+                    if !exists_in_main {
+                        let is_new = self.table.add_custom_phrase(&text, &new_code);
+                        if is_new {
+                            self.save_custom_phrase(&text, &new_code);
+                        }
+                    }
+                }
+            }
+        }
+
+        self.learner.record(&text);
+        self.clear();
+        self.mode = ImeState::Chinese;
+        vec![Action::CommitText(text), Action::ClearPreedit]
     }
 
-    // 核心造词逻辑：只处理 DP 切分出来的单字全码组合
     fn try_create_phrase(&mut self, cand: &CandidateItem) {
-        // 1. 必须是 DP 切分出来的结果，原生词组绝不处理
         if !cand.is_dp_split {
             return;
         }
 
         let code_len = cand.code.len();
-        // 2. 只有当原始编码长度 >= 6 且能被 3 整除时，才说明是单字全码连打
         if code_len >= 6 && code_len % 3 == 0 {
             let num_chars = code_len / 3;
-            if num_chars >= 2 && num_chars <= 8 {  // <--- 改成 8，支持长词造词
+            if num_chars >= 2 && num_chars <= 8 {
                 let mut sub_codes = Vec::new();
                 for i in 0..num_chars {
                     sub_codes.push(cand.code[i*3..(i+1)*3].to_string());
                 }
-                // 尝试用 ISIR 规则生成标准词组编码
                 if let Some(new_code) = encode_word_from_codes(&sub_codes) {
-                    // 3. 检查原生字典里有没有这个词
                     let exists_in_main = self.table.word_exists(&new_code, &cand.text);
-
                     if !exists_in_main {
                         let is_new = self.table.add_custom_phrase(&cand.text, &new_code);
                         if is_new {
@@ -513,9 +822,14 @@ impl RuntimeState {
             }
         }
     }
+
     fn clear(&mut self) {
-        self.input.clear();
+        self.blocks.clear();
+        self.active_idx = usize::MAX;
         self.cursor = 0;
+        self.current_selection.clear();
+        self.current_consumed = 0;
+        self.last_pending_code.clear();
         self.candidates.clear();
         self.page = 0;
     }
@@ -547,21 +861,167 @@ impl RuntimeState {
     }
 
     pub fn get_raw_input(&self) -> String {
-        self.input.clone()
+        self.blocks.iter().map(|b| b.code.as_str()).collect()
     }
 
     pub fn is_chinese(&self) -> bool { self.mode != ImeState::English }
     pub fn has_candidates(&self) -> bool { !self.candidates.is_empty() }
     pub fn sync_candidates(&self) {}
-    pub fn flush_user_buffer(&mut self) { /* handled by Learner::drop */ }
+    pub fn flush_user_buffer(&mut self) {}
 
     pub fn candidate_items(&self) -> Vec<candi::Item> {
+        let mut items = Vec::new();
+
+        let mut preview = String::new();
+        for (i, b) in self.blocks.iter().enumerate() {
+            if i == self.active_idx {
+                if !self.current_selection.is_empty() {
+                    preview.push_str(&self.current_selection);
+                } else {
+                    preview.push_str(&b.code);
+                }
+            } else if !b.text.is_empty() {
+                preview.push_str(&b.text);
+            } else {
+                preview.push_str(&b.code);
+            }
+        }
+
+        if !preview.is_empty() {
+            items.push(candi::Item::text(preview));
+        }
+
         let start = self.page * config::CANDIDATE_PAGE_SIZE;
         let end = (start + config::CANDIDATE_PAGE_SIZE).min(self.candidates.len());
-        self.candidates[start..end].iter().enumerate().map(|(i, c)| {
-            let prefix = format!("{}.", i + 1);
-            candi::Item::with_prefix(prefix, c.text.clone())
-        }).collect()
+        if start < end {
+            items.extend(self.candidates[start..end].iter().enumerate().map(|(i, c)| {
+                let prefix = format!("{}.", i + 1);
+                candi::Item::with_prefix(prefix, c.text.clone())
+            }));
+        }
+
+        items
+    }
+
+    fn preedit_display_info(&self) -> (String, usize) {
+        let mut s = String::new();
+        let mut cursor_pos = 0;
+        let mut offset = 0;
+        let mut found_cursor = false;
+
+        for (i, b) in self.blocks.iter().enumerate() {
+            if i == self.active_idx {
+                if !b.text.is_empty() {
+                    let local_off = self.cursor.saturating_sub(offset).min(b.code.len());
+                    if local_off == 0 {
+                        cursor_pos = s.len();
+                    }
+                    s.push_str(&b.text);
+                    if local_off != 0 {
+                        cursor_pos = s.len();
+                    }
+                    found_cursor = true;
+                    offset += b.code.len();
+                } else {
+                    let local_off = self.cursor.saturating_sub(offset).min(b.code.len());
+                    let (before, after) = b.code.split_at(local_off);
+                    s.push_str(before);
+                    cursor_pos = s.len();
+                    s.push_str(after);
+                    found_cursor = true;
+                    offset += b.code.len();
+                }
+            } else {
+                if !found_cursor && self.cursor <= offset {
+                    cursor_pos = s.len();
+                    found_cursor = true;
+                }
+                if !b.text.is_empty() {
+                    s.push_str(&b.text);
+                } else {
+                    s.push_str(&b.code);
+                }
+                offset += b.code.len();
+                if !found_cursor && self.cursor <= offset {
+                    cursor_pos = s.len();
+                    found_cursor = true;
+                }
+            }
+        }
+        if !found_cursor {
+            cursor_pos = s.len();
+        }
+        (s, cursor_pos)
+    }
+
+    fn locate_pos(&self, pos: usize) -> (usize, usize) {
+        if self.blocks.is_empty() {
+            return (0, 0);
+        }
+        let mut offset = 0;
+        for (i, b) in self.blocks.iter().enumerate() {
+            let len = b.code.len();
+            if pos <= offset + len {
+                return (i, pos - offset);
+            }
+            offset += len;
+        }
+        (self.blocks.len() - 1, self.blocks.last().unwrap().code.len())
+    }
+
+    fn get_block_start_offset(&self, idx: usize) -> usize {
+        self.blocks[..idx.min(self.blocks.len())].iter().map(|b| b.code.len()).sum()
+    }
+
+    fn merge_free_blocks(&mut self) {
+        let mut i = 0;
+        while i + 1 < self.blocks.len() {
+            if !self.blocks[i].confirmed && !self.blocks[i+1].confirmed {
+                let next_code = std::mem::take(&mut self.blocks[i+1].code);
+                self.blocks[i].code.push_str(&next_code);
+                self.blocks[i].text.clear();
+                self.blocks.remove(i+1);
+                if self.active_idx > i {
+                    self.active_idx -= 1;
+                }
+            } else {
+                i += 1;
+            }
+        }
+    }
+
+    fn lock_block(&mut self, idx: usize) {
+        if idx >= self.blocks.len() { return; }
+        let block = &mut self.blocks[idx];
+
+        if block.code.is_empty() {
+            self.blocks.remove(idx);
+            if self.active_idx > idx && self.active_idx != usize::MAX {
+                self.active_idx -= 1;
+            }
+            self.current_selection.clear();
+            self.current_consumed = 0;
+            self.last_pending_code.clear();
+            return;
+        }
+
+        if block.text.is_empty() && !block.confirmed {
+            if !block.saved_text.is_empty() && self.current_selection.is_empty() {
+                block.text = block.saved_text.clone();
+            } else if !self.current_selection.is_empty() {
+                block.text = self.current_selection.clone();
+            } else if let Some(best) = self.candidates.first() {
+                block.text = best.text.clone();
+            } else {
+                block.text = block.code.clone();
+            }
+            block.saved_text.clear();
+            block.confirmed = true;
+        }
+
+        self.current_selection.clear();
+        self.current_consumed = 0;
+        self.last_pending_code.clear();
     }
 }
 
@@ -571,7 +1031,6 @@ fn encode_word_from_codes(codes: &[String]) -> Option<String> {
     let c: Vec<&[u8]> = codes.iter().map(|s| s.as_bytes()).collect();
     if c.iter().any(|s| s.len() < 3) { return None; }
 
-    // 核心：首字 IS，第二字 IR，后续字全 I
     let mut res = format!("{}{}{}{}", c[0][0] as char, c[0][1] as char, c[1][0] as char, c[1][2] as char);
     for i in 2..n {
         res.push(c[i][0] as char);
@@ -625,8 +1084,3 @@ fn raw_punct_char(key: u32, shifted: bool) -> Option<&'static str> {
         _ => None,
     }
 }
-//Exhaustive Prefix Matching (穷举前缀匹配)
-// the most fundamental rule of an input method: What you see is what you keep.
-// No dropped words: It searches every possible prefix length (6 -> 5 -> 4 -> 3) and pulls all matches.
-// Correct prioritization: It sorts by code length consumed (longest first), so 中华 (4 keys) ranks above single characters (3 keys).
-// Correct leftover handling: When you select 中华 from zyhhmz, it perfectly keeps the mz in the input box.

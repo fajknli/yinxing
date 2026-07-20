@@ -9,20 +9,12 @@ pub struct Entry {
     pub weight: u32,
 }
 
-#[derive(Clone, Debug)]
-pub struct SplitResult {
-    pub words: Vec<Entry>,
-    pub consumed: usize,
-    pub score: f64,
-}
-
 pub struct LookupTable {
     chars_sorted: Vec<(String, Vec<Entry>)>,
     words_sorted: Vec<(String, Vec<Entry>)>,
-    custom_words: FxHashMap<String, Vec<Entry>>, // 新增：动态自造词字典
+    custom_words: FxHashMap<String, Vec<Entry>>,
+    char_to_code: FxHashMap<String, String>, // 新增：汉字 -> 3键全码
 }
-
-const MAX_CANDIDATES: usize = 20;
 
 impl LookupTable {
     pub fn load(chars_path: &str, words_path: &str) -> Self {
@@ -35,102 +27,50 @@ impl LookupTable {
         let mut words_sorted: Vec<_> = words_map.into_iter().collect();
         words_sorted.sort_by(|a, b| a.0.cmp(&b.0));
 
+        // 新增：构建汉字反查字典
+        let mut char_to_code = FxHashMap::default();
+        for (_, entries) in &chars_sorted {
+            for e in entries {
+                if e.code.len() == 3 {
+                    char_to_code.entry(e.text.to_string()).or_insert_with(|| e.code.to_string());
+                }
+            }
+        }
+
         eprintln!("yinxing: loaded {} char codes, {} word codes",
             chars_sorted.iter().map(|(_, v)| v.len()).sum::<usize>(),
             words_sorted.iter().map(|(_, v)| v.len()).sum::<usize>(),
         );
 
-        Self { chars_sorted, words_sorted, custom_words: FxHashMap::default() }
+        Self { chars_sorted, words_sorted, custom_words: FxHashMap::default(), char_to_code }
     }
 
-    /// 新增：注入一个自造词到内存字典中
     pub fn add_custom_phrase(&mut self, text: &str, code: &str) -> bool {
         let code_str = code.to_string();
-        // 检查是否已存在
         let is_new = !self.custom_words.get(&code_str).map_or(false, |v| v.iter().any(|e| e.text.as_ref() == text));
         if is_new {
             let entry = Entry {
                 text: Rc::from(text),
                 code: Rc::from(code),
-                weight: 999999, // 自造词赋予极高权重，保证排在第一位
+                weight: 999999,
             };
             self.custom_words.entry(code_str).or_default().push(entry);
         }
         is_new
     }
 
-    /// Viterbi DP 解码
-    pub fn decode<B>(&self, code: &str, boost_fn: &B) -> Vec<SplitResult>
-    where
-        B: Fn(&str) -> u32,
-    {
-        let n = code.len();
-        if n < 3 {
-            return vec![];
-        }
-
-        const LAMBDA: f64 = 2.0;
-        const CHAR_BIAS: f64 = 3.8;
-
-        type State = (f64, Vec<Entry>);
-        let mut dp: Vec<Option<State>> = vec![None; n + 1];
-        dp[0] = Some((0.0, vec![]));
-
-        for i in 3..=n {
-            for len in [3usize, 4, 5, 6] {
-                if len > i { continue; }
-                let start = i - len;
-                let segment = &code[start..i];
-
-                let entries: Vec<Entry> = if len == 3 {
-                    self.exact_chars(segment).map(|e| e.to_vec()).unwrap_or_default()
-                } else {
-                    self.exact_words(segment) // exact_words 现在返回 Vec<Entry>
-                };
-
-                if entries.is_empty() { continue; }
-
-                let prev = match &dp[start] {
-                    Some(s) => s,
-                    None => continue,
-                };
-
-                let best = entries.iter().max_by_key(|e| e.weight).unwrap();
-                let user_boost = boost_fn(best.text.as_ref()) as f64;
-                let base_weight = best.weight as f64 + user_boost;
-
-                let mut score = base_weight.log2();
-                if len == 3 { score += CHAR_BIAS; }
-                score -= LAMBDA;
-
-                let total_score = prev.0 + score;
-
-                let is_better = match &dp[i] {
-                    Some((old, _)) => total_score > *old,
-                    None => true,
-                };
-
-                if is_better {
-                    let mut words = prev.1.clone();
-                    words.push(best.clone());
-                    dp[i] = Some((total_score, words));
-                }
+    // 新增：根据整句文本反查所有字的 3 键全码，用于混合造词
+    pub fn get_codes_for_text(&self, text: &str) -> Option<Vec<String>> {
+        let mut codes = Vec::new();
+        for ch in text.chars() {
+            let ch_str = ch.to_string();
+            if let Some(code) = self.char_to_code.get(&ch_str) {
+                codes.push(code.clone());
+            } else {
+                return None;
             }
         }
-
-        let mut results: Vec<SplitResult> = (3..=n)
-            .filter_map(|i| {
-                dp[i].as_ref().map(|(score, words)| SplitResult {
-                    words: words.clone(),
-                    consumed: i,
-                    score: *score,
-                })
-            })
-            .collect();
-
-        results.sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap());
-        results.truncate(MAX_CANDIDATES);
-        results
+        Some(codes)
     }
 
     pub fn prefix_chars(&self, prefix: &str, limit: usize) -> Vec<Entry> {
@@ -156,7 +96,6 @@ impl LookupTable {
             .map(|idx| &self.chars_sorted[idx].1[..])
     }
 
-    // 修改：查词语时，同时查静态字典和动态字典
     fn exact_words(&self, code: &str) -> Vec<Entry> {
         let mut res = Vec::new();
         if let Some(idx) = self.words_sorted.binary_search_by(|(k, _)| k.as_str().cmp(code)).ok() {
@@ -177,7 +116,7 @@ impl LookupTable {
             vec![]
         }
     }
-    /// 检查原生词库中是否存在指定的词组和编码
+
     pub fn word_exists(&self, code: &str, text: &str) -> bool {
         match self.words_sorted.binary_search_by(|(k, _)| k.as_str().cmp(code)) {
             Ok(idx) => self.words_sorted[idx].1.iter().any(|e| e.text.as_ref() == text),
