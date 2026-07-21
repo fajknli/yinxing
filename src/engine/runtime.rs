@@ -1,6 +1,5 @@
 use std::rc::Rc;
 use rustc_hash::FxHashSet;
-use crate::config;
 use crate::engine::action::Action;
 use crate::engine::learner::Learner;
 use crate::engine::lookup::LookupTable;
@@ -45,6 +44,8 @@ pub struct RuntimeState {
     candidates: Vec<CandidateItem>,
     learner: Learner,
     custom_phrases_path: String,
+    cfg: crate::config::BehaviorConfig,
+    highlight_idx: usize,
 }
 
 impl RuntimeState {
@@ -52,6 +53,7 @@ impl RuntimeState {
         table: LookupTable,
         user_data_path: String,
         custom_phrases_path: String,
+        cfg: crate::config::BehaviorConfig,
     ) -> Self {
         let learner = Learner::new(user_data_path);
         let mut runtime = Self {
@@ -67,6 +69,8 @@ impl RuntimeState {
             candidates: Vec::new(),
             learner,
             custom_phrases_path,
+            cfg,
+            highlight_idx: 0,
         };
         runtime.load_custom_phrases();
         runtime
@@ -163,14 +167,12 @@ impl RuntimeState {
                 return vec![Action::CommitText(" ".into())];
             }
             self.commit_staging_buffer()
-        } else if let Some(p) = chinese_punct(key, (mods & keys::MOD_SHIFT) != 0) {
-            let mut actions = if !self.blocks.is_empty() || !self.current_selection.is_empty() {
-                self.commit_staging_buffer()
+        } else if let Some(p) = punct_char(key, (mods & keys::MOD_SHIFT) != 0, &self.cfg.punctuation) {
+            if !self.blocks.is_empty() || !self.current_selection.is_empty() {
+                self.commit_with_suffix(p)
             } else {
-                vec![]
-            };
-            actions.push(Action::CommitText(p.into()));
-            actions
+                vec![Action::CommitText(p.into())]
+            }
         } else {
             vec![Action::ForwardKey { key, mods }]
         }
@@ -473,7 +475,7 @@ impl RuntimeState {
             }
 
             keys::KEY_1..=keys::KEY_9 if !shifted => {
-                let n = (key - keys::KEY_1) as usize + self.page * config::CANDIDATE_PAGE_SIZE;
+                let n = (key - keys::KEY_1) as usize + self.page * self.cfg.page_size;
                 self.commit_nth(n)
             }
 
@@ -487,11 +489,9 @@ impl RuntimeState {
                 self.build_preedit()
             }
 
-            k if raw_punct_char(k, shifted).is_some() => {
-                let punct = raw_punct_char(k, shifted).unwrap();
-                let mut actions = self.commit_staging_buffer();
-                actions.push(Action::CommitText(punct.into()));
-                actions
+            k if punct_char(k, shifted, &self.cfg.punctuation).is_some() => {
+                let punct = punct_char(k, shifted, &self.cfg.punctuation).unwrap();
+                self.commit_with_suffix(punct)
             }
 
             _ => {
@@ -674,8 +674,8 @@ impl RuntimeState {
                 .then_with(|| b.score.partial_cmp(&a.score).unwrap())
         });
 
-        if self.candidates.len() > 20 {
-            self.candidates.truncate(20);
+        if self.candidates.len() > self.cfg.max_candidates {
+            self.candidates.truncate(self.cfg.max_candidates);
         }
 
         if code != self.last_pending_code {
@@ -693,8 +693,28 @@ impl RuntimeState {
             self.last_pending_code = code.clone();
         }
 
-        let max_page = self.candidates.len().saturating_sub(1) / config::CANDIDATE_PAGE_SIZE;
+        let max_page = self.candidates.len().saturating_sub(1) / self.cfg.page_size;
         if self.page > max_page { self.page = max_page; }
+
+        // ─── 新增：智能计算高亮索引 ───
+        let offset = if self.blocks.is_empty() { 0 } else { 1 }; // 如果有预编辑区，候选词索引从 1 开始
+        self.highlight_idx = if self.candidates.is_empty() {
+            0
+        } else {
+            let mut idx = offset; // 默认高亮第一个候选词
+            if !self.current_selection.is_empty() {
+                let start = self.page * self.cfg.page_size;
+                let end = (start + self.cfg.page_size).min(self.candidates.len());
+                if start < end {
+                    // 如果用户选过的词还在当前页，就高亮它
+                    if let Some(rel_idx) = self.candidates[start..end].iter().position(|c| c.text == self.current_selection) {
+                        idx = offset + rel_idx;
+                    }
+                }
+            }
+            idx
+        };
+        // ─────────────────────────────
 
         let (preedit, cursor_pos) = self.preedit_display_info();
         if preedit.is_empty() {
@@ -706,13 +726,7 @@ impl RuntimeState {
 
     pub fn commit_nth(&mut self, n: usize) -> Vec<Action> {
         if let Some(cand) = self.candidates.get(n).cloned() {
-            self.learner.record(&cand.text);
-
             if self.active_idx >= self.blocks.len() { return self.build_preedit(); }
-
-            if cand.is_dp_split {
-                self.try_create_phrase(&cand);
-            }
 
             {
                 let target_idx = self.active_idx;
@@ -733,13 +747,19 @@ impl RuntimeState {
                         saved_text: String::new(),
                     };
                     self.blocks.insert(target_idx + 1, new_block);
+
+                    // 【关键修复】：将焦点和光标移动到新分裂出的 Block！
+                    self.active_idx = target_idx + 1;
                 } else {
                     self.blocks[target_idx].text = cand.text.clone();
                     self.blocks[target_idx].confirmed = false;
                     self.blocks[target_idx].saved_text.clear();
+                    // 如果没有分裂，焦点依然在当前 block
+                    self.active_idx = target_idx;
                 }
             }
 
+            // 光标计算会自动使用新的 active_idx
             self.cursor = self.get_block_start_offset(self.active_idx) + self.blocks[self.active_idx].code.len();
 
             self.current_selection = cand.text.clone();
@@ -752,7 +772,7 @@ impl RuntimeState {
         }
     }
 
-    fn commit_staging_buffer(&mut self) -> Vec<Action> {
+    fn commit_with_suffix(&mut self, suffix: &str) -> Vec<Action> {
         let mut text = String::new();
 
         for (i, b) in self.blocks.iter().enumerate() {
@@ -773,28 +793,37 @@ impl RuntimeState {
             }
         }
 
-        if text.is_empty() {
+        if text.is_empty() && suffix.is_empty() {
             return vec![];
         }
 
-        if text.chars().count() >= 2 && text.chars().count() <= 8 {
-            if let Some(sub_codes) = self.table.get_codes_for_text(&text) {
-                if let Some(new_code) = encode_word_from_codes(&sub_codes) {
-                    let exists_in_main = self.table.word_exists(&new_code, &text);
-                    if !exists_in_main {
-                        let is_new = self.table.add_custom_phrase(&text, &new_code);
-                        if is_new {
-                            self.save_custom_phrase(&text, &new_code);
+        if !text.is_empty() {
+            let char_count = text.chars().count();
+            if char_count >= self.cfg.min_phrase_chars && char_count <= self.cfg.max_phrase_chars {
+                if let Some(sub_codes) = self.table.get_codes_for_text(&text) {
+                    if let Some(new_code) = encode_word_from_codes(&sub_codes) {
+                        let exists_in_main = self.table.word_exists(&new_code, &text);
+                        if !exists_in_main {
+                            let is_new = self.table.add_custom_phrase(&text, &new_code);
+                            if is_new {
+                                self.save_custom_phrase(&text, &new_code);
+                            }
                         }
                     }
                 }
             }
+            self.learner.record(&text);
         }
 
-        self.learner.record(&text);
+        text.push_str(suffix);
+
         self.clear();
         self.mode = ImeState::Chinese;
         vec![Action::CommitText(text), Action::ClearPreedit]
+    }
+
+    pub fn commit_staging_buffer(&mut self) -> Vec<Action> {
+        self.commit_with_suffix("")
     }
 
     fn try_create_phrase(&mut self, cand: &CandidateItem) {
@@ -832,10 +861,11 @@ impl RuntimeState {
         self.last_pending_code.clear();
         self.candidates.clear();
         self.page = 0;
+        self.highlight_idx = 0;
     }
 
     fn next_page(&mut self) {
-        if (self.page + 1) * config::CANDIDATE_PAGE_SIZE < self.candidates.len() {
+        if (self.page + 1) * self.cfg.page_size < self.candidates.len() {
             self.page += 1;
         }
     }
@@ -891,8 +921,8 @@ impl RuntimeState {
             items.push(candi::Item::text(preview));
         }
 
-        let start = self.page * config::CANDIDATE_PAGE_SIZE;
-        let end = (start + config::CANDIDATE_PAGE_SIZE).min(self.candidates.len());
+        let start = self.page * self.cfg.page_size;
+        let end = (start + self.cfg.page_size).min(self.candidates.len());
         if start < end {
             items.extend(self.candidates[start..end].iter().enumerate().map(|(i, c)| {
                 let prefix = format!("{}.", i + 1);
@@ -901,6 +931,10 @@ impl RuntimeState {
         }
 
         items
+    }
+
+    pub fn get_highlight_idx(&self) -> usize {
+        self.highlight_idx
     }
 
     fn preedit_display_info(&self) -> (String, usize) {
@@ -1010,8 +1044,12 @@ impl RuntimeState {
                 block.text = block.saved_text.clone();
             } else if !self.current_selection.is_empty() {
                 block.text = self.current_selection.clone();
-            } else if let Some(best) = self.candidates.first() {
-                block.text = best.text.clone();
+            } else if self.cfg.auto_commit_unselected {
+                if let Some(best) = self.candidates.first() {
+                    block.text = best.text.clone();
+                } else {
+                    block.text = block.code.clone();
+                }
             } else {
                 block.text = block.code.clone();
             }
@@ -1040,6 +1078,14 @@ fn encode_word_from_codes(codes: &[String]) -> Option<String> {
 
 fn is_toggle(key: u32, mods: u32) -> bool {
     key == keys::KEY_SPACE && (mods & keys::MOD_CTRL) != 0
+}
+
+fn punct_char(key: u32, shifted: bool, mode: &str) -> Option<&'static str> {
+    if mode == "english" {
+        raw_punct_char(key, shifted)
+    } else {
+        chinese_punct(key, shifted).or_else(|| raw_punct_char(key, shifted))
+    }
 }
 
 fn chinese_punct(key: u32, shifted: bool) -> Option<&'static str> {

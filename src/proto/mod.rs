@@ -157,6 +157,10 @@ impl Dispatch<ZwpInputMethodKeyboardGrabV2, ()> for WaylandState {
                 let mods = state.current_mods;
                 let actions = state.runtime.process_key(key, mods);
                 state.flush_actions(&actions);
+                // 只要按了任何键，如果提示还在，立刻打断它
+                if state.notification.is_some() {
+                    state.notification = None;
+                }
                 state.overlay_dirty = true;
 
                 // ── 设置 key repeat（fcitx5 同款逻辑）──
@@ -178,13 +182,11 @@ impl Dispatch<ZwpInputMethodKeyboardGrabV2, ()> for WaylandState {
                     if !state.shift_dirty && state.has_cursor_info {
                         if state.runtime.is_chinese() {
                             eprintln!("dust: shift toggle → english");
-                            let raw = state.runtime.get_raw_input();
+                            // 1. 调用引擎的上屏逻辑（会自动提交首选词，并清理缓冲区）
+                            let mut actions = state.runtime.commit_staging_buffer();
+                            // 2. 确保引擎状态彻底切回英文
                             state.runtime.deactivate();
-                            let mut actions = Vec::new();
-                            if !raw.is_empty() {
-                                actions.push(Action::CommitText(raw));
-                            }
-                            actions.push(Action::ClearPreedit);
+                            // 3. 发送给 Wayland
                             state.flush_actions(&actions);
                             if let Some(overlay) = &mut state.overlay {
                                 overlay.hide();

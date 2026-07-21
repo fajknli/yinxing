@@ -138,9 +138,9 @@ impl Dispatch<WlPointer, ()> for WaylandState {
             wl_pointer::Event::Enter { surface_x, .. }
             | wl_pointer::Event::Motion { surface_x, .. } => {
                 if let Some(overlay) = &mut state.overlay {
-                    if overlay.on_pointer_motion(surface_x) {
-                        state.overlay_dirty = true;
-                    }
+                    // 仅更新 overlay 内部的 selected 索引，不需要设置 overlay_dirty
+                    // 因为渲染循环每帧都会重绘，selected 变了高亮自然会动
+                    overlay.on_pointer_motion(surface_x);
                 }
             }
             wl_pointer::Event::Button { button, state: btn, .. } => {
@@ -150,16 +150,18 @@ impl Dispatch<WlPointer, ()> for WaylandState {
                     if let Some(overlay) = &mut state.overlay {
                         match overlay.on_pointer_click() {
                             Some(CandiEvent::Clicked { index }) => {
-                                let actions = state.runtime.commit_nth(index);
-                                state.flush_actions(&actions);
+                                let items = state.runtime.candidate_items();
+                                if let Some(item) = items.get(index) {
+                                    if item.prefix.is_some() {
+                                        let cand_index = items.iter().take(index).filter(|i| i.prefix.is_some()).count();
+                                        let actions = state.runtime.commit_nth(cand_index);
+                                        state.flush_actions(&actions);
+                                    }
+                                }
                                 state.overlay_dirty = true;
                             }
-                            Some(CandiEvent::Dismissed) => {
-                                let actions = vec![Action::ClearPreedit];
-                                state.runtime.deactivate();
-                                state.flush_actions(&actions);
-                                state.overlay_dirty = true;
-                            }
+                            // 删掉 Dismissed 的强制清空逻辑，因为内部点击不应该触发取消
+                            // Some(CandiEvent::Dismissed) => { ... }
                             _ => {}
                         }
                     }
@@ -328,7 +330,8 @@ pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u3
                 } else if state.runtime.is_chinese() && state.runtime.has_candidates() {
                     let items = state.runtime.candidate_items();
                     if let Some(overlay) = &mut state.overlay {
-                        overlay.show(items, 0);
+                        let sel = state.runtime.get_highlight_idx();
+                        overlay.show(items, sel);
                     }
                 } else {
                     if let Some(overlay) = &mut state.overlay {
@@ -397,6 +400,10 @@ pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u3
                     let mods = state.current_mods;
                     let actions = state.runtime.process_key(key, mods);
                     state.flush_actions(&actions);
+                    // 连击时也打断
+                    if state.notification.is_some() {
+                        state.notification = None;
+                    }
                     state.overlay_dirty = true;
                     state.repeat_next = Some(
                         std::time::Instant::now()

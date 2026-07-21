@@ -55,11 +55,18 @@ pub struct Config {
     pub fg: u32,
     pub selected_bg: u32,
     pub selected_fg: u32,
+    pub preedit_fg: u32,       // 新增
+    pub preedit_bg: u32,       // 新增
+    pub label_fg: u32,         // 新增
+    pub divider_color: u32,    // 新增
+    pub corner_radius: f32,
     pub font: String,
     pub font_size: f32,
     pub hpad: f32,
+    pub preedit_hpad: f32,
     pub vpad: f32,
     pub gap: f32,
+    pub preedit_gap: f32,
     pub max_items: usize,
     pub clickable: bool,
 }
@@ -68,17 +75,24 @@ impl Default for Config {
     fn default() -> Self {
         Self {
             anchor: Anchor::BottomCenter,
-            bg: 0xE61a1a1a,
-            fg: 0xFFe0e0e0,
-            selected_bg: 0xFF3a6ea5,
-            selected_fg: 0xFFffffff,
+            bg: 0xE6141522,           // 0 Black (带透明度)
+            fg: 0xFFa9b5d5,           // 7 White
+            selected_bg: 0xFF565d7e,  // 4 Blue (深冷灰)
+            selected_fg: 0xFFd4dcf2,  // 15 Bright White
+            preedit_fg: 0xFF8fa1cc,   // 3 Yellow/中冷蓝
+            preedit_bg: 0xFF1b1d2b,   // 8 Bright Black (微冷黑)
+            label_fg: 0xFF6f78a0,     // 6 Cyan (暗冷灰)
+            divider_color: 0xFF1b1d2b,// 8 Bright Black
             font: String::new(),
             font_size: 16.0,
             hpad: 12.0,
+            preedit_hpad: 12.0,
             vpad: 4.0,
             gap: 6.0,
+            preedit_gap: 10.0,
             max_items: 9,
             clickable: true,
+            corner_radius: 4.0,
         }
     }
 }
@@ -131,7 +145,8 @@ impl Drop for BufferSlot {
 }
 
 struct LayoutItem {
-    display: String,
+    prefix: Option<String>,
+    text: String,
     x: i32,
     w: i32,
 }
@@ -145,7 +160,7 @@ pub struct Overlay {
     renderer: TextRenderer,
     buffers: [Option<BufferSlot>; 2],
     items: Vec<Item>,
-    selected: usize,
+    pub (crate) selected: usize,
     visible: bool,
     width: i32,
     height: i32,
@@ -233,9 +248,7 @@ impl Overlay {
 
     pub fn show(&mut self, items: Vec<Item>, selected: usize) {
         if items.is_empty() { self.hide(); return; }
-        let max = self.config.max_items;
-        let count = items.len().min(max);
-        self.selected = selected.min(count.saturating_sub(1));
+        self.selected = selected.min(items.len().saturating_sub(1));
         self.items = items;
         self.visible = true;
         self.layout_items();
@@ -298,7 +311,7 @@ impl Overlay {
     }
 
     pub fn set_selected(&mut self, idx: usize) {
-        let max = self.items.len().min(self.config.max_items);
+        let max = self.items.len();
         if max == 0 { return; }
         let clamped = idx.min(max - 1);
         if clamped != self.selected {
@@ -333,9 +346,14 @@ impl Overlay {
         if !self.config.clickable || !self.visible || self.layout.is_empty() {
             return false;
         }
-        let px = x as i32;
+        // 关键修复：将逻辑坐标乘以 scale，转为物理像素坐标
+        let px = (x * self.scale as f64) as i32;
         for (i, item) in self.layout.iter().enumerate() {
             if px >= item.x && px < item.x + item.w {
+                // 如果悬停在 preedit 上，不算选中候选词
+                let is_preedit = i == 0 && item.prefix.is_none() && self.layout.len() > 1;
+                if is_preedit { return false; }
+
                 if i != self.selected {
                     self.selected = i;
                     return true;
@@ -348,13 +366,18 @@ impl Overlay {
 
     pub(crate) fn on_pointer_click(&mut self) -> Option<Event> {
         if !self.config.clickable || !self.visible { return None; }
-        let px = self.pointer_x as i32;
+        let px = (self.pointer_x * self.scale as f64) as i32;
         for (i, item) in self.layout.iter().enumerate() {
             if px >= item.x && px < item.x + item.w {
+                let is_preedit = i == 0 && item.prefix.is_none() && self.layout.len() > 1;
+                // 1. 如果点在 preedit 上，直接忽略，什么也不做
+                if is_preedit { return None; }
+                // 2. 只有点在真正的候选词上，才返回 Clicked
                 return Some(Event::Clicked { index: i });
             }
         }
-        Some(Event::Dismissed)
+        // 3. 如果点在间隙或空白处，返回 None，不再返回 Dismissed！
+        None
     }
 
     pub(crate) fn on_closed(&mut self) -> Event {
@@ -538,54 +561,56 @@ impl Overlay {
         let stride = w * 4;
         let pixels = unsafe { std::slice::from_raw_parts_mut(entry.ptr, entry.size) };
 
-        let bg = argb_to_bgra(self.config.bg);
-        for chunk in pixels.chunks_exact_mut(4) {
-            chunk.copy_from_slice(&bg);
-        }
-
         let font_size = self.config.font_size * scale as f32;
         let base_lh = self.renderer.line_height(font_size);
         let vpad = self.config.vpad.round() as i32 * scale;
-        let hpad = self.config.hpad.round() as i32 * scale;
         let text_y = ((base_lh * 1.15 - base_lh) / 2.0).round() as i32 + vpad;
 
-        for (i, item) in self.layout.iter().enumerate() {
-            let sel = i == self.selected;
-            if sel {
-                let sel_bg = argb_to_bgra(self.config.selected_bg);
-                fill_rect(pixels, stride, w, h, item.x, 0, item.w, h, &sel_bg);
-            }
-            let fg = if sel { self.config.selected_fg } else { self.config.fg };
-            self.renderer.render_text(
-                pixels, w, h, stride, &item.display,
-                item.x + hpad, text_y, font_size, fg,
-            );
-        }
+        self.render_items(pixels, w, h, stride, text_y, font_size);
     }
 
     fn layout_items(&mut self) {
         self.layout.clear();
         let scale = self.scale;
         let hpad = self.config.hpad.round() as i32 * scale;
+        let preedit_hpad = self.config.preedit_hpad.round() as i32 * scale;
         let gap = self.config.gap.round() as i32 * scale;
+        let preedit_gap = self.config.preedit_gap.round() as i32 * scale;
         let font_size = self.config.font_size * scale as f32;
-        let count = self.items.len().min(self.config.max_items);
-        let mut x = 0;  // ← 从 0 开始，不留前置空白
+        let count = self.items.len();
+        let last_idx = count.saturating_sub(1);
+        let mut x = 0;
 
         for i in 0..count {
             let item = &self.items[i];
+            let is_preedit = i == 0 && item.prefix.is_none() && count > 1;
+            let pad = if is_preedit { preedit_hpad } else { hpad };
+
             let display = match &item.prefix {
                 Some(p) => format!("{}{}", p, item.text),
                 None => item.text.clone(),
             };
             let tw = self.renderer.measure_width(&display, font_size);
-            let iw = tw + hpad * 2;
-            self.layout.push(LayoutItem { display, x, w: iw });
-            x += iw + gap;
+            let iw = tw + pad * 2;
+            self.layout.push(LayoutItem {
+                prefix: item.prefix.clone(),
+                text: item.text.clone(),
+                x,
+                w: iw,
+            });
+
+            // 先加上当前项的宽度
+            x += iw;
+
+            // 如果不是最后一项，再加上间距
+            if i < last_idx {
+                let current_gap = if is_preedit { preedit_gap } else { gap };
+                x += current_gap;
+            }
         }
 
-        // 去掉首尾 hpad
-        let pw = if self.layout.is_empty() { 0 } else { x - gap };
+        // 直接用最终的 x 作为总宽度，完美贴合，不再有多余的 gap
+        let pw = x;
         self.want_w = (pw + scale - 1) / scale;
         let base_lh = self.renderer.line_height(font_size);
         let vpad = self.config.vpad.round() as i32 * scale;
@@ -671,29 +696,90 @@ impl Overlay {
         let stride = w * 4;
         let pixels = unsafe { std::slice::from_raw_parts_mut(entry.ptr, entry.size) };
 
-        let bg = argb_to_bgra(self.config.bg);
-        for chunk in pixels.chunks_exact_mut(4) {
-            chunk.copy_from_slice(&bg);
-        }
-
         let font_size = self.config.font_size * scale as f32;
         let base_lh = self.renderer.line_height(font_size);
         let vpad = self.config.vpad.round() as i32 * scale;
-        let hpad = self.config.hpad.round() as i32 * scale;
         let text_y = ((base_lh * 1.15 - base_lh) / 2.0).round() as i32 + vpad;
 
+        self.render_items(pixels, w, h, stride, text_y, font_size);
+    }
+
+    fn render_items(
+        &mut self,
+        pixels: &mut [u8],
+        w: i32,
+        h: i32,
+        stride: i32,
+        text_y: i32,
+        font_size: f32,
+    ) {
+        for chunk in pixels.chunks_exact_mut(4) {
+            chunk.copy_from_slice(&[0, 0, 0, 0]);
+        }
+        let bg = argb_to_bgra(self.config.bg);
+        let radius = (self.config.corner_radius * self.scale as f32).round() as i32;
+        fill_rounded_rect(pixels, stride, w, h, 0, 0, w, h, &bg, radius);
+
+        let scale = self.scale;
+        let hpad = self.config.hpad.round() as i32 * scale;
+        let preedit_hpad = self.config.preedit_hpad.round() as i32 * scale;
+
+        let total_items = self.layout.len();
         for (i, item) in self.layout.iter().enumerate() {
-            let sel = i == self.selected;
-            if sel {
+            let is_first = i == 0;
+            let is_last = i == total_items - 1;
+            let is_preedit = is_first && item.prefix.is_none() && total_items > 1;
+            let sel = i == self.selected && !is_preedit;
+            let pad = if is_preedit { preedit_hpad } else { hpad };
+
+            // 1. 绘制背景
+            if is_preedit {
+                if self.config.preedit_bg != self.config.bg {
+                    let p_bg = argb_to_bgra(self.config.preedit_bg);
+                    if total_items > 1 {
+                        fill_left_rounded_rect(pixels, stride, w, h, item.x, 0, item.w, h, &p_bg, radius);
+                    } else {
+                        fill_rounded_rect(pixels, stride, w, h, item.x, 0, item.w, h, &p_bg, radius);
+                    }
+                }
+            } else if sel {
                 let sel_bg = argb_to_bgra(self.config.selected_bg);
-                fill_rect(pixels, stride, w, h, item.x, 0, item.w, h, &sel_bg);
+                if is_first && is_last {
+                    fill_rounded_rect(pixels, stride, w, h, item.x, 0, item.w, h, &sel_bg, radius);
+                } else if is_first {
+                    fill_left_rounded_rect(pixels, stride, w, h, item.x, 0, item.w, h, &sel_bg, radius);
+                } else if is_last {
+                    fill_right_rounded_rect(pixels, stride, w, h, item.x, 0, item.w, h, &sel_bg, radius);
+                } else {
+                    fill_rect(pixels, stride, w, h, item.x, 0, item.w, h, &sel_bg);
+                }
             }
-            let fg = if sel { self.config.selected_fg } else { self.config.fg };
+
+            // 2. 确定文字颜色
+            let text_color = if is_preedit {
+                self.config.preedit_fg
+            } else if sel {
+                self.config.selected_fg
+            } else {
+                self.config.fg
+            };
+
+            // 3. 绘制文本 (使用各自的 pad)
+            let mut text_x = item.x + pad;
+
+            if let Some(p) = &item.prefix {
+                let pw = self.renderer.measure_width(p, font_size);
+                self.renderer.render_text(
+                    pixels, w, h, stride,
+                    p, text_x, text_y, font_size,
+                    if sel { self.config.selected_fg } else { self.config.label_fg },
+                );
+                text_x += pw;
+            }
+
             self.renderer.render_text(
                 pixels, w, h, stride,
-                &item.display,
-                item.x + hpad,
-                text_y, font_size, fg,
+                &item.text, text_x, text_y, font_size, text_color,
             );
         }
     }
@@ -723,6 +809,200 @@ fn fill_rect(pixels: &mut [u8], stride: i32, bw: i32, bh: i32,
         let start = (py * stride + x0 * 4) as usize;
         for chunk in pixels[start..start + row_bytes].chunks_exact_mut(4) {
             chunk.copy_from_slice(c);
+        }
+    }
+}
+
+fn fill_rounded_rect(
+    pixels: &mut [u8], stride: i32, bw: i32, bh: i32,
+    rx: i32, ry: i32, rw: i32, rh: i32,
+    color: &[u8; 4], radius: i32,
+) {
+    if radius <= 0 {
+        fill_rect(pixels, stride, bw, bh, rx, ry, rw, rh, color);
+        return;
+    }
+    let x0 = rx.max(0);
+    let x1 = (rx + rw).min(bw);
+    let y0 = ry.max(0);
+    let y1 = (ry + rh).min(bh);
+    if x0 >= x1 || y0 >= y1 { return; }
+
+    let r = radius.min(rw / 2).min(rh / 2) as f32;
+    let row_bytes = (x1 - x0) as usize * 4;
+
+    for py in y0..y1 {
+        let row_start = (py * stride) as usize;
+        let base = row_start + x0 as usize * 4;
+
+        // 中间行不走圆角判断，直接填
+        if py >= y0 + r as i32 && py < y1 - r as i32 {
+            for chunk in pixels[base..base + row_bytes].chunks_exact_mut(4) {
+                chunk.copy_from_slice(color);
+            }
+            continue;
+        }
+
+        for px in x0..x1 {
+            let dx = if px < x0 + r as i32 {
+                x0 as f32 + r - px as f32
+            } else if px >= x1 - r as i32 {
+                px as f32 - (x1 as f32 - 1.0 - r)
+            } else {
+                0.0
+            };
+            let dy = if py < y0 + r as i32 {
+                y0 as f32 + r - py as f32
+            } else if py >= y1 - r as i32 {
+                py as f32 - (y1 as f32 - 1.0 - r)
+            } else {
+                0.0
+            };
+
+            if dx <= 0.0 || dy <= 0.0 {
+                // 不在圆角区域
+                let idx = row_start + px as usize * 4;
+                pixels[idx..idx + 4].copy_from_slice(color);
+                continue;
+            }
+
+            let dist = (dx * dx + dy * dy).sqrt();
+            if dist > r + 0.5 { continue; }
+
+            // 抗锯齿
+            let alpha = if dist <= r - 0.5 { 1.0 } else { r + 0.5 - dist };
+
+            let idx = row_start + px as usize * 4;
+            pixels[idx] = color[0];
+            pixels[idx + 1] = color[1];
+            pixels[idx + 2] = color[2];
+            pixels[idx + 3] = (color[3] as f32 * alpha) as u8;
+        }
+    }
+}
+fn fill_left_rounded_rect(
+    pixels: &mut [u8], stride: i32, bw: i32, bh: i32,
+    rx: i32, ry: i32, rw: i32, rh: i32,
+    color: &[u8; 4], radius: i32,
+) {
+    if radius <= 0 {
+        fill_rect(pixels, stride, bw, bh, rx, ry, rw, rh, color);
+        return;
+    }
+    let x0 = rx.max(0);
+    let x1 = (rx + rw).min(bw);
+    let y0 = ry.max(0);
+    let y1 = (ry + rh).min(bh);
+    if x0 >= x1 || y0 >= y1 { return; }
+
+    let r = radius.min(rw / 2).min(rh / 2) as f32;
+    let row_bytes = (x1 - x0) as usize * 4;
+
+    for py in y0..y1 {
+        let row_start = (py * stride) as usize;
+        let base = row_start + x0 as usize * 4;
+
+        // 中间行，快速路径
+        if py >= y0 + r as i32 && py < y1 - r as i32 {
+            for chunk in pixels[base..base + row_bytes].chunks_exact_mut(4) {
+                chunk.copy_from_slice(color);
+            }
+            continue;
+        }
+
+        for px in x0..x1 {
+            // 只对左侧做圆角，右侧直接填
+            let dx = if px < x0 + r as i32 {
+                x0 as f32 + r - px as f32
+            } else {
+                0.0
+            };
+            let dy = if py < y0 + r as i32 {
+                y0 as f32 + r - py as f32
+            } else if py >= y1 - r as i32 {
+                py as f32 - (y1 as f32 - 1.0 - r)
+            } else {
+                0.0
+            };
+
+            if dx <= 0.0 {
+                let idx = row_start + px as usize * 4;
+                pixels[idx..idx + 4].copy_from_slice(color);
+                continue;
+            }
+
+            let dist = (dx * dx + dy * dy).sqrt();
+            if dist > r + 0.5 { continue; }
+
+            let alpha = if dist <= r - 0.5 { 1.0 } else { r + 0.5 - dist };
+            let idx = row_start + px as usize * 4;
+            pixels[idx] = color[0];
+            pixels[idx + 1] = color[1];
+            pixels[idx + 2] = color[2];
+            pixels[idx + 3] = (color[3] as f32 * alpha) as u8;
+        }
+    }
+}
+fn fill_right_rounded_rect(
+    pixels: &mut [u8], stride: i32, bw: i32, bh: i32,
+    rx: i32, ry: i32, rw: i32, rh: i32,
+    color: &[u8; 4], radius: i32,
+) {
+    if radius <= 0 {
+        fill_rect(pixels, stride, bw, bh, rx, ry, rw, rh, color);
+        return;
+    }
+    let x0 = rx.max(0);
+    let x1 = (rx + rw).min(bw);
+    let y0 = ry.max(0);
+    let y1 = (ry + rh).min(bh);
+    if x0 >= x1 || y0 >= y1 { return; }
+
+    let r = radius.min(rw / 2).min(rh / 2) as f32;
+    let row_bytes = (x1 - x0) as usize * 4;
+
+    for py in y0..y1 {
+        let row_start = (py * stride) as usize;
+        let base = row_start + x0 as usize * 4;
+
+        // 中间行，快速路径
+        if py >= y0 + r as i32 && py < y1 - r as i32 {
+            for chunk in pixels[base..base + row_bytes].chunks_exact_mut(4) {
+                chunk.copy_from_slice(color);
+            }
+            continue;
+        }
+
+        for px in x0..x1 {
+            // 只对右侧做圆角，左侧直接填
+            let dx = if px >= x1 - r as i32 {
+                px as f32 - (x1 as f32 - 1.0 - r)
+            } else {
+                0.0
+            };
+            let dy = if py < y0 + r as i32 {
+                y0 as f32 + r - py as f32
+            } else if py >= y1 - r as i32 {
+                py as f32 - (y1 as f32 - 1.0 - r)
+            } else {
+                0.0
+            };
+
+            if dx <= 0.0 {
+                let idx = row_start + px as usize * 4;
+                pixels[idx..idx + 4].copy_from_slice(color);
+                continue;
+            }
+
+            let dist = (dx * dx + dy * dy).sqrt();
+            if dist > r + 0.5 { continue; }
+
+            let alpha = if dist <= r - 0.5 { 1.0 } else { r + 0.5 - dist };
+            let idx = row_start + px as usize * 4;
+            pixels[idx] = color[0];
+            pixels[idx + 1] = color[1];
+            pixels[idx + 2] = color[2];
+            pixels[idx + 3] = (color[3] as f32 * alpha) as u8;
         }
     }
 }
