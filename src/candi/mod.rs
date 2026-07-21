@@ -75,21 +75,21 @@ impl Default for Config {
     fn default() -> Self {
         Self {
             anchor: Anchor::BottomCenter,
-            bg: 0xE6141522,           // 0 Black (带透明度)
-            fg: 0xFFa9b5d5,           // 7 White
-            selected_bg: 0xFF565d7e,  // 4 Blue (深冷灰)
-            selected_fg: 0xFFd4dcf2,  // 15 Bright White
-            preedit_fg: 0xFF8fa1cc,   // 3 Yellow/中冷蓝
-            preedit_bg: 0xFF1b1d2b,   // 8 Bright Black (微冷黑)
-            label_fg: 0xFF6f78a0,     // 6 Cyan (暗冷灰)
-            divider_color: 0xFF1b1d2b,// 8 Bright Black
+            bg: 0xE6141522,
+            fg: 0xFFa9b5d5,
+            selected_bg: 0xFF565d7e,
+            selected_fg: 0xFFd4dcf2,
+            preedit_fg: 0xFF8fa1cc,
+            preedit_bg: 0xFF1b1d2b,
+            label_fg: 0xFF6f78a0,
+            divider_color: 0xFF1b1d2b,
             font: String::new(),
             font_size: 16.0,
-            hpad: 12.0,
-            preedit_hpad: 12.0,
-            vpad: 4.0,
-            gap: 6.0,
-            preedit_gap: 10.0,
+            hpad: 6.0,
+            preedit_hpad: 6.0,
+            vpad: 2.0,
+            gap: 3.0,
+            preedit_gap: 0.0,
             max_items: 9,
             clickable: true,
             corner_radius: 4.0,
@@ -177,7 +177,7 @@ pub struct Overlay {
     cursor_w: i32,
     cursor_h: i32,
     scale: i32,
-    rendered: bool, // 标记当前帧是否已经渲染过
+    pub(crate) rendered: bool, // 标记当前帧是否已经渲染过
     popup_buffers: [Option<BufferSlot>; 2],
     use_popup: bool,
     //独立的 popup surface 用于接收光标坐标

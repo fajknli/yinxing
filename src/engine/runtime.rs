@@ -45,7 +45,7 @@ pub struct RuntimeState {
     candidates: Vec<CandidateItem>,
     learner: Learner,
     custom_phrases_path: String,
-    cfg: crate::config::BehaviorConfig,
+    pub cfg: crate::config::BehaviorConfig,
     highlight_idx: usize,
 }
 
@@ -614,7 +614,7 @@ impl RuntimeState {
                     if dp[start].is_empty() { continue; }
 
                     // 优化：3键段直接用切片，避免 Vec 分配
-                    let mut entries_owned: Vec<Entry> = Vec::new();
+                    let mut entries_owned: Vec<Entry>;
                     let entries: &[Entry] = if len == 3 {
                         self.table.exact_chars(segment).unwrap_or(&[])
                     } else {
@@ -904,7 +904,12 @@ impl RuntimeState {
 
     pub fn activate(&mut self) {
         self.clear();
-        self.mode = ImeState::English;
+        // 根据配置决定激活时的默认模式
+        self.mode = if self.cfg.default_mode_on_activate == "chinese" {
+            ImeState::Chinese
+        } else {
+            ImeState::English
+        };
     }
 
     pub fn toggle_to_chinese(&mut self) {

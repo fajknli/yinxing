@@ -12,6 +12,7 @@ pub struct BehaviorConfig {
     pub max_phrase_chars: usize,
     pub auto_commit_unselected: bool,
     pub punctuation: String,
+    pub default_mode_on_activate: String,
 }
 
 impl Default for BehaviorConfig {
@@ -23,6 +24,7 @@ impl Default for BehaviorConfig {
             max_phrase_chars: 8,
             auto_commit_unselected: true,
             punctuation: "chinese".to_string(),
+            default_mode_on_activate: "english".to_string(),
         }
     }
 }
@@ -46,7 +48,7 @@ impl Default for AppConfig {
             file_chars: "dicts/chars.txt".to_string(),
             file_words: "dicts/words.txt".to_string(),
             file_user: "dicts/user.txt".to_string(),
-            custom_phrases: String::new(), // 空 = 自动从 file_user 推导
+            custom_phrases: String::new(),
         }
     }
 }
@@ -77,7 +79,6 @@ impl AppConfig {
             if let Some(v) = ap.get("font").and_then(|v| v.as_str()) {
                 cfg.candi.font = v.to_string();
             }
-            // 使用 get_f32 兼容整数和浮点数
             if let Some(v) = get_f32(ap, "font_size") { cfg.candi.font_size = v; }
 
             if let Some(v) = ap.get("bg").and_then(|v| v.as_integer()) {
@@ -92,7 +93,6 @@ impl AppConfig {
             if let Some(v) = ap.get("selected_fg").and_then(|v| v.as_integer()) {
                 cfg.candi.selected_fg = v as u32;
             }
-            // 新增颜色
             if let Some(v) = ap.get("preedit_fg").and_then(|v| v.as_integer()) {
                 cfg.candi.preedit_fg = v as u32;
             }
@@ -106,7 +106,7 @@ impl AppConfig {
                 cfg.candi.divider_color = v as u32;
             }
 
-            // 布局参数 (全部使用 get_f32 兼容写 0 或 0.0)
+            // 更新默认布局参数
             if let Some(v) = get_f32(ap, "hpad") { cfg.candi.hpad = v; }
             if let Some(v) = get_f32(ap, "preedit_hpad") { cfg.candi.preedit_hpad = v; }
             if let Some(v) = get_f32(ap, "vpad") { cfg.candi.vpad = v; }
@@ -138,6 +138,9 @@ impl AppConfig {
             }
             if let Some(v) = bh.get("punctuation").and_then(|v| v.as_str()) {
                 cfg.behavior.punctuation = v.to_string();
+            }
+            if let Some(v) = bh.get("default_mode_on_activate").and_then(|v| v.as_str()) {
+                cfg.behavior.default_mode_on_activate = v.to_string();
             }
         }
 
@@ -182,7 +185,7 @@ impl AppConfig {
 
 // ━━━━━━━━━━━━━━━━ Helpers ━━━━━━━━━━━━━━━━
 
-fn config_path() -> String {
+pub fn config_path() -> String {
     if let Ok(xdg) = std::env::var("XDG_CONFIG_HOME") {
         return format!("{}/yinxing/config.toml", xdg);
     }

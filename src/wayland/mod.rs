@@ -60,6 +60,7 @@ pub struct WaylandState {
     pub notification: Option<(String, std::time::Instant)>,
     pub last_mode_chinese: bool,
     pub has_cursor_info: bool,
+    pub config_path: String,
 }
 
 impl WaylandState {
@@ -232,6 +233,21 @@ impl Dispatch<WlSurface, ()> for WaylandState {
 // ─── Main loop ───
 
 pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u32, repeat_rate_ms: u32) -> Result<(), Box<dyn std::error::Error>> {
+
+    // ── 阻塞 SIGHUP 信号，防止默认行为终止进程 ──
+    let mut mask: libc::sigset_t = unsafe { std::mem::zeroed() };
+    unsafe {
+        libc::sigemptyset(&mut mask);
+        libc::sigaddset(&mut mask, libc::SIGHUP);
+        libc::sigprocmask(libc::SIG_BLOCK, &mask, std::ptr::null_mut());
+    }
+
+    // ── 创建 signalfd ──
+    let sfd = unsafe { libc::signalfd(-1, &mask, 0) };
+    if sfd == -1 {
+        eprintln!("dust: warning: failed to create signalfd, --reload disabled");
+    }
+
     let conn = Connection::connect_to_env()?;
     let (globals, mut eq) = wayland_client::globals::registry_queue_init::<WaylandState>(&conn)?;
     let qh = eq.handle();
@@ -265,6 +281,7 @@ pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u3
         notification: None,
         last_mode_chinese: false,
         has_cursor_info: false,
+        config_path: crate::config::config_path(),
     };
 
     let seat = state.seat.as_ref().ok_or("no wl_seat")?;
@@ -381,8 +398,10 @@ pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u3
         let wayland_fd = conn.backend().poll_fd().as_raw_fd();
         let mut fds = [
             libc::pollfd { fd: wayland_fd, events: libc::POLLIN, revents: 0 },
+            libc::pollfd { fd: sfd, events: libc::POLLIN, revents: 0 }, // signalfd
         ];
-        unsafe { libc::poll(fds.as_mut_ptr(), 1, timeout_ms); }
+
+        unsafe { libc::poll(fds.as_mut_ptr(), 2, timeout_ms); }
 
         if fds[0].revents & libc::POLLIN != 0 {
             if eq.blocking_dispatch(&mut state).is_err() {
@@ -391,6 +410,39 @@ pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u3
             }
         } else {
             let _ = eq.dispatch_pending(&mut state);
+        }
+
+        // ── 处理 SIGHUP 信号 (配置热加载) ──
+        if sfd != -1 && fds[1].revents & libc::POLLIN != 0 {
+            // 必须读取信号信息，否则 poll 会一直被唤醒
+            let mut buf: libc::signalfd_siginfo = unsafe { std::mem::zeroed() };
+            unsafe {
+                libc::read(sfd, &mut buf as *mut _ as *mut libc::c_void, std::mem::size_of::<libc::signalfd_siginfo>());
+            }
+
+            eprintln!("dust: SIGHUP received, reloading config...");
+            let new_cfg = crate::config::AppConfig::load();
+
+            // 1. 更新 Overlay 配置
+            if let Some(overlay) = &mut state.overlay {
+                if overlay.config.font != new_cfg.candi.font {
+                    eprintln!("dust: warning: font change requires restart.");
+                }
+                overlay.config = new_cfg.candi;
+
+                // 优化：如果当前候选框可见，立刻重新布局并应用
+                if overlay.is_visible() {
+                    let items = state.runtime.candidate_items();
+                    let sel = state.runtime.get_highlight_idx();
+                    overlay.show(items, sel); // show 内部会调用 layout_items
+                } else {
+                    overlay.rendered = false;
+                }
+                state.overlay_dirty = true;
+            }
+
+            // 2. 更新引擎行为配置
+            state.runtime.cfg = new_cfg.behavior;
         }
 
         // ── 5. Key repeat ──
