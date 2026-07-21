@@ -3,6 +3,7 @@ use rustc_hash::FxHashSet;
 use crate::engine::action::Action;
 use crate::engine::learner::Learner;
 use crate::engine::lookup::LookupTable;
+use crate::engine::lookup::Entry;
 use crate::keys;
 use crate::state::ImeState;
 use crate::candi;
@@ -588,8 +589,11 @@ impl RuntimeState {
                 entry.weight += self.learner.get_boost(entry.text.as_ref());
             }
             entries.sort_by(|a, b| b.weight.cmp(&a.weight));
-            let mut seen = FxHashSet::default();
-            entries.retain(|e| seen.insert(e.text.clone()));
+
+            // 优化：显式指定为 Rc<str>，避免 clone 时分配 String
+            let mut seen: FxHashSet<Rc<str>> = FxHashSet::default();
+            entries.retain(|e| seen.insert(Rc::clone(&e.text)));
+
             self.candidates = entries.into_iter().map(|e| CandidateItem {
                 text: e.text.to_string(),
                 consumed: n,
@@ -609,27 +613,39 @@ impl RuntimeState {
 
                     if dp[start].is_empty() { continue; }
 
-                    let mut entries = self.table.get_all_for_code(segment);
-
-                    if len >= 6 && len % 3 == 0 {
-                        let num_chars = len / 3;
-                        let mut sub_codes = Vec::new();
-                        for j in 0..num_chars {
-                            sub_codes.push(segment[j*3..(j+1)*3].to_string());
+                    // 优化：3键段直接用切片，避免 Vec 分配
+                    let mut entries_owned: Vec<Entry> = Vec::new();
+                    let entries: &[Entry] = if len == 3 {
+                        self.table.exact_chars(segment).unwrap_or(&[])
+                    } else {
+                        entries_owned = self.table.get_all_for_code(segment);
+                        if len >= 6 && len % 3 == 0 {
+                            let num_chars = len / 3;
+                            // 优化：用 &str 避免在循环里分配 String
+                            let mut sub_codes: Vec<&str> = Vec::with_capacity(num_chars);
+                            for j in 0..num_chars {
+                                sub_codes.push(&segment[j*3..(j+1)*3]);
+                            }
+                            if let Some(isir_code) = encode_word_from_codes(&sub_codes) {
+                                entries_owned.extend(self.table.get_all_for_code(&isir_code));
+                            }
                         }
-                        if let Some(isir_code) = encode_word_from_codes(&sub_codes) {
-                            entries.extend(self.table.get_all_for_code(&isir_code));
-                        }
-                    }
+                        &entries_owned
+                    };
 
-                    let prev_nodes = dp[start].clone();
+                    if entries.is_empty() { continue; }
+
+                    // 优化：用 split_at_mut 避免整块 clone Vec 和 Rc
+                    let (left_dp, right_dp) = dp.split_at_mut(i);
+                    let prev_nodes = &left_dp[start];
+                    let curr_dp = &mut right_dp[0];
 
                     for (p_idx, prev_node) in prev_nodes.iter().enumerate() {
-                        for entry in &entries {
+                        for entry in entries {
                             let base_score = entry.weight as f64 + self.learner.get_boost(entry.text.as_ref()) as f64;
                             let new_score = prev_node.score + base_score;
 
-                            dp[i].push(DpNode {
+                            curr_dp.push(DpNode {
                                 score: new_score,
                                 word: Rc::clone(&entry.text),
                                 prev: Some((start, p_idx)),
@@ -644,7 +660,8 @@ impl RuntimeState {
 
             for i in 3..=n {
                 for node in &dp[i] {
-                    let mut parts: Vec<&str> = Vec::new();
+                    // 优化：预分配 parts 容量
+                    let mut parts: Vec<&str> = Vec::with_capacity(10);
                     let mut curr = node;
                     parts.push(curr.word.as_ref());
 
@@ -654,7 +671,13 @@ impl RuntimeState {
                     }
 
                     parts.reverse();
-                    let text = parts.join("");
+
+                    // 优化：精确预分配 text 容量，避免 join 底层扩容
+                    let total_len = parts.iter().map(|p| p.len()).sum();
+                    let mut text = String::with_capacity(total_len);
+                    for p in &parts {
+                        text.push_str(p);
+                    }
 
                     if !text.is_empty() && !self.candidates.iter().any(|c| c.text == text) {
                         self.candidates.push(CandidateItem {
@@ -773,7 +796,9 @@ impl RuntimeState {
     }
 
     fn commit_with_suffix(&mut self, suffix: &str) -> Vec<Action> {
-        let mut text = String::new();
+        // 优化：预分配容量
+        let total_len: usize = self.blocks.iter().map(|b| b.text.len().max(b.code.len())).sum();
+        let mut text = String::with_capacity(total_len + suffix.len());
 
         for (i, b) in self.blocks.iter().enumerate() {
             if i == self.active_idx {
@@ -835,9 +860,10 @@ impl RuntimeState {
         if code_len >= 6 && code_len % 3 == 0 {
             let num_chars = code_len / 3;
             if num_chars >= 2 && num_chars <= 8 {
-                let mut sub_codes = Vec::new();
+                // 优化：使用 &str
+                let mut sub_codes: Vec<&str> = Vec::with_capacity(num_chars);
                 for i in 0..num_chars {
-                    sub_codes.push(cand.code[i*3..(i+1)*3].to_string());
+                    sub_codes.push(&cand.code[i*3..(i+1)*3]);
                 }
                 if let Some(new_code) = encode_word_from_codes(&sub_codes) {
                     let exists_in_main = self.table.word_exists(&new_code, &cand.text);
@@ -900,9 +926,11 @@ impl RuntimeState {
     pub fn flush_user_buffer(&mut self) {}
 
     pub fn candidate_items(&self) -> Vec<candi::Item> {
-        let mut items = Vec::new();
+        // 优化：预分配容量，避免动态扩容
+        let mut items = Vec::with_capacity(self.candidates.len() + 1);
+        let total_len: usize = self.blocks.iter().map(|b| b.text.len().max(b.code.len())).sum();
+        let mut preview = String::with_capacity(total_len);
 
-        let mut preview = String::new();
         for (i, b) in self.blocks.iter().enumerate() {
             if i == self.active_idx {
                 if !self.current_selection.is_empty() {
@@ -924,8 +952,17 @@ impl RuntimeState {
         let start = self.page * self.cfg.page_size;
         let end = (start + self.cfg.page_size).min(self.candidates.len());
         if start < end {
+            // 优化：用静态数组替代 format!
+            const PREFIXES: [&str; 20] = [
+                "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.", "10.",
+                "11.", "12.", "13.", "14.", "15.", "16.", "17.", "18.", "19.", "20."
+            ];
             items.extend(self.candidates[start..end].iter().enumerate().map(|(i, c)| {
-                let prefix = format!("{}.", i + 1);
+                let prefix = if i < PREFIXES.len() {
+                    PREFIXES[i].to_string()
+                } else {
+                    format!("{}.", i + 1)
+                };
                 candi::Item::with_prefix(prefix, c.text.clone())
             }));
         }
@@ -938,7 +975,8 @@ impl RuntimeState {
     }
 
     fn preedit_display_info(&self) -> (String, usize) {
-        let mut s = String::new();
+        let total_len: usize = self.blocks.iter().map(|b| b.text.len().max(b.code.len())).sum();
+        let mut s = String::with_capacity(total_len);
         let mut cursor_pos = 0;
         let mut offset = 0;
         let mut found_cursor = false;
@@ -1063,13 +1101,19 @@ impl RuntimeState {
     }
 }
 
-fn encode_word_from_codes(codes: &[String]) -> Option<String> {
+// 优化：改为泛型，兼容 Vec<String> 和 Vec<&str>
+fn encode_word_from_codes<T: AsRef<str>>(codes: &[T]) -> Option<String> {
     let n = codes.len();
     if n < 2 || n > 8 { return None; }
-    let c: Vec<&[u8]> = codes.iter().map(|s| s.as_bytes()).collect();
+    let c: Vec<&[u8]> = codes.iter().map(|s| s.as_ref().as_bytes()).collect();
     if c.iter().any(|s| s.len() < 3) { return None; }
 
-    let mut res = format!("{}{}{}{}", c[0][0] as char, c[0][1] as char, c[1][0] as char, c[1][2] as char);
+    // 优化：去掉 format! 宏开销
+    let mut res = String::with_capacity(n + 3);
+    res.push(c[0][0] as char);
+    res.push(c[0][1] as char);
+    res.push(c[1][0] as char);
+    res.push(c[1][2] as char);
     for i in 2..n {
         res.push(c[i][0] as char);
     }

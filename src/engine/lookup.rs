@@ -97,13 +97,18 @@ impl LookupTable {
     }
 
     fn exact_words(&self, code: &str) -> Vec<Entry> {
-        let mut res = Vec::new();
-        if let Some(idx) = self.words_sorted.binary_search_by(|(k, _)| k.as_str().cmp(code)).ok() {
-            res.extend_from_slice(&self.words_sorted[idx].1);
-        }
-        if let Some(cust) = self.custom_words.get(code) {
-            res.extend_from_slice(cust);
-        }
+        // 优化：单次 binary_search，并精确预分配容量
+        let main_entries = self.words_sorted
+            .binary_search_by(|(k, _)| k.as_str().cmp(code))
+            .ok()
+            .map(|idx| self.words_sorted[idx].1.as_slice())
+            .unwrap_or(&[]);
+
+        let cust_entries = self.custom_words.get(code).map(|v| v.as_slice()).unwrap_or(&[]);
+
+        let mut res = Vec::with_capacity(main_entries.len() + cust_entries.len());
+        res.extend_from_slice(main_entries);
+        res.extend_from_slice(cust_entries);
         res
     }
 

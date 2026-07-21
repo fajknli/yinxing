@@ -183,7 +183,7 @@ impl Dispatch<ZwpInputMethodKeyboardGrabV2, ()> for WaylandState {
                         if state.runtime.is_chinese() {
                             eprintln!("dust: shift toggle → english");
                             // 1. 调用引擎的上屏逻辑（会自动提交首选词，并清理缓冲区）
-                            let mut actions = state.runtime.commit_staging_buffer();
+                            let actions = state.runtime.commit_staging_buffer();
                             // 2. 确保引擎状态彻底切回英文
                             state.runtime.deactivate();
                             // 3. 发送给 Wayland

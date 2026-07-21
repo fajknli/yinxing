@@ -177,9 +177,10 @@ pub struct Overlay {
     cursor_w: i32,
     cursor_h: i32,
     scale: i32,
+    rendered: bool, // 标记当前帧是否已经渲染过
     popup_buffers: [Option<BufferSlot>; 2],
     use_popup: bool,
-    // ── 新增：独立的 popup surface 用于接收光标坐标 ──
+    //独立的 popup surface 用于接收光标坐标
     pub(crate) popup_wl_surface: Option<WlSurface>,
     pub(crate) popup_surface: Option<crate::proto::ZwpInputPopupSurfaceV2>,
 }
@@ -239,6 +240,7 @@ pub(crate) fn init(
         use_popup: false,
         popup_wl_surface: Some(popup_wl_surface),
         popup_surface: None,
+        rendered: false,
     }
 }
 
@@ -284,6 +286,7 @@ impl Overlay {
             }
             self.surface.commit();
         }
+        self.rendered = false;
     }
 
     pub fn hide(&mut self) {
@@ -308,6 +311,7 @@ impl Overlay {
         self.req_w = 1;
         self.req_h = 1;
         self.use_popup = false;
+        self.rendered = false;
     }
 
     pub fn set_selected(&mut self, idx: usize) {
@@ -316,11 +320,12 @@ impl Overlay {
         let clamped = idx.min(max - 1);
         if clamped != self.selected {
             self.selected = clamped;
+            self.rendered = false;
         }
     }
 
     pub fn needs_redraw(&self) -> bool {
-        self.wants_clear || (self.visible && !self.needs_configure)
+        self.wants_clear || (self.visible && !self.needs_configure && !self.rendered)
     }
     pub fn is_visible(&self) -> bool { self.visible }
     pub fn is_clearing(&self) -> bool { self.wants_clear }
@@ -333,6 +338,7 @@ impl Overlay {
             if height > 0 { self.height = height; }
         }
         self.needs_configure = false;
+        self.rendered = false;
     }
     pub(crate) fn set_cursor_rect(&mut self, x: i32, y: i32, w: i32, h: i32) {
         self.cursor_x = x;
@@ -356,6 +362,7 @@ impl Overlay {
 
                 if i != self.selected {
                     self.selected = i;
+                    self.rendered = false;
                     return true;
                 }
                 return false;
@@ -399,6 +406,7 @@ impl Overlay {
         if scale > 0 && scale != self.scale {
             eprintln!("dust: buffer scale {} → {}", self.scale, scale);
             self.scale = scale;
+            self.rendered = false;
         }
     }
 
@@ -435,6 +443,7 @@ impl Overlay {
             self.render_slot(idx);
             self.commit_layer(idx);
         }
+        self.rendered = true;
     }
 
     pub fn draw_clear(&mut self, shm: &WlShm, qh: &QueueHandle<WaylandState>) {
@@ -448,12 +457,12 @@ impl Overlay {
         };
         if let Some(entry) = &mut self.buffers[idx] {
             let pixels = unsafe { std::slice::from_raw_parts_mut(entry.ptr, entry.size) };
-            for chunk in pixels.chunks_exact_mut(4) {
-                chunk.copy_from_slice(&[0, 0, 0, 0]);
-            }
+            // 优化：直接底层 memset，比 chunks_exact_mut(4) 快得多
+            pixels.fill(0);
         }
         self.commit_layer(idx);
         self.wants_clear = false;
+        self.rendered = true;
     }
 
     // ─── Internals ───
@@ -571,13 +580,15 @@ impl Overlay {
 
     fn layout_items(&mut self) {
         self.layout.clear();
+        // 优化：预分配容量
+        let count = self.items.len();
+        self.layout.reserve(count);
         let scale = self.scale;
         let hpad = self.config.hpad.round() as i32 * scale;
         let preedit_hpad = self.config.preedit_hpad.round() as i32 * scale;
         let gap = self.config.gap.round() as i32 * scale;
         let preedit_gap = self.config.preedit_gap.round() as i32 * scale;
         let font_size = self.config.font_size * scale as f32;
-        let count = self.items.len();
         let last_idx = count.saturating_sub(1);
         let mut x = 0;
 
@@ -586,11 +597,18 @@ impl Overlay {
             let is_preedit = i == 0 && item.prefix.is_none() && count > 1;
             let pad = if is_preedit { preedit_hpad } else { hpad };
 
-            let display = match &item.prefix {
-                Some(p) => format!("{}{}", p, item.text),
-                None => item.text.clone(),
+            let display;
+            let d_ref: &str = match &item.prefix {
+                Some(p) => {
+                    let mut s = String::with_capacity(p.len() + item.text.len());
+                    s.push_str(p);
+                    s.push_str(&item.text);
+                    display = s;
+                    &display
+                }
+                None => &item.text,
             };
-            let tw = self.renderer.measure_width(&display, font_size);
+            let tw = self.renderer.measure_width(d_ref, font_size);
             let iw = tw + pad * 2;
             self.layout.push(LayoutItem {
                 prefix: item.prefix.clone(),
@@ -713,9 +731,8 @@ impl Overlay {
         text_y: i32,
         font_size: f32,
     ) {
-        for chunk in pixels.chunks_exact_mut(4) {
-            chunk.copy_from_slice(&[0, 0, 0, 0]);
-        }
+        // 优化：直接底层 memset
+        pixels.fill(0);
         let bg = argb_to_bgra(self.config.bg);
         let radius = (self.config.corner_radius * self.scale as f32).round() as i32;
         fill_rounded_rect(pixels, stride, w, h, 0, 0, w, h, &bg, radius);
