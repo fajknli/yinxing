@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 use std::rc::Rc;
 use rustc_hash::FxHashSet;
 use crate::engine::action::Action;
@@ -101,14 +105,14 @@ impl RuntimeState {
 
     pub fn process_key(&mut self, key: u32, mods: u32) -> Vec<Action> {
         if self.mode == ImeState::English {
-            if is_toggle(key, mods) {
+            if is_toggle(key, mods, &self.cfg.toggle_key) {
                 self.mode = ImeState::Chinese;
                 return vec![];
             }
             return vec![Action::ForwardKey { key, mods }];
         }
 
-        if is_toggle(key, mods) {
+        if is_toggle(key, mods, &self.cfg.toggle_key) {
             let mut a = vec![];
             if !self.blocks.is_empty() {
                 a.extend(self.commit_staging_buffer());
@@ -590,7 +594,6 @@ impl RuntimeState {
             }
             entries.sort_by(|a, b| b.weight.cmp(&a.weight));
 
-            // 优化：显式指定为 Rc<str>，避免 clone 时分配 String
             let mut seen: FxHashSet<Rc<str>> = FxHashSet::default();
             entries.retain(|e| seen.insert(Rc::clone(&e.text)));
 
@@ -605,15 +608,15 @@ impl RuntimeState {
             let mut dp: Vec<Vec<DpNode>> = vec![vec![]; n + 1];
             dp[0].push(DpNode { score: 0.0, word: Rc::from(""), prev: None });
 
+            let max_len = (self.cfg.max_phrase_chars * 3).max(3);
             for i in 3..=n {
-                for &len in [3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 21, 24].iter() {
-                    if len > i { continue; }
+                for &len in [3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45].iter() {
+                    if len > i || len > max_len { continue; }
                     let start = i - len;
                     let segment = &code[start..i];
 
                     if dp[start].is_empty() { continue; }
 
-                    // 优化：3键段直接用切片，避免 Vec 分配
                     let mut entries_owned: Vec<Entry>;
                     let entries: &[Entry] = if len == 3 {
                         self.table.exact_chars(segment).unwrap_or(&[])
@@ -621,12 +624,11 @@ impl RuntimeState {
                         entries_owned = self.table.get_all_for_code(segment);
                         if len >= 6 && len % 3 == 0 {
                             let num_chars = len / 3;
-                            // 优化：用 &str 避免在循环里分配 String
                             let mut sub_codes: Vec<&str> = Vec::with_capacity(num_chars);
                             for j in 0..num_chars {
                                 sub_codes.push(&segment[j*3..(j+1)*3]);
                             }
-                            if let Some(isir_code) = encode_word_from_codes(&sub_codes) {
+                            if let Some(isir_code) = encode_word_from_codes(&sub_codes, self.cfg.max_phrase_chars) {
                                 entries_owned.extend(self.table.get_all_for_code(&isir_code));
                             }
                         }
@@ -635,7 +637,6 @@ impl RuntimeState {
 
                     if entries.is_empty() { continue; }
 
-                    // 优化：用 split_at_mut 避免整块 clone Vec 和 Rc
                     let (left_dp, right_dp) = dp.split_at_mut(i);
                     let prev_nodes = &left_dp[start];
                     let curr_dp = &mut right_dp[0];
@@ -655,13 +656,14 @@ impl RuntimeState {
                 }
 
                 dp[i].sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap_or(std::cmp::Ordering::Equal));
-                dp[i].truncate(5);
+                dp[i].truncate(self.cfg.dp_beam_width);
             }
 
-            for i in 3..=n {
+            let mut temp_candidates: Vec<CandidateItem> = Vec::new();
+            let max_cands = self.cfg.max_candidates;
+            for i in (3..=n).rev() {
                 for node in &dp[i] {
-                    // 优化：预分配 parts 容量
-                    let mut parts: Vec<&str> = Vec::with_capacity(10);
+                    let mut parts: Vec<&str> = Vec::with_capacity(15);
                     let mut curr = node;
                     parts.push(curr.word.as_ref());
 
@@ -672,15 +674,14 @@ impl RuntimeState {
 
                     parts.reverse();
 
-                    // 优化：精确预分配 text 容量，避免 join 底层扩容
                     let total_len = parts.iter().map(|p| p.len()).sum();
                     let mut text = String::with_capacity(total_len);
                     for p in &parts {
                         text.push_str(p);
                     }
 
-                    if !text.is_empty() && !self.candidates.iter().any(|c| c.text == text) {
-                        self.candidates.push(CandidateItem {
+                    if !text.is_empty() && !temp_candidates.iter().any(|c| c.text == text) {
+                        temp_candidates.push(CandidateItem {
                             text,
                             consumed: i,
                             score: node.score,
@@ -689,7 +690,11 @@ impl RuntimeState {
                         });
                     }
                 }
+                if temp_candidates.len() >= max_cands {
+                    break;
+                }
             }
+            self.candidates = temp_candidates;
         }
 
         self.candidates.sort_by(|a, b| {
@@ -719,17 +724,15 @@ impl RuntimeState {
         let max_page = self.candidates.len().saturating_sub(1) / self.cfg.page_size;
         if self.page > max_page { self.page = max_page; }
 
-        // ─── 新增：智能计算高亮索引 ───
-        let offset = if self.blocks.is_empty() { 0 } else { 1 }; // 如果有预编辑区，候选词索引从 1 开始
+        let offset = if self.blocks.is_empty() { 0 } else { 1 };
         self.highlight_idx = if self.candidates.is_empty() {
             0
         } else {
-            let mut idx = offset; // 默认高亮第一个候选词
+            let mut idx = offset;
             if !self.current_selection.is_empty() {
                 let start = self.page * self.cfg.page_size;
                 let end = (start + self.cfg.page_size).min(self.candidates.len());
                 if start < end {
-                    // 如果用户选过的词还在当前页，就高亮它
                     if let Some(rel_idx) = self.candidates[start..end].iter().position(|c| c.text == self.current_selection) {
                         idx = offset + rel_idx;
                     }
@@ -737,7 +740,6 @@ impl RuntimeState {
             }
             idx
         };
-        // ─────────────────────────────
 
         let (preedit, cursor_pos) = self.preedit_display_info();
         if preedit.is_empty() {
@@ -771,18 +773,15 @@ impl RuntimeState {
                     };
                     self.blocks.insert(target_idx + 1, new_block);
 
-                    // 【关键修复】：将焦点和光标移动到新分裂出的 Block！
                     self.active_idx = target_idx + 1;
                 } else {
                     self.blocks[target_idx].text = cand.text.clone();
                     self.blocks[target_idx].confirmed = false;
                     self.blocks[target_idx].saved_text.clear();
-                    // 如果没有分裂，焦点依然在当前 block
                     self.active_idx = target_idx;
                 }
             }
 
-            // 光标计算会自动使用新的 active_idx
             self.cursor = self.get_block_start_offset(self.active_idx) + self.blocks[self.active_idx].code.len();
 
             self.current_selection = cand.text.clone();
@@ -796,7 +795,6 @@ impl RuntimeState {
     }
 
     fn commit_with_suffix(&mut self, suffix: &str) -> Vec<Action> {
-        // 优化：预分配容量
         let total_len: usize = self.blocks.iter().map(|b| b.text.len().max(b.code.len())).sum();
         let mut text = String::with_capacity(total_len + suffix.len());
 
@@ -824,9 +822,10 @@ impl RuntimeState {
 
         if !text.is_empty() {
             let char_count = text.chars().count();
-            if char_count >= self.cfg.min_phrase_chars && char_count <= self.cfg.max_phrase_chars {
+
+            if self.cfg.enable_phrase_creation && char_count >= self.cfg.min_phrase_chars && char_count <= self.cfg.max_phrase_chars {
                 if let Some(sub_codes) = self.table.get_codes_for_text(&text) {
-                    if let Some(new_code) = encode_word_from_codes(&sub_codes) {
+                    if let Some(new_code) = encode_word_from_codes(&sub_codes, self.cfg.max_phrase_chars) {
                         let exists_in_main = self.table.word_exists(&new_code, &text);
                         if !exists_in_main {
                             let is_new = self.table.add_custom_phrase(&text, &new_code);
@@ -837,7 +836,10 @@ impl RuntimeState {
                     }
                 }
             }
-            self.learner.record(&text);
+
+            if self.cfg.enable_learning {
+                self.learner.record(&text);
+            }
         }
 
         text.push_str(suffix);
@@ -859,13 +861,12 @@ impl RuntimeState {
         let code_len = cand.code.len();
         if code_len >= 6 && code_len % 3 == 0 {
             let num_chars = code_len / 3;
-            if num_chars >= 2 && num_chars <= 8 {
-                // 优化：使用 &str
+            if num_chars >= 2 && num_chars <= self.cfg.max_phrase_chars {
                 let mut sub_codes: Vec<&str> = Vec::with_capacity(num_chars);
                 for i in 0..num_chars {
                     sub_codes.push(&cand.code[i*3..(i+1)*3]);
                 }
-                if let Some(new_code) = encode_word_from_codes(&sub_codes) {
+                if let Some(new_code) = encode_word_from_codes(&sub_codes, self.cfg.max_phrase_chars) {
                     let exists_in_main = self.table.word_exists(&new_code, &cand.text);
                     if !exists_in_main {
                         let is_new = self.table.add_custom_phrase(&cand.text, &new_code);
@@ -904,7 +905,6 @@ impl RuntimeState {
 
     pub fn activate(&mut self) {
         self.clear();
-        // 根据配置决定激活时的默认模式
         self.mode = if self.cfg.default_mode_on_activate == "chinese" {
             ImeState::Chinese
         } else {
@@ -931,7 +931,6 @@ impl RuntimeState {
     pub fn flush_user_buffer(&mut self) {}
 
     pub fn candidate_items(&self) -> Vec<candi::Item> {
-        // 优化：预分配容量，避免动态扩容
         let mut items = Vec::with_capacity(self.candidates.len() + 1);
         let total_len: usize = self.blocks.iter().map(|b| b.text.len().max(b.code.len())).sum();
         let mut preview = String::with_capacity(total_len);
@@ -957,7 +956,6 @@ impl RuntimeState {
         let start = self.page * self.cfg.page_size;
         let end = (start + self.cfg.page_size).min(self.candidates.len());
         if start < end {
-            // 优化：用静态数组替代 format!
             const PREFIXES: [&str; 20] = [
                 "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.", "10.",
                 "11.", "12.", "13.", "14.", "15.", "16.", "17.", "18.", "19.", "20."
@@ -1106,14 +1104,12 @@ impl RuntimeState {
     }
 }
 
-// 优化：改为泛型，兼容 Vec<String> 和 Vec<&str>
-fn encode_word_from_codes<T: AsRef<str>>(codes: &[T]) -> Option<String> {
+fn encode_word_from_codes<T: AsRef<str>>(codes: &[T], max_chars: usize) -> Option<String> {
     let n = codes.len();
-    if n < 2 || n > 8 { return None; }
+    if n < 2 || n > max_chars { return None; }
     let c: Vec<&[u8]> = codes.iter().map(|s| s.as_ref().as_bytes()).collect();
     if c.iter().any(|s| s.len() < 3) { return None; }
 
-    // 优化：去掉 format! 宏开销
     let mut res = String::with_capacity(n + 3);
     res.push(c[0][0] as char);
     res.push(c[0][1] as char);
@@ -1125,8 +1121,16 @@ fn encode_word_from_codes<T: AsRef<str>>(codes: &[T]) -> Option<String> {
     Some(res)
 }
 
-fn is_toggle(key: u32, mods: u32) -> bool {
-    key == keys::KEY_SPACE && (mods & keys::MOD_CTRL) != 0
+fn is_toggle(key: u32, mods: u32, cfg_str: &str) -> bool {
+    let key_is_space = key == keys::KEY_SPACE;
+    if !key_is_space { return false; }
+
+    match cfg_str.to_lowercase().as_str() {
+        "super+space" | "win+space" | "meta+space" => (mods & 64) != 0,
+        "alt+space" => (mods & 8) != 0,
+        "shift+space" => (mods & 1) != 0,
+        _ => (mods & keys::MOD_CTRL) != 0
+    }
 }
 
 fn punct_char(key: u32, shifted: bool, mode: &str) -> Option<&'static str> {

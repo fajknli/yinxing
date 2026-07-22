@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 pub const KEY_ESC: u32 = 1;
 pub const KEY_1: u32 = 2;
 pub const KEY_2: u32 = 3;

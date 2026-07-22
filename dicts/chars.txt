@@ -121,7 +121,7 @@
 们	msr	778
 市	sua	776
 长	zyp	776
-门	myn	775
+门	mys	775
 正	zuh	772
 同	twk	771
 吃	csk	770
@@ -271,7 +271,7 @@
 重	zyp	708
 低	dsr	707
 儿	esp	707
-坐	zst	707
+坐	zut	707
 放	fsf	706
 极	jsm	706
 金	jur	705
@@ -299,7 +299,7 @@
 指	zsd	696
 常	cuj	695
 方	fua	695
-甚	suz	695
+甚	suq	695
 完	wua	695
 队	dse	694
 涓	jsi	694
@@ -691,7 +691,7 @@
 宋	sua	625
 熟	suh	625
 忘	wuw	625
-专	zyh	625
+专	zut	625
 巴	byz	624
 厚	hwc	624
 乃	nwp	624

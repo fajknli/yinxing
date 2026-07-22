@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 use std::os::fd::AsRawFd;
 
 use wayland_client::{Connection, Dispatch, QueueHandle};
@@ -161,8 +165,6 @@ impl Dispatch<WlPointer, ()> for WaylandState {
                                 }
                                 state.overlay_dirty = true;
                             }
-                            // 删掉 Dismissed 的强制清空逻辑，因为内部点击不应该触发取消
-                            // Some(CandiEvent::Dismissed) => { ... }
                             _ => {}
                         }
                     }

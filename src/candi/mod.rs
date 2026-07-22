@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 // candi — Overlay rendering engine (shared connection)
 // All Dispatch impls live in src/wayland/mod.rs.
 
@@ -55,10 +59,10 @@ pub struct Config {
     pub fg: u32,
     pub selected_bg: u32,
     pub selected_fg: u32,
-    pub preedit_fg: u32,       // 新增
-    pub preedit_bg: u32,       // 新增
-    pub label_fg: u32,         // 新增
-    pub divider_color: u32,    // 新增
+    pub preedit_fg: u32,
+    pub preedit_bg: u32,
+    pub label_fg: u32,
+    pub divider_color: u32,
     pub corner_radius: f32,
     pub font: String,
     pub font_size: f32,
@@ -69,6 +73,7 @@ pub struct Config {
     pub preedit_gap: f32,
     pub max_items: usize,
     pub clickable: bool,
+    pub show_label: bool,
 }
 
 impl Default for Config {
@@ -93,6 +98,7 @@ impl Default for Config {
             max_items: 9,
             clickable: true,
             corner_radius: 4.0,
+            show_label: true,
         }
     }
 }
@@ -352,7 +358,7 @@ impl Overlay {
         if !self.config.clickable || !self.visible || self.layout.is_empty() {
             return false;
         }
-        // 关键修复：将逻辑坐标乘以 scale，转为物理像素坐标
+        // 将逻辑坐标乘以 scale，转为物理像素坐标
         let px = (x * self.scale as f64) as i32;
         for (i, item) in self.layout.iter().enumerate() {
             if px >= item.x && px < item.x + item.w {
@@ -457,7 +463,7 @@ impl Overlay {
         };
         if let Some(entry) = &mut self.buffers[idx] {
             let pixels = unsafe { std::slice::from_raw_parts_mut(entry.ptr, entry.size) };
-            // 优化：直接底层 memset，比 chunks_exact_mut(4) 快得多
+            // 直接底层 memset，比 chunks_exact_mut(4) 快得多
             pixels.fill(0);
         }
         self.commit_layer(idx);
@@ -485,8 +491,8 @@ impl Overlay {
 
     fn draw_popup(&mut self, shm: &WlShm, qh: &QueueHandle<WaylandState>) {
         let scale = self.scale;
-        let pw = self.want_w * scale;  // <--- 改用 want_w
-        let ph = self.want_h * scale;  // <--- 改用 want_h
+        let pw = self.want_w * scale;
+        let ph = self.want_h * scale;
 
         // 获取或创建 popup buffer
         let idx = match self.acquire_popup_slot(shm, qh, pw, ph) {
@@ -580,7 +586,7 @@ impl Overlay {
 
     fn layout_items(&mut self) {
         self.layout.clear();
-        // 优化：预分配容量
+        // 预分配容量
         let count = self.items.len();
         self.layout.reserve(count);
         let scale = self.scale;
@@ -597,8 +603,15 @@ impl Overlay {
             let is_preedit = i == 0 && item.prefix.is_none() && count > 1;
             let pad = if is_preedit { preedit_hpad } else { hpad };
 
+            // 如果关闭了 show_label，则不测量前缀
+            let prefix_str: Option<&str> = if self.config.show_label {
+                item.prefix.as_deref()
+            } else {
+                None
+            };
+
             let display;
-            let d_ref: &str = match &item.prefix {
+            let d_ref: &str = match prefix_str {
                 Some(p) => {
                     let mut s = String::with_capacity(p.len() + item.text.len());
                     s.push_str(p);
@@ -731,7 +744,7 @@ impl Overlay {
         text_y: i32,
         font_size: f32,
     ) {
-        // 优化：直接底层 memset
+        // 直接底层 memset
         pixels.fill(0);
         let bg = argb_to_bgra(self.config.bg);
         let radius = (self.config.corner_radius * self.scale as f32).round() as i32;
@@ -785,13 +798,15 @@ impl Overlay {
             let mut text_x = item.x + pad;
 
             if let Some(p) = &item.prefix {
-                let pw = self.renderer.measure_width(p, font_size);
-                self.renderer.render_text(
-                    pixels, w, h, stride,
-                    p, text_x, text_y, font_size,
-                    if sel { self.config.selected_fg } else { self.config.label_fg },
-                );
-                text_x += pw;
+                if self.config.show_label {
+                    let pw = self.renderer.measure_width(p, font_size);
+                    self.renderer.render_text(
+                        pixels, w, h, stride,
+                        p, text_x, text_y, font_size,
+                        if sel { self.config.selected_fg } else { self.config.label_fg },
+                    );
+                    text_x += pw;
+                }
             }
 
             self.renderer.render_text(

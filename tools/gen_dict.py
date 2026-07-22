@@ -1,5 +1,9 @@
+# yinxing - 音形码输入法
+# Copyright (C) 2026  fajknli
+# Licensed under the GNU AGPL v3. See LICENSE for details.
+
 #!/usr/bin/env python3
-"""音形码词库生成工具 v2.0（最终版）"""
+"""音形码词库生成工具"""
 
 import sys
 import os
@@ -14,19 +18,23 @@ def is_cjk(c):
     return '\u4e00' <= c <= '\u9fff'
 
 
+def is_ext_cjk(c):
+    return '\u3400' <= c <= '\u4dbf' or '\U00020000' <= c <= '\U0002a6df'
+
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-IDS_FILE    = os.path.join(ROOT, "ids.txt")
-UNIHAN_FILE = os.path.join(ROOT, "unihan/Unihan_IRGSources.txt")
-JIEBA_FILE  = os.path.join(ROOT, "dicts/jieba_dict.txt")
+IDS_FILE    = os.path.join(ROOT, "data", "ids.txt")
+UNIHAN_FILE = os.path.join(ROOT, "data", "unihan/Unihan_IRGSources.txt")
+JIEBA_FILE  = os.path.join(ROOT, "data", "jieba_dict.txt")
 CHARS_FILE  = os.path.join(ROOT, "dicts/chars.txt")
 WORDS_FILE  = os.path.join(ROOT, "dicts/words.txt")
-REPORT_FILE = os.path.join(ROOT, "dicts/char_report.txt")
-COMPARE_FILE = os.path.join(ROOT, "dicts/compare_report.txt")
-IDS_FIRST_CHECK_FILE = os.path.join(ROOT, "dicts/ids_first_check.txt")
-NO_IDS_FILE = os.path.join(ROOT, "dicts/no_ids_list.txt")
-SUBTLEX_FILE = os.path.join(ROOT, "data/subtlex.xlsx")
+REPORT_FILE = os.path.join(ROOT, "dicts/reports/char_report.txt")
+COMPARE_FILE = os.path.join(ROOT, "dicts/reports/compare_report.txt")
+IDS_FIRST_CHECK_FILE = os.path.join(ROOT, "dicts/reports/ids_first_check.txt")
+NO_IDS_FILE = os.path.join(ROOT, "dicts/reports/no_ids_list.txt")
+SUBTLEX_FILE = os.path.join(ROOT, "data", "SUBTLEX-CH-WF.xlsx")
 
 MULTI_PINYIN_OVERRIDE = {
     '行': 'x', '重': 'c', '长': 'c', '乐': 'l', '都': 'd', '还': 'h',
@@ -39,8 +47,7 @@ MULTI_PINYIN_OVERRIDE = {
 IDS_OPERATORS = set('⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺⿻')
 
 STRUCTURE_OVERRIDES = {
-    '幽': 'w', '坐': 's', '果': 'u',
-    # 巨/臣 不放这里——没有IDS数据，结构覆盖后radical查不到，会回退到y
+    '幽': 'w', '坐': 'u', '果': 'u',
 }
 
 # =====================================================================
@@ -59,7 +66,6 @@ IDS_TO_STRUCTURE = {
 #  康熙部首表（214 个全覆盖）
 # =====================================================================
 
-# Unihan 里的康熙部首编号 → 汉字部件
 RADICAL_NUM_TO_CHAR = {
     1: '一', 2: '丨', 3: '丶', 4: '丿', 5: '乙', 6: '亅', 7: '二',
     8: '亠', 9: '人', 10: '儿', 11: '入', 12: '八', 13: '冂', 14: '冖',
@@ -199,7 +205,7 @@ RADICAL_CHAR_TO_CODE = {
 
 CHAR_RADICAL_OVERRIDES = {
     '师': 'e',
-    '甚': 'z',
+    '甚': 'q',
 }
 
 # =====================================================================
@@ -229,13 +235,13 @@ FIRST_STROKE_MAP = {
     '丶': 'n', '为': 'n', '主': 'n', '之': 'n', '六': 'n', '农': 'n',
     '头': 'n', '州': 'n', '广': 'n', '心': 'n', '必': 'n', '文': 'n',
     '斗': 'n', '方': 'n', '术': 'n', '永': 'n', '火': 'n', '立': 'n',
-    '米': 'n', '言': 'n', '门': 'n', '齐': 'n',
+    '米': 'n', '言': 'n', '齐': 'n',
 
     # ═══ 撇起笔 (p) ═══
     '丘': 'p', '个': 'p', '丸': 'p', '丹': 'p', '丿': 'p', '久': 'p',
     '么': 'p', '乍': 'p', '乎': 'p', '乐': 'p', '乖': 'p', '乘': 'p',
     '九': 'p', '人': 'p', '入': 'p', '八': 'p', '几': 'p', '勹': 'p',
-    '匆': 'p', '升': 'p', '及': 'p', '后': 'p', '向': 'p', '多': 'p',
+    '匆': 'p', '升': 'p', '及': 'p', '向': 'p',
     '失': 'p', '女': 'p', '川': 'p', '年': 'p', '彳': 'p', '我': 'p',
     '手': 'p', '攵': 'p', '斤': 'p', '斥': 'p', '月': 'p', '朱': 'p',
     '欠': 'p', '母': 'p', '氏': 'p', '爪': 'p', '片': 'p', '牛': 'p',
@@ -253,7 +259,7 @@ FIRST_STROKE_MAP = {
     '曲': 's', '曳': 's', '果': 's', '止': 's', '田': 's', '由': 's',
     '甲': 's', '申': 's', '电': 's', '皿': 's', '目': 's', '肉': 's',
     '虫': 's', '见': 's', '贝': 's', '黑': 's', '齿': 's', '非': 's',
-    '禺': 's', '豳': 's',
+    '禺': 's', '豳': 's', '门': 's',
 
     # ═══ 折起笔 (z) ═══
     '丑': 'z', '乃': 'z', '乜': 'z', '也': 'z', '习': 'z', '乡': 'z',
@@ -354,6 +360,14 @@ def get_first_base_comp(expr):
                     return get_first_base_comp(comp)
                 else:
                     return comp
+    return expr[0]
+
+def get_first_component(expr):
+    """递归获取 IDS 表达式的第一个真实字符（不依赖偏旁表）"""
+    if not expr:
+        return None
+    if expr[0] in IDS_OPERATORS:
+        return get_first_component(expr[1:])
     return expr[0]
 
 # =====================================================================
@@ -533,7 +547,7 @@ def encode_char(char, ids_map, rs_map, problems):
 def encode_word(word, char_codes):
     """词语编码: ISIR + I... (支持任意长度)"""
     n = len(word)
-    if n < 2 or n > 8:  # 限制最长8字词，避免无意义长串
+    if n < 2 or n > 8:
         return None
     codes = []
     for c in word:
@@ -541,7 +555,6 @@ def encode_word(word, char_codes):
             return None
         codes.append(char_codes[c])
 
-    # 核心：首字 IS，第二字 IR，第三字及以后全 I
     res = codes[0][0] + codes[0][1] + codes[1][0] + codes[1][2]
     for i in range(2, n):
         res += codes[i][0]
@@ -558,7 +571,6 @@ def compare_radicals(ids_map, rs_map):
     diff_count = 0
     no_ids_count = 0
     no_uni_count = 0
-    no_match_count = 0
     conflicts = []
 
     os.makedirs(os.path.dirname(COMPARE_FILE), exist_ok=True)
@@ -579,7 +591,6 @@ def compare_radicals(ids_map, rs_map):
             ids_variants = ids_map.get(char, [])
             first_expr = ids_variants[0] if ids_variants else ''
 
-            # 结构
             struct = STRUCTURE_OVERRIDES.get(char)
             if struct is None and ids_variants:
                 for expr in ids_variants:
@@ -591,7 +602,6 @@ def compare_radicals(ids_map, rs_map):
             if struct is None:
                 struct = 'y'
 
-            # IDS 第一匹配部件
             ids_comp_char = None
             ids_code = None
             if ids_variants:
@@ -608,7 +618,6 @@ def compare_radicals(ids_map, rs_map):
                 no_ids_count += 1
                 continue
 
-            # Unihan 部首
             uni_char = None
             uni_code = None
             if char in rs_map:
@@ -619,7 +628,6 @@ def compare_radicals(ids_map, rs_map):
                 no_uni_count += 1
                 continue
 
-            # 比较
             if ids_code == uni_code:
                 status = "SAME"
                 match_count += 1
@@ -643,11 +651,9 @@ def compare_radicals(ids_map, rs_map):
         f.write(f"  冲突 (DIFF): {diff_count}\n")
         f.write(f"  无IDS匹配部件: {no_ids_count}\n")
         f.write(f"  无Unihan部首: {no_uni_count}\n")
-        total = match_count + diff_count + no_ids_count + no_uni_count
         if match_count + diff_count > 0:
             f.write(f"  一致率: {match_count / (match_count + diff_count) * 100:.1f}%\n")
 
-        # 冲突清单
         if conflicts:
             f.write(f"\n{'=' * 55}\n")
             f.write(f"冲突清单 ({len(conflicts)} 字)\n")
@@ -687,7 +693,6 @@ def check_ids_first(ids_map):
                 continue
 
             first_expr = ids_variants[0]
-            # 【修改点】：使用递归函数，与真实编码逻辑保持一致
             comp = find_first_matching_component(first_expr)
 
             if not comp:
@@ -731,10 +736,8 @@ def list_self_ids():
             if char not in gb_chars:
                 continue
 
-            # 获取该字的所有 IDS 表达式
             exprs = [p.split('[')[0].strip() for p in parts[2:]]
 
-            # 检查是否所有表达式都不包含结构运算符（或者等于自身）
             has_structure = False
             for expr in exprs:
                 if expr and expr != char and any(op in expr for op in IDS_OPERATORS):
@@ -752,6 +755,259 @@ def list_self_ids():
 
     print(f"无结构体字符列表已输出至: {NO_IDS_FILE}")
     print(f"  共计: {len(self_ids_chars)} 字")
+
+# =====================================================================
+#  IDS 文件差异比较 (原 inspect_ids.py 的 diff 功能)
+# =====================================================================
+
+def diff_ids(file_a, file_b):
+    """比较两个 IDS 文件的差异，输出变更报告"""
+    REPORT_DIFF_FILE = os.path.join(ROOT, "dicts/reports", "ids_diff.txt")
+
+    def load_ids_full(path):
+        """加载 IDS 文件，返回 {char: [expr, ...]}，保留所有表达式"""
+        ids_map = {}
+        with open(path, 'r', encoding='utf-8') as f:
+            for line in f:
+                if line.startswith('#'):
+                    continue
+                parts = line.strip().split('\t')
+                if len(parts) < 3:
+                    continue
+                char = parts[1]
+                exprs = []
+                for i in range(2, len(parts)):
+                    expr = parts[i].split('[')[0].strip()
+                    if expr and expr != char:
+                        if expr not in exprs:
+                            exprs.append(expr)
+                if exprs:
+                    ids_map[char] = exprs
+        return ids_map
+
+    name_a = os.path.basename(os.path.abspath(file_a))
+    name_b = os.path.basename(os.path.abspath(file_b))
+
+    if not os.path.exists(file_a):
+        print(f"错误: 找不到 {file_a}")
+        sys.exit(1)
+    if not os.path.exists(file_b):
+        print(f"错误: 找不到 {file_b}")
+        sys.exit(1)
+
+    map_a = load_ids_full(file_a)
+    map_b = load_ids_full(file_b)
+
+    chars_a = set(map_a.keys())
+    chars_b = set(map_b.keys())
+
+    only_a = sorted(chars_a - chars_b)
+    only_b = sorted(chars_b - chars_a)
+    common = sorted(chars_a & chars_b)
+
+    changed = []
+    struct_flip = []
+
+    for char in common:
+        exprs_a = map_a[char]
+        exprs_b = map_b[char]
+        if exprs_a == exprs_b:
+            continue
+        changed.append((char, exprs_a, exprs_b))
+
+        for ea in exprs_a:
+            sa = ids_to_structure(ea)
+            if sa:
+                break
+        else:
+            sa = 'y'
+        for eb in exprs_b:
+            sb = ids_to_structure(eb)
+            if sb:
+                break
+        else:
+            sb = 'y'
+        if sa != sb:
+            struct_flip.append((char, exprs_a, sa, exprs_b, sb))
+
+    os.makedirs(os.path.dirname(REPORT_DIFF_FILE), exist_ok=True)
+    with open(REPORT_DIFF_FILE, 'w', encoding='utf-8') as f:
+        f.write("=== IDS 差异报告 ===\n")
+        f.write(f"文件A: {file_a} ({len(map_a)} 条)\n")
+        f.write(f"文件B: {file_b} ({len(map_b)} 条)\n\n")
+
+        f.write("=" * 60 + "\n")
+        f.write("汇总\n")
+        f.write("=" * 60 + "\n")
+        f.write(f"  仅A有: {len(only_a)} 字\n")
+        f.write(f"  仅B有: {len(only_b)} 字\n")
+        f.write(f"  表达式不同: {len(changed)} 字\n")
+        f.write(f"  结构码变化: {len(struct_flip)} 字\n")
+        f.write(f"  完全一致: {len(common) - len(changed)} 字\n\n")
+
+        if struct_flip:
+            f.write("=" * 60 + "\n")
+            f.write(f"[结构码变化] {len(struct_flip)} 字  ← 影响编码\n")
+            f.write("=" * 60 + "\n")
+            f.write(f"{'字':>2}  {'A结构':>4}  {'A表达式':<16}"
+                    f"  {'B结构':>4}  {'B表达式':<16}\n")
+            f.write("-" * 60 + "\n")
+            for char, ea, sa, eb, sb in struct_flip:
+                f.write(f"{char}  {sa:>4}  {ea[0]:<16}"
+                        f"  {sb:>4}  {eb[0]:<16}\n")
+
+        if only_a:
+            f.write(f"\n{'=' * 60}\n")
+            f.write(f"[仅A有] {name_a} 独有 ({len(only_a)} 字)\n")
+            f.write(f"{'=' * 60}\n")
+            for char in only_a:
+                f.write(f"  {char}  {map_a[char][0]}\n")
+
+        if only_b:
+            f.write(f"\n{'=' * 60}\n")
+            f.write(f"[仅B有] {name_b} 独有 ({len(only_b)} 字)\n")
+            f.write(f"{'=' * 60}\n")
+            for char in only_b:
+                f.write(f"  {char}  {map_b[char][0]}\n")
+
+        diff_only = [c for c in changed
+                     if not any(c[0] == sf[0] for sf in struct_flip)]
+        if diff_only:
+            f.write(f"\n{'=' * 60}\n")
+            f.write(f"[表达式不同] 结构未变 ({len(diff_only)} 字)\n")
+            f.write(f"{'=' * 60}\n")
+            f.write(f"{'字':>2}  {'A表达式':<16}  {'B表达式':<16}\n")
+            f.write("-" * 45 + "\n")
+            for char, ea, eb in diff_only:
+                f.write(f"{char}  {ea[0]:<16}  {eb[0]:<16}\n")
+
+    print(f"IDS 差异报告: {REPORT_DIFF_FILE}")
+    print(f"  文件A: {name_a} ({len(map_a)} 条)")
+    print(f"  文件B: {name_b} ({len(map_b)} 条)")
+    print(f"  仅A有: {len(only_a)}, 仅B有: {len(only_b)}")
+    print(f"  表达式不同: {len(changed)}, 结构码变化: {len(struct_flip)}")
+    print(f"  完全一致: {len(common) - len(changed)}")
+
+
+# =====================================================================
+#  IDS 深度结构分析 (原 inspect_ids.py)
+# =====================================================================
+
+def inspect_ids():
+    """IDS 数据库深度结构分析"""
+    if not os.path.exists(IDS_FILE):
+        print(f"错误: 找不到文件 {IDS_FILE}")
+        sys.exit(1)
+
+    total_lines = 0
+    cjk_chars = 0
+
+    no_ids = 0
+    ids_self = []
+    ids_normal = []
+    ids_nested = []
+    ids_weird_start = []
+
+    comp_standard = 0
+    comp_ext = []
+    comp_symbol = []
+
+    overlap_total = 0
+    overlap_extractable = 0
+
+    op_counter = Counter()
+
+    with open(IDS_FILE, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+
+            total_lines += 1
+            parts = line.split('\t')
+            if len(parts) < 3:
+                continue
+
+            char = parts[1]
+            if not is_cjk(char):
+                continue
+
+            cjk_chars += 1
+            ids_expr = parts[2].split(' ')[0].strip()
+            if '[' in ids_expr:
+                ids_expr = ids_expr.split('[')[0].strip()
+
+            if not ids_expr:
+                no_ids += 1
+                continue
+
+            if ids_expr == char:
+                ids_self.append(char)
+                continue
+
+            if ids_expr[0] in IDS_OPERATORS:
+                op_counter[ids_expr[0]] += 1
+
+                if len(ids_expr) > 1 and ids_expr[1] in IDS_OPERATORS:
+                    ids_nested.append((char, ids_expr))
+                else:
+                    ids_normal.append((char, ids_expr))
+
+                comp = get_first_component(ids_expr)
+                if comp:
+                    if is_cjk(comp):
+                        comp_standard += 1
+                        if ids_expr[0] == '⿻':
+                            overlap_total += 1
+                            overlap_extractable += 1
+                    elif is_ext_cjk(comp):
+                        comp_ext.append((char, ids_expr, comp))
+                        if ids_expr[0] == '⿻':
+                            overlap_total += 1
+                    else:
+                        comp_symbol.append((char, ids_expr, comp))
+                        if ids_expr[0] == '⿻':
+                            overlap_total += 1
+            else:
+                ids_weird_start.append((char, ids_expr))
+
+    print("=" * 60)
+    print("  IDS 数据库深度结构分析报告")
+    print("=" * 60)
+    print(f"扫描总行数: {total_lines}")
+    print(f"其中 CJK 基本区汉字: {cjk_chars}")
+    print("-" * 60)
+
+    print(f"\n[1] 完全无 IDS 数据: {no_ids} 字")
+    print(f"[2] IDS 映射到自身 (真独体字): {len(ids_self)} 字")
+    print(f"[3] 正常合体字: {len(ids_normal)} 字")
+    print(f"[4] 嵌套结构: {len(ids_nested)} 字")
+    print(f"[5] 异常开头 (无操作符且非自身): {len(ids_weird_start)} 字")
+
+    print("\n" + "=" * 60)
+    print("  首部件提取可行性分析 (核心)")
+    print("=" * 60)
+    print(f"成功提取到常见 CJK 部件: {comp_standard} 字")
+    print(f"首部件是生僻扩展字 (可能需补全映射): {len(comp_ext)} 字")
+    if comp_ext:
+        print(f"    示例: {' '.join([f'{c}({e}->{comp})' for c,e,comp in comp_ext[:10]])}")
+
+    print(f"\n首部件是特殊符号 (无法映射，需兜底): {len(comp_symbol)} 字")
+    if comp_symbol:
+        print(f"    示例: {' '.join([f'{c}({e}->{comp})' for c,e,comp in comp_symbol[:10]])}")
+
+    print("\n" + "=" * 60)
+    print("  ⿻ (交叠结构) 专项检查")
+    print("=" * 60)
+    print(f"总 ⿻ 结构字数: {overlap_total}")
+    print(f"其中能成功提取出 CJK 首部件: {overlap_extractable}")
+    print("-> 结论：如果实现 '⿻ 允许提取首部件' 的逻辑，这 {} 个字将不再退化为首笔画。".format(overlap_extractable))
+
+    print("\n" + "=" * 60)
+    print("  操作符使用频率")
+    print("=" * 60)
+    for op, count in op_counter.most_common():
+        print(f"    {op} : {count}")
 
 # =====================================================================
 #  问题收集器
@@ -786,7 +1042,6 @@ def generate_chars(ids_map, rs_map, strokes_map):
         'radical': Counter(), 'buckets': {},
     }
 
-    # jieba 字频
     jieba_char_freq = {}
     if os.path.exists(JIEBA_FILE):
         with open(JIEBA_FILE, 'r', encoding='utf-8') as f:
@@ -800,7 +1055,6 @@ def generate_chars(ids_map, rs_map, strokes_map):
                     except ValueError:
                         pass
 
-    # SUBTLEX 字频（用于判断多音字）
     subtlex_char_freq = {}
     if os.path.exists(SUBTLEX_FILE):
         try:
@@ -816,7 +1070,6 @@ def generate_chars(ids_map, rs_map, strokes_map):
         except Exception as e:
             print(f"  SUBTLEX字频加载失败: {e}")
 
-    # 多音字阈值：超过此值保留所有读音，否则只保留第一个
     HETERO_THRESHOLD = 100000
 
     for char in gb_chars:
@@ -826,7 +1079,6 @@ def generate_chars(ids_map, rs_map, strokes_map):
             print(f"警告：字符 {char} 解析失败: {e}")
             continue
 
-        # 多音字：只保留首字母不同的读音，低频只保留第一个
         all_initials = get_all_initials(char)
         if not all_initials:
             problems.no_pinyin.append(char)
@@ -834,7 +1086,6 @@ def generate_chars(ids_map, rs_map, strokes_map):
 
         freq = subtlex_char_freq.get(char, 0) or jieba_char_freq.get(char, 0)
         if freq >= HETERO_THRESHOLD:
-            # 只保留首字母不同的读音
             seen_initials = set()
             initials = []
             for ini in all_initials:
@@ -946,7 +1197,6 @@ def generate_words_subtlex(char_entries):
 
     if not os.path.exists(SUBTLEX_FILE):
         print(f"错误: 找不到 {SUBTLEX_FILE}")
-        print("请下载 SUBTLEX-CH-WF.zip 并解压到 data/subtlex.xlsx")
         return 0
 
     char_codes = {}
@@ -1000,7 +1250,7 @@ def generate_report(stats, problems):
     no_col = sum(1 for v in stats['buckets'].values() if len(v) == 1)
 
     with open(REPORT_FILE, 'w', encoding='utf-8') as f:
-        f.write("=== 音形码单字码表报告 v2.0 ===\n\n")
+        f.write("=== 音形码单字码表报告 ===\n\n")
         f.write(f"总字数: {stats['total']}\n")
         f.write("结构: s=左右 u=上下 w=包围 y=独体\n\n")
 
@@ -1046,12 +1296,10 @@ def generate_report(stats, problems):
 
 def report_radicals():
     """统计每个偏旁码的使用频率和对应的偏旁字符"""
-    # 反查：偏旁码 → 偏旁字列表
     code_to_chars = {}
     for ch, code in RADICAL_CHAR_TO_CODE.items():
         code_to_chars.setdefault(code, []).append(ch)
 
-    # 从 chars.txt 读取已生成的编码，统计第三码频率
     radical_freq = {}
     bucket_detail = {}
     if os.path.exists(CHARS_FILE):
@@ -1065,7 +1313,6 @@ def report_radicals():
                     continue
                 radical = code[2]
                 radical_freq[radical] = radical_freq.get(radical, 0) + 1
-                # 按结构分桶
                 struct = code[1] if len(code) > 1 else '?'
                 key = f"{code[0]}{struct}{radical}"
                 bucket_detail.setdefault(key, 0)
@@ -1100,13 +1347,11 @@ def report_radicals():
                 sample += f" ...(+{len(chars) - 8})"
             f.write(f"{code:>4}  {count:>5}  {deviation:>+7.1f}  {pct:>5.1f}%  {sample}\n")
 
-        # 按音首+结构分组，看哪些组合最拥挤
         f.write(f"\n\n=== Top 30 最拥挤的 音+结构+偏旁 组合 ===\n\n")
         sorted_buckets = sorted(bucket_detail.items(), key=lambda x: -x[1])
         for key, count in sorted_buckets[:30]:
             f.write(f"  {key}: {count} 字\n")
 
-    # 终端也打印
     print(f"\n偏旁码频率报告: {REPORT_RADICALS_FILE}")
     print(f"总字数: {total}, 偏旁码数: {len(radical_freq)}, 理想平均: {target:.1f}")
     print(f"\n{'码':>4}  {'字数':>5}  {'偏差':>7}  {'占比':>6}  偏旁字符")
@@ -1160,7 +1405,6 @@ def benchmark_words(char_entries):
         if char not in char_codes:
             char_codes[char] = code
 
-    # 先加载所有词
     all_words = {}
     if os.path.exists(JIEBA_FILE):
         with open(JIEBA_FILE, 'r', encoding='utf-8') as f:
@@ -1185,7 +1429,6 @@ def benchmark_words(char_entries):
     print(f"总加载词数: {len(all_words)}")
     print()
 
-    # 测试不同阈值
     thresholds = [0, 10, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
 
     print(f"{'阈值':>6}  {'词数':>8}  {'2字词':>8}  {'码位':>7}  "
@@ -1220,7 +1463,7 @@ def benchmark_words(char_entries):
 # =====================================================================
 
 def main():
-    parser = argparse.ArgumentParser(description='音形码词库生成工具 v2.0')
+    parser = argparse.ArgumentParser(description='音形码词库生成工具')
     parser.add_argument('--chars', action='store_true', help='生成单字码表')
     parser.add_argument('--words', action='store_true', help='生成词语码表')
     parser.add_argument('--report', action='store_true', help='生成统计报告')
@@ -1229,9 +1472,11 @@ def main():
     parser.add_argument('--compare', action='store_true', help='比较IDS vs Unihan')
     parser.add_argument('--check-first', action='store_true', help='检查IDS结构码后第一位是否匹配偏旁')
     parser.add_argument('--list-no-ids', action='store_true', help='导出无结构运算符的字符列表')
+    parser.add_argument('--inspect', action='store_true', help='IDS数据库深度结构分析')
+    parser.add_argument('--diff-ids', nargs=2, metavar='FILE', help='比较两个IDS文件的差异')
     parser.add_argument('--report-radicals', action='store_true', help='偏旁码频率分析')
     parser.add_argument('--benchmark', action='store_true', help='词频阈值基准测试')
-    parser.add_argument('--words-source', type=str, default='subtlex',choices=['subtlex', 'jieba', 'none'],help='词语数据源: subtlex(SUBTLEX-CH), jieba(jieba词库), none(纯单字)')
+    parser.add_argument('--words-source', type=str, default='subtlex', choices=['subtlex', 'jieba', 'none'], help='词语数据源: subtlex(SUBTLEX-CH), jieba(jieba词库), none(纯单字)')
     parser.add_argument('--min-freq', type=int, default=200, help='词语最低词频')
     args = parser.parse_args()
 
@@ -1239,11 +1484,20 @@ def main():
                 args.verify, args.compare, args.benchmark]):
         args.all = True
 
+    # ---- 独立分析/诊断命令（不依赖完整生成流程） ----
+
+    if args.inspect:
+        inspect_ids()
+        return
+
+    if args.diff_ids:
+        diff_ids(args.diff_ids[0], args.diff_ids[1])
+        return
+
     if args.report_radicals:
         report_radicals()
         return
 
-    # benchmark 模式
     if args.benchmark:
         if not os.path.exists(CHARS_FILE):
             print("错误: 需要先生成单字码表 (--chars)")
@@ -1257,7 +1511,6 @@ def main():
         benchmark_words(entries)
         return
 
-    # 校验模式
     if args.verify:
         for f in [IDS_FILE, UNIHAN_FILE]:
             if not os.path.exists(f):
@@ -1268,7 +1521,6 @@ def main():
         verify_char(args.verify, ids_map, rs_map)
         return
 
-    # 比较模式
     if args.compare:
         for f in [IDS_FILE, UNIHAN_FILE]:
             if not os.path.exists(f):
@@ -1279,7 +1531,6 @@ def main():
         compare_radicals(ids_map, rs_map)
         return
 
-    # 检查IDS结构码后第一位模式
     if args.check_first:
         if not os.path.exists(IDS_FILE):
             print(f"错误: 缺少必需文件 {IDS_FILE}")
@@ -1288,19 +1539,19 @@ def main():
         check_ids_first(ids_map)
         return
 
-   # 导出无结构体列表模式
     if args.list_no_ids:
         list_self_ids()
         return
 
-    # 完整生成模式
+    # ---- 完整生成流程 ----
+
     for f in [IDS_FILE, UNIHAN_FILE, JIEBA_FILE]:
         if not os.path.exists(f):
             print(f"错误: 找不到必需文件 {f}")
             sys.exit(1)
 
     print("=" * 55)
-    print("  音形码词库生成工具 v2.0")
+    print("  音形码词库生成工具")
     print("=" * 55)
 
     ids_map = load_ids(IDS_FILE)

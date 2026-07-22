@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 use rustc_hash::FxHashMap;
 use std::fs;
 use std::rc::Rc;
@@ -13,7 +17,7 @@ pub struct LookupTable {
     chars_sorted: Vec<(String, Vec<Entry>)>,
     words_sorted: Vec<(String, Vec<Entry>)>,
     custom_words: FxHashMap<String, Vec<Entry>>,
-    char_to_code: FxHashMap<String, String>, // 新增：汉字 -> 3键全码
+    char_to_code: FxHashMap<String, String>,
 }
 
 impl LookupTable {
@@ -27,7 +31,7 @@ impl LookupTable {
         let mut words_sorted: Vec<_> = words_map.into_iter().collect();
         words_sorted.sort_by(|a, b| a.0.cmp(&b.0));
 
-        // 新增：构建汉字反查字典
+        // 构建汉字反查字典
         let mut char_to_code = FxHashMap::default();
         for (_, entries) in &chars_sorted {
             for e in entries {
@@ -59,7 +63,7 @@ impl LookupTable {
         is_new
     }
 
-    // 新增：根据整句文本反查所有字的 3 键全码，用于混合造词
+    // 根据整句文本反查所有字的 3 键全码，用于混合造词
     pub fn get_codes_for_text(&self, text: &str) -> Option<Vec<String>> {
         let mut codes = Vec::new();
         for ch in text.chars() {
@@ -97,7 +101,7 @@ impl LookupTable {
     }
 
     fn exact_words(&self, code: &str) -> Vec<Entry> {
-        // 优化：单次 binary_search，并精确预分配容量
+        // 单次 binary_search，并精确预分配容量
         let main_entries = self.words_sorted
             .binary_search_by(|(k, _)| k.as_str().cmp(code))
             .ok()

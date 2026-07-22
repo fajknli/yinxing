@@ -1,4 +1,6 @@
-// candi/src/render.rs
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
 
 use rustc_hash::FxHashMap;
 
@@ -12,7 +14,7 @@ pub struct TextRenderer {
     font_name: String,
     cached_line_h: f32,
     cached_font_size: f32,
-    // 优化：改为嵌套 HashMap，外层是 font_size，内层可以用 &str 查找
+    // 改为嵌套 HashMap，外层是 font_size，内层可以用 &str 查找
     width_cache: FxHashMap<u32, FxHashMap<String, i32>>,
 }
 
@@ -174,7 +176,7 @@ impl TextRenderer {
                         let start_x = phys.x + p.left + x_off;
                         let start_y = phys.y - p.top + y_off;
 
-                        // 优化：预先计算裁剪边界，彻底消除内层循环的 if 判断
+                        // 预先计算裁剪边界，彻底消除内层循环的 if 判断
                         let x_min = if start_x < 0 { -start_x } else { 0 };
                         let y_min = if start_y < 0 { -start_y } else { 0 };
                         let x_max = (buf_w - start_x).min(p.width as i32);
@@ -270,7 +272,7 @@ fn extract_rgb(c: u32) -> (u8, u8, u8) {
     )
 }
 
-// 优化：强制内联，消除函数调用开销
+// 强制内联，消除函数调用开销
 #[inline(always)]
 fn blend(pixels: &mut [u8], i: usize, r: u8, g: u8, b: u8, a: u8) {
     let sa = a as u32;

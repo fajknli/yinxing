@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 use yinxing::engine::lookup::LookupTable;
 use yinxing::engine::RuntimeState;
 use std::env;
@@ -40,9 +44,8 @@ fn main() {
     // 写入 PID 文件，供 --reload 使用
     let _ = std::fs::write(&pid_path, std::process::id().to_string());
 
-    if let Err(e) = yinxing::wayland::run(runtime, cfg.candi, 600, 40) {
+    if let Err(e) = yinxing::wayland::run(runtime, cfg.candi, cfg.behavior.repeat_delay_ms, cfg.behavior.repeat_rate_ms) {
         eprintln!("yinxing: fatal: {}", e);
-        let _ = std::fs::remove_file(&pid_path);
         std::process::exit(1);
     }
 

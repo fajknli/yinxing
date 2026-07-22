@@ -1,3 +1,7 @@
+// yinxing - 音形码输入法
+// Copyright (C) 2026  fajknli
+// Licensed under the GNU AGPL v3. See LICENSE for details.
+
 extern crate wayland_client;
 extern crate wayland_backend;
 use wayland_client::protocol::wl_seat;
@@ -179,14 +183,12 @@ impl Dispatch<ZwpInputMethodKeyboardGrabV2, ()> for WaylandState {
             Event::Modifiers { mods_depressed, mods_latched, mods_locked, group, .. } => {
                 let shift_now = mods_depressed & keys::MOD_SHIFT != 0;
                 if state.shift_held && !shift_now {
-                    if !state.shift_dirty && state.has_cursor_info {
+                    // 只有开启了 enable_shift_toggle 才响应单按 Shift 切换
+                    if state.runtime.cfg.enable_shift_toggle && !state.shift_dirty && state.has_cursor_info {
                         if state.runtime.is_chinese() {
                             eprintln!("dust: shift toggle → english");
-                            // 1. 调用引擎的上屏逻辑（会自动提交首选词，并清理缓冲区）
                             let actions = state.runtime.commit_staging_buffer();
-                            // 2. 确保引擎状态彻底切回英文
                             state.runtime.deactivate();
-                            // 3. 发送给 Wayland
                             state.flush_actions(&actions);
                             if let Some(overlay) = &mut state.overlay {
                                 overlay.hide();
