@@ -126,7 +126,7 @@
 同	twk	771
 吃	csk	770
 天	tuh	768
-比	byz	767
+比	bsb	767
 米	myn	766
 外	wsp	766
 分	fub	765
@@ -163,7 +163,7 @@
 军	juh	748
 称	csh	745
 二	euh	745
-每	mum	745
+每	mup	745
 名	mup	745
 属	sws	745
 带	duh	744
@@ -236,7 +236,7 @@
 些	xue	718
 北	bsb	717
 钱	qsj	717
-气	quh	717
+气	qup	717
 近	jwz	716
 清	qsi	716
 杀	sux	716
@@ -564,7 +564,7 @@
 食	sur	643
 云	yue	643
 饭	fss	642
-复	fuo	642
+复	fup	642
 救	jsp	642
 句	jwp	642
 克	kug	642
@@ -1107,7 +1107,7 @@
 旅	lsf	581
 配	psy	581
 审	sua	581
-舞	wuh	581
+舞	wup	581
 摇	ysd	581
 怔	zsx	581
 附	fse	580
@@ -2067,7 +2067,7 @@
 痰	twn	501
 斡	wsc	501
 薇	wua	501
-午	wuh	501
+午	wup	501
 萧	xua	501
 芯	xua	501
 昭	zso	501
@@ -2195,7 +2195,7 @@
 窖	jux	493
 咳	ksk	493
 卢	lub	493
-乞	quz	493
+乞	qup	493
 涉	ssi	493
 嫂	ssn	493
 售	suz	493
@@ -2793,7 +2793,7 @@
 蟾	csc	450
 绐	dss	450
 痕	hwn	450
-矢	sud	450
+矢	sup	450
 咸	xwk	450
 逊	xwz	450
 验	ysm	450

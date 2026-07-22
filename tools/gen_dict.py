@@ -13,6 +13,10 @@ import math
 import shutil
 from collections import Counter
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 
 def is_cjk(c):
     return '\u4e00' <= c <= '\u9fff'
@@ -162,7 +166,7 @@ RADICAL_CHAR_TO_CODE = {
 
     # ═══ 映射到 p 的部件 ═══
     '皮': 'p', '攴': 'p', '攵': 'p', '夂': 'p', '夊': 'p', '片': 'p', '爿': 'p', '丬': 'p', '疋': 'p', '矢': 'p',
-    '釆': 'p', '夕': 'p', '爫': 'p', '𤴔': 'p', '𠂊': 'n', '丿': 'p', '彡': 'p', '勹': 'p', '𠂆': 'p', '𠂑': 'p',
+    '釆': 'p', '夕': 'p', '爫': 'p', '𤴔': 'p', '𠂊': 'n', '丿': 'p', '彡': 'p', '勹': 'p', '𠂆': 'p', '𠂑': 'p', '𠂉': 'p',
     '𠂎': 'p', '频': 'p', '厃': 'p', '𠂋': 'p',
 
     # ═══ 映射到 q 的部件 ═══

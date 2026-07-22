@@ -147,7 +147,7 @@
 分钟	fuzj	100000
 再见	zujs	100000
 如何	rshr	100000
-比赛	bysb	100000
+比赛	bssb	100000
 情况	qski	100000
 关系	guxp	100000
 真是	zuso	100000
@@ -447,7 +447,7 @@
 支持	zucd	100000
 星期	xuqo	100000
 很快	hskx	100000
-生气	syqh	100000
+生气	syqp	100000
 建议	jwyy	100000
 做到	zsdz	100000
 屁股	pwgo	100000
@@ -497,7 +497,7 @@
 干什么	gysrm	100000
 事儿	syep	100000
 犯罪	fszw	100000
-跳舞	tswh	100000
+跳舞	tswp	100000
 白痴	bycn	100000
 信任	xsrr	100000
 新闻	xswm	100000
@@ -510,7 +510,7 @@
 治疗	zsln	100000
 原谅	ywly	100000
 行为	xswn	100000
-比较	byjc	100000
+比较	bsjc	100000
 婚礼	hsln	100000
 弟弟	dudb	100000
 组织	zszs	100000
@@ -550,7 +550,7 @@
 威胁	wwxo	100000
 号码	hums	100000
 日子	ryzh	100000
-比如	byrn	100000
+比如	bsrn	100000
 哪个	nsgr	100000
 剩下	ssxh	100000
 严重	yuzp	100000
@@ -587,7 +587,7 @@
 多么	dump	100000
 足够	zugj	100000
 学生	xusp	100000
-下午	xuwh	100000
+下午	xuwp	100000
 仍然	rsrn	100000
 一旦	yydo	100000
 动作	dszr	100000
@@ -748,7 +748,7 @@
 炸弹	zsdg	100000
 联邦	lsbf	100000
 评委	pswh	100000
-客气	kuqh	100000
+客气	kuqp	100000
 造成	zwcw	100000
 经过	jsgz	100000
 周末	zwmh	100000
@@ -770,7 +770,7 @@
 越来越	ywlhy	100000
 名单	mudb	100000
 不幸	buxt	100000
-恢复	hsfo	100000
+恢复	hsfp	100000
 确认	qsry	100000
 聚会	juhr	100000
 怀孕	hsyz	100000
@@ -1159,7 +1159,7 @@
 船长	cszp	94147
 歌手	gssp	94137
 上校	suxm	94137
-运气	ywqh	94128
+运气	ywqp	94128
 主要	zuyx	94119
 同事	twsh	94109
 餐厅	cutc	94109
@@ -1180,7 +1180,7 @@
 大部分	dybef	100000
 窗户	cuhn	93874
 奇迹	qujz	93864
-空气	kuqh	93855
+空气	kuqp	93855
 护士	hssh	93855
 分享	fuxa	93826
 被捕	bsbd	93826
@@ -1261,11 +1261,11 @@
 传统	csts	92908
 浪漫	lsmi	92887
 巴黎	bylr	92846
-重复	zyfo	92836
+重复	zyfp	92836
 和平	hsph	92836
 欣赏	xssb	92836
 留下来	luxhl	100000
-天气	tuqh	92815
+天气	tuqp	92815
 一一	yyyh	92794
 态度	tudg	92774
 尴尬	gwgw	92774
@@ -1324,7 +1324,7 @@
 女友	nyyy	92181
 世纪	syjs	92170
 大麻	dymg	92160
-比尔	byen	92160
+比尔	bsen	92160
 达到	dwdz	92138
 回忆	hwyx	92127
 邮件	ysjr	92127
@@ -1394,7 +1394,7 @@
 坚强	juqg	91435
 数据	ssjd	91435
 玻璃	bslw	91435
-勇气	yuqh	91424
+勇气	yuqp	91424
 镜头	jstn	91424
 员工	yugh	91389
 联盟	lsmm	91378
@@ -1673,7 +1673,7 @@
 水平	ssph	88631
 发型	fyxt	88603
 打断	dsdm	88603
-报复	bsfo	88603
+报复	bsfp	88603
 吵架	csjj	88603
 一整天	yyzct	100000
 服装	fszy	88589
@@ -1839,7 +1839,7 @@
 同情	twqx	87425
 背景	bujo	87409
 下班	xubw	87394
-比如说	byrns	100000
+比如说	bsrns	100000
 绝望	jsww	87362
 法语	fsyy	87362
 救护车	jshdc	100000
@@ -2205,7 +2205,7 @@
 面具	mujq	84594
 快速	kssz	84594
 预约	ysys	84594
-比利	bylh	84594
+比利	bslh	84594
 电视台	dysnt	100000
 起飞	qwfz	84575
 友好	ywhn	84555
@@ -2283,7 +2283,7 @@
 大师	dyse	84019
 气氛	qufq	84019
 批准	pszi	84019
-脾气	psqh	83999
+脾气	psqp	83999
 碎片	sspp	83999
 无罪	wuzw	83999
 逃脱	twto	83999
@@ -2296,7 +2296,7 @@
 体验	tsym	83978
 亲爱的	quapd	100000
 坏蛋	hsdp	83978
-中午	zywh	83958
+中午	zywp	83958
 录音	luyl	83958
 照看	zuko	83958
 阿门	asms	83958
@@ -2306,7 +2306,7 @@
 忘掉	wudd	83917
 性格	xsgm	83917
 流氓	lsmw	83917
-独舞	dswh	83917
+独舞	dswp	83917
 优势	yssl	83917
 声明	sumo	83917
 馅饼	xsbs	83917
@@ -2402,7 +2402,7 @@
 飞行员	fyxry	100000
 惊人	jsrp	83332
 一家	yyja	83332
-康复	kwfo	83310
+康复	kwfp	83310
 策划	cuhg	83310
 火灾	huza	83289
 费用	fuyk	83289
@@ -2445,7 +2445,7 @@
 散步	ssbz	83094
 化妆	hszp	83094
 别提	bstd	83073
-上午	suwh	83073
+上午	suwp	83073
 剧院	jsye	83051
 卑鄙	bube	83051
 怀念	hsnx	83051
@@ -2578,7 +2578,7 @@
 糊涂	hsti	82401
 燃烧	rssh	82378
 豪华	huhh	82355
-毒气	duqh	82355
+毒气	duqp	82355
 拳击	quje	82355
 亚当	yuda	82332
 修女	xsnp	82332
@@ -2710,7 +2710,7 @@
 名义	muyn	81645
 半夜	buya	81645
 赌场	dsct	81645
-力气	lyqh	81620
+力气	lyqp	81620
 掩盖	ysgy	81620
 官司	gusz	81620
 东京	dyja	81620
@@ -2819,7 +2819,7 @@
 隧道	ssdz	81072
 现代	xsdr	81072
 导弹	dudg	81072
-无比	wubz	81072
+无比	wubb	81072
 一向	yyxp	81072
 成立	cwla	81072
 甜蜜	tsmc	81072
@@ -3090,7 +3090,7 @@
 村子	cszh	79506
 滋味	zswk	79506
 手法	syfi	79506
-鲍比	bsbz	79506
+鲍比	bsbb	79506
 右手	ywsp	79506
 海洋	hsyi	79506
 霍华德	huhhd	100000
@@ -3137,7 +3137,7 @@
 陌生	mssp	79304
 商场	suct	79274
 着迷	zwmz	79274
-回复	hwfo	79274
+回复	hwfp	79274
 当晚	duwo	79274
 典礼	duln	79274
 驾照	juzh	79274
@@ -3275,7 +3275,7 @@
 女巫	nywh	78707
 签署	qusw	78707
 猜测	csci	78677
-相比	xsbz	78677
+相比	xsbb	78677
 双方	ssfa	78677
 数量	ssld	78677
 罗伯特	lubrt	100000
@@ -3496,7 +3496,7 @@
 剪刀	judz	77559
 点心	duxn	77559
 卡住	kuzr	77559
-氧气	ywqh	77559
+氧气	ywqp	77559
 遗传	ywcr	77559
 抽屉	csts	77559
 困境	kwjt	77559
@@ -3790,7 +3790,7 @@
 大大	dydh	76115
 督察	duca	76115
 蔬菜	suca	76115
-修复	xsfo	76115
+修复	xsfp	76115
 迈尔斯	mwens	100000
 从小	csxz	76115
 装满	zumi	76115
@@ -3798,7 +3798,7 @@
 斯科特	sskht	100000
 吓唬	xshk	76115
 认定	rsda	76078
-语气	ysqh	76078
+语气	ysqp	76078
 此时	csso	76078
 难忘	nsww	76078
 左手	zwsp	76078
@@ -3928,7 +3928,7 @@
 棕榈	zslm	75622
 除此之外	csczzw	100000
 急诊室	juzys	100000
-比特	bytn	75622
+比特	bstn	75622
 婚纱	hsss	75583
 坦克	tskg	75583
 风趣	fwqz	75583
@@ -4582,7 +4582,7 @@
 陪审员	pssay	100000
 眼睁睁	yszoz	100000
 理查德	lscmd	100000
-好比	hsbz	73065
+好比	hsbb	73065
 面部	mube	73065
 自尊	zyzc	73065
 窗口	cuks	73065
@@ -4801,7 +4801,7 @@
 睾丸	guwp	72338
 取出	qscc	72338
 颁奖	bsjp	72338
-答复	dufo	72338
+答复	dufp	72338
 诡计	gsjy	72338
 虔诚	qwcy	72338
 木偶	myor	72338
@@ -4810,7 +4810,7 @@
 防护	fshd	72338
 凯利	kslh	72288
 商品	supk	72288
-反复	fwfo	72288
+反复	fwfp	72288
 波特	bstn	72288
 中弹	zydg	72288
 生化	syhr	72288
@@ -4888,7 +4888,7 @@
 秋天	qsth	72036
 办到	bydz	72036
 探戈	tsgh	72036
-比方	byfa	72036
+比方	bsfa	72036
 契约	quys	72036
 进出	jwcc	71985
 屈服	qwfo	71985
@@ -5004,7 +5004,7 @@
 入狱	ryyq	71622
 巴迪	bydz	71622
 企鹅	quen	71622
-比喻	byyk	71622
+比喻	bsyk	71622
 湖边	hsbz	71569
 身旁	sypa	71569
 中途	zytz	71569
@@ -5018,7 +5018,7 @@
 协调	xsdy	71569
 皇帝	huda	71569
 整夜	zuya	71569
-比萨	bysa	71569
+比萨	bssa	71569
 今夜	juya	71569
 收买	ssmz	71569
 外出	wscc	71516
@@ -5323,7 +5323,7 @@
 后代	hwdr	70524
 纪律	jslr	70524
 化疗	hsln	70524
-对比	dsbz	70524
+对比	dsbb	70524
 赏金	sujr	70524
 羽毛	ysmp	70524
 警车	juch	70524
@@ -5388,7 +5388,7 @@
 悬崖	xuys	70351
 第十	dush	70351
 伴随	bsse	70351
-艾比	aubz	70351
+艾比	aubb	70351
 境地	jsdt	70351
 占有	zuwo	70351
 传出	cscc	70351
@@ -5509,7 +5509,7 @@
 皇室	husa	69938
 盘问	puwm	69938
 瑞典	rsdb	69938
-鼓舞	gswh	69938
+鼓舞	gswp	69938
 休斯	xssj	69938
 旅店	lsdg	69938
 阿拉斯加	asldsj	100000
@@ -5592,7 +5592,7 @@
 占用	zuyk	69696
 闻到	wwdz	69696
 千年	qunp	69696
-帅气	ssqh	69696
+帅气	ssqp	69696
 聪明人	csmor	96503
 半辈子	bubfz	96503
 个子	guzh	69696
@@ -5670,7 +5670,7 @@
 租金	zsjr	69387
 清新	qsxj	69387
 继父	jsfb	69387
-比分	byfb	69387
+比分	bsfb	69387
 众多	zudp	69387
 人情	ryqx	69387
 防卫	fswz	69387
@@ -5743,7 +5743,7 @@
 金枪鱼	juqmy	95726
 过不去	gwbhq	95726
 毒瘾	duyn	69135
-口气	kyqh	69135
+口气	kyqp	69135
 到场	dsct	69135
 公关	gugb	69135
 闪光	swga	69135
@@ -6070,7 +6070,7 @@
 避难所	bwnys	94255
 快递	ksdz	68073
 黑手党	huspd	94255
-比基尼	byjtn	94255
+比基尼	bsjtn	94255
 动脉瘤	dsmol	94255
 泰迪	tudz	68073
 动手术	dssps	94255
@@ -6207,7 +6207,7 @@
 抗生素	kssps	93672
 简短	judp	67652
 天性	tuxx	67652
-煤气	msqh	67652
+煤气	msqp	67652
 搏斗	bsdn	67652
 灯塔	dstt	67652
 标题	bsty	67652
@@ -6420,7 +6420,7 @@
 对讲机	dsjyj	92862
 猎犬	lsqh	67067
 送货	swhb	67067
-比例	bylr	67067
+比例	bslr	67067
 满嘴	mszk	67067
 罪孽	zunz	67067
 寄生虫	juspc	92862
@@ -6541,7 +6541,7 @@
 蒸发	zufz	66688
 肾脏	suzo	66688
 饥渴	jski	66688
-淘气	tsqh	66688
+淘气	tsqp	66688
 本书	bysz	66688
 管制	guzn	66688
 苏菲	sufa	66688
@@ -6728,7 +6728,7 @@
 笑脸	xulo	66138
 以内	yyns	66138
 触动	csdy	66138
-比利时	bylhs	91576
+比利时	bslhs	91576
 组建	zsjy	66138
 分娩	fumn	66138
 车窗	cycx	66138
@@ -6799,7 +6799,7 @@
 纽扣	nskd	65977
 千真万确	quzhwq	100000
 灯泡	dspi	65977
-比不上	bybhs	91353
+比不上	bsbhs	91353
 徘徊	pshr	65977
 庞德	pwdr	65977
 思路	sulz	65977
@@ -6847,7 +6847,7 @@
 层次	cwci	65895
 辅助	fszq	65813
 加仑	jslr	65813
-托比	tsbz	65813
+托比	tsbb	65813
 勾当	gwda	65813
 方向盘	fuxpp	91126
 外国人	wsgkr	91126
@@ -6881,7 +6881,7 @@
 吊死	dusd	65731
 外衣	wsya	65731
 气候	quhr	65731
-透气	twqh	65731
+透气	twqp	65731
 布坎南	bwktn	91012
 创新	csxj	65731
 移民局	ysmzj	91012
@@ -7200,7 +7200,7 @@
 把手	bssp	64875
 吞噬	tusk	64875
 淋浴	lsyi	64875
-挥舞	hswh	64875
+挥舞	hswp	64875
 亲身	qusp	64875
 肥胖	fspo	64875
 两万	luwh	64875
@@ -7246,7 +7246,7 @@
 诠释	qssp	64786
 丹麦	dymt	64786
 线条	xstp	64786
-歌舞	gswh	64786
+歌舞	gswp	64786
 肠子	cszh	64786
 叛变	psby	64786
 糊弄	hsnw	64786
@@ -7399,7 +7399,7 @@
 空姐	kujn	64333
 近乎	jwhp	64333
 离奇	luqd	64333
-波比	bsbz	64333
+波比	bsbb	64333
 内阁	nygm	64333
 本杰明	byjmm	89077
 拾一	ssyh	64333
@@ -7441,7 +7441,7 @@
 素食	susr	64241
 徒步	tsbz	64241
 撤回	cshk	64241
-暖气	nsqh	64241
+暖气	nsqp	64241
 淹没	ysmi	64241
 坦率	tslx	64241
 可可	kwkk	64241
@@ -7654,7 +7654,7 @@
 上映	suyo	63768
 通风	twfj	63768
 口渴	kyki	63768
-喘气	csqh	63768
+喘气	csqp	63768
 麻木	mwmh	63768
 血缘	xuys	63768
 失灵	sslj	63768
@@ -7675,7 +7675,7 @@
 腾达	tsdz	63671
 不便	bubr	63671
 星座	xuzg	63671
-吸气	xsqh	63671
+吸气	xsqp	63671
 替罪羊	tuzwy	88161
 杰克逊	jukgx	88161
 启示	qwsh	63671
@@ -7988,7 +7988,7 @@
 装傻	zusr	62974
 丝绸	sucs	62974
 美满	mumi	62974
-士气	suqh	62974
+士气	suqp	62974
 一体	yytr	62974
 排骨	psgo	62974
 受宠若惊	sucarj	100000
@@ -8037,7 +8037,7 @@
 好奇心	hsqdx	86909
 大奖	dyjp	62768
 安吉	aujt	62768
-大气	dyqh	62768
+大气	dyqp	62768
 穿透	cutz	62768
 耗尽	hsjc	62768
 忍心	ruxn	62768
@@ -8139,7 +8139,7 @@
 内尔	nyen	62558
 改过自新	gsgzzx	100000
 对外	dswp	62558
-博比	bsbz	62558
+博比	bsbb	62558
 刑期	xsqo	62558
 遇难	ywny	62558
 布拉德	bwldd	86619
@@ -8289,7 +8289,7 @@
 冒烟	muyh	62237
 姓氏	xssp	62237
 顶楼	dslm	62237
-罗比	lubz	62237
+罗比	lubb	62237
 单车	duch	62237
 费心	fuxn	62237
 众所周知	zushzz	100000
@@ -8325,7 +8325,7 @@
 定律	dulr	62128
 奉陪	fupe	62128
 发言人	fyynr	86024
-名气	muqh	62128
+名气	muqp	62128
 奥莉芙	aulaf	86024
 挑战性	tszzx	86024
 称号	cshk	62128
@@ -8406,7 +8406,7 @@
 彩色	cssn	61908
 联想	lsxx	61908
 气愤	qufx	61908
-小气	xyqh	61908
+小气	xyqp	61908
 空袭	kuxl	61908
 抵制	dszn	61908
 布伦南	bwlrn	85719
@@ -8417,7 +8417,7 @@
 迎来	ywlh	61908
 行列	xsld	61908
 脱颖而出	tsybec	100000
-人气	ryqh	61908
+人气	ryqp	61908
 激起	jsqz	61908
 手电筒	sydst	85719
 班级	bsjs	61908
@@ -8752,7 +8752,7 @@
 愤世嫉俗	fsshjs	100000
 割伤	gssr	61223
 老娘	lwnn	61223
-巴比	bybz	61223
+巴比	bybb	61223
 外围	wswk	61106
 书籍	syjz	61106
 亮点	ludz	61106
@@ -9030,7 +9030,7 @@
 溺死	nssd	60501
 橱窗	cscx	60501
 辫子	bszh	60501
-怒气	nuqh	60501
+怒气	nuqp	60501
 胸膛	xsto	60501
 加冕	jsmm	60501
 申请表	syqyb	83771
@@ -9249,7 +9249,7 @@
 并肩作战	bujhzz	100000
 急切	juqd	60124
 结盟	jsmm	60124
-巴比伦	bybzl	83249
+巴比伦	bybbl	83249
 莱尔	luen	60124
 深陷	ssxe	60124
 无可	wukk	60124
@@ -9362,7 +9362,7 @@
 想来	xulh	59867
 说到底	ssdzd	82893
 礼堂	lstt	59867
-起舞	qwwh	59867
+起舞	qwwp	59867
 肖像	xuxr	59867
 纸牌	zspp	59867
 夺冠	dugh	59867
@@ -9732,7 +9732,7 @@
 十字路口	syzalk	100000
 奥林匹克	aulmpk	100000
 服部	fsbe	59062
-大气层	dyqhc	81779
+大气层	dyqpc	81779
 后裔	hwyy	59062
 打垮	dskt	59062
 捐助	jszq	59062
@@ -9751,7 +9751,7 @@
 难看	nsko	59062
 跳蚤	tszc	59062
 打通	dstz	59062
-日复一日	ryfoyr	100000
+日复一日	ryfpyr	100000
 法拉利	fsldl	81779
 西红柿	xuhss	81779
 境界	jsjt	59062
@@ -9926,7 +9926,7 @@
 马匹	mwpk	58783
 含糊	huhm	58783
 中餐	zycs	58783
-丧气	suqh	58783
+丧气	suqp	58783
 掏钱	tsqj	58783
 祝愿	zsyx	58783
 辛勤	xuql	58783
@@ -10197,7 +10197,7 @@
 底片	dwpp	58205
 通电话	twdsh	80592
 连累	lwlt	58205
-鲁比	lubz	58205
+鲁比	lubb	58205
 海王星	hswhx	80592
 伍德	wsdr	58205
 祖父母	zsfbm	80592
@@ -10418,7 +10418,7 @@
 皮鞋	pyxg	57754
 杀虫剂	sucsj	79967
 污渍	wszi	57754
-充气	cuqh	57754
+充气	cuqp	57754
 实用	suyk	57754
 肿胀	zszo	57754
 过早	gwzo	57754
@@ -10452,7 +10452,7 @@
 教派	jspi	57754
 玩火	wshb	57754
 传话	cshy	57754
-比萨饼	bysab	79967
+比萨饼	bssab	79967
 格洛丽亚	gslily	99959
 逃兵	twbb	57754
 毫发	hufz	57754
@@ -10467,7 +10467,7 @@
 真品	zupk	57600
 大妈	dymn	57600
 拖累	tslt	57600
-卢比	lubz	57600
+卢比	lubb	57600
 关节炎	gujay	79754
 雷管	lugz	57600
 象棋	xuqm	57600
@@ -10544,7 +10544,7 @@
 真谛	zudy	57444
 大权	dyqm	57444
 不单	budb	57444
-泄气	xsqh	57444
+泄气	xsqp	57444
 植物人	zswnr	79539
 药膏	yugg	57444
 填写	tsxh	57444
@@ -10647,7 +10647,7 @@
 刽子手	gszhs	79320
 起义	qwyn	57287
 初期	csqo	57287
-臭气	cuqh	57287
+臭气	cuqp	57287
 牢固	lugk	57287
 羊羔	yugy	57287
 佐清	zsqi	57287
@@ -10734,7 +10734,7 @@
 牺牲品	xssnp	79100
 板球	bsqw	57127
 公款	gukt	57127
-俗气	ssqh	57127
+俗气	ssqp	57127
 决定性	jsdax	79100
 板子	bszh	57127
 扩展	kszs	57127
@@ -10917,7 +10917,7 @@
 赫克托	hskgt	78650
 招手	zssp	56802
 公式	gusy	56802
-贝比	bybz	56802
+贝比	bybb	56802
 厚道	hwdz	56802
 支架	zujj	56802
 业主	yuza	56802
@@ -11469,7 +11469,7 @@
 锯齿	jscs	55775
 掩埋	ysmt	55775
 心急	xyjx	55775
-比尔科	byenk	77228
+比尔科	bsenk	77228
 玉米饼	ywmnb	77228
 食用	suyk	55775
 圣子	suzh	55775
@@ -11517,7 +11517,7 @@
 交友	juyy	55775
 四万	swwh	55775
 纳西	nsxh	55775
-比武	bywy	55775
+比武	bswy	55775
 无理取闹	wulwqn	96535
 休战	xszz	55775
 水獭	sstq	55775
@@ -11623,7 +11623,7 @@
 胎记	tsjy	55596
 容貌	rumz	55596
 运钞车	ywcjc	76979
-比起	byqz	55596
+比起	bsqz	55596
 袋鼠	dusj	55596
 弥漫	msmi	55596
 敷衍	fsyr	55596
@@ -11670,7 +11670,7 @@
 雄性	xsxx	55414
 叙利亚	xslhy	76728
 名副其实	mufdqs	95910
-打气	dsqh	55414
+打气	dsqp	55414
 邂逅	xwhz	55414
 字体	zutr	55414
 守夜	suya	55414
@@ -11834,7 +11834,7 @@
 叫作	jszr	55230
 传开	cskh	55230
 四季	swjh	55230
-比绍	byss	55230
+比绍	bsss	55230
 玛蒂	msda	55230
 复古	fugh	55230
 毁灭性	hsmhx	76472
@@ -11931,7 +11931,7 @@
 凝固	nsgk	55043
 伦理	lslw	55043
 奥兰多	aulbd	76213
-芭比	bubz	55043
+芭比	bubb	55043
 润滑油	rshiy	76213
 花店	hudg	55043
 装甲车	zujsc	76213
@@ -11977,7 +11977,7 @@
 日益	ryya	54853
 循规蹈矩	xsgjdj	94938
 贪污	tuwi	54853
-福气	fsqh	54853
+福气	fsqp	54853
 莉斯	lusj	54853
 且慢	qymx	54853
 渗入	ssrp	54853
@@ -12102,7 +12102,7 @@
 地中海	dszsh	75684
 预言家	ysynj	75684
 减去	jsqt	54661
-出气	cuqh	54661
+出气	cuqp	54661
 从容	csra	54661
 欧拉	osld	54661
 风采	fwcp	54661
@@ -12142,7 +12142,7 @@
 偶遇	osyz	54661
 月底	yydg	54661
 语法	ysfi	54661
-叹气	tsqh	54661
+叹气	tsqp	54661
 艾丽卡	aulhk	75684
 行人	xsrp	54661
 撇下	psxh	54661
@@ -12225,7 +12225,7 @@
 伊尔	ysen	54465
 正门	zums	54465
 独裁	dscg	54465
-手气	syqh	54465
+手气	syqp	54465
 沉着	cszy	54465
 车臣	cych	54465
 遗迹	ywjz	54465
@@ -12487,7 +12487,7 @@
 公开赛	gukhs	74859
 纽带	nsdh	54065
 高年级	gunpj	74859
-骨气	guqh	54065
+骨气	guqp	54065
 免除	muce	54065
 快餐店	kscsd	74859
 选定	xwda	54065
@@ -12548,7 +12548,7 @@
 碉堡	dsbt	53860
 百灵	bulj	53860
 南加州	nujlz	74576
-喷气机	psqhj	74576
+喷气机	psqpj	74576
 外交官	wsjag	74576
 菠菜	buca	53860
 自生自灭	zyspzm	93220
@@ -12670,7 +12670,7 @@
 求之不得	qwznbd	93220
 家事	jush	53860
 单亲	duql	53860
-排气	psqh	53860
+排气	psqp	53860
 奎尔	kuen	53860
 活塞	hsst	53860
 纳塔丽	nsttl	74576
@@ -12684,7 +12684,7 @@
 尤里	ywlj	53652
 不足以	buzky	74288
 不觉	buja	53652
-不复存在	bufocz	92860
+不复存在	bufpcz	92860
 地主	dsza	53652
 艾波尔	aubie	74288
 茫茫	muma	53652
@@ -12907,7 +12907,7 @@
 岳母	yump	53441
 连任	lwrr	53441
 亚美尼亚	yumyny	92494
-黛比	dubz	53441
+黛比	dubb	53441
 检查站	jscmz	73995
 塑像	suxr	53441
 史册	sycp	53441
@@ -13052,7 +13052,7 @@
 眼界	ysjt	53226
 奥利维亚	aulhwy	92122
 本国	bygk	53226
-比作	byzr	53226
+比作	bszr	53226
 生路	sylz	53226
 卵巢	lscz	53226
 复兴	fuxa	53226
@@ -13380,7 +13380,7 @@
 脱口而出	tsksec	90968
 大豆	dydh	52559
 我非	wyfs	52559
-可比	kwbz	52559
+可比	kwbb	52559
 乔安妮	quaan	72774
 职守	zssa	52559
 进餐	jwcs	52559
@@ -13421,7 +13421,7 @@
 肝炎	gsyh	52559
 典当	duda	52559
 希尼	xuns	52559
-来复枪	lyfoq	72774
+来复枪	lyfpq	72774
 圈圈	qwqk	52559
 农村	nycm	52559
 协同	xstk	52559
@@ -13516,14 +13516,14 @@
 优等生	ysdzs	72456
 重振	zyzd	52329
 吊桥	duqm	52329
-不复	bufo	52329
+不复	bufp	52329
 大部	dybe	52329
 重任	zyrr	52329
 朴敬元	psjpy	72456
 小贩	xyfb	52329
 输出	sscc	52329
 柔弱	rurg	52329
-喷气	psqh	52329
+喷气	psqp	52329
 大风	dyfj	52329
 盛会	suhr	52329
 回旋	hwxf	52329
@@ -13703,7 +13703,7 @@
 善解人意	sujjry	90164
 为伍	wywr	52095
 样板	ysbm	52095
-正午	zuwh	52095
+正午	zuwp	52095
 掩藏	ysca	52095
 自燃	zyrh	52095
 得寸进尺	dschjc	90164
@@ -13718,7 +13718,7 @@
 定时炸弹	dusozd	90164
 总指挥	zuzdh	72131
 奥秘	aumh	52095
-飞舞	fywh	52095
+飞舞	fywp	52095
 爬行	pwxr	52095
 砸烂	zslh	52095
 吃素	csst	52095
@@ -13920,7 +13920,7 @@
 背诵	busy	51856
 男仆	nupr	51856
 退场	twct	51856
-比率	bylx	51856
+比率	bslx	51856
 靠岸	kuas	51856
 交接	jujd	51856
 停机坪	tsjmp	71801
@@ -14118,7 +14118,7 @@
 谜底	msdg	51366
 凶恶	xwex	51366
 阿加莎	asjls	71122
-喷气式	psqhs	71122
+喷气式	psqps	71122
 安琪儿	auqwe	71122
 宝琳娜	bulwn	71122
 陶德	tsdr	51366
@@ -14201,7 +14201,7 @@
 更年期	gunpq	71122
 蝴蝶结	hsdcj	71122
 战无不胜	zswhbs	88902
-火气	huqh	51366
+火气	huqp	51366
 巨龙	jylh	51366
 纽卡斯尔	nskbse	88902
 录音棚	luylp	71122
@@ -14229,7 +14229,7 @@
 海吉	hsjt	51366
 滑动	hsdy	51366
 醉汉	zshi	51366
-比安卡	byaak	71122
+比安卡	bsaak	71122
 围攻	wwgg	51366
 热恋	rulx	51366
 售货员	suhby	71122
@@ -14368,7 +14368,7 @@
 保守派	bssap	70772
 萨莎	susa	51113
 陪葬	psza	51113
-疝气	swqh	51113
+疝气	swqp	51113
 带队	dude	51113
 莫过于	mugzy	70772
 白手起家	byspqj	88466
@@ -14541,7 +14541,7 @@
 隐喻	ysyk	50856
 面的	mudb	50856
 挺胸	tsxo	50856
-利比亚	lsbzy	70416
+利比亚	lsbby	70416
 胡椒粉	hsjmf	70416
 客座	kuzg	50856
 扯谎	cshy	50856
@@ -14692,7 +14692,7 @@
 下跪	xugz	50593
 布兰妮	bwlbn	70052
 魔爪	mwzp	50593
-年复一年	nyfoyn	87565
+年复一年	nyfpyn	87565
 潮汐	csxi	50593
 胖墩	psdt	50593
 鱼肉	yurs	50593
@@ -14719,7 +14719,7 @@
 前期	quqo	50593
 心动	xydy	50593
 演奏会	yszrh	70052
-比试	bysy	50593
+比试	bssy	50593
 研究员	ysjxy	70052
 面带微笑	mudhwx	87565
 动词	dscy	50593
@@ -15076,7 +15076,7 @@
 惨痛	cstn	50051
 梳头	sstn	50051
 婆婆妈妈	pupnmm	86628
-电气	dyqh	50051
+电气	dyqp	50051
 发呆	fydk	50051
 药方	yufa	50051
 盗取	duqe	50051
@@ -15141,7 +15141,7 @@
 秀雅	xuyy	50051
 性子	xszh	50051
 仓鼠	cusj	50051
-菲比	fubz	50051
+菲比	fubb	50051
 翩翩起舞	pspyqw	86628
 战绩	zsjs	50051
 原有	ywwo	50051
@@ -15616,7 +15616,7 @@
 佩姬	psjn	49194
 米姆兹	mymnz	68115
 侠盗	xsdc	49194
-淘气鬼	tsqhg	68115
+淘气鬼	tsqpg	68115
 区区	qwqk	49194
 科特	kstn	49194
 遗传学	ywcrx	68115
@@ -15663,7 +15663,7 @@
 传染性	csrmx	68115
 愚笨	yubz	49194
 鳏夫	gsfh	49194
-死气沉沉	swqhcc	85144
+死气沉沉	swqpcc	85144
 报废	bsfg	49194
 堆满	dsmi	49194
 礼帽	lsmj	49194
@@ -15821,7 +15821,7 @@
 加紧	jsje	48895
 佩里	pslj	48895
 算术	susm	48895
-消气	xsqh	48895
+消气	xsqp	48895
 流落	lsla	48895
 卡帕	kupj	48895
 右面	ywmh	48895
@@ -15976,7 +15976,7 @@
 高墙	guqt	48895
 质询	zwxy	48895
 接连	jslz	48895
-比索	bysh	48895
+比索	bssh	48895
 穷光蛋	qugad	67701
 充沛	cupi	48895
 杰利	julh	48895
@@ -16092,7 +16092,7 @@
 独到	dsdz	48589
 色泽	suzi	48589
 和声	hsst	48589
-断气	dsqh	48589
+断气	dsqp	48589
 迁移	qwyh	48589
 做伴	zsbr	48589
 脑电波	nsdsb	67278
@@ -16288,7 +16288,7 @@
 斯蒂芬妮	ssdafn	83555
 索马里	sumhl	66844
 内科	nykh	48276
-小气鬼	xyqhg	66844
+小气鬼	xyqpg	66844
 链条	lstp	48276
 商谈	suty	48276
 三分之二	sufbze	83555
@@ -16418,11 +16418,11 @@
 入口处	ryksc	66844
 眼睑	ysjo	48276
 凝结	nsjs	48276
-热气球	ruqhq	66844
+热气球	ruqpq	66844
 光学	guxa	48276
 罪责	zuzt	48276
 律动	lsdy	48276
-比划	byhg	48276
+比划	bshg	48276
 传到	csdz	48276
 新墨西哥	xsmhxg	83555
 美洲豹	muzib	66844
@@ -16551,7 +16551,7 @@
 右眼	ywyo	47955
 红衣主教	hsyazj	82999
 高额	guey	47955
-和气	hsqh	47955
+和气	hsqp	47955
 容量	ruld	47955
 赞美诗	zumys	66399
 恶名	eump	47955
@@ -17048,7 +17048,7 @@
 右臂	ywbo	47288
 心仪	xyyr	47288
 毒打	dudd	47288
-反复无常	fwfowc	81845
+反复无常	fwfpwc	81845
 影印	ysyj	47288
 断路	dslz	47288
 尺度	cydg	47288
@@ -17091,7 +17091,7 @@
 备案	buam	47288
 有的是	wwdbs	65476
 死刑犯	swxdf	65476
-通气	twqh	47288
+通气	twqp	47288
 阿刚	asgd	47288
 荣光	ruga	47288
 长廊	zylg	47288
@@ -17197,7 +17197,7 @@
 孝顺	xwsc	47288
 抚恤金	fsxxj	65476
 收支	sszh	47288
-众矢之的	zusdzd	81845
+众矢之的	zuspzd	81845
 团结一心	twjsyx	81845
 对得起	dsdrq	65476
 盖伯	gubr	47288
@@ -17320,7 +17320,7 @@
 所向披靡	ssxppm	81245
 洋溢	ysyi	46941
 家产	juca	46941
-比利时人	bylhsr	81245
+比利时人	bslhsr	81245
 浴衣	ysya	46941
 定夺	dudd	46941
 莲恩	luex	46941
@@ -17400,7 +17400,7 @@
 微光	wsga	46941
 视作	sszr	46941
 尼罗河	nwlwh	64996
-香气	xuqh	46941
+香气	xuqp	46941
 举措	jucd	46941
 特迪	tsdz	46941
 索引	suyg	46941
@@ -17429,7 +17429,7 @@
 索鲁斯	sulys	64996
 俯视	fssn	46941
 管辖区	guxcq	64996
-热气	ruqh	46941
+热气	ruqp	46941
 三秒	sumh	46941
 餐会	cuhr	46941
 琥珀	hspw	46941
@@ -17571,7 +17571,7 @@
 赤手空拳	cuspkq	80629
 口罩	kyzw	46585
 宽慰	kuwx	46585
-哈比布	hsbzb	64503
+哈比布	hsbbb	64503
 中餐馆	zycsg	64503
 资质	zuzp	46585
 阿米什	asmns	64503
@@ -17593,7 +17593,7 @@
 勒弗罗伊	lsfzly	80629
 回路	hwlz	46585
 家父	jufb	46585
-群舞	qswh	46585
+群舞	qswp	46585
 星辰	xucc	46585
 想当然	xudar	64503
 会演	huyi	46585
@@ -17732,7 +17732,7 @@
 板上钉钉	bssbdd	80629
 花车	huch	46585
 乌合之众	wwhrzz	80629
-比目鱼	bymsy	64503
+比目鱼	bsmsy	64503
 发芽	fyya	46585
 液氮	ysdq	46585
 始作俑者	sszryz	80629
@@ -17810,7 +17810,7 @@
 零售商	luszs	63996
 丸子	wyzh	46219
 战况	zski	46219
-比查姆	bycmm	63996
+比查姆	bscmm	63996
 归属感	gsssg	63996
 血洗	xuxi	46219
 爆出	bscc	46219
@@ -17873,7 +17873,7 @@
 平坦	pytt	46219
 马尔福	mwenf	63996
 天女	tunp	46219
-雾气	wuqh	46219
+雾气	wuqp	46219
 鳕鱼	xsyn	46219
 菲利浦	fulhp	63996
 希奇	xuqd	46219
@@ -17970,7 +17970,7 @@
 寄信	juxr	46219
 送行	swxr	46219
 蔷薇	quwa	46219
-哈比	hsbz	46219
+哈比	hsbb	46219
 散架	ssjj	46219
 渊源	ysyi	46219
 超前	cwqa	46219
@@ -18062,7 +18062,7 @@
 埋没	msmi	45842
 德雷克	dslyk	63474
 经不起	jsbhq	63474
-氧气瓶	ywqhp	63474
+氧气瓶	ywqpp	63474
 蒂莫西	dumax	63474
 朱尔	zyen	45842
 时而	sseh	45842
@@ -18127,7 +18127,7 @@
 尽职尽责	juzejz	79343
 芬芳	fufa	45842
 拜读	bsdy	45842
-摩比斯	mwbzs	63474
+摩比斯	mwbbs	63474
 心境	xyjt	45842
 葛芮	gura	45842
 仿制品	fsznp	63474
@@ -18179,7 +18179,7 @@
 口里	kylj	45842
 深海	sshi	45842
 秀珍	xuzw	45842
-怨气	yuqh	45842
+怨气	yuqp	45842
 观察员	gscay	63474
 生物武器	sywnwq	79343
 观察力	gscal	63474
@@ -18290,7 +18290,7 @@
 避风	bwfj	45842
 反应器	fwygq	63474
 学年	xunp	45842
-相比之下	xsbzzx	79343
+相比之下	xsbbzx	79343
 眼科	yskh	45842
 送达	swdz	45842
 无性	wuxx	45842
@@ -18392,7 +18392,7 @@
 创世	cssh	45454
 蜂巢	fscz	45454
 失声	ssst	45454
-义气	ywqh	45454
+义气	ywqp	45454
 缺水	qssz	45454
 领略	lslt	45454
 驶向	ssxp	45454
@@ -18847,7 +18847,7 @@
 叫嚣	jsxy	45054
 碳酸	tssy	45054
 俗语	ssyy	45054
-平复	pyfo	45054
+平复	pyfp	45054
 助产	zsca	45054
 深水	sssz	45054
 安全性	auqrx	62383
@@ -18890,9 +18890,9 @@
 松果	ssgo	45054
 红颜	hsyy	45054
 迈拉	mwld	45054
-晦气	hsqh	45054
+晦气	hsqp	45054
 索普	supo	45054
-争气	zuqh	45054
+争气	zuqp	45054
 紫红色	zuhss	62383
 上亿	suyr	45054
 改行	gsxr	45054
@@ -18974,7 +18974,7 @@
 良药	luya	45054
 父辈	fubf	45054
 桑德	sudr	45054
-比德曼	bydrm	62383
+比德曼	bsdrm	62383
 南北战争	nubbzz	77979
 桥头	qstn	45054
 不堪回首	bukths	77979
@@ -19006,7 +19006,7 @@
 贾尼斯	junss	62383
 吝啬鬼	lustg	62383
 健身操	jsspc	62383
-傻气	ssqh	45054
+傻气	ssqp	45054
 阿尔伯特	asenbt	77979
 还款	fwkt	45054
 俏皮话	qspzh	62383
@@ -19061,7 +19061,7 @@
 过渡期	gwdiq	61811
 野草	ysca	44641
 产后	cuhp	44641
-换气	hsqh	44641
+换气	hsqp	44641
 老爷车	lwyfc	61811
 人脸	rylo	44641
 出乱子	culsz	61811
@@ -19111,7 +19111,7 @@
 文生	wusp	44641
 助攻	zsgg	44641
 遍及	bwjp	44641
-氮气	dwqh	44641
+氮气	dwqp	44641
 酿成	nscw	44641
 欧弟	osdb	44641
 诱捕	ysbd	44641
@@ -19481,7 +19481,7 @@
 信鸽	xsgn	44215
 把持	bscd	44215
 心疼	xytn	44215
-比尔博	byenb	61221
+比尔博	bsenb	61221
 人满为患	rymiwh	76526
 掉队	dsde	44215
 担保人	dsbrr	61221
@@ -19562,14 +19562,14 @@
 大动脉	dydym	61221
 天竺	tuzz	44215
 饭局	fsjs	44215
-伴舞	bswh	44215
+伴舞	bswp	44215
 天理	tulw	44215
 陈列	csld	44215
 火枪	huqm	44215
 塞族	suzf	44215
 保险费	bsxef	61221
 巴赫	byhc	44215
-忍气吞声	ruqhts	76526
+忍气吞声	ruqpts	76526
 物归原主	wsgsyz	76526
 保证金	bszyj	61221
 清凉	qsli	44215
@@ -19658,7 +19658,7 @@
 花匠	hujk	44215
 患难	huny	44215
 哈桑	hssy	44215
-类比	lubz	44215
+类比	lubb	44215
 斯塔奇	ssttq	61221
 间隙	jwxe	44215
 格利	gslh	44215
@@ -19696,7 +19696,7 @@
 目不转睛	mybhzj	76526
 厮杀	swsx	44215
 欲擒故纵	ysqdgz	76526
-手舞足蹈	sywhzd	76526
+手舞足蹈	sywpzd	76526
 床头	cwtn	44215
 主治医师	zuziys	76526
 求职	qwze	44215
@@ -19756,7 +19756,7 @@
 巡洋舰	xwyij	60611
 蒙哥马利	mugkml	75764
 波尔多	bsend	60611
-朝气	csqh	43774
+朝气	csqp	43774
 罗斯勒	lusjl	60611
 症候	zwhr	43774
 梅森	mssm	43774
@@ -20281,7 +20281,7 @@
 归类	gslm	43318
 克雷格	kulyg	59979
 肺病	fsbn	43318
-神气	ssqh	43318
+神气	ssqp	43318
 玛丽恩	mslhe	59979
 差一点儿	cwyhde	74974
 铠甲	ksjs	43318
@@ -20381,7 +20381,7 @@
 老毛病	lwmpb	59979
 圣乔治	suqpz	59979
 胡作非为	hszrfw	74974
-比伊	byyr	43318
+比伊	bsyr	43318
 超常	cwcj	43318
 理清	lsqi	43318
 奇遇	quyz	43318
@@ -20444,7 +20444,7 @@
 锡安	xsaa	42845
 空子	kuzh	42845
 计票	jspx	42845
-怒气冲冲	nuqhcc	74156
+怒气冲冲	nuqpcc	74156
 登记表	dujyb	59325
 胳肢	gszo	42845
 麻布	mwbj	42845
@@ -20520,7 +20520,7 @@
 问道	wwdz	42845
 分毫	fuha	42845
 白菜	byca	42845
-比比	bybz	42845
+比比	bsbb	42845
 真心实意	zuxnsy	74156
 蛆虫	qscs	42845
 一贫如洗	yypfrx	74156
@@ -20843,7 +20843,7 @@
 征途	zstz	42845
 赫鲁晓夫	hslyxf	74156
 见好	jyhn	42845
-道比斯	dwbzs	59325
+道比斯	dwbbs	59325
 活像	hsxr	42845
 人声	ryst	42845
 黄铜	hutj	42845
@@ -20904,7 +20904,7 @@
 朴实	pssa	42355
 魄力	pslz	42355
 中计	zyjy	42355
-灵气	luqh	42355
+灵气	luqp	42355
 减退	jstz	42355
 交响曲	juxkq	58645
 乔安	quaa	42355
@@ -20993,7 +20993,7 @@
 撼动	hsdy	42355
 数列	ssld	42355
 六百万	lubhw	58645
-元气	yuqh	42355
+元气	yuqp	42355
 缩影	ssyp	42355
 三部曲	subeq	58645
 常态	cutx	42355
@@ -21049,13 +21049,13 @@
 林德	lsdr	42355
 报信	bsxr	42355
 爱国主义	augkzy	73307
-西比佛利	xubzfl	73307
+西比佛利	xubbfl	73307
 原封不动	ywfcbd	73307
 法默尔	fsmhe	58645
 卡拉奇	kuldq	58645
 托斯卡纳	tssjkn	73307
 禁药	juya	42355
-冷气	lsqh	42355
+冷气	lsqp	42355
 揣测	csci	42355
 伯伯	bsbr	42355
 船队	csde	42355
@@ -21179,7 +21179,7 @@
 贞珠	zuzw	42355
 亨廷顿	hutyd	58645
 富含	fuhk	42355
-氢气	qwqh	42355
+氢气	qwqp	42355
 鞑靼	dsdg	42355
 矮胖	aspo	42355
 千克	qukg	42355
@@ -21254,7 +21254,7 @@
 马蜂窝	mwfcw	58645
 活物	hswn	42355
 被告席	bsgkx	58645
-漏气	lsqh	42355
+漏气	lsqp	42355
 费利克斯	fulhks	73307
 见习	jyxz	42355
 谈情说爱	tsqxsa	73307
@@ -21677,7 +21677,7 @@
 形形色色	xsxpss	72424
 借鉴	jsje	41845
 救火车	jshbc	57939
-比昂尼	byaon	57939
+比昂尼	bsaon	57939
 温习	wsxz	41845
 马罗	mwlw	41845
 埃略	aslt	41845
@@ -21762,7 +21762,7 @@
 效仿	xsfr	41314
 加拉加斯	jsldjs	71506
 踏入	tsrp	41314
-咽气	ysqh	41314
+咽气	ysqp	41314
 最高价	zugaj	57204
 斯戴福	ssdgf	57204
 腰果	ysgo	41314
@@ -22021,7 +22021,7 @@
 连带	lwdh	41314
 拉金	lsjr	41314
 儿媳	esxn	41314
-支气管	zuqhg	57204
+支气管	zuqpg	57204
 警用	juyk	41314
 便装	bszy	41314
 心肌梗塞	xyjogs	71506
@@ -22241,7 +22241,7 @@
 争夺战	zuddz	56438
 邓迪	dsdz	40761
 与其	ywqh	40761
-撒气	ssqh	40761
+撒气	ssqp	40761
 模棱两可	mslmlk	70548
 史塔克	syttk	56438
 神经细胞	ssjsxb	70548
@@ -22311,7 +22311,7 @@
 嬷嬷	msmn	40761
 福克尔	fskge	56438
 机警	jsjy	40761
-戴比	dwbz	40761
+戴比	dwbb	40761
 诱因	ysyk	40761
 哥吉拉	gujtl	56438
 撞针	zszj	40761
@@ -22576,7 +22576,7 @@
 年终	nyzs	40761
 熙秀	xuxh	40761
 双人床	ssrpc	56438
-欧比旺	osbzw	56438
+欧比旺	osbbw	56438
 翠亚	cuyh	40761
 作梗	zsgm	40761
 品格	pugm	40761
@@ -22615,7 +22615,7 @@
 单细胞	duxsb	56438
 法宝	fsba	40761
 水塔	sstt	40761
-废气	fwqh	40761
+废气	fwqp	40761
 能手	nssp	40761
 北海道	bshid	56438
 良方	lufa	40761
@@ -22826,7 +22826,7 @@
 闲置	xwzw	40183
 布希金	bwxxj	55638
 大麦	dymt	40183
-西比尔	xubze	55638
+西比尔	xubbe	55638
 浮瑞克	fsrwk	55638
 镣铐	lskj	40183
 弹匣	dsxk	40183
@@ -22920,7 +22920,7 @@
 撞倒	zsdr	40183
 奥妙	aumn	40183
 喜讯	xuxy	40183
-支气管炎	zuqhgy	69548
+支气管炎	zuqpgy	69548
 情有可原	qswoky	69548
 专车	zuch	40183
 粘乎乎	zshph	55638
@@ -22998,7 +22998,7 @@
 蒙受	musp	40183
 味蕾	wsla	40183
 熔炉	rslh	40183
-杜比	dsbz	40183
+杜比	dsbb	40183
 读报	dsbd	40183
 现世	xssh	40183
 网眼	wwyo	40183
@@ -23641,7 +23641,7 @@
 艾龙	aulh	39578
 意识形态	yusyxt	68501
 开释	kusp	39578
-赛比娜	subzn	54801
+赛比娜	subbn	54801
 农药	nyya	39578
 助人为乐	zsrpwl	68501
 公干	gugh	39578
@@ -23655,7 +23655,7 @@
 衬里	cslj	39578
 橡皮糖	xspzt	54801
 感叹	gutk	39578
-憋气	buqh	39578
+憋气	buqp	39578
 玄机	xujm	39578
 李昂纳图	luaont	68501
 史帝夫	sydaf	54801
@@ -23703,7 +23703,7 @@
 面巾纸	mujsz	54801
 停步	tsbz	39578
 铁门	tsms	39578
-蒸气	zuqh	39578
+蒸气	zuqp	39578
 异族	yuzf	39578
 罗莉	lula	39578
 弗克西	fykgx	54801
@@ -23870,7 +23870,7 @@
 梅丽	mslh	38944
 王尔德	wuend	53923
 称兄道弟	csxkdd	67403
-打比方	dsbzf	53923
+打比方	dsbbf	53923
 奥伦	aulr	38944
 舞场	wuct	38944
 遗传病	ywcrb	53923
@@ -24050,7 +24050,7 @@
 白瑞摩	byrwm	53923
 住家	zsja	38944
 火源	huyi	38944
-才气	cyqh	38944
+才气	cyqp	38944
 见怪不怪	jygxbg	67403
 全军覆没	qujhfm	67403
 纳撒尼尔	nssdne	67403
@@ -24076,7 +24076,7 @@
 结婚证	jshnz	53923
 科莫	ksma	38944
 师生	sssp	38944
-一气呵成	yyqhhc	67403
+一气呵成	yyqphc	67403
 天价	tujr	38944
 施放	ssff	38944
 夏姆	xumn	38944
@@ -24429,7 +24429,7 @@
 流经	lsjs	38277
 伊利莎白	yslhsb	66249
 既往不咎	jswrbj	66249
-阿比	asbz	38277
+阿比	asbb	38277
 随波逐流	ssbizl	66249
 拉曼达	lsmod	52999
 露辛	luxl	38277
@@ -24843,7 +24843,7 @@
 反刍	fwcn	38277
 月刊	yykg	38277
 缴获	jsha	38277
-氯气	lwqh	38277
+氯气	lwqp	38277
 卢西恩	luxhe	52999
 犬齿	qycs	38277
 行刺	xscm	38277
@@ -24939,7 +24939,7 @@
 童星	tuxo	38277
 中年人	zynpr	52999
 敲定	qsda	38277
-比格	bygm	38277
+比格	bsgm	38277
 津门	jsms	38277
 蒂莎	dusa	38277
 索拉	suld	38277
@@ -24951,7 +24951,7 @@
 圣玛丽	sumwl	52999
 斯图沃夫	sstkwf	66249
 高耸	guse	38277
-歌舞剧	gswhj	52999
+歌舞剧	gswpj	52999
 县里	xulj	38277
 尿道	nwdz	38277
 谩骂	msmm	38277
@@ -25134,7 +25134,7 @@
 净土	jsth	37574
 范例	fulr	37574
 冰天雪地	bsthxd	65033
-燃气	rsqh	37574
+燃气	rsqp	37574
 旋钮	xsnj	37574
 力图	lytk	37574
 换人	hsrp	37574
@@ -25144,7 +25144,7 @@
 属性	swxx	37574
 姆斯	mssj	37574
 非常规	fycjg	52026
-歌舞伎	gswhj	52026
+歌舞伎	gswpj	52026
 多样	duym	37574
 使节	ssja	37574
 梅诺	msny	37574
@@ -25333,7 +25333,7 @@
 销路	xslz	37574
 鲍姆	bsmn	37574
 如此一来	rsczyl	65033
-风气	fwqh	37574
+风气	fwqp	37574
 痛哭流涕	twkqlt	65033
 英雄主义	yuxzzy	65033
 左派	zwpi	37574
@@ -25509,7 +25509,7 @@
 道口	dwks	37574
 废旧	fwjs	37574
 建材	jwcm	37574
-志气	zuqh	37574
+志气	zuqp	37574
 顾博	gsbh	37574
 道婕	dwjn	37574
 亚细亚	yuxsy	52026
@@ -25543,7 +25543,7 @@
 嘉芙莲	jufal	52026
 一概	yygm	37574
 拒收	jssp	37574
-赌气	dsqh	37574
+赌气	dsqp	37574
 行之有效	xsznwx	65033
 疏漏	ssli	37574
 睡裤	sskn	37574
@@ -25574,7 +25574,7 @@
 利萨	lssa	37574
 护膝	hsxo	37574
 熙敏	xump	37574
-勃比	bsbz	37574
+勃比	bsbb	37574
 罗西	luxh	37574
 邓普顿	dspod	52026
 乘机	cyjm	37574
@@ -25683,7 +25683,7 @@
 老总	lwzx	37574
 西拉	xuld	37574
 成群结队	cwqyjd	65033
-老气	lwqh	37574
+老气	lwqp	37574
 百发百中	bufzbz	65033
 柳刚真	lsgdz	52026
 花色	husn	37574
@@ -25704,7 +25704,7 @@
 犯不着	fsbhz	52026
 景致	juzz	37574
 格式化	gssyh	52026
-血气方刚	xuqhfg	63747
+血气方刚	xuqpfg	63747
 风信子	fwxrz	50997
 保票	bspx	36831
 猕猴桃	mshqt	50997
@@ -25777,7 +25777,7 @@
 离境	lujt	36831
 中彩	zycp	36831
 波洛	bsli	36831
-尾气	wwqh	36831
+尾气	wwqp	36831
 石榴裙	swlmq	50997
 轮换	lshd	36831
 片片	pypp	36831
@@ -25881,7 +25881,7 @@
 大作家	dyzrj	50997
 关切	guqd	36831
 波西米亚	bsxhmy	63747
-利比里亚	lsbzly	63747
+利比里亚	lsbbly	63747
 树信	ssxr	36831
 曼纳克	munsk	50997
 生闷气	symmq	50997
@@ -25959,14 +25959,14 @@
 布罗姆	bwlwm	50997
 米尼	myns	36831
 斯普林	sspol	50997
-生气勃勃	syqhbb	63747
+生气勃勃	syqpbb	63747
 毒杀	dusx	36831
 心安	xyaa	36831
 教学楼	jsxal	50997
 贾西亚	juxhy	50997
 盛产	suca	36831
 钱德	qsdr	36831
-沼气	zsqh	36831
+沼气	zsqp	36831
 奉研	fuys	36831
 床罩	cwzw	36831
 官兵	gubb	36831
@@ -26201,7 +26201,7 @@
 收信人	ssxrr	50997
 梅莱恩	mslae	50997
 柏克	bskg	36831
-赞比亚	zubzy	50997
+赞比亚	zubby	50997
 守财奴	sucbn	50997
 遍体鳞伤	bwtrls	63747
 毁谤	hsby	36831
@@ -26564,7 +26564,7 @@
 冰糖	bstm	36043
 道尔顿	dwend	49906
 联军	lsjh	36043
-比弗利	byfzl	49906
+比弗利	bsfzl	49906
 莫尔斯	muens	49906
 温文尔雅	wswaey	62383
 亲历	qulc	36043
@@ -26617,7 +26617,7 @@
 晕乎乎	yuhph	49906
 赔罪	pszw	36043
 汪才	wsch	36043
-康比	kwbz	36043
+康比	kwbb	36043
 轰鸣	humk	36043
 大幅度	dyfjd	49906
 血本	xubh	36043
@@ -26842,7 +26842,7 @@
 阿娜	asnn	36043
 木门	myms	36043
 七十五	qyshw	49906
-柯比	ksbz	36043
+柯比	ksbb	36043
 米罗克斯	mylwks	62383
 亚科特	yukht	49906
 俊泰	jstr	36043
@@ -26868,7 +26868,7 @@
 爆满	bsmi	36043
 归因于	gsyky	49906
 提价	tsjr	36043
-热气腾腾	ruqhtt	62383
+热气腾腾	ruqptt	62383
 南门	nums	36043
 阅兵	ywbb	36043
 伯利兹	bslhz	49906
@@ -27047,7 +27047,7 @@
 惨淡	csdi	36043
 过重	gwzp	36043
 热火	ruhb	36043
-意气风发	yuqhff	62383
+意气风发	yuqpff	62383
 菲尔比	fuenb	49906
 浮力	fslz	36043
 冲锋陷阵	csfjxz	62383
@@ -27059,7 +27059,7 @@
 格吉	gsjt	36043
 浮夸	fskd	36043
 温存	wscz	36043
-比厄	byec	36043
+比厄	bsec	36043
 马勒	mwlg	36043
 斯兰恩	sslbe	49906
 海选中	hsxzz	49906
@@ -27109,7 +27109,7 @@
 玛尔斯	msens	49906
 可塑性	kwstx	49906
 分辨率	fubxl	49906
-意气用事	yuqhys	62383
+意气用事	yuqpys	62383
 抗击	ksje	36043
 铰链	jslj	36043
 彩绘	cshs	36043
@@ -27127,7 +27127,7 @@
 痛经	twjs	36043
 成行	cwxr	36043
 民工	mygh	36043
-斗气	dyqh	36043
+斗气	dyqp	36043
 詹母士	zwmps	49906
 投影仪	tsypy	49906
 沙土	ssth	36043
@@ -27382,7 +27382,7 @@
 道出	dwcc	35204
 黄热病	hurhb	48744
 洗涤剂	xsdij	48744
-锐气	rsqh	35204
+锐气	rsqp	35204
 丽泽	luzi	35204
 西塞罗	xustl	48744
 后藤	hwta	35204
@@ -27673,10 +27673,10 @@
 耀武扬威	yswyyw	60931
 西里安	xulja	48744
 庸人	ywrp	35204
-利比亚人	lsbzyr	60931
+利比亚人	lsbbyr	60931
 科塞蒂	ksstd	48744
 剪纸	juzs	35204
-恢复期	hsfoq	48744
+恢复期	hsfpq	48744
 助推	zstd	35204
 希哲	xuzk	35204
 天明	tumo	35204
@@ -27909,7 +27909,7 @@
 学童	xutl	35204
 高楼大厦	gulmds	60931
 昏昏沉沉	huhscc	60931
-比佛利	byfrl	48744
+比佛利	bsfrl	48744
 哈泽泰	hszit	48744
 轮机长	lsjmz	48744
 有伤	wwsr	35204
@@ -28025,7 +28025,7 @@
 阿富汗人	asfahr	60931
 交融	jurh	35204
 饭票	fspx	35204
-比尔兹利	byenzl	60931
+比尔兹利	bsenzl	60931
 病友	bwyy	35204
 奠基	dujt	35204
 线粒体	xslmt	48744
@@ -28040,7 +28040,7 @@
 法眼	fsyo	35204
 高谈阔论	gutykl	60931
 鸟枪	nwqm	35204
-肺气肿	fsqhz	48744
+肺气肿	fsqpz	48744
 总收入	zuspr	48744
 席达瑟	xwdzs	48744
 狐臭	hscz	35204
@@ -28221,7 +28221,7 @@
 维博	wsbh	34307
 盼头	pstn	34307
 卡翠娜	kucyn	47503
-服气	fsqh	34307
+服气	fsqp	34307
 玛芝	msza	34307
 成功者	cwggz	47503
 盆地	pudt	34307
@@ -28321,7 +28321,7 @@
 低速	dssz	34307
 凯洛	ksli	34307
 李治秀	luzix	47503
-出气筒	cuqht	47503
+出气筒	cuqpt	47503
 最低价	zudrj	47503
 文淑	wusi	34307
 云娜	yunn	34307
@@ -28385,7 +28385,7 @@
 丘陵	qyle	34307
 妙龄	mslc	34307
 马贼	mwzb	34307
-动气	dsqh	34307
+动气	dsqp	34307
 数万	sswh	34307
 斯坦普	ssttp	47503
 青史	quss	34307
@@ -28653,7 +28653,7 @@
 投机者	tsjmz	47503
 民秀	myxh	34307
 演职人员	yszery	59378
-底气	dwqh	34307
+底气	dwqp	34307
 负载	fuzg	34307
 粘性	zsxx	34307
 兴师动众	xusedz	59378
@@ -28731,7 +28731,7 @@
 伯妮斯	bsnns	47503
 克林贡	kulmg	47503
 共生	gusp	34307
-血气	xuqh	34307
+血气	xuqp	34307
 公债	guzr	34307
 一条心	yytpx	47503
 独立自主	dslazz	59378
@@ -28789,7 +28789,7 @@
 自选	zyxz	34307
 安吉里卡	aujtlk	59378
 考证	kwzy	34307
-比安奇	byaaq	47503
+比安奇	bsaaq	47503
 避讳	bwhy	34307
 参拜	cubh	34307
 蓝奇南	luqdn	47503
@@ -29097,7 +29097,7 @@
 卸掉	xsdd	33344
 刀枪	dwqm	33344
 象鼻虫	xubzc	46169
-娇气	jsqh	33344
+娇气	jsqp	33344
 战略性	zsltx	46169
 下头	xutn	33344
 意旨	yuzb	33344
@@ -29273,7 +29273,7 @@
 弄巧成拙	nuqgcz	57711
 中子星	zyzhx	46169
 敷衍了事	fsyrls	57711
-波比斯	bsbzs	46169
+波比斯	bsbbs	46169
 诈骗犯	zspmf	46169
 冒火	muhb	33344
 叫花子	jshaz	46169
@@ -29457,7 +29457,7 @@
 碗橱	wscm	33344
 沙利	sslh	33344
 换言之	hsynz	46169
-歌舞片	gswhp	46169
+歌舞片	gswpp	46169
 险峻	xsjs	33344
 伟科	wskh	33344
 劲敌	jsds	33344
@@ -29601,7 +29601,7 @@
 阿尔库特	asenkt	57711
 失言	ssyn	33344
 伍顿	wsdy	33344
-莫比尔	mubze	46169
+莫比尔	mubbe	46169
 郑汉景	zshij	46169
 搏动	bsdy	33344
 工伤	gysr	33344
@@ -29991,7 +29991,7 @@
 计划表	jshgb	46169
 才女	cynp	33344
 高难度	gunyd	46169
-繁复	fufo	33344
+繁复	fufp	33344
 金黄	juhb	33344
 武装部队	wwzybd	57711
 入骨	rygo	33344
@@ -30053,7 +30053,7 @@
 大娘	dynn	32303
 大寿	dysf	32303
 浑浊	hszi	32303
-比林斯	bylms	44728
+比林斯	bslms	44728
 响当当	xsdad	44728
 近景	jwjo	32303
 变幻莫测	buhymc	55910
@@ -30521,7 +30521,7 @@
 名作	muzr	32303
 抽水马桶	csszmt	55910
 败绩	bsjs	32303
-煤气灯	msqhd	44728
+煤气灯	msqpd	44728
 摄录	sslj	32303
 罗丹	ludp	32303
 塔纳摩	tsnsm	44728
@@ -30668,7 +30668,7 @@
 歌王	gswh	32303
 瑞娜塔	rsnnt	44728
 巨蟒	jymc	32303
-盛气凌人	suqhlr	55910
+盛气凌人	suqplr	55910
 圣蒂利	sudal	44728
 实足	suzk	32303
 布巴	bwbz	32303
@@ -30716,7 +30716,7 @@
 切特	qstn	32303
 费雷格诺	fulygn	55910
 红红	hshs	32303
-湿气	ssqh	32303
+湿气	ssqp	32303
 巴博萨	bybhs	44728
 捎带	ssdh	32303
 婆家	puja	32303
@@ -30982,7 +30982,7 @@
 健美操	jsmyc	44728
 欲念	ysnx	32303
 被褥	bsrn	32303
-比亚	byyh	32303
+比亚	bsyh	32303
 教育局	jsytj	44728
 传入	csrp	32303
 水轮	sslc	32303
@@ -31092,7 +31092,7 @@
 路德维格	lsdrwg	55910
 探戈舞	tsghw	44728
 金诗恩	jusye	44728
-比福尔	byfne	44728
+比福尔	bsfne	44728
 艾维斯	auwss	44728
 阿斯伯格	assjbg	55910
 话匣子	hsxkz	44728
@@ -31109,7 +31109,7 @@
 向量	xwld	32303
 选址	xwzt	32303
 干将	gyjp	32303
-可比性	kwbzx	44728
+可比性	kwbbx	44728
 霍伦贝克	hulrbk	55910
 弗勒	fylg	32303
 相知	xszp	32303
@@ -31243,7 +31243,7 @@
 我正	wyzh	31172
 结核	jshm	31172
 了无生趣	luwhsq	53952
-子午线	zywhx	43162
+子午线	zywpx	43162
 阿丽娜	aslhn	43162
 安佐	auzr	31172
 狂轰滥炸	kshclz	53952
@@ -31274,7 +31274,7 @@
 置评	zupy	31172
 暂定	zuda	31172
 领海	lshi	31172
-傲气	asqh	31172
+傲气	asqp	31172
 消融	xsrh	31172
 轮机	lsjm	31172
 康普顿	kwpod	43162
@@ -31333,7 +31333,7 @@
 阿爸	asbf	31172
 意象	yuxn	31172
 胸襟	xsjn	31172
-重复性	zyfox	43162
+重复性	zyfpx	43162
 科勒	kslg	31172
 商铺	supj	31172
 冠亚军	guyhj	43162
@@ -31427,7 +31427,7 @@
 行云流水	xsyels	53952
 生物碱	sywnj	43162
 竟会	juhr	31172
-不比	bubz	31172
+不比	bubb	31172
 虚脱	xwto	31172
 库伯	kwbr	31172
 沃什	wssr	31172
@@ -31477,7 +31477,7 @@
 刻不容缓	ksbhrh	53952
 呵欠	hsqp	31172
 姑婆	gspn	31172
-法比埃拉	fsbzal	53952
+法比埃拉	fsbbal	53952
 戴森	dwsm	31172
 卡里克	kuljk	43162
 斋藤	zuta	31172
@@ -31651,7 +31651,7 @@
 前脚	qujo	31172
 前言	quyn	31172
 格林利夫	gslmlf	53952
-煤气站	msqhz	43162
+煤气站	msqpz	43162
 轮番	lsfp	31172
 状元	zsyh	31172
 杜伦	dslr	31172
@@ -31707,7 +31707,7 @@
 运费	ywfb	31172
 凭空捏造	pukxnz	53952
 人身自由	ryspzy	53952
-土气	tuqh	31172
+土气	tuqp	31172
 劳伦特	lulrt	43162
 边城	bwct	31172
 正极	zujm	31172
@@ -31921,7 +31921,7 @@
 丹格洛斯	dygmls	53952
 提箱	tsxz	31172
 黏土	nsth	31172
-屏气	pwqh	31172
+屏气	pwqp	31172
 篡夺	cudd	31172
 昂那尔	aunde	43162
 浑水摸鱼	hsszmy	53952
@@ -32063,7 +32063,7 @@
 按说	assy	31172
 约法三章	ysfisz	53952
 小苏打	xysad	43162
-库比茨	kwbzc	43162
+库比茨	kwbbc	43162
 硕大无比	ssdhwb	53952
 马提尔	mwtde	43162
 起居	qwjs	31172
@@ -32253,7 +32253,7 @@
 基娅	juyn	31172
 塞尔玛	suenm	43162
 老调重弹	lwdyzd	53952
-淘气包	tsqhb	43162
+淘气包	tsqpb	43162
 破相	psxm	31172
 分析仪	fuxmy	43162
 在所不辞	zwshbc	53952
@@ -32279,7 +32279,7 @@
 齐亚	quyh	31172
 电传	dycr	31172
 疯人	fwrp	31172
-比照	byzh	31172
+比照	bszh	31172
 藤原	tuyc	31172
 含泪	huli	31172
 含混	huhi	31172
@@ -32299,7 +32299,7 @@
 塔吉	tsjt	31172
 芭蕾舞剧	bulawj	53952
 送葬	swza	31172
-比拟	bynd	31172
+比拟	bsnd	31172
 范布伦	fubjl	43162
 苏卿	suqp	31172
 尼亚加	nwyhj	43162
@@ -32420,7 +32420,7 @@
 远投	ywtd	31172
 拳打脚踢	quddjt	53952
 织布	zsbj	31172
-盖比	gubz	31172
+盖比	gubb	31172
 大踏步	dytzb	43162
 克雷迪	kulyd	43162
 萨曼	sumo	31172
@@ -32492,7 +32492,7 @@
 阔克	kwkg	29933
 坐镇	zuzj	29933
 褶子	zszh	29933
-周复	zwfo	29933
+周复	zwfp	29933
 艾佛瑞	aufrr	41446
 纵然	zsrn	29933
 古书	gusz	29933
@@ -32503,7 +32503,7 @@
 莉莲	lula	29933
 大岛	dyds	29933
 埃尔顿	asend	41446
-劲舞	jswh	29933
+劲舞	jswp	29933
 触须	csxp	29933
 宗师	zuse	29933
 引蛇出洞	yssccd	51808
@@ -32638,7 +32638,7 @@
 斯库希	sskgx	41446
 阴阳人	ysyer	41446
 阿爹	asdf	29933
-阿比盖尔	asbzge	51808
+阿比盖尔	asbbge	51808
 包工头	bwght	41446
 锋芒毕露	fsmabl	51808
 极刑	jsxd	29933
@@ -32865,7 +32865,7 @@
 克林泰特	kulmtt	51808
 会试	husy	29933
 杜库	dskg	29933
-西比乌	xubzw	41446
+西比乌	xubbw	41446
 败家子	bsjaz	41446
 邪路	xslz	29933
 亲娘	qunn	29933
@@ -33044,7 +33044,7 @@
 拉果	lsgo	29933
 迪奥拉	dwapl	41446
 死难者	swnyz	41446
-岔气	cuqh	29933
+岔气	cuqp	29933
 心醉	xyzy	29933
 佳茜	jsqa	29933
 麦克吉尔	mukgje	51808
@@ -33387,7 +33387,7 @@
 又哭又闹	yykqyn	51808
 乖张	gyzg	29933
 南山	nuss	29933
-比斯比	bysjb	41446
+比斯比	bssjb	41446
 鲁彦	luyp	29933
 倾销	qsxj	29933
 奥玛尔	aumwe	41446
@@ -33528,7 +33528,7 @@
 孤军作战	gsjhzz	51808
 巴菲	byfa	29933
 舒克曼	sskgm	41446
-一气	yyqh	29933
+一气	yyqp	29933
 偷梁换柱	tslihz	51808
 萨蒂	suda	29933
 富余	fuyr	29933
@@ -33688,10 +33688,10 @@
 铁笼	tslz	29933
 西尔维亚	xuenwy	51808
 蓝本	lubh	29933
-比曼	bymo	29933
+比曼	bsmo	29933
 威廉斯堡	wwlgsb	51808
-毒气弹	duqhd	41446
-比斯	bysj	29933
+毒气弹	duqpd	41446
+比斯	bssj	29933
 莫瑞	murw	29933
 痛骂	twmm	29933
 马拉	mwld	29933
@@ -33709,8 +33709,8 @@
 瓦顿	wydy	29933
 猫眼	msyo	29933
 旅伴	lsbr	29933
-收复	ssfo	29933
-比重	byzp	29933
+收复	ssfp	29933
+比重	bszp	29933
 基辛格	juxlg	41446
 总线	zuxs	29933
 甲等	jydz	29933
@@ -33889,7 +33889,7 @@
 艾里克	auljk	39550
 白垩	byet	28563
 三十四	sushs	39550
-比格斯	bygms	39550
+比格斯	bsgms	39550
 时间差	ssjmc	39550
 大宇	dyya	28563
 忘情	wuqx	28563
@@ -34123,11 +34123,11 @@
 吉马	jumh	28563
 盆景	pujo	28563
 德里斯库	dsljsk	49437
-比那奇	byndq	39550
+比那奇	bsndq	39550
 佛洛伊德	fsliyd	49437
 华利山	hulhs	39550
 萎靡不振	wummbz	49437
-科比	ksbz	28563
+科比	ksbb	28563
 交游	juyi	28563
 杰思	just	28563
 贡纳	guns	28563
@@ -34299,7 +34299,7 @@
 药费	yufb	28563
 莫伊帕	muyrp	39550
 催化	cshr	28563
-比比皆是	bybzjs	49437
+比比皆是	bsbbjs	49437
 星相	xuxm	28563
 卒子	zuzh	28563
 回流	hwli	28563
@@ -34521,7 +34521,7 @@
 杜瑞	dsrw	28563
 交流会	julih	39550
 米阳	myye	28563
-巴比琼斯	bybzqs	49437
+巴比琼斯	bybbqs	49437
 金正	juzh	28563
 边疆	bwjg	28563
 丽迪雅	ludzy	39550
@@ -34541,7 +34541,7 @@
 正片	zupp	28563
 罗伊斯	luyrs	39550
 修甲	xsjs	28563
-一气之下	yyqhzx	49437
+一气之下	yyqpzx	49437
 拉威尔	lswne	39550
 金婚	juhn	28563
 尼克尔斯	nwkges	49437
@@ -34845,7 +34845,7 @@
 攀越	puyz	28563
 皮耶	pyye	28563
 泪汪汪	lswiw	39550
-景气	juqh	28563
+景气	juqp	28563
 草菅人命	cujarm	49437
 等闲之辈	duxmzb	49437
 歌厅	gstc	28563
@@ -34928,7 +34928,7 @@
 费立斯	fulas	39550
 答道	dudz	28563
 南斯	nusj	28563
-索比	subz	28563
+索比	subb	28563
 鉴赏力	jusbl	39550
 别动队	bsdyd	39550
 瑞里克	rsljk	39550
@@ -34988,7 +34988,7 @@
 黑斯廷斯	husjts	49437
 解手	jssp	28563
 照面	zumh	28563
-暖气片	nsqhp	39550
+暖气片	nsqpp	39550
 生离死别	sylrsb	49437
 拉贝	lsbs	28563
 留学生	luxas	39550
@@ -35020,7 +35020,7 @@
 通读	twdy	28563
 结痂	jsjn	28563
 杰维	juws	28563
-凉气	lsqh	28563
+凉气	lsqp	28563
 公堂	gutt	28563
 国君	gwjk	28563
 恒心	hsxn	28563
@@ -35059,7 +35059,7 @@
 熏鱼	xyyn	28563
 阿贵	asgb	28563
 选修课	xwxrk	39550
-甘比超	gybzc	39550
+甘比超	gybbc	39550
 病原菌	bwycj	39550
 阿訇	ashp	28563
 威立	wwla	28563
@@ -35221,7 +35221,7 @@
 高亢	guka	28563
 破釜沉舟	psffcz	49437
 水闸	sszm	28563
-比克	bykg	28563
+比克	bskg	28563
 马号	mwhk	28563
 脚蹼	jspz	28563
 稻米	dsmn	28563
@@ -35312,7 +35312,7 @@
 水力	sslz	28563
 民俗	mysr	28563
 胶皮	jspz	28563
-杀气	suqh	28563
+杀气	suqp	28563
 养尊处优	yuzccy	49437
 新篇章	xspzz	39550
 毫秒	humh	28563
@@ -35345,7 +35345,7 @@
 莫里	mulj	28563
 支支吾吾	zuzhww	49437
 扫雪	ssxy	28563
-通气孔	twqhk	39550
+通气孔	twqpk	39550
 昌洙	cuzi	28563
 纳瓦	nswh	28563
 成贤	cwxe	28563
@@ -35409,7 +35409,7 @@
 紫外	zuwp	28563
 企求	quqh	28563
 一言一行	yyynyx	49437
-每每	mumm	28563
+每每	mump	28563
 洛伊	lsyr	28563
 不慌不忙	buhxbm	49437
 任意球	rsyyq	39550
@@ -35484,7 +35484,7 @@
 巴格	bygm	28563
 迪瑞克	dwrwk	39550
 方杜	fudm	28563
-比亚里	byyhl	39550
+比亚里	bsyhl	39550
 老汉	lwhi	28563
 倒挂	dsgd	28563
 盖文	guwa	28563
@@ -35576,7 +35576,7 @@
 连轴转	lwzcz	37429
 集成	jucw	27032
 套裤	tukn	27032
-比格洛	bygml	37429
+比格洛	bsgml	37429
 拉夫特	lsfht	37429
 冤家对头	yujadt	46787
 点到为止	dudzwz	46787
@@ -35624,7 +35624,7 @@
 凌迟	lscz	27032
 精确度	jsqsd	37429
 弗里西娅	fyljxy	46787
-氩气	ywqh	27032
+氩气	ywqp	27032
 性器	xsqq	27032
 奥瑞拉纳	aurwln	46787
 外文	wswa	27032
@@ -35711,7 +35711,7 @@
 续订	xsdy	27032
 五十分	wushf	37429
 愤然	fsrn	27032
-往复	wsfo	27032
+往复	wsfp	27032
 惹不起	rubhq	37429
 马尔文	mwenw	37429
 牙牙学语	yyyhxy	46787
@@ -35743,7 +35743,7 @@
 人多势众	rydpsz	46787
 设在	sszt	27032
 多瑙河	dunwh	37429
-解气	jsqh	27032
+解气	jsqp	27032
 下作	xuzr	27032
 发源	fyyi	27032
 仰泳	ysyi	27032
@@ -35788,7 +35788,7 @@
 吉尔斯	juens	37429
 桑达克	sudzk	37429
 卡灵	kulj	27032
-比弗利山	byfzls	46787
+比弗利山	bsfzls	46787
 加山	jsss	27032
 德都	dsde	27032
 范海辛	fuhix	37429
@@ -35874,11 +35874,11 @@
 软玉	rsyw	27032
 供应品	gsygp	37429
 努尔哈赤	nuenhc	46787
-光气	guqh	27032
+光气	guqp	27032
 费尔曼	fuenm	37429
 黑板擦	hubmc	37429
 裂隙	luxe	27032
-欧比厄宁	osbzen	46787
+欧比厄宁	osbben	46787
 史帕德	sypjd	37429
 挥之即去	hsznjq	46787
 拉什莫尔	lssrme	46787
@@ -35968,7 +35968,7 @@
 养护	yuhd	27032
 多蒂	duda	27032
 圣佩德罗	suprdl	46787
-大气压	dyqhy	37429
+大气压	dyqpy	37429
 交感神经	jugxsj	46787
 小珠	xyzw	27032
 配有	pswo	27032
@@ -35992,7 +35992,7 @@
 普洛特洛	pulitl	46787
 什莫	ssma	27032
 章鹤洙	zuhnz	37429
-脚气	jsqh	27032
+脚气	jsqp	27032
 头筹	tycz	27032
 蝶泳	dsyi	27032
 孤独感	gsdqg	37429
@@ -36276,7 +36276,7 @@
 偿付	csfr	27032
 裙带关系	qsdhgx	46787
 狭路相逢	xslzxf	46787
-克比	kubz	27032
+克比	kubb	27032
 侦缉	zsjs	27032
 恫吓	dsxk	27032
 场次	csci	27032
@@ -36298,7 +36298,7 @@
 妖言	ysyn	27032
 汽化	qshr	27032
 正民	zumz	27032
-正气	zuqh	27032
+正气	zuqp	27032
 麦麸	mufm	27032
 首位	suwr	27032
 梅德里	msdrl	37429
@@ -36616,7 +36616,7 @@
 北郊	bsje	27032
 风景线	fwjox	37429
 杯杯	bsbm	27032
-拉比	lsbz	27032
+拉比	lsbb	27032
 特特	tstn	27032
 经营权	jsyaq	37429
 英特尔	yutne	37429
@@ -36794,7 +36794,7 @@
 允夏	yuxp	27032
 海防	hsfe	27032
 妒忌心	dsjjx	37429
-神气活现	ssqhhx	46787
+神气活现	ssqphx	46787
 帕姆代尔	psmnde	46787
 慢镜头	msjjt	37429
 维尔马	wsenm	37429
@@ -37229,7 +37229,7 @@
 民船	mycz	27032
 泛太平洋	fstdpy	46787
 巩特尔	gstne	37429
-比莉	byla	27032
+比莉	bsla	27032
 干红	gyhs	27032
 压缩性	ywssx	37429
 互帮互助	hubjhz	46787
@@ -37477,7 +37477,7 @@
 糨糊	jshm	25296
 轻音乐	qsyll	35026
 希姆思	xumns	35026
-对比度	dsbzd	35026
+对比度	dsbbd	35026
 大卡	dykb	25296
 丽安	luaa	25296
 注资	zszc	25296
@@ -37624,7 +37624,7 @@
 着力	zwlz	25296
 喜笑颜开	xuxzyk	43782
 印刷品	yssdp	35026
-阿比高斯	asbzgs	43782
+阿比高斯	asbbgs	43782
 厄尼斯	ewnss	35026
 陆克	lskg	25296
 贤一	xuyh	25296
@@ -37783,7 +37783,7 @@
 擂台赛	lstzs	35026
 阿穆特	asmht	35026
 怒视	nusn	25296
-牛气	nyqh	25296
+牛气	nyqp	25296
 利欲熏心	lsygxx	43782
 机动性	jsdyx	35026
 稀粥	xszg	25296
@@ -37863,7 +37863,7 @@
 牛乳	nyrf	25296
 枣子	zuzh	25296
 肯麦丁利	kumtdl	43782
-夫复	fyfo	25296
+夫复	fyfp	25296
 波西	bsxh	25296
 维托	wstd	25296
 波诺	bsny	25296
@@ -37988,7 +37988,7 @@
 不外	buwp	25296
 小池	xyci	25296
 垂垂老矣	cucply	43782
-好气	hsqh	25296
+好气	hsqp	25296
 观览	gsle	25296
 小本生意	xybhsy	43782
 恩加巴	eujlb	35026
@@ -38216,9 +38216,9 @@
 手眼	syyo	25296
 肉质	ryzp	25296
 货栈	huzm	25296
-寒气	huqh	25296
+寒气	huqp	25296
 草果	cugo	25296
-有气无力	wwqhwl	43782
+有气无力	wwqpwl	43782
 自然主义	zyrnzy	43782
 苦于	kuyh	25296
 胶合板	jshrb	35026
@@ -38381,7 +38381,7 @@
 为先	wyxe	25296
 吉日	jurs	25296
 桎梏	zsgm	25296
-受气包	suqhb	35026
+受气包	suqpb	35026
 名厨	mucc	25296
 厌弃	ywqt	25296
 迷蒙	mwma	25296
@@ -38442,7 +38442,7 @@
 狗血喷头	gsxppt	43782
 唯唯诺诺	wswknn	43782
 电子战	dyzhz	35026
-新气象	xsqhx	35026
+新气象	xsqpx	35026
 径赛	jssb	25296
 一万八千	yywhbq	43782
 德兰尼	dslbn	35026
@@ -38476,7 +38476,7 @@
 低垂	dscp	25296
 铁公鸡	tsgbj	35026
 回赠	hwzb	25296
-英气	yuqh	25296
+英气	yuqp	25296
 不含糊	buhkh	35026
 转瞬	zsso	25296
 丑态	cytx	25296
@@ -38606,7 +38606,7 @@
 会计学	hujyx	35026
 客官	kuga	25296
 佩加索斯	psjlss	43782
-飘舞	pswh	25296
+飘舞	pswp	25296
 宣花	xuha	25296
 劈头盖脸	putngl	43782
 惊魂未定	jshywd	43782
@@ -38643,7 +38643,7 @@
 闷棍	mwgm	25296
 弗列迪	fyldd	35026
 光谱仪	gupyy	35026
-闷气	mwqh	25296
+闷气	mwqp	25296
 纪子	jszh	25296
 枫木	fsmh	25296
 绪方	xsfa	25296
@@ -38729,7 +38729,7 @@
 焊枪	hsqm	25296
 非专业	fyzty	35026
 卡西姆	kuxhm	35026
-比尔特摩	byentm	43782
+比尔特摩	bsentm	43782
 印狄威	ysdqw	35026
 乍得	zydr	25296
 地下隧道	dsxhsd	43782
@@ -38912,7 +38912,7 @@
 财会	cshr	25296
 兵丁	budh	25296
 捧得	psdr	25296
-努比亚	nubzy	35026
+努比亚	nubby	35026
 航海图	hshit	35026
 上刑	suxd	25296
 基度	judg	25296
@@ -38993,7 +38993,7 @@
 拉霍什	lshys	35026
 和平谈判	hsphtp	43782
 男低音	nudry	35026
-朝气蓬勃	csqhpb	43782
+朝气蓬勃	csqppb	43782
 秆子	gszh	25296
 基数	jusp	25296
 斯塔西	ssttx	35026
@@ -39088,7 +39088,7 @@
 佐伯	zsbr	25296
 国际级	gwjej	35026
 汉尼伯	hsnsb	35026
-行乞	xsqz	25296
+行乞	xsqp	25296
 拨火棍	bshbg	35026
 招生办	zsspb	35026
 七月份	qyypf	35026
@@ -39220,7 +39220,7 @@
 富强	fuqg	25296
 教师节	jssej	35026
 萨门	sums	25296
-客气话	kuqhh	35026
+客气话	kuqph	35026
 无不	wubh	25296
 勾股定理	gwgodl	43782
 满腔热情	msqorq	43782
@@ -39315,12 +39315,12 @@
 本利	bylh	25296
 越级	ywjs	25296
 改版	gsbp	25296
-比彻	bycr	25296
+比彻	bscr	25296
 成十	cwsh	25296
 龙争虎斗	lyznhd	43782
 普莱斯利	pulasl	43782
 惠特克	hutnk	35026
-光复	gufo	25296
+光复	gufp	25296
 满篇	mspz	25296
 光夫	gufh	25296
 代为	dswn	25296
@@ -39370,7 +39370,7 @@
 借问	jswm	25296
 抗药性	ksyax	35026
 增兵	zsbb	25296
-霍比人	hubzr	35026
+霍比人	hubbr	35026
 托斯特尔	tssjte	43782
 防毒	fsdt	25296
 颠倒是非	dsdrsf	43782
@@ -40031,7 +40031,7 @@
 孙太郎	sstdl	32251
 泽塔琼斯	zsttqs	40314
 管理费	gulwf	32251
-意气	yuqh	23292
+意气	yuqp	23292
 野食	yssr	23292
 财务科	cswpk	32251
 波奇	bsqd	23292
@@ -40127,7 +40127,7 @@
 脸上无光	lssbwg	40314
 苔原	tuyc	23292
 无烟火药	wuyhhy	40314
-比齐蒙戈	byqwmg	40314
+比齐蒙戈	bsqwmg	40314
 罗德里戈	ludrlg	40314
 原子结构	ywzhjg	40314
 范宁	funa	23292
@@ -40337,7 +40337,7 @@
 外贸	wsmd	23292
 德拉库拉	dsldkl	40314
 山洪	syhi	23292
-可气	kwqh	23292
+可气	kwqp	23292
 小基	xyjt	23292
 博克	bskg	23292
 凯雷	ksly	23292
@@ -40451,7 +40451,7 @@
 宗范	zufa	23292
 死沉	swci	23292
 独此一家	dsczyj	40314
-歌舞升平	gswhsp	40314
+歌舞升平	gswpsp	40314
 水汪汪	sswiw	32251
 死海	swhi	23292
 玻璃板	bslwb	32251
@@ -41001,7 +41001,7 @@
 啾啾	jsjk	23292
 甥女	ssnp	23292
 信用证	xsykz	32251
-阿比让	asbzr	32251
+阿比让	asbbr	32251
 齐步	qubz	23292
 苏斯塞尔	susjse	40314
 霍赫特	huhct	32251
@@ -41050,7 +41050,7 @@
 蚁穴	ysxa	23292
 群芳	qsfa	23292
 电棒	dybm	23292
-圆舞曲	ywwhq	32251
+圆舞曲	ywwpq	32251
 星光奖	xugaj	32251
 低位	dswr	23292
 奥康	aukg	23292
@@ -41329,7 +41329,7 @@
 纽斯	nssj	23292
 史莱德	sylad	32251
 江本胜	jsbhs	32251
-稚气	zsqh	23292
+稚气	zsqp	23292
 阿姐	asjn	23292
 牵强附会	quqgfh	40314
 梦铉	muxj	23292
@@ -41486,7 +41486,7 @@
 酌情	zsqx	23292
 科里斯科	ksljsk	40314
 松鸡	ssjy	23292
-杀气腾腾	suqhtt	40314
+杀气腾腾	suqptt	40314
 玉女	ywnp	23292
 艾利克森	aulhks	40314
 前赴后继	qufzhj	40314
@@ -41520,7 +41520,7 @@
 从艺	csya	23292
 清蒸	qsza	23292
 戈塔	gytt	23292
-攀比	pubz	23292
+攀比	pubb	23292
 晦暗	hsao	23292
 埃弗勒斯	asfzls	40314
 失敬	ssjp	23292
@@ -41576,7 +41576,7 @@
 负极	fujm	23292
 底薪	dwxa	23292
 暗码	asms	23292
-比基利	byjtl	32251
+比基利	bsjtl	32251
 高耸入云	gusery	40314
 胜利果实	sslhgs	40314
 快嘴	kszk	23292
@@ -42052,7 +42052,7 @@
 厂子	cyzh	23292
 韦美	wymy	23292
 尚无	suwh	23292
-比值	byzr	23292
+比值	bszr	23292
 成山	cwss	23292
 直拨	zubd	23292
 艺术类	yusml	32251
@@ -42103,7 +42103,7 @@
 临门	lsms	23292
 挖土	wsth	23292
 敏基	msjt	23292
-比罗	bylw	23292
+比罗	bslw	23292
 玛吉蕾	msjtl	32251
 不可终日	bukkzr	40314
 兵员	buyk	23292
@@ -42296,7 +42296,7 @@
 尤金市	ywjrs	32251
 爱索	aush	23292
 莫雷	muly	23292
-比茨	byca	23292
+比茨	bsca	23292
 奇景	qujo	23292
 塞东	sudh	23292
 崔西	cuxh	23292
@@ -42508,7 +42508,7 @@
 贝都	byde	23292
 情报网	qsbdw	32251
 彻丽	cslh	23292
-受气	suqh	23292
+受气	suqp	23292
 锦缎	jsds	23292
 辉长岩	hszpy	32251
 慑服	ssfo	23292
@@ -42770,7 +42770,7 @@
 发射点	fyssd	28969
 米勒祖	mylgz	28969
 枪身	qssp	20922
-阔气	kwqh	20922
+阔气	kwqp	20922
 白兰地酒	bylbdj	36212
 定调	dudy	20922
 迪克兰	dwkgl	28969
@@ -42834,7 +42834,7 @@
 布兰森	bwlbs	28969
 折合	zshr	20922
 待产	dsca	20922
-供气	gsqh	20922
+供气	gsqp	20922
 密谈	muty	20922
 瓜德罗普	gydrlp	36212
 溜号	lshk	20922
@@ -42883,7 +42883,7 @@
 诚如	csrn	20922
 毛布	mubj	20922
 彭斯	pssj	20922
-比勒维尔	bylgwe	36212
+比勒维尔	bslgwe	36212
 原配	ywpy	20922
 仰天	ysth	20922
 发彪	fybh	20922
@@ -42923,7 +42923,7 @@
 该书	gssz	20922
 玉蜀黍	ywsws	28969
 仓储式	cucrs	28969
-葛比路	gubzl	28969
+葛比路	gubbl	28969
 中大	zydh	20922
 中天	zyth	20922
 池锡	csxj	20922
@@ -42985,7 +42985,7 @@
 上几千	sujpq	28969
 发狠	fyhq	20922
 佛莱	fsla	20922
-油气	ysqh	20922
+油气	ysqp	20922
 米拉贝尔	myldbe	36212
 参差不齐	cucybq	36212
 肋膜	lsmo	20922
@@ -43093,7 +43093,7 @@
 恐龙蛋	kulhd	28969
 两万八	luwhb	28969
 卡撒	kusd	20922
-霸气	buqh	20922
+霸气	buqp	20922
 不解之缘	bujjzy	36212
 权相宇	qsxmy	28969
 和保罗	hsbrl	28969
@@ -43118,7 +43118,7 @@
 超大型	cwdhx	28969
 诺斯	nssj	20922
 娜莎	nssa	20922
-麦比乔	mubzq	28969
+麦比乔	mubbq	28969
 胸膜	xsmo	20922
 维娜	wsnn	20922
 徐静	xsjq	20922
@@ -43165,7 +43165,7 @@
 尚姆瑟	sumns	28969
 弛缓	cshs	20922
 丞相	cuxm	20922
-老气横秋	lwqhhq	36212
+老气横秋	lwqphq	36212
 素玫	sumw	20922
 惠里香	huljx	28969
 杰奎琳娜	jukdln	36212
@@ -43396,7 +43396,7 @@
 易卜拉欣	yubslx	36212
 西斯洛	xusjl	28969
 腱子	jszh	20922
-空气锤	kuqhc	28969
+空气锤	kuqpc	28969
 扑面而来	psmhel	36212
 沾边儿	zsbze	28969
 重在	zyzt	20922
@@ -43428,7 +43428,7 @@
 订货单	dshbd	28969
 果子露	guzhl	28969
 滴眼药	dsyoy	28969
-迪比斯	dwbzs	28969
+迪比斯	dwbbs	28969
 书脊	syjr	20922
 福斯	fssj	20922
 重彩	zycp	20922
@@ -43539,7 +43539,7 @@
 集散地	juspd	28969
 半音	buyl	20922
 大久保	dyjpb	28969
-比利格林	bylhgl	36212
+比利格林	bslhgl	36212
 劳损	lusd	20922
 形迹	xsjz	20922
 馆内	gsns	20922
@@ -43663,7 +43663,7 @@
 十五分	sywhf	28969
 九万五千	jywhwq	36212
 图鉴	twje	20922
-歌舞团	gswht	28969
+歌舞团	gswpt	28969
 基基曼	jujtm	28969
 墙体	qstr	20922
 适逢	swfz	20922
@@ -43824,13 +43824,13 @@
 哈姆林	hsmnl	28969
 通信卫星	twxrwx	36212
 高斯威	gusjw	28969
-妖气	ysqh	20922
+妖气	ysqp	20922
 风能	fwnr	20922
 巷战	xuzz	20922
 蒲柏	pubm	20922
 责任者	zurrz	28969
 痴恋	cwlx	20922
-比邻	byle	20922
+比邻	bsle	20922
 一唱一和	yyckyh	36212
 高科技	gukhj	28969
 金阳	juye	20922
@@ -43854,7 +43854,7 @@
 上等兵	sudzb	28969
 哀叫	aujk	20922
 心田	xyts	20922
-比尼	byns	20922
+比尼	bsns	20922
 义军	ywjh	20922
 现代主义	xsdrzy	36212
 炸药包	zsyab	28969
@@ -43898,7 +43898,7 @@
 史迪夫	sydzf	28969
 米夏	myxp	20922
 某年	munp	20922
-比夫	byfh	20922
+比夫	bsfh	20922
 檀香木	tsxhm	28969
 前缀	quzs	20922
 邻邦	lsbf	20922
@@ -44046,7 +44046,7 @@
 杰福斯	jufns	28969
 伊莎	yssa	20922
 家乡话	juxzh	28969
-比较文学	byjcwx	36212
+比较文学	bsjcwx	36212
 自绝	zyjs	20922
 饮食店	yssrd	28969
 不适感	buszg	28969
@@ -44101,7 +44101,7 @@
 抢手货	qssph	28969
 样书	yssz	20922
 阿克顿	askgd	28969
-塔比莎	tsbzs	28969
+塔比莎	tsbbs	28969
 作鸟兽散	zsnhss	36212
 沙格	ssgm	20922
 伊利亚特	yslhyt	36212
@@ -44198,7 +44198,7 @@
 试飞员	ssfzy	28969
 钱飞	qsfz	20922
 陈列柜	csldg	28969
-煤气灶	msqhz	28969
+煤气灶	msqpz	28969
 七大	qydh	20922
 青苔	quta	20922
 霍姆尔	humne	28969
@@ -44222,7 +44222,7 @@
 简克	jukg	20922
 赛威	suwn	20922
 璞琪	psqw	20922
-龙舞	lywh	20922
+龙舞	lywp	20922
 将心比心	jsxnbx	36212
 毕夏	buxp	20922
 着色剂	zwsnj	28969
@@ -44583,7 +44583,7 @@
 希兰	xulb	20922
 拔尖	bsjx	20922
 世兰	sylb	20922
-恢复性	hsfox	28969
+恢复性	hsfpx	28969
 财大气粗	csdhqc	36212
 更迭	gudz	20922
 圆圆	ywyk	20922
@@ -44705,7 +44705,7 @@
 巴达克斯	bydzks	36212
 马洛斯	mwlis	28969
 旺查	wscm	20922
-喜气洋洋	xuqhyy	36212
+喜气洋洋	xuqpyy	36212
 巧克	qskg	20922
 公安局	guaaj	28969
 泰朴	tupm	20922
@@ -44919,7 +44919,7 @@
 闰年	rwnp	20922
 喝道	hsdz	20922
 姜贤珠	juxez	28969
-比克斯	bykgs	28969
+比克斯	bskgs	28969
 重任在肩	zyrrzj	36212
 直拍	zupd	20922
 赤纬	cuws	20922
@@ -45053,7 +45053,7 @@
 瑾子	jszh	20922
 毛巾架	mujsj	28969
 静水	jssz	20922
-比佛利山	byfrls	36212
+比佛利山	bsfrls	36212
 田七	tyqh	20922
 老丈人	lwzhr	28969
 此消彼长	csxibz	36212
@@ -45215,7 +45215,7 @@
 金灿灿	juchc	28969
 切肤之痛	qsfozt	36212
 亟待	judr	20922
-电气化	dyqhh	28969
+电气化	dyqph	28969
 板牙	bsyh	20922
 客舱	kucz	20922
 米妮娅	mynny	28969
@@ -45438,7 +45438,7 @@
 费奇	fuqd	20922
 松岭	ssls	20922
 艾菲亚提	aufayt	36212
-比拉多	byldd	28969
+比拉多	bsldd	28969
 知足常乐	zszkcl	36212
 贝恩	byex	20922
 格拉佛	gsldf	28969
@@ -45455,7 +45455,7 @@
 儿童剧	estlj	28969
 灰鼠	hwsj	20922
 灰鹅	hwen	20922
-成气候	cwqhh	28969
+成气候	cwqph	28969
 飞行日	fyxrr	28969
 罩袍	zupn	20922
 斯基普	ssjtp	28969
@@ -45475,7 +45475,7 @@
 九点五	jydzw	28969
 丹王	dywh	20922
 避让	bwry	20922
-费比	fubz	20922
+费比	fubb	20922
 生存权	syczq	28969
 顺英	ssya	20922
 布劳德曼	bwladm	36212
@@ -45590,7 +45590,7 @@
 昂然	aurn	20922
 沙路齐	sslzq	28969
 李承	lucz	20922
-比娜	bynn	20922
+比娜	bsnn	20922
 哈根	hsgm	20922
 莉薇	luwa	20922
 软体动物	rstrdw	36212
@@ -45683,7 +45683,7 @@
 代办	dsbz	20922
 抗诉	kssy	20922
 想不开	xubhk	28969
-比纳	byns	20922
+比纳	bsns	20922
 交管	jugz	20922
 画龙点睛	hulhdj	36212
 哈撒	hssd	20922
@@ -45941,7 +45941,7 @@
 塞尔萨	suens	28969
 仕女	ssnp	20922
 急中生智	juzssz	36212
-古比兹	gubzz	28969
+古比兹	gubbz	28969
 水烟	ssyh	20922
 沙士	sssh	20922
 布莱蒂	bwlad	28969
@@ -46083,7 +46083,7 @@
 相斥	xscp	20922
 抹脖子	msboz	28969
 自讨没趣	zytymq	36212
-欧比莱	osbzl	28969
+欧比莱	osbbl	28969
 潜泳	qsyi	20922
 豁达	hsdz	20922
 芬克	fukg	20922
@@ -46144,7 +46144,7 @@
 法政	fszz	20922
 克普	kupo	20922
 巴普	bypo	20922
-阿比戈尔	asbzge	36212
+阿比戈尔	asbbge	36212
 菩提树	putds	28969
 巴望	byww	20922
 治典	zsdb	20922
@@ -46268,7 +46268,7 @@
 幻灯机	hsdhj	24953
 恩利科	eulhk	24953
 十一分	syyhf	24953
-胆气	dsqh	18021
+胆气	dsqp	18021
 柠檬糖	nsmmt	24953
 足金	zujr	18021
 海德利	hsdrl	24953
@@ -46289,7 +46289,7 @@
 多纳	duns	18021
 大公无私	dygbws	31191
 空灵	kulj	18021
-怄气	osqh	18021
+怄气	osqp	18021
 减负	jsfn	18021
 口出狂言	kyccky	31191
 施密尔	ssmse	24953
@@ -46384,7 +46384,7 @@
 宾贝克	bubsk	24953
 库迪	kwdz	18021
 正西	zuxh	18021
-多比	dubz	18021
+多比	dubb	18021
 莎妮	sunn	18021
 白山	byss	18021
 瘫子	twzh	18021
@@ -46589,7 +46589,7 @@
 旧交	jsja	18021
 睚眦必报	yszobb	31191
 秀燕	xuyb	18021
-性气	xsqh	18021
+性气	xsqp	18021
 一年半载	yynpbz	31191
 任君	rsjk	18021
 连续不断	lwxsbd	31191
@@ -46606,7 +46606,7 @@
 赖克斯	lskgs	24953
 阿卜杜拉	asbsdl	31191
 软件业	rsjry	24953
-欧比拉夫	osbzlf	31191
+欧比拉夫	osbblf	31191
 加码	jsms	18021
 毛奇	muqd	18021
 理发匠	lsfzj	24953
@@ -46634,7 +46634,7 @@
 惠兰	hulb	18021
 旧友	jsyy	18021
 妮克丝	nskgs	24953
-蒸气浴	zuqhy	24953
+蒸气浴	zuqpy	24953
 科考	kskl	18021
 洁思米	jsstm	24953
 乔马	qumh	18021
@@ -46734,7 +46734,7 @@
 迪斯高	dwsjg	24953
 中松	zysm	18021
 七万二	qywhe	24953
-评比	psbz	18021
+评比	psbb	18021
 普里茅斯	puljms	31191
 秀泽	xuzi	18021
 雅斯特	yssjt	24953
@@ -46991,7 +46991,7 @@
 昌周	cuzk	18021
 潮涨潮落	cszicl	31191
 淡水湖	dsszh	24953
-埃比尼泽	asbznz	31191
+埃比尼泽	asbbnz	31191
 大姨	dyyn	18021
 维玛	wsmw	18021
 玛理奥	mslwa	24953
@@ -47370,7 +47370,7 @@
 敏睿	msrb	18021
 死结	swjs	18021
 拂面	fsmh	18021
-阳气	ysqh	18021
+阳气	ysqp	18021
 囊中物	nuzsw	24953
 枪杆	qsgm	18021
 尤巴	ywbz	18021
@@ -47482,7 +47482,7 @@
 约翰逊湖	yshcxh	31191
 山德拉	sydrl	24953
 纠错	jscj	18021
-小比利	xybzl	24953
+小比利	xybbl	24953
 劳模	lumm	18021
 泰伯格	tubrg	24953
 双氧水	ssyqs	24953
@@ -47780,7 +47780,7 @@
 哥迪	gudz	18021
 分属	fuss	18021
 手戳	sycd	18021
-比利柯尔	bylhke	31191
+比利柯尔	bslhke	31191
 官非	gufs	18021
 拉巴拉	lsbzl	24953
 邦勒	bslg	18021
@@ -47844,7 +47844,7 @@
 分号	fuhk	18021
 索非亚	sufsy	24953
 裙带	qsdh	18021
-卡比多	kubzd	24953
+卡比多	kubbd	24953
 那学来	nsxal	24953
 史其普顿	syqhpd	31191
 范吉尔	fujte	24953
@@ -47858,7 +47858,7 @@
 达特	dwtn	18021
 心窝	xywx	18021
 高朋满座	gupomz	31191
-塔比瑟	tsbzs	24953
+塔比瑟	tsbbs	24953
 新生力量	xsspll	31191
 黑帆	hufj	18021
 莎兹	suza	18021
@@ -47929,7 +47929,7 @@
 劳动改造	ludygz	31191
 塔图依	tstky	24953
 阿克巴	askgb	24953
-比尔克	byenk	24953
+比尔克	bsenk	24953
 断面	dsmh	18021
 艾斯特邦	ausjtb	31191
 白炽灯	bychd	24953
@@ -47949,7 +47949,7 @@
 刚愎自用	gsbxzy	31191
 字画	zuhh	18021
 洪灾	hsza	18021
-艾比嘉尔	aubzje	31191
+艾比嘉尔	aubbje	31191
 申张正义	syzgzy	31191
 简朱诺	juzpn	24953
 城北	csbb	18021
@@ -48026,7 +48026,7 @@
 恍如	hsrn	18021
 曼粉	mufm	18021
 论资排辈	lszcpb	31191
-来复线	lyfox	24953
+来复线	lyfpx	24953
 调停人	dstrr	24953
 控制论	ksznl	24953
 生世世	syshs	24953
@@ -48189,7 +48189,7 @@
 黑鱼	huyn	18021
 斯彼德	ssbrd	24953
 马普尔	mwpoe	24953
-煤气罐	msqhg	24953
+煤气罐	msqpg	24953
 拙作	zszr	18021
 普里泽	puljz	24953
 毒魔	dumm	18021
@@ -48235,7 +48235,7 @@
 奉顺	fusc	18021
 映入	ysrp	18021
 处理场	cwlwc	24953
-豪气	huqh	18021
+豪气	huqp	18021
 鲁日兹	lursz	24953
 金博	jubh	18021
 孟诺	muny	18021
@@ -48254,8 +48254,8 @@
 塔柯尼	tskmn	24953
 杨苏	yssa	18021
 放款	fskt	18021
-煤气炉	msqhl	24953
-习气	xwqh	18021
+煤气炉	msqpl	24953
+习气	xwqp	18021
 维拉克	wsldk	24953
 弄潮儿	nucie	24953
 年终奖	nyzsj	24953
@@ -48635,7 +48635,7 @@
 两千亿	luqpy	24953
 纵隔	zsge	18021
 退婚	twhn	18021
-乌比拉	wwbzl	24953
+乌比拉	wwbbl	24953
 克莉丝塔	kulast	31191
 阿尔贝托	asenbt	31191
 男子组	nuzhz	24953
@@ -48648,13 +48648,13 @@
 图博	twbh	18021
 樱田	ysts	18021
 桃酥	tssy	18021
-努比	nubz	18021
+努比	nubb	18021
 报幕	bsmm	18021
 奥拓	autd	18021
 唯一性	wsyhx	24953
 洛马克斯	lsmhks	31191
 朱利斯	zylhs	24953
-硬气	ysqh	18021
+硬气	ysqp	18021
 十分之四	syfbzs	31191
 弗莱泽	fylaz	24953
 浓黑	nshh	18021
@@ -48813,7 +48813,7 @@
 高尹晶	guyzj	24953
 平基	pyjt	18021
 帕美	psmy	18021
-巴比龙	bybzl	24953
+巴比龙	bybbl	24953
 史摩基	symmj	24953
 帕罗	pslw	18021
 沿袭	ysxl	18021
@@ -49040,7 +49040,7 @@
 冷水浴	lsszy	24953
 观察站	gscaz	24953
 冲开	cskh	18021
-伊比利亚	ysbzly	31191
+伊比利亚	ysbbly	31191
 梅丽尔	mslhe	24953
 雷米迪斯	lumnds	31191
 俊树	jssm	18021
@@ -49128,7 +49128,7 @@
 有理数	wwlws	24953
 马尔斯堡	mwensb	31191
 黑格尔	hugme	24953
-洛比尔	lsbze	24953
+洛比尔	lsbbe	24953
 科勒姆	kslgm	24953
 克里本	kuljb	24953
 优基斯坦	ysjtst	31191
@@ -49586,7 +49586,7 @@
 图卢兹	twlbz	24953
 方法论	fufil	24953
 库里克	kwljk	24953
-莱比锡	lubzx	24953
+莱比锡	lubbx	24953
 争先	zuxe	18021
 年事已高	nyshyg	31191
 奎塔	kutt	18021
@@ -49622,7 +49622,7 @@
 有为	wwwn	18021
 第三十四	dushss	31191
 五十九	wushj	24953
-丘比丘	qybzq	24953
+丘比丘	qybbq	24953
 勃兰登堡	bslbdb	31191
 汉内堡	hsnsb	24953
 蒙迪	mudz	18021
@@ -49646,7 +49646,7 @@
 众口一词	zuksyc	31191
 南下	nuxh	18021
 特龙	tslh	18021
-戈比	gybz	18021
+戈比	gybb	18021
 桑德海姆	sudrhm	31191
 基洛	juli	18021
 奥的斯	audbs	24953
@@ -49683,7 +49683,7 @@
 兑付	dufr	18021
 一百五	yybhw	24953
 上期	suqo	18021
-基比	jubz	18021
+基比	jubb	18021
 京培	jupt	18021
 理直气壮	lszhqz	31191
 霍梅尼	hummn	24953
@@ -49771,7 +49771,7 @@
 武道会	wwdzh	24953
 电烤箱	dykhx	24953
 艾西	auxh	18021
-荡气回肠	duqhhc	31191
+荡气回肠	duqphc	31191
 二百两	eubhl	24953
 生机蓬勃	syjmpb	31191
 国债	gwzr	18021
@@ -50175,7 +50175,7 @@
 个体户	gutrh	24953
 征得	zsdr	18021
 枯井	ksjh	18021
-罗复活	lufoh	24953
+罗复活	lufph	24953
 支派	zupi	18021
 一中	yyzs	18021
 正正	zuzh	18021
@@ -50402,7 +50402,7 @@
 君特泰勒	jwtntl	31191
 梅瑞特	msrwt	24953
 超女	cwnp	18021
-比丽	bylh	18021
+比丽	bslh	18021
 咋呼	zshk	18021
 泥垢	nsgt	18021
 萨利耶里	sulhyl	31191
@@ -50509,7 +50509,7 @@
 高斯	gusj	18021
 余辉	yuhg	18021
 受访者	sufyz	24953
-比福	byfn	18021
+比福	bsfn	18021
 香川	xucp	18021
 布其诺	bwqhn	24953
 三四点	suskd	24953
@@ -50756,7 +50756,7 @@
 佯攻	ysgg	18021
 病愈	bwyx	18021
 少时	suso	18021
-斯比	ssbz	18021
+斯比	ssbb	18021
 波斯卡	bssjk	24953
 翻飞	fsfz	18021
 勒扎克	lszdk	24953
@@ -50788,7 +50788,7 @@
 方提斯	futds	24953
 彩棚	cspm	18021
 鼓槌	gscm	18021
-胎气	tsqh	18021
+胎气	tsqp	18021
 七八年	qybpn	24953
 蒙特斯奇	mutnsq	31191
 民宇	myya	18021
@@ -50830,7 +50830,7 @@
 江河日下	jshirx	31191
 借故	jsgg	18021
 抗热	ksrh	18021
-艾比卡尔	aubzke	31191
+艾比卡尔	aubbke	31191
 伯里克利	bsljkl	31191
 任人唯亲	rsrpwq	31191
 麦诺亚	munyy	24953
@@ -51198,7 +51198,7 @@
 不祥之兆	buxnzz	31191
 海产品	hscap	24953
 倒扣	dskd	18021
-比立斯	bylas	24953
+比立斯	bslas	24953
 丰姿	fyzc	18021
 既得利益	jsdrly	31191
 斑块	bskt	18021
@@ -51504,7 +51504,7 @@
 大帕皮	dypjp	19775
 蟹黄	xuhb	14281
 阿拉瑞德	asldrd	24718
-比乔丹	byqpd	19775
+比乔丹	bsqpd	19775
 三分之	sufbz	19775
 马卡多	mwkbd	19775
 藤村	tucm	14281
@@ -51576,7 +51576,7 @@
 暖暖和和	nsnohh	24718
 科杰	ksjm	14281
 韦迪娜	wydzn	19775
-丽比	lubz	14281
+丽比	lubb	14281
 大捷	dyjd	14281
 圣顿	sudy	14281
 保德	bsdr	14281
@@ -51610,11 +51610,11 @@
 麻金多希	mwjrdx	24718
 盈眶	yuko	14281
 树龄	sslc	14281
-帕比	psbz	14281
+帕比	psbb	14281
 爱瑞秋	aurwq	19775
 保定	bsda	14281
 欧布赖恩	osbjle	24718
-氨气	awqh	14281
+氨气	awqp	14281
 桑菲尔德	sufaed	24718
 爱里克	auljk	19775
 波提切利	bstdql	24718
@@ -51682,7 +51682,7 @@
 贾迈勒	jumzl	19775
 亚科	yukh	14281
 贤泰	xutr	14281
-比格尔	bygme	19775
+比格尔	bsgme	19775
 法瑞斯	fsrws	19775
 叩首	kssa	14281
 安格利亚	augmly	24718
@@ -51737,7 +51737,7 @@
 赛布莉娜	subjln	24718
 乔丹之	qudpz	19775
 松鼠猴	sssjh	19775
-晌午	sswh	14281
+晌午	sswp	14281
 丽纳	luns	14281
 小马林	xymhl	19775
 莫萨德	musad	19775
@@ -52028,7 +52028,7 @@
 不卑不亢	bubbbk	24718
 南冰洋	nubiy	19775
 零点四五	ludzsw	24718
-比兰巴迪	bylbbd	24718
+比兰巴迪	bslbbd	24718
 庞帝亚克	pwdayk	24718
 外因	wsyk	14281
 斯巴克斯	ssbzks	24718
@@ -52050,7 +52050,7 @@
 北达科他	bsdzkt	24718
 拉姆森	lsmns	19775
 葛佛雷	gufrl	19775
-蒸气机	zuqhj	19775
+蒸气机	zuqpj	19775
 沃莉策	wslac	19775
 召募	zumm	14281
 商事	sush	14281
@@ -52133,7 +52133,7 @@
 密执安	muzda	19775
 钢笔水	gsbzs	19775
 毛猪	muzq	14281
-正气凛然	zuqhlr	24718
+正气凛然	zuqplr	24718
 时令	sslr	14281
 郑钟熙	zszjx	19775
 德方	dsfa	14281
@@ -52153,7 +52153,7 @@
 永中	yyzs	14281
 野长	yszp	14281
 韩国人	hsgkr	19775
-德比	dsbz	14281
+德比	dsbb	14281
 谢里丹	xsljd	19775
 帕多洛夫	psdplf	24718
 任然	rsrn	14281
@@ -52200,7 +52200,7 @@
 聚赌	judb	14281
 吉卜林	jubsl	19775
 格伦伍德	gslrwd	24718
-泄气话	xsqhh	19775
+泄气话	xsqph	19775
 特洛	tsli	14281
 先石	xush	14281
 方庭	futg	14281
@@ -52225,7 +52225,7 @@
 暖风	nsfj	14281
 私话	sshy	14281
 减速板	jsszb	19775
-丑比尼	cybzn	19775
+丑比尼	cybbn	19775
 眉清目秀	mwqimx	24718
 傲劲	asjl	14281
 阿赫恩	ashce	19775
@@ -52256,7 +52256,7 @@
 门诺派	mynyp	19775
 托起	tsqz	14281
 掠夺性	lsddx	19775
-塔比亚	tsbzy	19775
+塔比亚	tsbby	19775
 薛克	xukg	14281
 埃森斯	assms	19775
 故园	gsyk	14281
@@ -52333,7 +52333,7 @@
 蒙巴萨	mubzs	19775
 毛桃	mutm	14281
 糖料	tslm	14281
-比克内尔	bykgne	24718
+比克内尔	bskgne	24718
 娇羞	jsxy	14281
 古德菲尔	gudrfe	24718
 永塞	yyst	14281
@@ -52385,7 +52385,7 @@
 购销	gsxj	14281
 李燕华	luybh	19775
 袭扰	xurd	14281
-素比	subz	14281
+素比	subb	14281
 卡明	kumo	14281
 朱红	zyhs	14281
 吉布林	jubjl	19775
@@ -52859,7 +52859,7 @@
 大舅	dyjj	14281
 雪纳瑞	xunsr	19775
 微秒	wsmh	14281
-苏比亚科	subzyk	24718
+苏比亚科	subbyk	24718
 运价	ywjr	14281
 毋宁	wyna	14281
 警卫团	juwzt	19775
@@ -52924,7 +52924,7 @@
 我选	wyxz	14281
 威士	wwsh	14281
 木村	mycm	14281
-比西尼亚	byxhny	24718
+比西尼亚	bsxhny	24718
 票箱	puxz	14281
 来来来	lylhl	19775
 娱乐片	yslpp	19775
@@ -53097,7 +53097,7 @@
 克斯市	kusjs	19775
 丁二烯	duehx	19775
 爱杰蒙特	aujmmt	24718
-优比	ysbz	14281
+优比	ysbb	14281
 说明文	ssmow	19775
 亚诺	yuny	14281
 循环赛	xshws	19775
@@ -53167,7 +53167,7 @@
 凯明	ksmo	14281
 小敏	xymp	14281
 蔓博	mubh	14281
-埃比	asbz	14281
+埃比	asbb	14281
 以次	yyci	14281
 普力	pulz	14281
 马斯特森	mwsjts	24718
@@ -53205,11 +53205,11 @@
 克斯毕	kusjb	19775
 杰勒德	julgd	19775
 锐意	rsyy	14281
-速比	swbz	14281
+速比	swbb	14281
 重平	zyph	14281
 瞪视	dssn	14281
 格里多	gsljd	19775
-比约林	byysl	19775
+比约林	bsysl	19775
 李宝京	lubaj	19775
 白头翁	bytnw	19775
 蒙蒙亮	mumal	19775
@@ -53337,7 +53337,7 @@
 书里	sylj	14281
 马利娅	mwlhy	19775
 大雁	dyyc	14281
-潮气	csqh	14281
+潮气	csqp	14281
 速度计	swdgj	19775
 福鲁克	fslyk	19775
 普拉特市	puldts	24718
@@ -53398,7 +53398,7 @@
 泰克伯	tukgb	19775
 凯思克	ksstk	19775
 李奥尼德	luapnd	24718
-霍比	hubz	14281
+霍比	hubb	14281
 叔本	ssbh	14281
 索韦托	suwht	19775
 轨道车	gsdzc	19775
@@ -53604,7 +53604,7 @@
 沃特汉姆	wstnhm	24718
 老虎凳	lwhhd	19775
 股本	gsbh	14281
-比翼鸟	byyyn	19775
+比翼鸟	bsyyn	19775
 脚癣	jsxn	14281
 义语	ywyy	14281
 灵长目	luzpm	19775
@@ -53714,7 +53714,7 @@
 高聚物	gujqw	19775
 迪柏	dwbm	14281
 集约型	juysx	19775
-出气口	cuqhk	19775
+出气口	cuqpk	19775
 里兹	luza	14281
 树种	sszh	14281
 图坦卡蒙	twttkm	24718
@@ -53785,7 +53785,7 @@
 贝鲁塞尔	bylyse	24718
 露法乌斯	lufiws	24718
 阿诺亚	asnyy	19775
-输气	ssqh	14281
+输气	ssqp	14281
 泰克恩	tukge	19775
 为虎作伥	wyhhzc	24718
 卡什嘉村	kusrjc	24718
@@ -53799,7 +53799,7 @@
 果皮	gupz	14281
 速射	swss	14281
 让泰丝	rstrs	19775
-喜气	xuqh	14281
+喜气	xuqp	14281
 除号	cshk	14281
 宾舍曼	busrm	19775
 支撑力	zucdl	19775
@@ -53857,7 +53857,7 @@
 沥青路	lsqtl	19775
 哈哈镜	hshkj	19775
 大熊湖	dyxhh	19775
-氙气	xwqh	14281
+氙气	xwqp	14281
 那我	nswp	14281
 除害	cshk	14281
 卡马加	kumhj	19775
@@ -53888,7 +53888,7 @@
 礼赞	lszb	14281
 杰西卡干	juxhkg	24718
 真贵	zugb	14281
-西比弗利	xubzfl	24718
+西比弗利	xubbfl	24718
 客饭	kufs	14281
 打样	dsym	14281
 齐集	qujz	14281
@@ -53942,7 +53942,7 @@
 洁菊	jsja	14281
 十一二	syyhe	19775
 弗拉里	fyldl	19775
-比巴莱巴	bybzlb	24718
+比巴莱巴	bsbzlb	24718
 恩慧	euhx	14281
 防水层	fsszc	19775
 布朗库西	bwlnkx	24718
@@ -54114,7 +54114,7 @@
 赔钱货	psqjh	19775
 心细	xyxs	14281
 克顿	kudy	14281
-比蒂娜	bydan	19775
+比蒂娜	bsdan	19775
 福津	fsji	14281
 此信	csxr	14281
 双杠	ssgm	14281
@@ -54140,7 +54140,7 @@
 自治领	zyzil	19775
 阿莹	asya	14281
 痴愚	cwyx	14281
-比尔森	byens	19775
+比尔森	bsens	19775
 圣卢西亚	sulbxy	24718
 反动派	fwdyp	19775
 马泽森	mwzis	19775
@@ -54206,7 +54206,7 @@
 吴英实	wuyas	19775
 波洛黎	bslil	19775
 卡罗琳娜	kulwln	24718
-兰比斯	lubzs	19775
+兰比斯	lubbs	19775
 伊瑞	ysrw	14281
 赛洛维德	suliwd	24718
 霍索恩	hushe	19775
@@ -54320,7 +54320,7 @@
 七七八八	qyqhbb	24718
 雕刻品	dskdp	19775
 汝重生	rszps	19775
-排气阀	psqhf	19775
+排气阀	psqpf	19775
 嗷嗷待哺	asakdb	24718
 吉尼亚	junsy	19775
 谢立丹	xslad	19775
@@ -54334,7 +54334,7 @@
 氯化氢	lwhrq	19775
 蒂富妮	dufan	19775
 贝尔蒙特	byenmt	24718
-储气罐	csqhg	19775
+储气罐	csqpg	19775
 北向南	bsxpn	19775
 丹普塞	dypos	19775
 车骑	cyqm	14281
@@ -54417,19 +54417,19 @@
 恩好	euhn	14281
 樟脑丸	zsnow	19775
 苦斗	kudn	14281
-康比涅	kwbzn	19775
+康比涅	kwbbn	19775
 怜恤	lsxx	14281
 车闸	cyzm	14281
-洋气	ysqh	14281
+洋气	ysqp	14281
 酒店业	jsdgy	19775
 返修	fwxr	14281
 嚣张气焰	xuzgqy	24718
-比例尺	bylrc	19775
+比例尺	bslrc	19775
 优裕	ysyn	14281
 羸弱	lurg	14281
 甄尼	zsns	14281
 斯泰尔斯	sstres	24718
-和比利	hsbzl	19775
+和比利	hsbbl	19775
 创刊	cskg	14281
 伊欧	ysoq	14281
 兰科斯特	lukhst	24718
@@ -54864,7 +54864,7 @@
 卡罗拉多	kulwld	24718
 承载力	cyzgl	19775
 克米	kumn	14281
-哈比提	hsbzt	19775
+哈比提	hsbbt	19775
 电子束	dyzhs	19775
 学无止境	xuwhzj	24718
 安斯罗斯	ausjls	24718
@@ -54884,7 +54884,7 @@
 弗罗曼	fylwm	19775
 贾西	juxh	14281
 穆拉	msld	14281
-正比	zubz	14281
+正比	zubb	14281
 雪姬	xujn	14281
 摩利斯	mwlhs	19775
 柯根	ksgm	14281
@@ -54909,7 +54909,7 @@
 凯纳斯特	ksnsst	24718
 电子流	dyzhl	19775
 繁花似锦	fuhasj	24718
-哈比森	hsbzs	19775
+哈比森	hsbbs	19775
 艾西斯	auxhs	19775
 前站	quzl	14281
 欢悦	hsyx	14281
@@ -54974,7 +54974,7 @@
 电杆	dygm	14281
 甜腻腻	tsnon	19775
 勤俭	qsjr	14281
-吭气	ksqh	14281
+吭气	ksqp	14281
 遁入	dwrp	14281
 索克莫顿	sukgmd	24718
 层流	cwli	14281
@@ -55015,7 +55015,7 @@
 克里登斯	kuljds	24718
 丹尼刚	dynsg	19775
 弗里奇	fyljq	19775
-比赛服	bysbf	19775
+比赛服	bssbf	19775
 惠俊	hujr	14281
 喜顺	xusc	14281
 金英顺	juyas	19775
@@ -55041,7 +55041,7 @@
 报端	bsdl	14281
 朴千植	psqpz	19775
 霍顿斯	hudys	19775
-邪气	xsqh	14281
+邪气	xsqp	14281
 星震	xuzy	14281
 技术课	jssmk	19775
 回返	hwfz	14281
@@ -55161,9 +55161,9 @@
 海文	hswa	14281
 格雷汉	gslyh	19775
 生产量	sycal	19775
-比吉特	byjtt	19775
+比吉特	bsjtt	19775
 九万五	jywhw	19775
-比斯耐	bysjn	19775
+比斯耐	bssjn	19775
 路德韦格	lsdrwg	24718
 山羊绒	syyar	19775
 博士后	bsshh	19775
@@ -55244,7 +55244,7 @@
 达尔顿	dwend	19775
 客票	kupx	14281
 阿普	aspo	14281
-后复生	hwfos	19775
+后复生	hwfps	19775
 籽儿	zsep	14281
 劳资	luzc	14281
 全仁权	qurrq	19775
@@ -55279,12 +55279,12 @@
 马丁内斯	mwdhns	24718
 施蒂夫	ssdaf	19775
 卡纳汉	kunsh	19775
-比纳佛	bynsf	19775
+比纳佛	bsnsf	19775
 奥斯他韦	ausjtw	24718
 铁盒	tshm	14281
 艾斯雷	ausjl	19775
 宠信	cuxr	14281
-比杰思	byjms	19775
+比杰思	bsjms	19775
 泰拉戴恩	tuldde	24718
 出芽	cuya	14281
 逛荡	gwda	14281
@@ -55522,10 +55522,10 @@
 阿朴	aspm	14281
 斯达奇	ssdzq	19775
 泰罗	tulw	14281
-批复	psfo	14281
+批复	psfp	14281
 阻燃	zsrh	14281
 车马	cymh	14281
-沙比德	ssbzd	19775
+沙比德	ssbbd	19775
 横山	hsss	14281
 忠昆	zuko	14281
 曼蒂斯	mudas	19775
@@ -55774,7 +55774,7 @@
 十四时	sysks	19775
 秀才	xuch	14281
 马尔比	mwenb	19775
-贝比鲁斯	bybzls	24718
+贝比鲁斯	bybbls	24718
 希思	xust	14281
 夏侯	xuhr	14281
 范科尔	fukhe	19775
@@ -55877,7 +55877,7 @@
 火罐	hugf	14281
 梅若荻	msrad	19775
 希利	xulh	14281
-伯比	bsbz	14281
+伯比	bsbb	14281
 歪歪斜斜	wuwbxx	24718
 格劳克	gslak	19775
 攻无不克	gswhbk	24718
@@ -56078,7 +56078,7 @@
 仁花	rsha	14281
 爱妮斯顿	aunnsd	24718
 盖勒斯	gulgs	19775
-比塞尔	byste	19775
+比塞尔	bsste	19775
 提摩	tsmm	14281
 芜存	wucz	14281
 突突突	tutxt	19775
@@ -56207,7 +56207,7 @@
 捧腹	psfo	14281
 细部	xsbe	14281
 小院	xyye	14281
-进气口	jwqhk	19775
+进气口	jwqpk	19775
 拉普	lspo	14281
 烧制	sszn	14281
 阿拉里	asldl	19775
@@ -56237,7 +56237,7 @@
 台基	tujt	14281
 杏干	xugh	14281
 不过尔尔	bugzee	24718
-鲍比会	bsbzh	19775
+鲍比会	bsbbh	19775
 拉雷多	lslyd	19775
 欧莱利	oslal	19775
 马勒斯	mwlgs	19775
@@ -56422,7 +56422,7 @@
 克里奇	kuljq	19775
 衣角	yujp	14281
 宫田	guts	14281
-戴比尔斯	dwbzes	24718
+戴比尔斯	dwbbes	24718
 糖类	tslm	14281
 航空学	hskxx	19775
 儿里	eslj	14281
@@ -56568,7 +56568,7 @@
 发人深思	fyrpss	24718
 夹馅	jyxs	14281
 固定资产	gwdazc	24718
-冈比亚	gwbzy	19775
+冈比亚	gwbby	19775
 筹备会	cubph	19775
 斯王	sswh	14281
 陋巷	lsxg	14281
@@ -56624,7 +56624,7 @@
 丰硕	fyss	14281
 汤团	tstk	14281
 无形中	wuxpz	19775
-松气	ssqh	14281
+松气	ssqp	14281
 全铉	quxj	14281
 免刑	muxd	14281
 玩赏	wssb	14281
@@ -56670,7 +56670,7 @@
 人格化	rygmh	19775
 马库思	mwkgs	19775
 失水	sssz	14281
-伊比利	ysbzl	19775
+伊比利	ysbbl	19775
 南田	nuts	14281
 竹制	zszn	14281
 银城	ysct	14281
@@ -56747,12 +56747,12 @@
 斯杜	ssdm	14281
 让佩姆	rsprm	19775
 在位	zwwr	14281
-海比比	hsbzb	19775
+海比比	hsbbb	19775
 雷纳尔	lunse	19775
 达索斯	dwshs	19775
 疟原虫	nwycc	19775
 斯柏	ssbm	14281
-比基库	byjtk	19775
+比基库	bsjtk	19775
 东翼	dyyy	14281
 鸡肋	jslo	14281
 阿里萨	asljs	19775
@@ -56791,7 +56791,7 @@
 拉莉萨	lslas	19775
 保健所	bsjrs	19775
 翠廉	culg	14281
-比斯坎	bysjk	19775
+比斯坎	bssjk	19775
 怀特市	hstns	19775
 向非	xwfs	14281
 麦格文	mugmw	19775
@@ -56912,12 +56912,12 @@
 凯若琳	ksral	19775
 蒙托亚	mutdy	19775
 舒帕克	sspjk	19775
-比得哥什	bydrgs	24718
+比得哥什	bsdrgs	24718
 七叶树	qyyks	19775
 捏合	nshr	14281
 威拉德	wwldd	19775
 格林威	gslmw	19775
-阿比林	asbzl	19775
+阿比林	asbbl	19775
 关才行	guchx	19775
 途灵	twlj	14281
 粼粼	lsll	14281
@@ -56948,7 +56948,7 @@
 棕黄色	zshbs	19775
 承平	cyph	14281
 拉家常	lsjac	19775
-财气	csqh	14281
+财气	csqp	14281
 温卡普	wskbp	19775
 裁判权	cwpbq	19775
 河飞	hsfz	14281
@@ -57054,7 +57054,7 @@
 莫德尔	mudre	19775
 尹熙秀	yyxhx	19775
 演示会	ysshh	19775
-肯比	kubz	14281
+肯比	kubb	14281
 主罚	zufw	14281
 利特基	lstnj	19775
 海鱼	hsyn	14281
@@ -57160,7 +57160,7 @@
 环流	hsli	14281
 姜元卓	juyhz	19775
 达达尼安	dwdzna	24718
-冒气	muqh	14281
+冒气	muqp	14281
 菲弗	fufz	14281
 汨罗	mslw	14281
 卡拉马	kuldm	19775
@@ -57350,7 +57350,7 @@
 吴宗秀	wuzax	19775
 本内维斯	bynsws	24718
 塞布塔	subjt	19775
-吉比安	jubza	19775
+吉比安	jubba	19775
 董会都	duhrd	19775
 毛线针	muxsz	19775
 帕金森氏	psjrss	24718
@@ -57394,7 +57394,7 @@
 斯里	sslj	14281
 禁品	jupk	14281
 奥济尔	aujie	19775
-比亚德罗	byyhdl	24718
+比亚德罗	bsyhdl	24718
 公历	gulc	14281
 崔森	cusm	14281
 彻丽山	cslhs	19775
@@ -57495,7 +57495,7 @@
 玛库娃	mskgw	19775
 斯坦伯勒	ssttbl	24718
 动员令	dsykl	19775
-欧比	osbz	14281
+欧比	osbb	14281
 吉尔博特	juenbt	24718
 孟宁	muna	14281
 卡兹姆	kuzam	19775
@@ -57507,7 +57507,7 @@
 挂表	gsbt	14281
 消费量	xsfbl	19775
 钩骨	gsgo	14281
-甘比诺	gybzn	19775
+甘比诺	gybbn	19775
 善为	suwn	14281
 明锐	msrj	14281
 昏庸	huyg	14281
@@ -57612,7 +57612,7 @@
 福山雅治	fsssyz	24718
 女帽	nymj	14281
 艾瑞威尔	aurwwe	24718
-比得罗斯	bydrls	24718
+比得罗斯	bsdrls	24718
 结子	jszh	14281
 国端	gwdl	14281
 深部	ssbe	14281
@@ -57776,7 +57776,7 @@
 菲拉干	fuldg	19775
 鲁瑞斗	lurwd	19775
 图图	twtk	14281
-亚比雅	yubzy	19775
+亚比雅	yubby	19775
 一朗	yyln	14281
 普鲁提斯	pulyts	24718
 三原	suyc	14281
@@ -57803,7 +57803,7 @@
 洛芙	lsfa	14281
 紫雨	zuyh	14281
 蟠桃	pstm	14281
-里复生	lufos	19775
+里复生	lufps	19775
 范安德烈	fuaadl	24718
 丹蒂	dyda	14281
 一文	yywa	14281
@@ -57934,7 +57934,7 @@
 文金镇	wujrz	19775
 参天	cuth	14281
 凝思	nsst	14281
-比亚塔	byyht	19775
+比亚塔	bsyht	19775
 三线	suxs	14281
 忖度	csdg	14281
 话梅	hsmm	14281
@@ -58012,7 +58012,7 @@
 尤索波夫	ywshbf	24718
 勃然	bsrn	14281
 昆士兰	kushl	19775
-比亚兹	byyhz	19775
+比亚兹	bsyhz	19775
 精装书	jszys	19775
 麦乐宝	mulpb	19775
 陡增	dszt	14281
@@ -58137,7 +58137,7 @@
 学子	xuzh	14281
 携手并肩	xsspbj	24718
 干着急	gyzyj	19775
-秀气	xuqh	14281
+秀气	xuqp	14281
 韦尼克	wynsk	19775
 摊点	tsdz	14281
 五分之二	wufbze	24718
@@ -58148,7 +58148,7 @@
 迪亚斯	dwyhs	19775
 小井	xyjh	14281
 拐带	gsdh	14281
-比亚里茨	byyhlc	24718
+比亚里茨	bsyhlc	24718
 学园	xuyk	14281
 德克丹姆	dskgdm	24718
 热电	ruds	14281
@@ -58249,7 +58249,7 @@
 西撒	xusd	14281
 菲尔浦	fuenp	19775
 靠椅	kuym	14281
-比奇	byqd	14281
+比奇	bsqd	14281
 螺号	lshk	14281
 风云录	fwyel	19775
 戴伊	dwyr	14281
@@ -58269,14 +58269,14 @@
 温带	wsdh	14281
 埃姆	asmn	14281
 四二	sweh	14281
-比基	byjt	14281
+比基	bsjt	14281
 追名逐利	zwmpzl	24718
 里奇蒙德	luqdmd	24718
 科塔尼	ksttn	19775
 本字	byza	14281
 本季	byjh	14281
 布汝克	bwrik	19775
-比吉	byjt	14281
+比吉	bsjt	14281
 维克洛	wskgl	19775
 何而起	hsehq	19775
 斯穆利	ssmhl	19775
@@ -58329,11 +58329,11 @@
 继往开来	jswrkl	24718
 和莉莉	hslal	19775
 石窟	swkx	14281
-利比里	lsbzl	19775
+利比里	lsbbl	19775
 敌敌畏	dsdsw	19775
 哈达维	hsdzw	19775
 桥洞	qsdi	14281
-泽比诺	zsbzn	19775
+泽比诺	zsbbn	19775
 约尼	ysns	14281
 英格玛	yugmm	19775
 卡姆里亚	kumnly	24718
@@ -58349,7 +58349,7 @@
 万紫千红	wuzxqh	24718
 法裔	fsyy	14281
 易行	yuxr	14281
-比萨姆	bysam	19775
+比萨姆	bssam	19775
 石材	swcm	14281
 马代	mwdr	14281
 超导	cwdc	14281
@@ -58367,7 +58367,7 @@
 娜蒂雅	nsday	19775
 马里亚	mwljy	19775
 黄铁矿	hutjk	19775
-瑞比	rsbz	14281
+瑞比	rsbb	14281
 隆盛	lssm	14281
 强辩	qsbx	14281
 米德尔敦	mydred	24718
@@ -58393,7 +58393,7 @@
 汉斯他	hssjt	19775
 日货	ryhb	14281
 旅长	lszp	14281
-比昂卡	byaok	19775
+比昂卡	bsaok	19775
 三枝	suzm	14281
 雷亚	luyh	14281
 印欧语	ysoqy	19775
@@ -58472,11 +58472,11 @@
 吉拉迪	juldd	19775
 马累	mwlt	14281
 增收	zssp	14281
-莫比	mubz	14281
+莫比	mubb	14281
 藤崎	tuqs	14281
 苏达水	sudzs	19775
 弗赖	fyls	14281
-比美	bymy	14281
+比美	bsmy	14281
 玛迪	msdz	14281
 暖水瓶	nsszp	19775
 新城市	xscts	19775
@@ -58606,7 +58606,7 @@
 贪官污吏	tugawl	24718
 剪贴板	jutbb	19775
 让威廉	rswnl	19775
-比热	byrh	14281
+比热	bsrh	14281
 偏光镜	psgaj	19775
 卢丁小	ludhx	19775
 罗而根	luehg	19775
@@ -58779,7 +58779,7 @@
 水头	sstn	14281
 高职	guze	14281
 默瑟	mssw	14281
-歌舞厅	gswht	19775
+歌舞厅	gswpt	19775
 莎尔比	suenb	19775
 卢斯罗	lusjl	19775
 普罗希	pulwx	19775
@@ -59110,7 +59110,7 @@
 沙宣	ssxa	14281
 九十万	jyshw	19775
 安佩瑞	auprr	19775
-鲍比夏普	bsbzxp	24718
+鲍比夏普	bsbbxp	24718
 水珠	sszw	14281
 收纳	ssns	14281
 弗洛依德	fyliyd	24718
@@ -59136,7 +59136,7 @@
 硅酸	gssy	14281
 拉扎尔	lszde	19775
 寰宇	huya	14281
-比尔盖茨	byengc	24718
+比尔盖茨	bsengc	24718
 牡丹花	msdph	19775
 冒险主义	muxezy	24718
 临夏	lsxp	14281
@@ -59301,7 +59301,7 @@
 施奈尔	ssnde	19775
 万贯家财	wugbjc	24718
 卓尔斯	zuens	19775
-爱比盖儿	aubzge	24718
+爱比盖儿	aubbge	24718
 碰锁	pssj	14281
 诺思伍德	nsstwd	24718
 排炮	psph	14281
@@ -59367,7 +59367,7 @@
 窝巢	wucz	14281
 郭明	gsmo	14281
 白莲教	bylaj	19775
-活气	hsqh	14281
+活气	hsqp	14281
 舌苔	suta	14281
 理亏	lskh	14281
 俯射	fsss	14281
@@ -59442,7 +59442,7 @@
 西垣	xuyt	14281
 上半年	subbn	19775
 贵文	guwa	14281
-骄气	jsqh	14281
+骄气	jsqp	14281
 维舍格勒	wssrgl	24718
 新浪	xsli	14281
 顺珠	sszw	14281
@@ -59483,7 +59483,7 @@
 卓尔	zuen	14281
 媾和	gshh	14281
 古道热肠	gudzrc	24718
-几比	jybz	14281
+几比	jybb	14281
 磷酸盐	lssyy	19775
 民营化	myyah	19775
 基皮	jupz	14281
@@ -59530,7 +59530,7 @@
 甘黑斯	gyhhs	19775
 格努	gsnl	14281
 罗林	lulm	14281
-送气	swqh	14281
+送气	swqp	14281
 练习生	lsxzs	19775
 新乐	xslp	14281
 精读	jsdy	14281
@@ -59854,7 +59854,7 @@
 不名誉	bumpy	19775
 班奈迪	bsndd	19775
 佩兴斯	psxas	19775
-道比森	dwbzs	19775
+道比森	dwbbs	19775
 枕边风	zsbzf	19775
 泉眼	quyo	14281
 迪克兰森	dwkgls	24718
@@ -59913,7 +59913,7 @@
 轻歌曼舞	qsgqmw	15595
 格林卡	gslmk	12476
 风中之烛	fwzszz	15595
-浩气长存	hsqhzc	15595
+浩气长存	hsqpzc	15595
 阳物山	yswns	12476
 高民景	gumzj	12476
 棋友	qsyy	9010
@@ -59978,7 +59978,7 @@
 让理查德	rslwcd	15595
 科南道尔	ksnhde	15595
 光纤网	guxsw	12476
-比道斯坦	bydzst	15595
+比道斯坦	bsdzst	15595
 小萧	xyxa	9010
 佐餐	zscs	9010
 婉丝	wssh	9010
@@ -60040,7 +60040,7 @@
 盛体强	sutrq	12476
 泽维	zsws	9010
 克罗克斯	kulwks	15595
-比格留	bygml	12476
+比格留	bsgml	12476
 伊欧默	ysoqm	12476
 根绝	gsjs	9010
 死面	swmh	9010
@@ -60064,7 +60064,7 @@
 真安	zuaa	9010
 霍博肯	hubhk	12476
 格里森姆	gsljsm	15595
-沙比史顿	ssbzsd	15595
+沙比史顿	ssbbsd	15595
 小街	xyjr	9010
 亚希	yuxx	9010
 一石多鸟	yyshdn	15595
@@ -60127,7 +60127,7 @@
 托尔斯	tsens	12476
 康尼克	kwnsk	12476
 但本杰明	dsbhjm	15595
-迪比茨	dwbzc	12476
+迪比茨	dwbbc	12476
 约翰韦纳	yshcwn	15595
 皮特乔治	pytnqz	15595
 大拉瑞	dyldr	12476
@@ -60195,7 +60195,7 @@
 怎么得了	zumpdl	15595
 卡鲁奇	kulyq	12476
 院所	yssh	9010
-比珍妮	byzwn	12476
+比珍妮	bszwn	12476
 好贵	hsgb	9010
 罗斯兰德	lusjld	15595
 亚塔	yutt	9010
@@ -60276,7 +60276,7 @@
 从翔子	csxyz	12476
 白克	bykg	9010
 穆奇诺	msqdn	12476
-端午节	dswhj	12476
+端午节	dswpj	12476
 凯力	kslz	9010
 迪艾高	dwaag	12476
 弗内斯	fynss	12476
@@ -60390,7 +60390,7 @@
 依娃	yswn	9010
 雅基施	ysjts	12476
 班海沅	bshiy	12476
-配舞	pswh	9010
+配舞	pswp	9010
 巴尔克利	byenkl	15595
 常赫刚	cuhcg	12476
 我伯	wybr	9010
@@ -60510,7 +60510,7 @@
 大德	dydr	9010
 依傍	ysbr	9010
 大徐	dyxr	9010
-恩比西	eubzx	12476
+恩比西	eubbx	12476
 安正	auzh	9010
 查斯顿	cusjd	12476
 真俊	zujr	9010
@@ -60541,7 +60541,7 @@
 郝尔	hsen	9010
 库辛	kwxl	9010
 春培干	cuptg	12476
-比赫特	byhct	12476
+比赫特	bshct	12476
 楼价	lsjr	9010
 哈库纳	hskgn	12476
 管材	gucm	9010
@@ -60563,7 +60563,7 @@
 帕斯图	pssjt	12476
 霜降	suje	9010
 贤才	xuch	9010
-比吉布森	byjtbs	15595
+比吉布森	bsjtbs	15595
 赐玲	cslw	9010
 夏洛蒂	xulid	12476
 亚眠	yumo	9010
@@ -60639,7 +60639,7 @@
 泳联	ysle	9010
 麦金尼斯	mujrns	15595
 萨拉合	suldh	12476
-比杰基	byjmj	12476
+比杰基	bsjmj	12476
 里德尔镇	ludrez	15595
 十世	sysh	9010
 拉皮德市	lspzds	15595
@@ -60655,7 +60655,7 @@
 严肃性	yuszx	12476
 书云	syye	9010
 周易	zwyo	9010
-比莫顿	bymad	12476
+比莫顿	bsmad	12476
 霍诺丽亚	hunyly	15595
 成东勋	cwdhx	12476
 瑞夫拉夫	rsfhlf	15595
@@ -60688,7 +60688,7 @@
 埃努玛	asnlm	12476
 麦尔逊	muenx	12476
 泽秀	zsxh	9010
-比乔治	byqpz	12476
+比乔治	bsqpz	12476
 丽沙	lusi	9010
 嘎莫斯	gsmas	12476
 李南一	lunhy	12476
@@ -60721,7 +60721,7 @@
 多里安	dulja	12476
 斯普利	sspol	12476
 格雷琴来	gslyql	15595
-比尔派	byenp	12476
+比尔派	bsenp	12476
 温克来	wskgl	12476
 依斯	yssj	9010
 辛迪瑞拉	xudzrl	15595
@@ -60796,12 +60796,12 @@
 维特鲁威	wstnlw	15595
 宁宁	nuna	9010
 丹米安坎	dymnak	15595
-凯比	ksbz	9010
+凯比	ksbb	9010
 金北秀	jubbx	12476
 基来	julh	9010
 阿历干	aslcg	12476
 门若派	myrap	12476
-燃气轮机	rsqhlj	15595
+燃气轮机	rsqplj	15595
 我瑜	wyyw	9010
 国木田	gwmht	12476
 亚斯尼亚	yusjny	15595
@@ -60817,7 +60817,7 @@
 纳迪娅	nsdzy	12476
 可非	kwfs	9010
 归拢	gsld	9010
-菲比安	fubza	12476
+菲比安	fubba	12476
 十一秒	syyhm	12476
 凸版	tybp	9010
 泽刚	zsgd	9010
@@ -60836,7 +60836,7 @@
 混淆黑白	hsxihb	15595
 楚玛会	cumwh	12476
 皮菲尔	pyfae	12476
-比其洛	byqhl	12476
+比其洛	bsqhl	12476
 萨耐德	suned	12476
 哈格里夫	hsgmlf	15595
 门德松	mydrs	12476
@@ -61187,7 +61187,7 @@
 黄允京	huyzj	12476
 周维	zwws	9010
 补缴	bsjs	9010
-比埃德加	byatdj	15595
+比埃德加	bsatdj	15595
 朱辛庄	zyxlz	12476
 科森萨	kssms	12476
 麦迪恩	mudze	12476
@@ -61250,7 +61250,7 @@
 查特沃思	cutnws	15595
 哈瓦苏派	hswhsp	15595
 剑圣会	jssyh	12476
-比克尔	bykge	12476
+比克尔	bskge	12476
 庄阳子	zwyez	12476
 罗丁特	ludht	12476
 等差	ducy	9010
@@ -61304,7 +61304,7 @@
 斯班尼	ssbwn	12476
 河童可真	hstlkz	15595
 奥德瑞	audrr	12476
-豪比	hubz	9010
+豪比	hubb	9010
 求助信	qwzqx	12476
 成永佩	cwynp	12476
 珍一家	zsyhj	12476
@@ -61433,7 +61433,7 @@
 布根地	bwgmd	12476
 舞星	wuxo	9010
 点名册	dumpc	12476
-比奇伍德	byqdwd	15595
+比奇伍德	bsqdwd	15595
 卡华力	kuhhl	12476
 故此	gscz	9010
 卢瑟本	luswb	12476
@@ -61589,12 +61589,12 @@
 浮特	fstn	9010
 帕帕蒂洛	pspjdl	15595
 马维	mwws	9010
-索比堡	subzb	12476
+索比堡	subbb	12476
 徐真英	xszhy	12476
 今年初	junpc	12476
 五四点	wuskd	12476
 超模超	cwmmc	12476
-寇比正	kubzz	12476
+寇比正	kubbz	12476
 葛伦克	gulrk	12476
 永盛	yysm	9010
 让巴比	rsbzb	12476
@@ -61849,7 +61849,7 @@
 罗森伯姆	lusmbm	15595
 编著	bsza	9010
 豪康比	hukgb	12476
-比班卡	bybwk	12476
+比班卡	bsbwk	12476
 吉提马特	jutdmt	15595
 阿桥	asqm	9010
 方济	fuji	9010
@@ -61945,7 +61945,7 @@
 宝诗龙	busyl	12476
 耗竭	hsjl	9010
 笔调	budy	9010
-比尔普曼	byenpm	15595
+比尔普曼	bsenpm	15595
 卡蒙贝尔	kumabe	15595
 欧特曼	ostnm	12476
 观光台	gsgat	12476
@@ -62011,7 +62011,7 @@
 托普曼	tspom	12476
 八点三十	bydzss	15595
 德明	dsmo	9010
-地气	dsqh	9010
+地气	dsqp	9010
 水柱	sszm	9010
 陶马	tsmh	9010
 胜彦	ssyp	9010
@@ -62048,7 +62048,7 @@
 卡萨	kusa	9010
 斯科维奇	sskhwq	15595
 李光勋	lugax	12476
-葛比利	gubzl	12476
+葛比利	gubbl	12476
 米德兰市	mydrls	15595
 和卡特	hskbt	12476
 丽孜	luzz	9010
@@ -62063,7 +62063,7 @@
 娜格	nsgm	9010
 省政府	suzzf	12476
 苏黎士一	sulrsy	15595
-比金古	byjrg	12476
+比金古	bsjrg	12476
 郭东有	gsdhw	12476
 香农河	xunnh	12476
 旧房	jsfh	9010
@@ -62146,7 +62146,7 @@
 贝雷特	bylyt	12476
 求方应	qwfay	12476
 佛兰芒	fslbm	12476
-芭比柯曼	bubzkm	15595
+芭比柯曼	bubbkm	15595
 轻音	qsyl	9010
 薛佛	xufr	9010
 埃克力	askgl	12476
@@ -62386,7 +62386,7 @@
 帕伦克	pslrk	12476
 桑尼曼萨	sunsms	15595
 品德课	pudrk	12476
-莎比	subz	9010
+莎比	subb	9010
 玛利亚都	mslhyd	15595
 吉唯	juwk	9010
 腕足	wszk	9010
@@ -62501,7 +62501,7 @@
 佩平	psph	9010
 执棒	zsbm	9010
 纸口袋	zsksd	12476
-比布洛克	bybjlk	15595
+比布洛克	bsbjlk	15595
 时务	sswp	9010
 量变	luby	9010
 阿龙先	aslhx	12476
@@ -62541,7 +62541,7 @@
 第一四	duyhs	12476
 琼淑	qssi	9010
 依夫	ysfh	9010
-小比尔	xybze	12476
+小比尔	xybbe	12476
 跃上	yssb	9010
 诺门	nsms	9010
 塞米松	sumns	12476
@@ -62590,7 +62590,7 @@
 先来	xulh	9010
 吉帕	jupj	9010
 向特勤	xwtnq	12476
-托比亚斯	tsbzys	15595
+托比亚斯	tsbbys	15595
 迈克劳瑞	mwkglr	15595
 德米	dsmn	9010
 亨内斯	hunss	12476
@@ -62638,7 +62638,7 @@
 用琳	ywlw	9010
 皲裂	jsly	9010
 伦皮	lspz	9010
-氙气灯	xwqhd	12476
+氙气灯	xwqpd	12476
 斯莫奇	ssmaq	12476
 德英	dsya	9010
 弃士	qush	9010
@@ -62839,7 +62839,7 @@
 沙科	sskh	9010
 管理所	gulws	12476
 吉瓦亚	juwhy	12476
-比史密斯	byssms	15595
+比史密斯	bsssms	15595
 德裔	dsyy	9010
 打江山	dsjis	12476
 阿多夫	asdpf	12476
@@ -62919,7 +62919,7 @@
 野物	yswn	9010
 维塔	wstt	9010
 耶希亚	ysxxy	12476
-比卡内尔	bykbne	15595
+比卡内尔	bskbne	15595
 佝偻	gslr	9010
 艾尔曼	auenm	12476
 西提斯贝	xutdsb	15595
@@ -63093,7 +63093,7 @@
 坦伯顿	tsbrd	12476
 爱瓦伦丁	auwhld	15595
 他史密斯	tsssms	15595
-德比郡	dsbzj	12476
+德比郡	dsbbj	12476
 不定冠词	budagc	15595
 陶术	tssm	9010
 用润	ywri	9010
@@ -63179,7 +63179,7 @@
 销售税	xsszs	12476
 艾尔留	auenl	12476
 露头	lutn	9010
-伦比	lsbz	9010
+伦比	lsbb	9010
 荣真	ruzh	9010
 水野顺	ssyls	12476
 拉克勒斯	lskgls	15595
@@ -63268,7 +63268,7 @@
 命令状	mulrz	12476
 伦坡	lspt	9010
 不信子	buxrz	12476
-力比	lybz	9010
+力比	lybb	9010
 欧莱雅	oslay	12476
 成成	cwcw	9010
 奥布瑞恩	aubjre	15595
@@ -63462,7 +63462,7 @@
 题意	twyy	9010
 和淑子	hssiz	12476
 丹尼尔留	dynsel	15595
-比律子	bylrz	12476
+比律子	bslrz	12476
 曼声咏	musty	12476
 普米特	pumnt	12476
 侄外孙	zswps	12476
@@ -63510,7 +63510,7 @@
 戴上长	dwsbz	12476
 他罗杰	tslwj	12476
 查特豪斯	cutnhs	15595
-比雷蒙德	bylymd	15595
+比雷蒙德	bslymd	15595
 心静如水	xyjqrs	15595
 汗浸浸	hsjij	12476
 象鹰	xuyn	9010
@@ -63594,7 +63594,7 @@
 避难权	bwnyq	12476
 斯摩本	ssmmb	12476
 鸡蛋壳	jsdpk	12476
-贝比亚	bybzy	12476
+贝比亚	bybby	12476
 埃尔伯	asenb	12476
 沙夫勒	ssfhl	12476
 本息	byxz	9010
@@ -63748,7 +63748,7 @@
 金才宗	juchz	12476
 桥头堡	qstnb	12476
 布莱伍德	bwlawd	15595
-比托马斯	bytdms	15595
+比托马斯	bstdms	15595
 韦斯福特	wysjft	15595
 夏丽逸	xulhy	12476
 傻呵呵	sshkh	12476
@@ -63845,7 +63845,7 @@
 奥斯玛	ausjm	12476
 威尔西镇	wwenxz	15595
 丹尼尔拉	dynsel	15595
-比马丁尼	bymhdn	15595
+比马丁尼	bsmhdn	15595
 潘尼伯克	psnsbk	15595
 阿格尔	asgme	12476
 续借	xsjr	9010
@@ -63933,7 +63933,7 @@
 巴尔卡恩	byenke	15595
 喜洛斯梅	xulism	15595
 因势利导	ywslld	15595
-比本拉登	bybhld	15595
+比本拉登	bsbhld	15595
 若唐纳德	rutgnd	15595
 金智善	juzos	12476
 康纳德	kwnsd	12476
@@ -63983,7 +63983,7 @@
 库区	kwqk	9010
 配器	psqq	9010
 戈宾达	gybad	12476
-比尔怀特	byenht	15595
+比尔怀特	bsenht	15595
 安国	augk	9010
 数百万亿	ssbhwy	15595
 幔帐	mszj	9010
@@ -64027,7 +64027,7 @@
 玛卡瑞娜	mskbrn	15595
 和艾萨克	hsaask	15595
 真非	zufs	9010
-狂气	ksqh	9010
+狂气	ksqp	9010
 德拉库特	dsldkt	15595
 下学	xuxa	9010
 翔实	xssa	9010
@@ -64079,7 +64079,7 @@
 罗切斯	luqds	12476
 肃立	syla	9010
 八二	byeh	9010
-比赛大	bysbd	12476
+比赛大	bssbd	12476
 能者多劳	nszldl	15595
 钾肥	jsfo	9010
 萨沙他	susit	12476
@@ -64203,7 +64203,7 @@
 可真	kwzh	9010
 艾伦纳	aulrn	12476
 大辉	dyhg	9010
-对比色	dsbzs	12476
+对比色	dsbbs	12476
 红蓝超人	hslacr	15595
 成千成万	cwqpcw	15595
 圣琪	suqw	9010
@@ -64217,7 +64217,7 @@
 树真	sszh	9010
 卢道	ludz	9010
 休养院	xsyay	12476
-比洛西市	bylixs	15595
+比洛西市	bslixs	15595
 布鲁托丝	bwlyts	15595
 依莎	yssa	9010
 塞尔伯恩	suenbe	15595
@@ -64499,7 +64499,7 @@
 宫健二	gujre	12476
 卡珊德勒	kuswdl	15595
 查里斯	culjs	12476
-比莉丝	bylas	12476
+比莉丝	bslas	12476
 莱斯里尼	lusjln	15595
 莫列那	muldn	12476
 美格波	mugmb	12476
@@ -64529,7 +64529,7 @@
 指靠	zskf	9010
 拜把兄弟	bsbdxd	15595
 亚提娜	yutdn	12476
-比艾菲	byaaf	12476
+比艾菲	bsaaf	12476
 拾又一	ssyzy	12476
 里奥哈	luaph	12476
 摩根马	mwgmm	12476
@@ -64548,7 +64548,7 @@
 阿利文	aslhw	12476
 白风	byfj	9010
 圣方	sufa	9010
-萨比尔	subze	12476
+萨比尔	subbe	12476
 谈一	tsyh	9010
 小罗德尼	xylwdn	15595
 水利部	sslhb	12476
@@ -64568,7 +64568,7 @@
 福友	fsyy	9010
 史戴西能	sydgxn	15595
 瓜皮	gypz	9010
-比罗夏	bylwx	12476
+比罗夏	bslwx	12476
 中宫直进	zygazj	15595
 曼切斯特	muqdst	15595
 小将	xyjp	9010
@@ -64588,7 +64588,7 @@
 乌迪内	wwdzn	12476
 蒜瓣	subx	9010
 勒范特	lsfat	12476
-迪比克	dwbzk	12476
+迪比克	dwbbk	12476
 克拉普顿	kuldpd	15595
 二两	eulh	9010
 迪阿姆	dwaem	12476
@@ -64724,7 +64724,7 @@
 引咎	ysjk	9010
 奥戴利	audgl	12476
 倡议书	csyys	12476
-煞气	suqh	9010
+煞气	suqp	9010
 仓垣	cuyt	9010
 透出	twcc	9010
 艾伯克奇	aubrkq	15595
@@ -64980,7 +64980,7 @@
 扬德雷	ysdrl	12476
 美华丹	muhhd	12476
 朱丽叶永	zylhyy	15595
-泰比	tubz	9010
+泰比	tubb	9010
 斯布尼克	ssbjnk	15595
 巴拉斯	bylds	12476
 阿诗利	assyl	12476
@@ -65030,7 +65030,7 @@
 小玲	xylw	9010
 小玛	xymw	9010
 校旗	xsqf	9010
-比约翰	byysh	12476
+比约翰	bsysh	12476
 加的斯	jsdbs	12476
 小特	xytn	9010
 科琳娜	kslwn	12476
@@ -65193,7 +65193,7 @@
 摩根摩根	mwgmmg	15595
 二殿	euds	9010
 生诺高	synyg	12476
-库比	kwbz	9010
+库比	kwbb	9010
 蒙塔娜	muttn	12476
 韵母	ysmp	9010
 让迪克	rsdzk	12476
@@ -65217,7 +65217,7 @@
 克斯科	kusjk	12476
 肯瑞康顿	kurwkd	15595
 调节费	dsjaf	12476
-比金斯	byjrs	12476
+比金斯	bsjrs	12476
 西赛尔	xusbe	12476
 伊万常	yswhc	12476
 倚老卖老	ysllml	15595
@@ -65455,7 +65455,7 @@
 克罗默蒂	kulwmd	15595
 五加	wujl	9010
 步调一致	budyyz	15595
-比雅利安	byyyla	15595
+比雅利安	bsyyla	15595
 但瑞迪	dsrwd	12476
 文理	wulw	9010
 天星	tuxo	9010
@@ -65988,11 +65988,11 @@
 汉德尔	hsdre	12476
 飞地	fydt	9010
 阴德	ysdr	9010
-路复活	lsfoh	12476
+路复活	lsfph	12476
 首战告捷	suzzgj	15595
 那祥	nsxn	9010
 神佛发	ssfrf	12476
-比宾果	bybag	12476
+比宾果	bsbag	12476
 倏地	ssdt	9010
 译作	yszr	9010
 保丽	bslh	9010
@@ -66062,7 +66062,7 @@
 康德勒	kwdrl	12476
 嘉菲	jufa	9010
 斯拉特利	ssldtl	15595
-狄比亚	dsbzy	12476
+狄比亚	dsbby	12476
 布鲁斯曼	bwlysm	15595
 歌克斯	gskgs	12476
 弗吉立亚	fyjtly	15595
@@ -66142,7 +66142,7 @@
 悲戚	buqw	9010
 才识	cysy	9010
 齐克果	qukgg	12476
-比斯派克	bysjpk	15595
+比斯派克	bssjpk	15595
 慧星会	huxoh	12476
 纽华克城	nshhkc	15595
 桡动脉	rsdym	12476
@@ -66156,7 +66156,7 @@
 三角函数	sujphs	15595
 三天前	suthq	12476
 宝安	buaa	9010
-比彻斯勒	bycrsl	15595
+比彻斯勒	bscrsl	15595
 挥笔	hsbz	9010
 葛莱芬多	gulafd	15595
 扬克斯市	yskgss	15595
@@ -66462,7 +66462,7 @@
 那河	nshi	9010
 思基	sujt	9010
 奥瑞克金	aurwkj	15595
-波比得	bsbzd	12476
+波比得	bsbbd	12476
 白色棉	bysnm	12476
 马提尼克	mwtdnk	15595
 皮卡多	pykbd	12476
@@ -66531,7 +66531,7 @@
 挥毫	hsha	9010
 金钟泌	juzjm	12476
 但迈尔斯	dsmzes	15595
-墨比乌斯	mubzws	15595
+墨比乌斯	mubbws	15595
 莱尔森	luens	12476
 桑德兰	sudrl	12476
 生光	syga	9010
@@ -66561,7 +66561,7 @@
 兰开斯	lukhs	12476
 戴妮斯	dwnns	12476
 奥尔巴彻	auenbc	15595
-比约尔克	byysek	15595
+比约尔克	bsysek	15595
 魏特摩	wstnm	12476
 山岸	syas	9010
 麦卡特尼	mukbtn	15595
@@ -66686,7 +66686,7 @@
 风骨	fwgo	9010
 瑙韶斯	nssys	12476
 日夜兼程	ryyajc	15595
-比利鲍伯	bylhbb	15595
+比利鲍伯	bslhbb	15595
 卡塔利娜	kuttln	15595
 利宾纳	lsban	12476
 音型	yuxt	9010
@@ -66707,7 +66707,7 @@
 娜乌西卡	nswhxk	15595
 形式化	xssyh	12476
 圣马斯	sumhs	12476
-比尔特	byent	12476
+比尔特	bsent	12476
 克赫	kuhc	9010
 李恩宙	luexz	12476
 和伊迪	hsyrd	12476
@@ -66724,7 +66724,7 @@
 心正如	xyzhr	12476
 志学	zuxa	9010
 强制力	qsznl	12476
-塔比斯	tsbzs	12476
+塔比斯	tsbbs	12476
 史图亚特	sytkyt	15595
 麻美子	mwmyz	12476
 他雷德	tslyd	12476
@@ -66733,12 +66733,12 @@
 弗兰克西	fylbkx	15595
 克沃科恩	kuwike	15595
 凭栏	pulm	9010
-心气	xyqh	9010
+心气	xyqp	9010
 茫然无措	murnwc	15595
 恩慈	eucz	9010
 邓普西斯	dspoxs	15595
 克里巴奇	kuljbq	15595
-哈比镇	hsbzz	12476
+哈比镇	hsbbz	12476
 罗尔克	luenk	12476
 杜然	dsrn	9010
 和议	hsyy	9010
@@ -66803,7 +66803,7 @@
 克里福德	kuljfd	15595
 杨吉	ysjt	9010
 修造	xszz	9010
-达比	dwbz	9010
+达比	dwbb	9010
 圣克罗	sukgl	12476
 独资	dszc	9010
 科杰克	ksjmk	12476
@@ -66857,7 +66857,7 @@
 麦松	musm	9010
 崔敏熙	cumpx	12476
 普鲁克伦	pulykl	15595
-巴比可文	bybzkw	15595
+巴比可文	bybbkw	15595
 麦杜	mudm	9010
 夏正宇	xuzhy	12476
 韩淑奎	hssik	12476
@@ -66867,7 +66867,7 @@
 道成仙	dwcwx	12476
 孟尼	muns	9010
 图板	twbm	9010
-比罗斯	bylws	12476
+比罗斯	bslws	12476
 戴维让	dwwsr	12476
 托勒斯	tslgs	12476
 零嘴	luzk	9010
@@ -67026,7 +67026,7 @@
 尤克里里	ywkgll	15595
 敬娥	jsen	9010
 龙天堂	lytht	12476
-比尔才	byenc	12476
+比尔才	bsenc	12476
 制作厂	zszrc	12476
 喧嚷	xsrk	9010
 广告社	gygks	12476
@@ -67050,7 +67050,7 @@
 开方	kufa	9010
 哈雷鲁亚	hslyly	15595
 帕门特	psmst	12476
-比尔斯	byens	12476
+比尔斯	bsens	12476
 圭宁	guna	9010
 自然选择	zyrnxz	15595
 罗阿诺库	luaenk	15595
@@ -67168,7 +67168,7 @@
 露蒙德	lumad	12476
 育龄	yulc	9010
 麦格努斯	mugmns	15595
-比格列德	bygmld	15595
+比格列德	bsgmld	15595
 幅员辽阔	fsyklk	15595
 克杰根	kujmg	12476
 青松	qusm	9010
@@ -67296,7 +67296,7 @@
 金道	judz	9010
 阿克拉	askgl	12476
 守柳	sulm	9010
-莎比士亚	subzsy	15595
+莎比士亚	subbsy	15595
 古根	gugm	9010
 任东硕	rsdhs	12476
 广告画	gygkh	12476
@@ -67466,7 +67466,7 @@
 贝得福	bydrf	12476
 龙帮真	lybjz	12476
 马基德	mwjtd	12476
-雾气腾腾	wuqhtt	15595
+雾气腾腾	wuqptt	15595
 料理台	lslwt	12476
 克莱尔撒	kulaes	15595
 西游记	xuyij	12476
@@ -67497,7 +67497,7 @@
 桑塔安娜	suttan	15595
 拉希得	lsxxd	12476
 金勇奇	juylq	12476
-比维尔丽	bywsel	15595
+比维尔丽	bswsel	15595
 裴植会	puzmh	12476
 开炉	kulh	9010
 库什山口	kwsrsk	15595
@@ -67517,7 +67517,7 @@
 贵霜	gusy	9010
 斯普克勒	sspokl	15595
 柯瑞里	ksrwl	12476
-比尔奇	byenq	12476
+比尔奇	bsenq	12476
 凡恩会	fwexh	12476
 福莱德	fslad	12476
 诺康来	nskgl	12476
@@ -67613,7 +67613,7 @@
 奇德瑞斯	qudrrs	15595
 布兰诺	bwlbn	12476
 按图索骥	astksj	15595
-比尔山	byens	12476
+比尔山	bsens	12476
 福楠	fsnm	9010
 李冲怡	luciy	12476
 处警	cwjy	9010
@@ -67689,7 +67689,7 @@
 和马多克	hsmhdk	15595
 哥德	gudr	9010
 达力	dwlz	9010
-比比比	bybzb	12476
+比比比	bsbbb	12476
 罗宾汉他	lubaht	15595
 煤油炉	msyil	12476
 达士奇	dwshq	12476
@@ -67918,7 +67918,7 @@
 高森市	gusms	12476
 杨曼	ysmo	9010
 哈巴拉	hsbzl	12476
-他比	tsbz	9010
+他比	tsbb	9010
 屈尊帮	qwzcb	12476
 穆哈德	mshkd	12476
 米亚	myyh	9010
@@ -67976,7 +67976,7 @@
 欧帕拉	ospjl	12476
 敬理	jslw	9010
 行酒令	xsjil	12476
-科比茨	ksbzc	12476
+科比茨	ksbbc	12476
 审计部	sujyb	12476
 康考克斯	kwklks	15595
 莎约	suys	9010
@@ -68017,7 +68017,7 @@
 科茨沃尔	kscawe	15595
 应仁	ywrr	9010
 史望米夏	sywwmx	15595
-瑞比卡	rsbzk	12476
+瑞比卡	rsbbk	12476
 冈德	gwdr	9010
 麦卡	mukb	9010
 怜才	lsch	9010
@@ -68066,7 +68066,7 @@
 党龄	dulc	9010
 和伯	hsbr	9010
 金人	jurp	9010
-比布兰妮	bybjln	15595
+比布兰妮	bsbjln	15595
 元禄	yuln	9010
 克劳德来	kuladl	15595
 金井	jujh	9010
@@ -68131,7 +68131,7 @@
 穆哈	mshk	9010
 加芬克	jsfak	12476
 遥祝	ywzn	9010
-比茨坎	bycak	12476
+比茨坎	bscak	12476
 玛茹拉	msral	12476
 柯川	kscp	9010
 录像厅	luxrt	12476
@@ -68197,7 +68197,7 @@
 葛申	guss	9010
 但赖普	dslsp	12476
 那光鲜	nsgax	12476
-坎比斯	ksbzs	12476
+坎比斯	ksbbs	12476
 麦德逊	mudrx	12476
 鲍波	bsbi	9010
 二万四千	euwhsq	15595
@@ -68291,7 +68291,7 @@
 金毛狗	jumpg	12476
 敬茶	jsca	9010
 邻省	lsso	9010
-荷比	hubz	9010
+荷比	hubb	9010
 动辄	dszc	9010
 十六进制	sylajz	15595
 雅薇	yswa	9010
@@ -68490,7 +68490,7 @@
 维拉德	wsldd	12476
 格勒克	gslgk	12476
 禽鸟	qunh	9010
-比尼阿克	bynsak	15595
+比尼阿克	bsnsak	15595
 统揽全局	tsldqj	15595
 各派	gupi	9010
 潘多拉顿	psdpld	15595
@@ -68615,7 +68615,7 @@
 冈山	gwss	9010
 于蓝	yyla	9010
 宽绰	kucs	9010
-比迪克	bydzk	12476
+比迪克	bsdzk	12476
 临河	lshi	9010
 常设	cusy	9010
 赫斯利	hssjl	12476
@@ -68629,7 +68629,7 @@
 阿莫科	asmak	12476
 索劳	sula	9010
 克奇	kuqd	9010
-比杰克	byjmk	12476
+比杰克	bsjmk	12476
 王丽娜	wulhn	12476
 和大	hsdh	9010
 佛汉姆	fshim	12476
@@ -68743,7 +68743,7 @@
 范德堡	fudrb	12476
 波切斯特	bsqdst	15595
 衡平法	hsphf	12476
-比莫里斯	bymals	15595
+比莫里斯	bsmals	15595
 字贴	zutb	9010
 蹉跎岁月	cstzsy	15595
 但特里萨	dstnls	15595
@@ -68787,10 +68787,10 @@
 艾弗灵	aufzl	12476
 金军	jujh	9010
 阶级性	jsjsx	12476
-比格霍恩	bygmhe	15595
+比格霍恩	bsgmhe	15595
 制动闸	zsdyz	12476
 绿光亮	lsgal	12476
-力气活	lyqhh	12476
+力气活	lyqph	12476
 元月	yuyp	9010
 株系	zsxp	9010
 弦乐器	xslpq	12476
@@ -68833,7 +68833,7 @@
 宫里来	guljl	12476
 迪姆霍特	dwmnht	15595
 浅绿	qsls	9010
-比达西	bydzx	12476
+比达西	bsdzx	12476
 格雷特尔	gslyte	15595
 梅洛尼	mslin	12476
 名匠	mujk	9010
@@ -68855,7 +68855,7 @@
 不太爱	butda	12476
 布恩诺	bwexn	12476
 阿鲁提克	aslytk	15595
-比奥德尔	byapde	15595
+比奥德尔	bsapde	15595
 杜蒙特	dsmat	12476
 风神	fwsn	9010
 艾斯特凡	ausjtf	15595
@@ -68930,7 +68930,7 @@
 巴尔吉	byenj	12476
 默西迪	msxhd	12476
 包沃	bwwi	9010
-比让海伦	byryhl	15595
+比让海伦	bsryhl	15595
 丝卡有锁	sukbws	15595
 亨里埃塔	huljat	15595
 自供	zygr	9010
@@ -68969,7 +68969,7 @@
 安卓来	auzbl	12476
 网民	wwmz	9010
 鸣啭	mszk	9010
-哈比真	hsbzz	12476
+哈比真	hsbbz	12476
 让莱斯恩	rslase	15595
 罗安妮	luaan	12476
 布兰恩	bwlbe	12476
@@ -69018,13 +69018,13 @@
 海海	hshi	9010
 卓梦	zuml	9010
 松永俊夫	ssynjf	15595
-比尔科迪	byenkd	15595
+比尔科迪	bsenkd	15595
 教练机	jslsj	12476
 蒂朵	dudj	9010
 圣依纳	suyrn	12476
 伏牛	fsnp	9010
 斯托洛普	sstdlp	15595
-杜比会	dsbzh	12476
+杜比会	dsbbh	12476
 露菲	lufa	9010
 农民工	nymzg	12476
 奥斯里克	ausjlk	15595
@@ -69050,7 +69050,7 @@
 毛玻璃	mubwl	12476
 韩春金	hscrj	12476
 好俊	hsjr	9010
-比罗马	bylwm	12476
+比罗马	bslwm	12476
 盛器	suqq	9010
 伊利莎	yslhs	12476
 之佑	zuyr	9010
@@ -69132,7 +69132,7 @@
 提斯卡	tssjk	12476
 杰福尔	jufne	12476
 葛布	gubj	9010
-比芝	byza	9010
+比芝	bsza	9010
 崔少云	cusxy	12476
 衣帽架	yumjj	12476
 查姆巴克	cumnbk	15595
@@ -69201,7 +69201,7 @@
 哈蒙尼	hsman	12476
 纳马思	nsmhs	12476
 森次胜	sucis	12476
-反比	fwbz	9010
+反比	fwbb	9010
 兰纳特	lunst	12476
 康赤塔	kwctt	12476
 爱民如子	aumzrz	15595
@@ -69397,7 +69397,7 @@
 穆洛	msli	9010
 丘丘	qyqp	9010
 零二十五	luehsw	15595
-哈比比	hsbzb	12476
+哈比比	hsbbb	12476
 自决	zyji	9010
 为数不少	wyspbs	15595
 近赞	jwzb	9010
@@ -69444,7 +69444,7 @@
 马蒂尔达	mwdaed	15595
 葛伦	gulr	9010
 塞夫勒	sufhl	12476
-穆比	msbz	9010
+穆比	msbb	9010
 桑弗特	sufzt	12476
 斯利兰卡	sslhlk	15595
 司奇	swqd	9010
@@ -69459,7 +69459,7 @@
 七子	qyzh	9010
 和格瓦	hsgmw	12476
 艾兰洲	aulbz	12476
-贝比罗斯	bybzls	15595
+贝比罗斯	bybbls	15595
 显耀	xuyg	9010
 房真	fwzh	9010
 名产	muca	9010
@@ -69536,7 +69536,7 @@
 塔斯克	tssjk	12476
 松野明	ssylm	12476
 卡达姆	kudzm	12476
-莎比斯娜	subzsn	15595
+莎比斯娜	subbsn	15595
 和汉纳	hshin	12476
 春喜正	cuxsz	12476
 龙虎	lyhh	9010
@@ -69560,7 +69560,7 @@
 崇音	cuyl	9010
 项宁	xsna	9010
 霍伯肯	hubrk	12476
-胡比来	hsbzl	12476
+胡比来	hsbbl	12476
 图纳	twns	9010
 齐格	qugm	9010
 别太	bstd	9010
@@ -69590,10 +69590,10 @@
 塞雷卡	sulyk	12476
 龙葵	lyka	9010
 圣马库斯	sumhks	15595
-巴比布朗	bybzbl	15595
+巴比布朗	bybbbl	15595
 弗兰希	fylbx	12476
 地图集	dstkj	12476
-比勒士达	bylgsd	15595
+比勒士达	bslgsd	15595
 欧辛	osxl	9010
 帅成	sscw	9010
 韩基哲	hsjtz	12476
@@ -69674,7 +69674,7 @@
 那人云	nsrpy	12476
 爱克莱	aukgl	12476
 仙豆	xsdh	9010
-比凯伦	bykjl	12476
+比凯伦	bskjl	12476
 弗瑞琪多	fyrwqd	15595
 药液	yuyi	9010
 古切蒂	guqdd	12476
@@ -69881,7 +69881,7 @@
 奥德	audr	9010
 导磁率	ducsl	12476
 苏默维尔	sumhwe	15595
-比波比	bybib	12476
+比波比	bsbib	12476
 崔时元	cusoy	12476
 齐祖	quzn	9010
 皮尔伯格	pyenbg	15595
@@ -69920,7 +69920,7 @@
 奥帕	aupj	9010
 海琳才	hslwc	12476
 挨整	aszc	9010
-比德尔	bydre	12476
+比德尔	bsdre	12476
 茂雄	muxz	9010
 龙飞凤舞	lyfzfw	15595
 杰克米	jukgm	12476
@@ -69954,7 +69954,7 @@
 雅利达	yslhd	12476
 画帖	hutj	9010
 布朗德比	bwlndb	15595
-节气	juqh	9010
+节气	juqp	9010
 瓦莱德	wylad	12476
 经线	jsxs	9010
 莫文蔚	muwaw	12476
@@ -70373,7 +70373,7 @@
 记步器	jsbzq	12476
 艾兹帕迪	auzapd	15595
 铁球	tsqw	9010
-科比堡	ksbzb	12476
+科比堡	ksbbb	12476
 布尔诺	bwenn	12476
 叽咕	jsgk	9010
 美津江	mujij	12476
@@ -70459,7 +70459,7 @@
 费兰得	fulbd	12476
 戴那	dwnd	9010
 金槐	juhm	9010
-比莱斯特	bylast	15595
+比莱斯特	bslast	15595
 转制	zszn	9010
 佑珍	yszw	9010
 立中	luzs	9010
@@ -70593,7 +70593,7 @@
 汤米提普	tsmntp	15595
 马拉雪	mwldx	12476
 布雷尔他	bwlyet	15595
-罗比柯	lubzk	12476
+罗比柯	lubbk	12476
 柳昌夏	lscox	12476
 律诗	lssy	9010
 装机	zujm	9010
@@ -70605,7 +70605,7 @@
 和安定	hsaad	12476
 瓦莱拉	wylal	12476
 默克	mskg	9010
-比基顿	byjtd	12476
+比基顿	bsjtd	12476
 劳菲	lufa	9010
 协议价	xsyyj	12476
 排头兵	pstnb	12476
@@ -70716,7 +70716,7 @@
 爱德万	audrw	12476
 落叶松	luyks	12476
 吴章烈	wuzll	12476
-比盖西	bygyx	12476
+比盖西	bsgyx	12476
 曼施塔特	musftt	15595
 埃尔韦拉	asenwl	15595
 咸乎乎	xwhph	12476
@@ -70752,7 +70752,7 @@
 白净净	byjij	12476
 书信体	syxrt	12476
 三级跳	sujst	12476
-黛比拉	dubzl	12476
+黛比拉	dubbl	12476
 省道	sudz	9010
 涂士	tssh	9010
 财长	cszp	9010
@@ -70855,7 +70855,7 @@
 吉莫尔	jumae	12476
 罗丝博格	lushbg	15595
 里谷	lugp	9010
-比卡勃	bykbb	12476
+比卡勃	bskbb	12476
 一米米	yymnm	12476
 范约翰	fuysh	12476
 嘉山	juss	9010
@@ -70980,7 +70980,7 @@
 多梅尼科	dummnk	15595
 刘翔	lsxy	9010
 考利哲	kwlhz	12476
-比尔德	byend	12476
+比尔德	bsend	12476
 归整	gszc	9010
 奥士丁	aushd	12476
 煤场	msct	9010
@@ -71092,7 +71092,7 @@
 矢量积	suldj	12476
 菲里罗	fuljl	12476
 路维尔	lswse	12476
-比肯达尔	bykzde	15595
+比肯达尔	bskzde	15595
 莱曼干	lumog	12476
 佐鲁	zsly	9010
 亚斯坦	yusjt	12476
@@ -71311,7 +71311,7 @@
 阿根	asgm	9010
 夏德	xudr	9010
 野长都	yszpd	12476
-鲍比抛	bsbzp	12476
+鲍比抛	bsbbp	12476
 天娜	tunn	9010
 伯图	bstk	9010
 通例	twlr	9010
@@ -71786,13 +71786,13 @@
 古根汗姆	gugmhm	15595
 忠信	zuxr	9010
 忠修	zuxr	9010
-比利鲍勃	bylhbb	15595
+比利鲍勃	bslhbb	15595
 玛丽比	mslhb	12476
 会帮雷	hubjl	12476
 弯度	wudg	9010
 木茂	myma	9010
 催吐剂	cstkj	12476
-比史奇	byssq	12476
+比史奇	bsssq	12476
 战连胜	zslzs	12476
 萧长	xuzp	9010
 亚马孙	yumhs	12476
@@ -71909,7 +71909,7 @@
 咸丰	xwfh	9010
 伯森	bssm	9010
 别让卡尔	bsryke	15595
-黛比都	dubzd	12476
+黛比都	dubbd	12476
 歌拉迪	gsldd	12476
 疏浚	ssji	9010
 明园	msyk	9010
@@ -71951,7 +71951,7 @@
 阿尔迪	asend	12476
 茅棚	mupm	9010
 伯恩哈	bsexh	12476
-沃比那	wsbzn	12476
+沃比那	wsbbn	12476
 门童	mytl	9010
 冒顶	mudy	9010
 玛丽珍	mslhz	12476
@@ -72167,7 +72167,7 @@
 罗柏特	lubmt	12476
 路普	lspo	9010
 零七分	luqhf	12476
-艾比戈儿	aubzge	15595
+艾比戈儿	aubbge	15595
 乌央乌央	wwyswy	15595
 佛拉卡	fsldk	12476
 灿灿	csch	9010
@@ -72323,7 +72323,7 @@
 乌龙	wwlh	9010
 水俞里	ssyrl	12476
 汤那	tsnd	9010
-铁比金	tsbzj	12476
+铁比金	tsbbj	12476
 金嘉云	jujsy	12476
 摩奇	mwqd	9010
 阿虎真	ashhz	12476
@@ -72389,11 +72389,11 @@
 火之谷	huzng	12476
 格兰斯沃	gslbsw	15595
 奥辛威斯	auxlws	15595
-特比	tsbz	9010
+特比	tsbb	9010
 彼得赫	bsdrh	12476
 奇特的奇	qutndq	15595
 南极光	nujmg	12476
-芭比城	bubzc	12476
+芭比城	bubbc	12476
 沈城	ssct	9010
 戴利市	dwlhs	12476
 戈顿	gydy	9010
@@ -72434,7 +72434,7 @@
 海涛	hsti	9010
 俊满	jsmi	9010
 泰沙	tusi	9010
-比斯蒂芬	bysjdf	15595
+比斯蒂芬	bssjdf	15595
 神佑之	ssyrz	12476
 南极区	nujmq	12476
 玛塞勒	msstl	12476
@@ -72497,7 +72497,7 @@
 清人	qsrp	9010
 南飞	nufz	9010
 维思通	wsstt	12476
-比重计	byzpj	12476
+比重计	bszpj	12476
 克沃基恩	kuwije	15595
 昌隆	cule	9010
 工段	gyds	9010
@@ -72508,7 +72508,7 @@
 卡登姆	kudbm	12476
 小凯尔	xykje	12476
 迪里奥	dwlja	12476
-比华利	byhhl	12476
+比华利	bshhl	12476
 蛇根草	ssgmc	12476
 拼写法	psxhf	12476
 朗丘	lsqp	9010
@@ -72548,7 +72548,7 @@
 金银花	juyjh	12476
 吉斯多	jusjd	12476
 山齐士	syqws	12476
-比奇洛	byqdl	12476
+比奇洛	bsqdl	12476
 四五百万	swwhbw	15595
 艾卡艾娜	aukban	15595
 温达确	wsdzq	12476
@@ -72642,7 +72642,7 @@
 史宾	syba	9010
 向维伦	xwwsl	12476
 脂肪酶	zsfom	12476
-沼气池	zsqhc	12476
+沼气池	zsqpc	12476
 西柏利亚	xubmly	15595
 那史陶	nssst	12476
 石质	swzp	9010
@@ -72919,7 +72919,7 @@
 德林	dslm	9010
 罗马利亚	lumhly	15595
 竹茅	zsma	9010
-玛比尼奥	msbzna	15595
+玛比尼奥	msbbna	15595
 伊斯马	yssjm	12476
 绍森	sssm	9010
 奈尔	nuen	9010
@@ -73047,7 +73047,7 @@
 台江	tuji	9010
 二世会	eushh	12476
 因斯达克	ywsjdk	15595
-比杰西多	byjmxd	15595
+比杰西多	bsjmxd	15595
 多诺克	dunyk	12476
 国债券	gwzrq	12476
 吉巴娜	jubzn	12476
@@ -73268,7 +73268,7 @@
 迈肯	mwkz	9010
 瓦拉	wyld	9010
 避孕片	bwyzp	12476
-比克蒙	bykgm	12476
+比克蒙	bskgm	12476
 耶茨	ysca	9010
 狄奇	dsqd	9010
 拉尔	lsen	9010
@@ -73330,7 +73330,7 @@
 三万八	suwhb	12476
 象富	xufa	9010
 露西恩	luxhe	12476
-比克顿	bykgd	12476
+比克顿	bskgd	12476
 艾柏能	aubmn	12476
 委任书	wurrs	12476
 特多	tsdp	9010
@@ -73384,7 +73384,7 @@
 厄巴	ewbz	9010
 皮雷	pyly	9010
 喜人	xurp	9010
-比威利	bywnl	12476
+比威利	bswnl	12476
 索贝尔	subse	12476
 华兰来	hulbl	12476
 皮陈	pyce	9010
@@ -73404,7 +73404,7 @@
 成瑞德	cwrwd	12476
 申义财	syync	12476
 蒙东	mudh	9010
-鲍比才	bsbzc	12476
+鲍比才	bsbbc	12476
 帕斯马克	pssjmk	15595
 郑俊浩	zsjrh	12476
 索伦森	sulrs	12476
@@ -73443,7 +73443,7 @@
 美泰	mutr	9010
 斯塔什	sstts	12476
 小格蕾	xygml	12476
-比尔亚尼	byenyn	15595
+比尔亚尼	bsenyn	15595
 洪帝栋	hsdad	12476
 坎诺比	ksnyb	12476
 第五千	duwhq	12476
@@ -73453,7 +73453,7 @@
 安鹤燮	auhnx	12476
 失音	ssyl	9010
 预处理	yscpl	12476
-霍比斯	hubzs	12476
+霍比斯	hubbs	12476
 二世子	eushz	12476
 金熙	juxh	9010
 五十万亿	wushwy	15595
@@ -73500,10 +73500,10 @@
 俊光	jsga	9010
 帕尔多	psend	12476
 召来	zulh	9010
-比里德尔	byljde	15595
+比里德尔	bsljde	15595
 哈米森	hsmns	12476
 金明浩	jumoh	12476
-语气词	ysqhc	12476
+语气词	ysqpc	12476
 弗雷迪干	fylydg	15595
 溪河镇	xshiz	12476
 索贝克	subsk	12476
@@ -73682,7 +73682,7 @@
 转化率	zshrl	12476
 让马卡内	rsmhkn	15595
 谐振	xszd	9010
-比维可丁	bywskd	15595
+比维可丁	bswskd	15595
 竭泽而渔	jsziey	15595
 雪跃山	xuyzs	12476
 汤博	tsbh	9010
@@ -73989,7 +73989,7 @@
 彭妮关在	psnngz	15595
 九百九十	jybhjs	15595
 万佑	wuyr	9010
-比席琳	byxgl	12476
+比席琳	bsxgl	12476
 迪马吉欧	dwmhjo	15595
 汉森纳那	hssmnn	15595
 拉特辛	lstnx	12476
@@ -74042,7 +74042,7 @@
 卡解锁	kujjs	12476
 拘于	jsyh	9010
 居安思危	jwaasw	15595
-比兰尼	bylbn	12476
+比兰尼	bslbn	12476
 匪盗	fwdc	9010
 罗恩和	luexh	12476
 塔帕努里	tspjnl	15595
@@ -74129,7 +74129,7 @@
 哈姆利克	hsmnlk	15595
 塔尼尔	tsnse	12476
 劳立塔	lulat	12476
-奥比昂	aubza	12476
+奥比昂	aubba	12476
 坎布里亚	ksbjly	15595
 上代	sudr	9010
 金罗斯	julws	12476
@@ -74150,7 +74150,7 @@
 波诺他	bsnyt	12476
 斯奇勒斯	ssqdls	15595
 波可诺	bskkn	12476
-暖气团	nsqht	12476
+暖气团	nsqpt	12476
 让古斯	rsghs	12476
 麦肯纳斯	mukzns	15595
 财年	csnp	9010
@@ -74205,7 +74205,7 @@
 让约瑟夫	rsyssf	15595
 索沙	susi	9010
 史金	syjr	9010
-比博普	bybhp	12476
+比博普	bsbhp	12476
 张俊	zsjr	9010
 米亚拉斯	myyhls	15595
 玛司亚斯	msszys	15595
@@ -74426,7 +74426,7 @@
 川恭子	cyggz	12476
 素旺里	suwol	12476
 美组秀	muzsx	12476
-让比尔	rsbze	12476
+让比尔	rsbbe	12476
 焦特布尔	jutnbe	15595
 瓜达卢佩	gydzlp	15595
 残货	cshb	9010
@@ -74469,7 +74469,7 @@
 提伯欧	tsbro	12476
 承元	cyyh	9010
 南岸	nuas	9010
-比赖安	bylsa	12476
+比赖安	bslsa	12476
 兵戎	burg	9010
 残迹	csjz	9010
 劳拉布什	luldbs	15595
@@ -74657,7 +74657,7 @@
 渔轮	yslc	9010
 安灵曲	auljq	12476
 班尼多	bsnsd	12476
-比斯提	bysjt	12476
+比斯提	bssjt	12476
 铲刀	csdz	9010
 提西	tsxh	9010
 彼得来	bsdrl	12476
@@ -74727,7 +74727,7 @@
 让杜宾斯	rsdmbs	15595
 拉芒	lsma	9010
 线绳	xsss	9010
-迪比	dwbz	9010
+迪比	dwbb	9010
 朗道那	lsdzn	12476
 佛莱彻	fslac	12476
 康爱迪生	kwapds	15595
@@ -74831,7 +74831,7 @@
 霍布纳尔	hubjne	15595
 秋冬	qsdp	9010
 钟放	zsff	9010
-比菲洛	byfal	12476
+比菲洛	bsfal	12476
 塞莱拉	sulal	12476
 亚科斯塔	yukhst	15595
 德米安	dsmna	12476
@@ -74949,7 +74949,7 @@
 东关	dygb	9010
 伊西利恩	ysxhle	15595
 雷纳特	lunst	12476
-比哈伦	byhkl	12476
+比哈伦	bshkl	12476
 暗娼	ascn	9010
 格拉布	gsldb	12476
 奥尔托纳	auentn	15595
@@ -75179,7 +75179,7 @@
 备要	buyx	9010
 张贤成	zsxec	12476
 晨高	cuga	9010
-比安卡多	byaakd	15595
+比安卡多	bsaakd	15595
 抱谦	bsqy	9010
 维可劳尼	wskkln	15595
 商学和	suxah	12476
@@ -75243,7 +75243,7 @@
 板油	bsyi	9010
 波莉远	bslay	12476
 杰海	juhi	9010
-周复一	zwfoy	12476
+周复一	zwfpy	12476
 盛惠	suhx	9010
 杰洛	juli	9010
 中继线	zyjsx	12476
@@ -75282,10 +75282,10 @@
 尼克逊	nwkgx	12476
 邦立	bsla	9010
 通霄	twxy	9010
-波比波比	bsbzbb	15595
+波比波比	bsbbbb	15595
 子金	zyjr	9010
-比安卡刚	byaakg	15595
-比诺曼	bynym	12476
+比安卡刚	bsaakg	15595
+比诺曼	bsnym	12476
 杰拉尔多	julded	15595
 板报	bsbd	9010
 巴姆斯特	bymnst	15595
@@ -75710,7 +75710,7 @@
 第七十九	duqhsj	15595
 李唐熙	lutgx	12476
 横肉	hsrs	9010
-巴比亚	bybzy	12476
+巴比亚	bybby	12476
 东飞	dyfz	9010
 兜子	duzh	9010
 观测员	gsciy	12476
@@ -75747,7 +75747,7 @@
 十七分	syqhf	12476
 铭心刻骨	msxnkg	15595
 崔斯高	cusjg	12476
-比尔特莫	byentm	15595
+比尔特莫	bsentm	15595
 斯迪特	ssdzt	12476
 上压力	suycl	12476
 略逊一筹	lsxzyc	15595
@@ -75760,11 +75760,11 @@
 塞维德	suwsd	12476
 安娜贝丝	aunnbs	15595
 党中央	duzsy	12476
-比尔赫伦	byenhl	15595
+比尔赫伦	bsenhl	15595
 难解难分	nsjjnf	15595
 绷脸	bslo	9010
 隐伏	ysfr	9010
-比诺什	bynys	12476
+比诺什	bsnys	12476
 坎普科	kspok	12476
 黛伯	dubr	9010
 基尔里森	juenls	15595
@@ -75859,7 +75859,7 @@
 里维耶拉	luwsyl	15595
 麻浦桥	mwpiq	12476
 杰罗比	julwb	12476
-子复活	zyfoh	12476
+子复活	zyfph	12476
 餐具柜	cujqg	12476
 勇跃	yuyz	9010
 盟主	muza	9010
@@ -75873,7 +75873,7 @@
 泰兴	tuxa	9010
 帕格尼尼	psgmnn	15595
 诺格里乔	nsgmlq	15595
-比休斯顿	byxrsd	15595
+比休斯顿	bsxrsd	15595
 达诺姆	dwnym	12476
 拉瓦托夫	lswhtf	15595
 月田	yyts	9010
@@ -75977,7 +75977,7 @@
 卫生站	wuspz	12476
 石基路	swjtl	12476
 塔莫南杜	tsmand	15595
-比埃莉诺	byatln	15595
+比埃莉诺	bsatln	15595
 棉纺	msfs	9010
 博伊根	bsyrg	12476
 卡米洛特	kumnlt	15595
@@ -76046,7 +76046,7 @@
 吱吱喳喳	zszkzz	15595
 不可名状	bukkmz	15595
 辐条	fstp	9010
-比安卡真	byaakz	15595
+比安卡真	bsaakz	15595
 雷吉来	lujtl	12476
 巴蒂图	bydat	12476
 艾德温	audrw	12476
@@ -76082,7 +76082,7 @@
 班维克	bswsk	12476
 公开性	gukhx	12476
 二百四十	eubhss	15595
-沛比王	psbzw	12476
+沛比王	psbbw	12476
 锻工	dsgh	9010
 海国	hsgk	9010
 胡克来	hskgl	12476
@@ -76109,23 +76109,23 @@
 勘定	ksda	9010
 笔洗	buxi	9010
 封建王朝	fsjywc	15595
-巴比托	bybzt	12476
+巴比托	bybbt	12476
 齐达内	qudzn	12476
 达里斯	dwljs	12476
 冲量	csld	9010
 丰茂	fyma	9010
 诺拉比	nsldb	12476
 塔瑞丝	tsrws	12476
-比安德鲁	byaadl	15595
+比安德鲁	bsaadl	15595
 查泽莱	cuzil	12476
-瘴气	zwqh	9010
+瘴气	zwqp	9010
 冬歇期	duxqq	12476
 起稿	qwgh	9010
 祖卡巴	zskbb	12476
 梦寐	muma	9010
 阿尔乐	asenl	12476
 滥伐	lsfr	9010
-布比	bwbz	9010
+布比	bwbb	9010
 月报	yybd	9010
 梅茨格	mscag	12476
 杰宁	juna	9010
@@ -76184,10 +76184,10 @@
 汉密尔	hsmse	12476
 雨雪天	yuxyt	12476
 但西蒙	dsxhm	12476
-巴比松	bybzs	12476
+巴比松	bybbs	12476
 迪迈戈	dwmzg	12476
 帕科特	pskht	12476
-卡比利亚	kubzly	15595
+卡比利亚	kubbly	15595
 麦多纳	mudpn	12476
 宋曼肃	sumos	12476
 马瓦曼森	mwwhms	15595
@@ -76328,7 +76328,7 @@
 六甲	lujs	9010
 薄于云水	buyhys	15595
 伯连纳	bslzn	12476
-巴比桑	bybzs	12476
+巴比桑	bybbs	12476
 远君	ywjk	9010
 布弗劳格	bwfzlg	15595
 菲奈特	fundt	12476
@@ -76362,7 +76362,7 @@
 菲林	fulm	9010
 君乃	jwnp	9010
 邦交	bsja	9010
-黛比麦斯	dubzms	15595
+黛比麦斯	dubbms	15595
 斯迪克	ssdzk	12476
 艾米存	aumnc	12476
 顾盼	gspo	9010
@@ -76405,7 +76405,7 @@
 鲁瓦拉	luwhl	12476
 王珍松	wuzws	12476
 提克里特	tskglt	15595
-若比尔	rubze	12476
+若比尔	rubbe	12476
 女宾	nyba	9010
 女家	nyja	9010
 奥斯丁让	ausjdr	15595
@@ -76453,7 +76453,7 @@
 年均	nyjt	9010
 阿巴克尔	asbzke	15595
 停当	tsda	9010
-浊气	zsqh	9010
+浊气	zsqp	9010
 异姓	yuxn	9010
 合成橡胶	hucwxj	15595
 内海	nyhi	9010
@@ -76661,7 +76661,7 @@
 海瑟顿	hsswd	12476
 花旦	hudo	9010
 贝罗	bylw	9010
-罗比尼奥	lubzna	15595
+罗比尼奥	lubbna	15595
 亚柏特	yubmt	12476
 那超赞	nsczz	12476
 纺织娘	fszsn	12476
@@ -76715,7 +76715,7 @@
 钟飞	zsfz	9010
 普利斯通	pulhst	15595
 子儿	zyep	9010
-比飞	byfz	9010
+比飞	bsfz	9010
 瑞西阿斯	rsxhas	15595
 唐普莱斯	twpols	15595
 史林德林	sylmdl	15595
@@ -76840,7 +76840,7 @@
 诗里	sslj	9010
 杜特雷蒙	dstnlm	15595
 食用菌	suykj	12476
-比拉德	byldd	12476
+比拉德	bsldd	12476
 型式	xusy	9010
 贝查	bycm	9010
 述伟	swwr	9010
@@ -77026,7 +77026,7 @@
 罗哈斯	luhks	12476
 喘嘘嘘	csxkx	12476
 麦克正	mukgz	12476
-比布莱	bybjl	12476
+比布莱	bsbjl	12476
 法斯宾德	fssjbd	15595
 巴夫龙	byfhl	12476
 罩衣	zuya	9010
@@ -77165,14 +77165,14 @@
 尼格斯	nwgms	12476
 罗兰士	lulbs	12476
 主体性	zutrx	12476
-比科伊尔	bykhye	15595
+比科伊尔	bskhye	15595
 威阿鲁	wwael	12476
 来雪城	lyxyc	12476
 救济粮	jsjil	12476
 年尾	nyws	9010
 帕奥德	psapd	12476
 拉里沙	lsljs	12476
-欧比王	osbzw	12476
+欧比王	osbbw	12476
 帕罗奥图	pslwat	15595
 珍淑	zssi	9010
 片面性	pymhx	12476
@@ -77279,7 +77279,7 @@
 沈恩华	ssexh	12476
 小扎克	xyzdk	12476
 下一辈	xuyhb	12476
-因比利	ywbzl	12476
+因比利	ywbbl	12476
 滑润	hsri	9010
 日用百货	ryykbh	15595
 梦方醒	mufax	12476
@@ -77527,7 +77527,7 @@
 景信	juxr	9010
 埃拉刚	asldg	12476
 四川省	swcps	12476
-亚比书	yubzs	12476
+亚比书	yubbs	12476
 生存率	syczl	12476
 大波贝蒂	dybibd	15595
 柳贞勋	lszbx	12476
@@ -77601,7 +77601,7 @@
 猜卡尔	cskbe	12476
 第六十	dulas	12476
 韩索罗	hsshl	12476
-丹比	dybz	9010
+丹比	dybb	9010
 巫尔有	wyenw	12476
 卡可因	kukky	12476
 金仁庆	jurrq	12476
@@ -77619,7 +77619,7 @@
 米卢都	mylbd	12476
 肯瑟斯市	kuswss	15595
 神山清	ssssq	12476
-比瑞吉	byrwj	12476
+比瑞吉	bsrwj	12476
 弗洛里	fylil	12476
 真冰冰	zubib	12476
 麦克之	mukgz	12476
@@ -77776,7 +77776,7 @@
 桑武	suwy	9010
 马岛	mwds	9010
 蓝德	ludr	9010
-等比级数	dubzjs	15595
+等比级数	dubbjs	15595
 达志	dwzt	9010
 温城	wsct	9010
 乐韵	lyyy	9010
@@ -77816,7 +77816,7 @@
 苏沙	susi	9010
 马师	mwse	9010
 稀稀拉拉	xsxhll	15595
-比尧	byyw	9010
+比尧	bsyw	9010
 马帝	mwda	9010
 马帮	mwbj	9010
 吴智英	wuzoy	12476
@@ -77980,7 +77980,7 @@
 欲姬	ysjn	9010
 本宁	byna	9010
 僻壤	psrt	9010
-比汉江	byhij	12476
+比汉江	bshij	12476
 瓦里克	wyljk	12476
 麦克道尔	mukgde	15595
 萨卡拉	sukbl	12476
@@ -78010,7 +78010,7 @@
 黑美人	humyr	12476
 列夫坚	lsfhj	12476
 塔肯纳达	tskznd	15595
-比昂丝	byaos	12476
+比昂丝	bsaos	12476
 温州	wszn	9010
 戎马一生	rwmhys	15595
 麦墨菲	mumhf	12476
@@ -78055,7 +78055,7 @@
 成庶	cwsg	9010
 小奈德他	xynddt	15595
 辉铜矿	hstjk	12476
-比勒	bylg	9010
+比勒	bslg	9010
 出借	cujr	9010
 菲尔曼	fuenm	12476
 知名演员	zsmpyy	15595
@@ -78098,7 +78098,7 @@
 事务部长	sywpbz	15595
 马南	mwnh	9010
 寒武纪	huwyj	12476
-比儿	byep	9010
+比儿	bsep	9010
 巴丝金	byshj	12476
 格勒	gslg	9010
 腰眼	ysyo	9010
@@ -78185,7 +78185,7 @@
 霍奇金	huqdj	12476
 海拉山	hslds	12476
 菲尔德南	fuendn	15595
-安比亚	aubzy	12476
+安比亚	aubby	12476
 乐薇	lywa	9010
 六年来	lunpl	12476
 格丽	gslh	9010
@@ -78341,7 +78341,7 @@
 三条	sutp	9010
 暑天	suth	9010
 安德鲁马	audrlm	15595
-比兹华夫	byzahf	15595
+比兹华夫	bszahf	15595
 天顺	tusc	9010
 卡布琳	kubjl	12476
 基里巴斯	juljbs	15595
@@ -78492,7 +78492,7 @@
 尤勒斯	ywlgs	12476
 邬娜	wsnn	9010
 齐刷刷	qusds	12476
-比昂斯	byaos	12476
+比昂斯	bsaos	12476
 在楠山	zwnms	12476
 默音	msyl	9010
 接踵	jszz	9010
@@ -78719,7 +78719,7 @@
 特维兹	tswsz	12476
 零十一	lushy	12476
 囟门	xwms	9010
-比画	byhh	9010
+比画	bshh	9010
 克兰顿市	kulbds	15595
 鲍勃不忙	bsblbm	15595
 光燮	guxh	9010
@@ -78839,7 +78839,7 @@
 高特	gutn	9010
 马迪阿斯	mwdzas	15595
 布拉德力	bwlddl	15595
-比阿姆斯	byaems	15595
+比阿姆斯	bsaems	15595
 林格郡	lsgmj	12476
 垄沟	lugi	9010
 古奉基	gufrj	12476
@@ -78861,12 +78861,12 @@
 层报	cwbd	9010
 菲尔宾	fuenb	12476
 他特利佛	tstnlf	15595
-但比利	dsbzl	12476
+但比利	dsbbl	12476
 庞贝让	pwbsr	12476
 格罗伊斯	gslwys	15595
 子铁	zytj	9010
 马渊	mwyi	9010
-语气助词	ysqhzc	15595
+语气助词	ysqpzc	15595
 汪格瑞	wsgmr	12476
 浮报	fsbd	9010
 马里森	mwljs	12476
@@ -78922,7 +78922,7 @@
 莫纳	muns	9010
 焖牛肉	msnpr	12476
 帕特立克	pstnlk	15595
-李午	luwh	9010
+李午	luwp	9010
 雷氏	lusp	9010
 瓦姆博格	wymnbg	15595
 威斯特	wwsjt	12476
@@ -78962,7 +78962,7 @@
 大后年	dyhpn	12476
 胡士	hssh	9010
 阿辛格	asxlg	12476
-比森	bysm	9010
+比森	bssm	9010
 汉米顿	hsmnd	12476
 牧铭	msmj	9010
 普莱斯曼	pulasm	15595
@@ -78988,7 +78988,7 @@
 达克马克	dwkgmk	15595
 招商	zssa	9010
 光洙	guzi	9010
-马比	mwbz	9010
+马比	mwbb	9010
 稻子	dszh	9010
 塔塔	tstt	9010
 分子筛	fuzhs	12476
@@ -79078,7 +79078,7 @@
 背风	bufj	9010
 鲁蒙德	lumad	12476
 稻场	dsct	9010
-比奥登	byapd	12476
+比奥登	bsapd	12476
 门英格	myyag	12476
 和路易	hslzy	12476
 马恩	mwex	9010
@@ -79089,7 +79089,7 @@
 韩爱丽	hsapl	12476
 上下半场	suxhbc	15595
 埃波	asbi	9010
-比我	bywp	9010
+比我	bswp	9010
 卡布勒	kubjl	12476
 高维	guws	9010
 多兰巴迪	dulbbd	15595
@@ -79131,9 +79131,9 @@
 克里普顿	kuljpd	15595
 简方达	jufad	12476
 埃米利得	asmnld	15595
-比恩	byex	9010
+比恩	bsex	9010
 烘干器	hsghq	12476
-比尔盖兹	byengz	15595
+比尔盖兹	bsengz	15595
 本法	byfi	9010
 马战	mwzz	9010
 格提	gstd	9010
@@ -79262,7 +79262,7 @@
 淡泊	dspi	9010
 要力挺	yulzt	12476
 一百零五	yybhlw	15595
-接气	jsqh	9010
+接气	jsqp	9010
 克里普斯	kuljps	15595
 文化史	wuhrs	12476
 抽风机	csfjj	12476
@@ -79349,7 +79349,7 @@
 鸟兽	nwsh	9010
 拉谭莫尼	lstymn	15595
 增芳	zsfa	9010
-同比	twbz	9010
+同比	twbb	9010
 山德森	sydrs	12476
 马魁	mwkg	9010
 扎特	zstn	9010
@@ -79403,7 +79403,7 @@
 中途岛	zytzd	12476
 泰勒斯	tulgs	12476
 爱米兰达	aumnld	15595
-班比诺	bsbzn	12476
+班比诺	bsbbn	12476
 凤凤	fwfj	9010
 罗志祥	luztx	12476
 七点二十	qydzes	15595
@@ -79521,7 +79521,7 @@
 史蒂芬他	sydaft	15595
 切内斯基	qsnssj	15595
 圪塔	gstt	9010
-比邦	bybf	9010
+比邦	bsbf	9010
 兹怀伊特	zuhxyt	15595
 弹拨乐器	dsbdlq	15595
 垫被	dubn	9010
@@ -79545,7 +79545,7 @@
 玛慧	mshx	9010
 塞尚	susa	9010
 纳克斯堡	nskgsb	15595
-比量	byld	9010
+比量	bsld	9010
 索里尼	suljn	12476
 良材	lucm	9010
 努尔丹	nuend	12476
@@ -79607,7 +79607,7 @@
 高邑	guyk	9010
 格罗斯基	gslwsj	15595
 毕加莱	bujll	12476
-比谦	byqy	9010
+比谦	bsqy	9010
 苏达龙	sudzl	12476
 金亨珠	juhaz	12476
 民咏	myyk	9010
@@ -79670,7 +79670,7 @@
 千河俊	quhij	12476
 和刚铎	hsgdd	12476
 伏笔	fsbz	9010
-比诺	byny	9010
+比诺	bsny	9010
 皮得洛	pydrl	12476
 贝斯达市	bysjds	15595
 卡迪亚	kudzy	12476
@@ -79685,7 +79685,7 @@
 榨油	zsyi	9010
 耳闻目睹	eywmmd	15595
 麦克莫芬	mukgmf	15595
-阿比道斯	asbzds	15595
+阿比道斯	asbbds	15595
 潘可维兹	pskkwz	15595
 七万四千	qywhsq	15595
 投送	tssz	9010
@@ -79735,7 +79735,7 @@
 汉斯拜姆	hssjbm	15595
 和莎伦	hssal	12476
 小提西	xytdx	12476
-比斯坦	bysjt	12476
+比斯坦	bssjt	12476
 他班尼特	tsbwnt	15595
 海德鲁	hsdrl	12476
 溶岩	rsys	9010
@@ -79744,7 +79744,7 @@
 穆托姆博	mstdmb	15595
 正当年	zudan	12476
 民庭	mytg	9010
-沙比	ssbz	9010
+沙比	ssbb	9010
 有线广播	wwxsgb	15595
 斯托拉德	sstdld	15595
 七天之	qythz	12476
@@ -79974,7 +79974,7 @@
 高斯伍德	gusjwd	15595
 嘹亮	lsla	9010
 让隆巴顿	rslebd	15595
-比洛基	bylij	12476
+比洛基	bslij	12476
 七百亿	qybhy	12476
 金智英	juzoy	12476
 莫里斯那	muljsn	15595
@@ -79983,7 +79983,7 @@
 班艾尔	bsaae	12476
 继梦和	jsmlh	12476
 若杰克	rujmk	12476
-香气扑鼻	xuqhpb	15595
+香气扑鼻	xuqppb	15595
 兑换处	duhdc	12476
 水超人	ssczr	12476
 泰特斯	tutns	12476
@@ -80451,7 +80451,7 @@
 纳库	nskg	9010
 瑞弗顿市	rsfzds	15595
 詹尼克	zwnsk	12476
-换气扇	hsqhs	12476
+换气扇	hsqps	12476
 施特菲	sstnf	12476
 零五亿	luwhy	12476
 吾郎	wuln	9010
@@ -80465,7 +80465,7 @@
 甲卡	jykb	9010
 五万二	wuwhe	12476
 美术纸	musmz	12476
-今午	juwh	9010
+今午	juwp	9010
 塔非	tsfs	9010
 海恩尼斯	hsexns	15595
 津安	jsaa	9010
@@ -80495,7 +80495,7 @@
 水战	sszz	9010
 博斯沃斯	bssjws	15595
 武装部	wwzyb	12476
-欧比基勒	osbzjl	15595
+欧比基勒	osbbjl	15595
 奥纳多	aunsd	12476
 宋飞正	sufzz	12476
 蒋介	jujr	9010
@@ -80685,10 +80685,10 @@
 过薇	gwwa	9010
 简宾斯	jubas	12476
 子买花	zymzh	12476
-比蒙克	bymak	12476
+比蒙克	bsmak	12476
 洛克裴勒	lskgpl	15595
 窗棂	culm	9010
-声气	suqh	9010
+声气	suqp	9010
 曼三世	mushs	12476
 奥克丽	aukgl	12476
 布斯提	bwsjt	12476
@@ -80875,7 +80875,7 @@
 西仕	xusr	9010
 研钵	ysbj	9010
 新庄	xszg	9010
-比安比恩	byaabe	15595
+比安比恩	bsaabe	15595
 苟全	guqr	9010
 老熊	lwxh	9010
 牛斗	nydn	9010
@@ -80927,7 +80927,7 @@
 外省人	wssor	12476
 身处牢笼	sycpll	15595
 家丁	judh	9010
-狗比人	gsbzr	12476
+狗比人	gsbbr	12476
 考斯图	kwsjt	12476
 银行法	ysxrf	12476
 童哲东	tuzkd	12476
@@ -81022,7 +81022,7 @@
 罗河	luhi	9010
 戴顿尼	dwdyn	12476
 周德雷曼	zwdrlm	15595
-塔比比	tsbzb	12476
+塔比比	tsbbb	12476
 子连	zylz	9010
 拉瑟福德	lsswfd	15595
 朴吕玉	pslky	12476
@@ -81093,7 +81093,7 @@
 拉戈巴村	lsghbc	15595
 哪有	nswo	9010
 孔纯美	kscsm	12476
-比米勒	bymnl	12476
+比米勒	bsmnl	12476
 严师	yuse	9010
 融水	rssz	9010
 班德拉	bsdrl	12476
@@ -81102,7 +81102,7 @@
 凯特刚	kstng	12476
 老卫	lwwz	9010
 西玮	xuww	9010
-周复健	zwfoj	12476
+周复健	zwfpj	12476
 伊维特	yswst	12476
 支脉	zumo	9010
 格菲尔德	gsfaed	15595
@@ -81186,7 +81186,7 @@
 山姆卫斯	symnws	15595
 杜杰克	dsjmk	12476
 解有理	jswol	12476
-排比	psbz	9010
+排比	psbb	9010
 巴里仑	byljl	12476
 西屋	xuws	9010
 坏账	hszb	9010
@@ -81379,7 +81379,7 @@
 西林	xulm	9010
 范伦提诺	fulrtn	15595
 罗彬	lubl	9010
-谢比	xsbz	9010
+谢比	xsbb	9010
 斯文森	sswas	12476
 希拉里来	xuldll	15595
 川吉雄	cyjtx	12476
@@ -81422,7 +81422,7 @@
 巴格兰	bygml	12476
 丝量	suld	9010
 山墙	syqt	9010
-比薇	bywa	9010
+比薇	bswa	9010
 芭芝礼	buzal	12476
 万户千家	wuhnqj	15595
 布朗科斯	bwlnks	15595
@@ -81590,7 +81590,7 @@
 亚兰生	yulbs	12476
 卡特来	kutnl	12476
 蓬蓬勃勃	pupabb	15595
-远比	ywbz	9010
+远比	ywbb	9010
 合成酶	hucwm	12476
 洛曼	lsmo	9010
 莫里希	muljx	12476
@@ -81668,7 +81668,7 @@
 奥许维	auxyw	12476
 萨姆都	sumnd	12476
 一霎	yysy	9010
-单比	dubz	9010
+单比	dubb	9010
 埃布	asbj	9010
 得数	dssp	9010
 扎布	zsbj	9010
@@ -81676,7 +81676,7 @@
 查奥德莉	cuapdl	15595
 盖林	gulm	9010
 济困	jskk	9010
-柯比来	ksbzl	12476
+柯比来	ksbbl	12476
 远渡	ywdi	9010
 老树	lwsm	9010
 疏落	ssla	9010
@@ -81763,7 +81763,7 @@
 五点五十	wudzws	15595
 罗乐	lulp	9010
 美谈	muty	9010
-比阿道夫	byaedf	15595
+比阿道夫	bsaedf	15595
 链霉素	lsmys	12476
 罗三	lush	9010
 鹤西	hsxh	9010
@@ -81886,7 +81886,7 @@
 超标准	cwbmz	12476
 白菊	byja	9010
 吉米真	jumnz	12476
-比雅芙	byyyf	12476
+比雅芙	bsyyf	12476
 莫斯德	musjd	12476
 武君会	wwjkh	12476
 斯洛斯	sslis	12476
@@ -81959,7 +81959,7 @@
 合同法	hutkf	12476
 染坊	ruft	9010
 鲁郡长	lujez	12476
-比吉姆	byjtm	12476
+比吉姆	bsjtm	12476
 佛依特	fsyrt	12476
 正三角形	zushjx	15595
 夏秋之	xuqhz	12476
@@ -82008,7 +82008,7 @@
 训练场地	xslscd	15595
 辛氏	xusp	9010
 帝尼	duns	9010
-比马丁	bymhd	12476
+比马丁	bsmhd	12476
 凡哥拉真	fwgklz	15595
 皮特比	pytnb	12476
 防癌	fsan	9010
