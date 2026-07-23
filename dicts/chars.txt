@@ -1,13 +1,10 @@
 了	luz	1000
 是	suo	992
-是	tuo	992
 在	zwt	985
 和	hsh	966
-有	wwo	946
 有	ywo	946
 他	tsr	942
 不	buh	935
-不	fuh	935
 我	wyp	928
 的	dsb	926
 人	ryp	925
@@ -17,10 +14,9 @@
 这	zwz	912
 上	sub	911
 年	nyp	908
-中	zys	906
+中	zyk	906
 你	nsr	904
 说	ssy	899
-说	ysy	899
 一	yyh	898
 到	dsz	894
 都	dse	893
@@ -30,7 +26,6 @@
 来	lyh	877
 地	dst	876
 与	ywh	876
-还	fwz	875
 还	hwz	875
 要	yux	874
 又	yyz	872
@@ -39,9 +34,7 @@
 道	dwz	867
 之	zun	867
 以	yyz	864
-她	csn	863
 得	dsr	863
-她	jsn	863
 她	tsn	863
 个	gur	858
 后	hwp	858
@@ -52,7 +45,6 @@
 但	dsr	849
 月	yyp	849
 把	bsd	848
-把	psd	848
 下	xuh	848
 被	bsn	847
 于	yyh	846
@@ -61,25 +53,21 @@
 多	dup	841
 过	gwz	840
 可	kwk	839
-并	bub	837
+并	bun	837
 能	nsr	837
-能	tsr	837
-能	xsr	837
 好	hsn	836
 会	hur	836
-会	kur	836
 出	cuc	831
 或	hwg	825
 日	rys	825
 由	yys	824
-里	luj	823
+里	luo	823
 所	ssh	823
 用	ywk	823
 向	xwp	822
 已	yyz	819
 其	quh	818
 给	gss	816
-给	jss	816
 很	hsr	815
 看	kuo	813
 使	ssr	810
@@ -91,7 +79,7 @@
 最	zuo	806
 见	jys	804
 起	qwz	803
-小	xyz	803
+小	xys	803
 高	gua	802
 更	guh	801
 如	rsn	800
@@ -100,7 +88,7 @@
 再	zuh	799
 没	msi	795
 及	jyp	792
-内	nys	792
+内	nyk	792
 让	rsy	792
 做	zsr	792
 走	zut	792
@@ -119,6 +107,7 @@
 此	csz	779
 家	jua	778
 们	msr	778
+长	cyp	776
 市	sua	776
 长	zyp	776
 门	mys	775
@@ -146,7 +135,7 @@
 省	suo	755
 死	swd	755
 住	zsr	754
-曾	cub	753
+曾	cun	753
 万	wuh	753
 因	ywk	753
 呢	nsk	752
@@ -171,7 +160,6 @@
 谁	ssy	744
 受	sup	744
 吧	bsk	743
-吧	psk	743
 先	xue	743
 县	xuq	743
 应	ywg	743
@@ -200,11 +188,11 @@
 站	zsl	736
 另	luk	735
 生	syp	734
+行	hsr	733
 全	qur	733
 行	xsr	733
 啊	ask	732
 倒	dsr	732
-啊	esk	732
 快	ksx	732
 派	psi	732
 吗	msk	730
@@ -265,10 +253,11 @@
 越	ywz	709
 直	zuh	709
 州	zyn	709
+重	cup	708
 声	sut	708
 身	syp	708
 五	wuh	708
-重	zyp	708
+重	zup	708
 低	dsr	707
 儿	esp	707
 坐	zut	707
@@ -305,7 +294,7 @@
 涓	jsi	694
 式	swy	694
 意	yuy	694
-电	dys	693
+电	dyo	693
 花	hua	693
 拉	lsd	693
 左	zwg	693
@@ -323,7 +312,7 @@
 师	sse	690
 变	buy	689
 哪	nsk	689
-平	pyh	689
+平	pyg	689
 图	twk	689
 府	fwg	687
 热	ruh	687
@@ -352,18 +341,19 @@
 光	gua	682
 竟	juy	682
 取	qse	682
-力	lyz	681
+力	lyp	681
 传	csr	680
 亲	qul	680
 深	ssi	680
 数	ssp	680
 曰	yys	680
+传	zsr	680
 茶	cua	679
 接	jsd	679
 脸	lso	679
 买	muz	679
 且	qys	679
-办	byz	678
+办	byl	678
 待	dsr	677
 量	lud	677
 忙	msx	677
@@ -403,10 +393,10 @@
 改	gsj	670
 破	pss	670
 宽	kua	669
-龙	lyh	669
+龙	lyy	669
 需	xuy	669
 病	bwn	668
-必	byn	668
+必	byx	668
 呈	cuk	668
 居	jws	668
 随	sse	668
@@ -453,7 +443,7 @@
 乱	lss	662
 立	lua	662
 周	zwk	662
-半	bub	661
+半	bun	661
 供	gsr	661
 收	ssp	661
 敢	gsz	659
@@ -470,11 +460,12 @@
 顶	dsy	657
 毛	mup	657
 似	ssr	657
+调	tsy	657
 吴	wuk	657
 形	xsp	657
 忽	hux	656
 久	jyp	656
-七	qyh	656
+七	qyn	656
 史	sys	656
 辖	xsc	656
 线	xss	656
@@ -492,7 +483,7 @@
 男	nut	654
 权	qsm	654
 喜	xus	654
-归	gss	653
+归	gse	653
 架	juj	653
 论	lsy	653
 伤	ssr	653
@@ -510,7 +501,7 @@
 选	xwz	651
 浜	bsi	650
 底	dwg	650
-关	gub	650
+关	gun	650
 化	hsr	650
 骂	mum	650
 阿	ase	649
@@ -606,7 +597,7 @@
 善	suy	637
 紫	zux	637
 吨	dsk	636
-单	dub	636
+单	dun	636
 列	lsd	636
 弄	nuw	636
 抢	qsd	636
@@ -796,7 +787,7 @@
 遂	swz	613
 玩	wsw	613
 纵	zss	613
-乘	cyp	612
+乘	cyh	612
 盖	guy	612
 恨	hsx	612
 距	jsz	612
@@ -807,7 +798,7 @@
 寨	zum	612
 罪	zuw	612
 吹	csk	611
-夫	fyh	611
+夫	fye	611
 够	gsj	611
 僭	jsr	611
 斯	ssj	611
@@ -889,6 +880,7 @@
 啥	ssk	603
 失	ssp	603
 痛	twn	603
+乐	yyp	603
 准	zsi	603
 致	zsz	603
 志	zut	603
@@ -971,8 +963,8 @@
 幺	ysn	594
 毕	bub	593
 床	cwg	593
-弟	dub	593
 爹	duf	593
+弟	dun	593
 拱	gsd	593
 劲	jsl	593
 岭	lss	593
@@ -1057,7 +1049,7 @@
 丢	dup	585
 糕	gsm	585
 灰	hwh	585
-夹	jyh	585
+夹	jyn	585
 跨	ksz	585
 陵	lse	585
 累	lut	585
@@ -1144,7 +1136,7 @@
 辆	lsc	577
 煤	msh	577
 叔	ssy	577
-氏	syp	577
+氏	sys	577
 偷	tsr	577
 吸	xsk	577
 歇	xsq	577
@@ -1365,7 +1357,7 @@
 贾	jux	555
 肩	jwh	555
 浓	nsi	555
-农	nyn	555
+农	nyh	555
 碰	pss	555
 珊	ssw	555
 伊	ysr	555
@@ -1612,7 +1604,7 @@
 婶	ssn	535
 俗	ssr	535
 稀	xsh	535
-夷	yyh	535
+夷	yyd	535
 撑	csd	534
 催	csr	534
 敬	jsp	534
@@ -1632,7 +1624,7 @@
 壶	hut	533
 乎	hyp	533
 籍	juz	533
-兰	lub	533
+兰	lun	533
 囊	nuh	533
 拾	ssd	533
 祀	ssn	533
@@ -1693,7 +1685,7 @@
 陷	xse	529
 氧	ywq	529
 尝	cua	528
-兑	dub	528
+兑	dun	528
 疯	fwn	528
 淮	hsi	528
 猴	hsq	528
@@ -1977,7 +1969,7 @@
 侄	zsr	508
 舟	zyp	508
 仓	cur	507
-串	cys	507
+串	cyl	507
 碱	jss	507
 捞	lsd	507
 伦	lsr	507
@@ -2112,7 +2104,7 @@
 嗣	ssk	498
 摊	tsd	498
 途	twz	498
-丸	wyp	498
+丸	wyn	498
 幼	ysy	498
 振	zsd	498
 范	fua	497
@@ -2165,7 +2157,7 @@
 衰	sua	495
 寿	swf	495
 妥	tup	495
-屯	tyh	495
+屯	typ	495
 咦	ysk	495
 焉	yuz	495
 汁	zsi	495
@@ -2215,8 +2207,8 @@
 藻	zua	492
 博	bsh	491
 贷	dub	491
-丰	fyh	491
-弗	fyz	491
+弗	fyg	491
+丰	fys	491
 冈	gwk	491
 嚼	jsk	491
 喇	lsk	491
@@ -2325,7 +2317,7 @@
 蒿	hua	483
 诀	jsy	483
 酱	jup	483
-夔	kub	483
+夔	kun	483
 琳	lsw	483
 辱	ruc	483
 挟	xsd	483
@@ -2417,7 +2409,7 @@
 腊	lso	476
 署	suw	476
 庶	swg	476
-爽	syh	476
+爽	syd	476
 捅	tsd	476
 绾	wss	476
 轩	xsc	476
@@ -2429,7 +2421,7 @@
 餐	cus	475
 澹	dsi	475
 匪	fwk	475
-乖	gyp	475
+乖	gyb	475
 挎	ksd	475
 隶	lyh	475
 叛	psb	475
@@ -2636,7 +2628,7 @@
 益	yua	461
 苑	yua	461
 愚	yux	461
-尹	yyz	461
+尹	yyh	461
 锺	zsj	461
 哲	zuk	461
 蚌	bsc	460
@@ -2730,7 +2722,7 @@
 啄	zsk	455
 瓣	bsx	454
 掣	cus	454
-斥	cyp	454
+斥	cyj	454
 贩	fsb	454
 棂	lsm	454
 络	lss	454
@@ -2978,7 +2970,7 @@
 搀	csd	437
 杵	csm	437
 衬	csn	437
-戈	gyh	437
+戈	gyy	437
 嗨	hsk	437
 况	ksi	437
 澜	lsi	437
@@ -3153,7 +3145,7 @@
 姿	zuc	425
 铂	bsj	424
 悖	bsx	424
-秉	byp	424
+秉	byh	424
 础	css	424
 踹	csz	424
 贰	ewy	424
@@ -3352,7 +3344,7 @@
 沫	msi	410
 迄	qwz	410
 缮	sss	410
-巫	wyh	410
+巫	wyg	410
 摺	zsd	410
 炙	zun	410
 睬	cso	409
@@ -3442,7 +3434,7 @@
 毋	wyz	402
 询	xsy	402
 旭	xwo	402
-丫	yub	402
+丫	yun	402
 揍	zsd	402
 樟	zsm	402
 褶	zsn	402
@@ -3768,7 +3760,7 @@
 磺	hss	379
 鹪	jsn	379
 钤	qsj	379
-酋	qub	379
+酋	qun	379
 纾	sss	379
 蜕	tsc	379
 唾	tsk	379
@@ -4122,7 +4114,7 @@
 弼	bsg	353
 嘣	bsk	353
 淙	csi	353
-匆	cyp	353
+匆	cyn	353
 镬	hsj	353
 髁	ksg	353
 铠	ksj	353
@@ -5059,7 +5051,7 @@
 唏	xsk	294
 庥	xwg	294
 峄	yss	294
-聿	yyz	294
+聿	yye	294
 骓	zsm	294
 畚	buz	292
 怅	csx	292
@@ -5434,7 +5426,7 @@
 肭	nso	264
 譬	puy	264
 扦	qsd	264
-卅	syh	264
+卅	syc	264
 霆	tuy	264
 铉	xsj	264
 蕈	xua	264
@@ -6139,7 +6131,7 @@
 雩	yuy	189
 嫜	zsn	189
 昝	zuo	189
-屮	cys	185
+屮	cyk	185
 彐	jyz	185
 孓	jyz	185
 彡	syp	185
@@ -6353,7 +6345,7 @@
 舣	ysz	160
 菸	yua	160
 舁	yuj	160
-臾	yyp	160
+臾	yyj	160
 蜘	zsc	160
 踬	zsz	160
 絷	zux	160
@@ -6490,7 +6482,7 @@
 戬	jsg	139
 鲒	jsy	139
 鬏	jub	139
-戋	jyh	139
+戋	jyg	139
 瞌	kso	139
 捩	lsd	139
 猁	lsq	139

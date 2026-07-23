@@ -389,7 +389,7 @@ impl RuntimeState {
 
                         self.active_idx += 1;
                         let next_len = self.blocks[self.active_idx].code.len();
-                        self.cursor = self.get_block_start_offset(self.active_idx) + next_len;
+                        self.cursor = self.get_block_start_offset(self.active_idx);
                     } else {
                         self.cursor = start + len;
                     }

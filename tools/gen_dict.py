@@ -40,12 +40,38 @@ IDS_FIRST_CHECK_FILE = os.path.join(ROOT, "dicts/reports/ids_first_check.txt")
 NO_IDS_FILE = os.path.join(ROOT, "dicts/reports/no_ids_list.txt")
 SUBTLEX_FILE = os.path.join(ROOT, "data", "SUBTLEX-CH-WF.xlsx")
 
-MULTI_PINYIN_OVERRIDE = {
-    '行': 'x', '重': 'c', '长': 'c', '乐': 'l', '都': 'd', '还': 'h',
-    '觉': 'j', '得': 'd', '着': 'z', '了': 'l', '看': 'k', '好': 'h',
-    '发': 'f', '打': 'd', '当': 'd', '作': 'z', '种': 'z', '传': 'c',
-    '干': 'g', '分': 'f', '省': 's', '相': 'x', '难': 'n',
-    '调': 't', '单': 'd', '教': 'j', '便': 'b', '量': 'l',
+# [FIX] 白名单：只允许这里列出的读音，每个字映射到首字母列表。
+#       不在表中的字，取 pypinyin 返回的第一个读音。
+#       替代原 MULTI_PINYIN_OVERRIDE（单字母 dict，且有重复键 bug）
+MULTI_PINYIN_WHITELIST = {
+    '行': ['x', 'h'],
+    '重': ['c', 'z'],
+    '长': ['c', 'z'],
+    '乐': ['l', 'y'],
+    '都': ['d'],
+    '还': ['h'],
+    '觉': ['j'],
+    '得': ['d'],
+    '着': ['z'],
+    '了': ['l'],
+    '看': ['k'],
+    '好': ['h'],
+    '发': ['f'],
+    '打': ['d'],
+    '当': ['d'],
+    '作': ['z'],
+    '种': ['z'],
+    '传': ['c', 'z'],
+    '干': ['g'],
+    '分': ['f'],
+    '省': ['s'],
+    '相': ['x'],
+    '难': ['n'],
+    '调': ['t', 'd'],
+    '单': ['d'],
+    '教': ['j'],
+    '便': ['b'],
+    '量': ['l'],
 }
 
 IDS_OPERATORS = set('⿰⿱⿲⿳⿴⿵⿶⿷⿸⿹⿺⿻')
@@ -109,7 +135,7 @@ RADICAL_CHAR_TO_CODE = {
     '艸': 'a', '艹': 'a', '𫇦': 'a', '䒑': 'a', '亠': 'a', '⺌': 'a', '𦭝': 'a', '龸': 'a', '𭕄': 'a', '宀': 'a',
 
     # ═══ 映射到 b 的部件 ═══
-    '髟': 'b', '貝': 'b', '贝': 'b', '白': 'b', '比': 'b', '鼻': 'b', '卜': 'b', '八': 'b', '匕': 'b', '丷': 'b',
+    '髟': 'b', '貝': 'b', '贝': 'b', '白': 'b', '比': 'b', '鼻': 'b', '卜': 'b', '八': 'b', '匕': 'b',
     '癶': 'b', '⺊': 'b', '𫧇': 'b', '半': 'b', '北': 'b', '不': 'b', '包': 'b', '卑': 'b', '㡀': 'b',
 
     # ═══ 映射到 c 的部件 ═══
@@ -159,7 +185,7 @@ RADICAL_CHAR_TO_CODE = {
     '𥃭': 'm', '冃': 'm',
 
     # ═══ 映射到 n 的部件 ═══
-    '女': 'n', '牛': 'n', '鸟': 'n', '鳥': 'n', '丶': 'n', '礻': 'n', '衤': 'n', '疒': 'n', '㇀': 'n', '⺀': 'n',
+    '女': 'n', '牛': 'n', '鸟': 'n', '鳥': 'n', '丶': 'n', '礻': 'n', '衤': 'n', '疒': 'n', '㇀': 'n', '⺀': 'n', '丷': 'n',
 
     # ═══ 映射到 o 的部件 ═══
     '日': 'o', '目': 'o', '曰': 'o', '月': 'o',
@@ -263,7 +289,7 @@ FIRST_STROKE_MAP = {
     '曲': 's', '曳': 's', '果': 's', '止': 's', '田': 's', '由': 's',
     '甲': 's', '申': 's', '电': 's', '皿': 's', '目': 's', '肉': 's',
     '虫': 's', '见': 's', '贝': 's', '黑': 's', '齿': 's', '非': 's',
-    '禺': 's', '豳': 's', '门': 's',
+    '禺': 's', '豳': 's', '门': 's', '小': 's',
 
     # ═══ 折起笔 (z) ═══
     '丑': 'z', '乃': 'z', '乜': 'z', '也': 'z', '习': 'z', '乡': 'z',
@@ -322,21 +348,8 @@ def iter_components(expr):
             yield rest[0]
             rest = rest[1:]
 
-def find_radical_from_ids(ids_expr, depth=0):
-    if not ids_expr or ids_expr[0] not in IDS_OPERATORS or depth > 5:
-        return None
-    for comp in iter_components(ids_expr):
-        if not comp:
-            continue
-        if comp[0] in IDS_OPERATORS:
-            r = find_radical_from_ids(comp, depth + 1)
-            if r:
-                return r
-        else:
-            if comp in RADICAL_CHAR_TO_CODE:
-                return RADICAL_CHAR_TO_CODE[comp]
-    return None
-
+# [FIX] 合并原 find_radical_from_ids 和 find_first_matching_component
+#       为单一函数，返回匹配的部件字符。调用方自行查 RADICAL_CHAR_TO_CODE。
 def find_first_matching_component(ids_expr, depth=0):
     """从IDS表达式中递归查找第一个匹配偏旁表的部件字符"""
     if not ids_expr or ids_expr[0] not in IDS_OPERATORS or depth > 5:
@@ -450,8 +463,8 @@ _pinyin_cache = {}
 def get_initial(char):
     if char in _pinyin_cache:
         return _pinyin_cache[char]
-    if char in MULTI_PINYIN_OVERRIDE:
-        res = MULTI_PINYIN_OVERRIDE[char]
+    if char in MULTI_PINYIN_WHITELIST:
+        res = MULTI_PINYIN_WHITELIST[char][0]
         _pinyin_cache[char] = res
         return res
     pys = pypinyin.pinyin(char, style=pypinyin.Style.NORMAL, heteronym=False)
@@ -464,20 +477,19 @@ def get_initial(char):
     return res
 
 def get_all_initials(char):
-    """返回一个字的所有拼音首字母，最常用的排第一"""
-    pys = pypinyin.pinyin(char, style=pypinyin.Style.NORMAL, heteronym=True)
+    """返回一个字的允许的拼音首字母列表"""
+    if char in MULTI_PINYIN_WHITELIST:
+        return list(MULTI_PINYIN_WHITELIST[char])
+    pys = pypinyin.pinyin(char, style=pypinyin.Style.NORMAL, heteronym=False)
     if not pys or not pys[0]:
         return []
-    seen = []
-    seen_set = set()
-    for py in pys[0]:
-        first = py[0].lower() if py else ''
-        if first == 'v':
-            first = 'u'
-        if 'a' <= first <= 'z' and first not in seen_set:
-            seen.append(first)
-            seen_set.add(first)
-    return seen
+    py = pys[0][0]
+    first = py[0].lower() if py else ''
+    if first == 'v':
+        first = 'u'
+    if 'a' <= first <= 'z':
+        return [first]
+    return []
 
 def get_char_parts(char, ids_map, rs_map, problems):
     """返回 (structure, radical)，不含拼音首字母"""
@@ -505,27 +517,25 @@ def get_char_parts(char, ids_map, rs_map, problems):
         structure = 'y'
         problems.structure_default_y.append((char, first_expr or '(无IDS)'))
 
-    if structure == 'y':
+    # 统一查找偏旁：不论结构，都先尝试从 IDS 提取
+    radical = None
+    if char in CHAR_RADICAL_OVERRIDES:
+        radical = CHAR_RADICAL_OVERRIDES[char]
+    else:
+        for expr in ids_variants:
+            if expr == char:
+                continue
+            comp = find_first_matching_component(expr)
+            if comp:
+                radical = RADICAL_CHAR_TO_CODE[comp]
+                break
+
+    if radical is None:
+        if structure != 'y':
+            structure = 'y'
         radical = get_stroke_code(char)
         if char not in FIRST_STROKE_MAP:
             problems.stroke_default_z.append((char,))
-    else:
-        radical = None
-        if char in CHAR_RADICAL_OVERRIDES:
-            radical = CHAR_RADICAL_OVERRIDES[char]
-        else:
-            for expr in ids_variants:
-                if expr == char:
-                    continue
-                r = find_radical_from_ids(expr)
-                if r:
-                    radical = r
-                    break
-        if radical is None:
-            structure = 'y'
-            radical = get_stroke_code(char)
-            if char not in FIRST_STROKE_MAP:
-                problems.stroke_default_z.append((char,))
 
     return structure, radical
 
@@ -548,10 +558,11 @@ def encode_char(char, ids_map, rs_map, problems):
     structure, radical = get_char_parts(char, ids_map, rs_map, problems)
     return initial + structure + radical, structure
 
+# [FIX] 上界从 8 改为 4，与 generate_words / generate_words_subtlex 一致
 def encode_word(word, char_codes):
-    """词语编码: ISIR + I... (支持任意长度)"""
+    """词语编码: ISIR + I... (支持 2-4 字词)"""
     n = len(word)
-    if n < 2 or n > 8:
+    if n < 2 or n > 4:
         return None
     codes = []
     for c in word:
@@ -1083,13 +1094,17 @@ def generate_chars(ids_map, rs_map, strokes_map):
             print(f"警告：字符 {char} 解析失败: {e}")
             continue
 
+        # [FIX] 白名单字展开全部允许读音，非白名单字只取第一个
         all_initials = get_all_initials(char)
         if not all_initials:
             problems.no_pinyin.append(char)
             continue
 
         freq = subtlex_char_freq.get(char, 0) or jieba_char_freq.get(char, 0)
-        if freq >= HETERO_THRESHOLD:
+        if char in MULTI_PINYIN_WHITELIST:
+            # 白名单字直接展开全部允许读音
+            initials = list(dict.fromkeys(all_initials))
+        elif freq >= HETERO_THRESHOLD:
             seen_initials = set()
             initials = []
             for ini in all_initials:
@@ -1191,6 +1206,7 @@ def generate_words(char_entries, min_freq=0):
 
     return len(words)
 
+# [FIX] 改为 dict 去重，与 generate_words 行为一致
 def generate_words_subtlex(char_entries):
     print(f"\n从 SUBTLEX-CH 生成词语码表...")
     try:
@@ -1210,7 +1226,7 @@ def generate_words_subtlex(char_entries):
 
     wb = openpyxl.load_workbook(SUBTLEX_FILE, read_only=True)
     ws = wb.active
-    words = []
+    words = {}
     for i, row in enumerate(ws.iter_rows(values_only=True)):
         if i < 3:
             continue
@@ -1223,19 +1239,25 @@ def generate_words_subtlex(char_entries):
             continue
         if not all(c in char_codes for c in word):
             continue
-        words.append((word, wcount or 0))
+        freq = wcount or 0
+        if word not in words or freq > words[word][1]:
+            words[word] = (None, freq)  # code 后面统一计算
 
-    words.sort(key=lambda x: -x[1])
+    # 统一计算编码
+    for word in list(words.keys()):
+        code = encode_word(word, char_codes)
+        if not code:
+            del words[word]
+            continue
+        words[word] = (code, words[word][1])
+
     print(f"  有效词语: {len(words)}")
 
     base_multiplier = {2: 2.6, 3: 3.6, 4: 4.5}
     buckets = {}
     os.makedirs(os.path.dirname(WORDS_FILE), exist_ok=True)
     with open(WORDS_FILE, 'w', encoding='utf-8') as f:
-        for word, freq in words:
-            code = encode_word(word, char_codes)
-            if not code:
-                continue
+        for word, (code, freq) in sorted(words.items(), key=lambda x: -x[1][1]):
             multiplier = base_multiplier.get(len(word), 2.6)
             weight = min(100000, max(100,
                          int(math.log(freq + 1) * 5000 * multiplier)))
