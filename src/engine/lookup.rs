@@ -48,6 +48,13 @@ impl LookupTable {
 
         Self { chars_sorted, words_sorted, custom_words: FxHashMap::default(), char_to_code }
     }
+    pub fn reload(&mut self, chars_path: &str, words_path: &str) {
+        let new = Self::load(chars_path, words_path);
+        // 保留自造词和自定义短语
+        let custom = std::mem::take(&mut self.custom_words);
+        *self = new;
+        self.custom_words = custom;
+    }
 
     pub fn add_custom_phrase(&mut self, text: &str, code: &str) -> bool {
         let code_str = code.to_string();

@@ -1102,6 +1102,10 @@ impl RuntimeState {
         self.current_consumed = 0;
         self.last_pending_code.clear();
     }
+    pub fn reload_dicts(&mut self, chars_path: &str, words_path: &str) {
+        self.table.reload(chars_path, words_path);
+    }
+
 }
 
 fn encode_word_from_codes<T: AsRef<str>>(codes: &[T], max_chars: usize) -> Option<String> {

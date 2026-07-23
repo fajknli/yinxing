@@ -445,6 +445,9 @@ pub fn run(runtime: RuntimeState, candi_config: CandiConfig, repeat_delay_ms: u3
 
             // 2. 更新引擎行为配置
             state.runtime.cfg = new_cfg.behavior;
+            // 3. 重载字典
+            state.runtime.reload_dicts(&new_cfg.file_chars, &new_cfg.file_words);
+            eprintln!("dust: dicts reloaded from {} + {}", new_cfg.file_chars, new_cfg.file_words);
         }
 
         // ── 5. Key repeat ──
