@@ -40,7 +40,7 @@
 后	hwp	858
 将	jsp	857
 去	qut	857
-那	nsd	850
+那	nse	850
 从	csr	849
 但	dsr	849
 月	yyp	849
@@ -53,7 +53,7 @@
 多	dup	841
 过	gwz	840
 可	kwk	839
-并	bun	837
+并	bua	837
 能	nsr	837
 好	hsn	836
 会	hur	836
@@ -135,7 +135,7 @@
 省	suo	755
 死	swd	755
 住	zsr	754
-曾	cun	753
+曾	cua	753
 万	wuh	753
 因	ywk	753
 呢	nsk	752
@@ -144,7 +144,7 @@
 手	syp	751
 该	gsy	750
 开	kuh	750
-女	nyp	750
+女	nyz	750
 头	tyn	750
 作	zsr	750
 路	lsz	749
@@ -160,7 +160,7 @@
 谁	ssy	744
 受	sup	744
 吧	bsk	743
-先	xue	743
+先	xup	743
 县	xuq	743
 应	ywg	743
 处	cwp	742
@@ -184,7 +184,7 @@
 山	sys	737
 者	zwl	737
 第	duz	736
-共	gub	736
+共	gua	736
 站	zsl	736
 另	luk	735
 生	syp	734
@@ -293,7 +293,7 @@
 队	dse	694
 涓	jsi	694
 式	swy	694
-意	yuy	694
+意	yul	694
 电	dyo	693
 花	hua	693
 拉	lsd	693
@@ -333,7 +333,7 @@
 么	mup	684
 怕	psx	684
 信	xsr	684
-黄	hub	683
+黄	hua	683
 急	jux	683
 石	swh	683
 镇	zsj	683
@@ -368,14 +368,14 @@
 啦	lsk	675
 背	bub	674
 级	jss	674
-离	lur	674
+离	lua	674
 故	gsg	673
 海	hsi	673
 酒	jsi	673
 满	msi	673
 体	tsr	673
 通	twz	673
-言	yyn	673
+言	yua	673
 座	zwg	673
 德	dsr	672
 飞	fyz	672
@@ -443,7 +443,7 @@
 乱	lss	662
 立	lua	662
 周	zwk	662
-半	bun	661
+半	bua	661
 供	gsr	661
 收	ssp	661
 敢	gsz	659
@@ -501,7 +501,7 @@
 选	xwz	651
 浜	bsi	650
 底	dwg	650
-关	gun	650
+关	gua	650
 化	hsr	650
 骂	mum	650
 阿	ase	649
@@ -597,7 +597,7 @@
 善	suy	637
 紫	zux	637
 吨	dsk	636
-单	dun	636
+单	dua	636
 列	lsd	636
 弄	nuw	636
 抢	qsd	636
@@ -623,7 +623,7 @@
 紧	jue	634
 礼	lsn	634
 球	qsw	634
-散	ssp	634
+散	ssa	634
 守	sua	634
 题	twy	634
 油	ysi	634
@@ -637,7 +637,7 @@
 墙	qst	632
 树	ssm	632
 寺	sut	632
-邦	bsf	631
+邦	bse	631
 凡	fwj	631
 根	gsm	631
 末	myh	631
@@ -861,7 +861,7 @@
 撞	zsd	605
 波	bsi	604
 犯	fsq	604
-告	guk	604
+告	gup	604
 绿	lss	604
 罗	luw	604
 辽	lwz	604
@@ -869,7 +869,7 @@
 旗	qsf	604
 千	qup	604
 软	rsc	604
-然	run	604
+然	ruh	604
 松	ssm	604
 试	ssy	604
 挺	tsd	604
@@ -963,8 +963,8 @@
 幺	ysn	594
 毕	bub	593
 床	cwg	593
+弟	dua	593
 爹	duf	593
-弟	dun	593
 拱	gsd	593
 劲	jsl	593
 岭	lss	593
@@ -1030,7 +1030,7 @@
 许	xsy	587
 雄	xsz	587
 扎	zsd	587
-案	aum	586
+案	aua	586
 福	fsn	586
 混	hsi	586
 课	ksy	586
@@ -1049,7 +1049,7 @@
 丢	dup	585
 糕	gsm	585
 灰	hwh	585
-夹	jyn	585
+夹	jya	585
 跨	ksz	585
 陵	lse	585
 累	lut	585
@@ -1288,7 +1288,7 @@
 济	jsi	561
 梁	lui	561
 嫩	nsn	561
-兽	suh	561
+兽	sua	561
 速	swz	561
 缘	yss	561
 档	dsm	560
@@ -1322,7 +1322,7 @@
 纳	nss	558
 牵	qud	558
 突	tux	558
-邪	xsy	558
+邪	xse	558
 砖	zss	558
 展	zws	558
 鞭	bsg	557
@@ -1544,7 +1544,7 @@
 雾	wuy	540
 衔	xsr	540
 息	xuz	540
-燕	yub	540
+燕	yua	540
 冠	guh	539
 健	jsr	539
 扣	ksd	539
@@ -1624,7 +1624,7 @@
 壶	hut	533
 乎	hyp	533
 籍	juz	533
-兰	lun	533
+兰	lua	533
 囊	nuh	533
 拾	ssd	533
 祀	ssn	533
@@ -1685,13 +1685,13 @@
 陷	xse	529
 氧	ywq	529
 尝	cua	528
-兑	dun	528
+兑	dua	528
 疯	fwn	528
 淮	hsi	528
 猴	hsq	528
 伙	hsr	528
 姐	jsn	528
-焦	juz	528
+焦	juh	528
 濂	lsi	528
 廷	twy	528
 晕	yuo	528
@@ -1725,7 +1725,7 @@
 卞	bun	525
 踩	csz	525
 蔡	cua	525
-齿	cys	525
+齿	cyz	525
 革	gyh	525
 侯	hsr	525
 拒	jsd	525
@@ -2146,7 +2146,7 @@
 账	zsb	496
 宠	cua	495
 筹	cuz	495
-邓	dsy	495
+邓	dse	495
 甘	gyh	495
 棵	ksm	495
 聊	lse	495
@@ -2317,7 +2317,7 @@
 蒿	hua	483
 诀	jsy	483
 酱	jup	483
-夔	kun	483
+夔	kua	483
 琳	lsw	483
 辱	ruc	483
 挟	xsd	483
@@ -2755,7 +2755,7 @@
 诵	ssy	453
 嗅	xsk	453
 惺	xsx	453
-昔	xuo	453
+昔	xua	453
 厢	xwc	453
 抑	ysd	453
 萼	eua	452
@@ -3056,8 +3056,8 @@
 荃	qua	430
 禽	qur	430
 戚	qww	430
+邺	yse	430
 樱	ysm	430
-邺	ysy	430
 攥	zsd	430
 镞	zsj	430
 缀	zss	430
@@ -3193,7 +3193,7 @@
 耻	cse	421
 哒	dsk	421
 皓	hsb	421
-郝	hsc	421
+郝	hse	421
 拘	jsd	421
 螨	msc	421
 脓	nso	421
@@ -3434,7 +3434,7 @@
 毋	wyz	402
 询	xsy	402
 旭	xwo	402
-丫	yun	402
+丫	yua	402
 揍	zsd	402
 樟	zsm	402
 褶	zsn	402
@@ -3627,7 +3627,7 @@
 衅	xsx	388
 羡	xuy	388
 塬	yst	388
-郅	zsz	388
+郅	zse	388
 埠	bst	387
 伺	csr	387
 亍	cuh	387
@@ -3760,7 +3760,7 @@
 磺	hss	379
 鹪	jsn	379
 钤	qsj	379
-酋	qun	379
+酋	qua	379
 纾	sss	379
 蜕	tsc	379
 唾	tsk	379
@@ -4253,7 +4253,7 @@
 俚	lsr	344
 蹼	psz	344
 疃	tst	344
-郓	ysj	344
+郓	yse	344
 雏	csz	343
 掇	dsd	343
 噔	dsk	343
@@ -4346,7 +4346,7 @@
 恿	yux	339
 甾	zuz	339
 瘴	zwn	339
-郴	csl	338
+郴	cse	338
 诽	fsy	338
 鹘	gsg	338
 涸	hsi	338
@@ -4380,7 +4380,7 @@
 玎	dsw	336
 氛	fwq	336
 鲑	gsy	336
-邯	hsg	336
+邯	hse	336
 馄	hss	336
 菏	hua	336
 荩	jua	336
@@ -4531,7 +4531,7 @@
 腓	fso	326
 焓	hsh	326
 戛	jug	326
-邛	qsg	326
+邛	qse	326
 笤	tuz	326
 潇	xsi	326
 碴	css	325
@@ -5077,7 +5077,7 @@
 钫	fsj	291
 钜	jsj	291
 槿	jsm	291
-堇	juk	291
+堇	jua	291
 笳	juz	291
 阄	jwm	291
 粝	lsm	291
@@ -5256,7 +5256,7 @@
 菔	fua	278
 溉	gsi	278
 肱	gso	278
-羔	guy	278
+羔	guh	278
 蟪	hsc	278
 骥	jsm	278
 矍	juy	278
@@ -5362,7 +5362,7 @@
 蒽	eua	271
 祓	fsn	271
 蛱	jsc	271
-邝	ksg	271
+邝	kse	271
 泸	lsi	271
 馁	nss	271
 鬈	qub	271
@@ -5641,7 +5641,7 @@
 麇	jwl	245
 嫘	lsn	245
 吝	luw	245
-邙	msw	245
+邙	mse	245
 藐	mua	245
 邈	mwz	245
 襻	psn	245
@@ -5658,7 +5658,7 @@
 蕞	zua	245
 鹌	asn	242
 鏖	awl	242
-邶	bsb	242
+邶	bse	242
 煸	bsh	242
 槟	bsm	242
 舨	bsz	242
@@ -5790,10 +5790,10 @@
 哔	bsk	230
 洱	esi	230
 鲕	esy	230
-郛	fsf	230
+郛	fse	230
 哿	guj	230
 隍	hse	230
-邗	hsg	230
+邗	hse	230
 醢	hsy	230
 逅	hwz	230
 饯	jss	230
@@ -5869,7 +5869,7 @@
 瓴	lsw	222
 脒	mso	222
 攮	nsd	222
-郫	psb	222
+郫	pse	222
 泅	qsi	222
 仟	qsr	222
 炻	ssh	222
@@ -5931,7 +5931,7 @@
 舡	csz	214
 汆	cur	214
 昶	cwo	214
-郸	dsd	214
+郸	dse	214
 稃	fsh	214
 袼	gsn	214
 鳏	gsy	214
@@ -6147,7 +6147,7 @@
 羼	cws	183
 骀	dsm	183
 垩	eut	183
-邡	fsf	183
+邡	fse	183
 刿	gsd	183
 傀	gsr	183
 坩	gst	183
