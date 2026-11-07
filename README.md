@@ -1,4 +1,4 @@
-# 银杏 (Yinxing) — Wayland 原生音形码输入法
+# 银杏 (Yinxing) — Linux Wayland 原生音形码输入法
 
 一个基于 "拼音首字母 + 字形结构 + 偏旁编码" 的输入法，使用纯 Rust 编写，运行在 Wayland (`input-method-v2`) 合成器上。
 
@@ -23,7 +23,7 @@
 *   `这` = `z`(zhe) + `w`(半包围) + `z`(辶) = `zwz`
 *   `人` = `r`(rén) + `y`(独体) + `p`(撇) = `ryp`
 
-### 2. 词语编码：`ISIR` (极速词组)
+### 2. 词语编码：`ISIR`
 
 ISIR (Initial-Structure-Initial-Radical)
 
